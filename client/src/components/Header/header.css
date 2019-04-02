@@ -1,0 +1,23 @@
+.header {
+  height: 50px;
+  background-color: teal;
+  display: flex;
+  align-items: center;
+}
+.navigation {
+  margin-left: 10%;
+}
+.navigationList {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.navItem {
+  margin: 0 10%;
+}
+.navLink {
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+}

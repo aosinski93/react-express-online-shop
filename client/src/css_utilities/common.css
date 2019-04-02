@@ -1,0 +1,114 @@
+/* file imported in index.js */
+
+@import url("../css_utilities//variables.css");
+.flex {
+  display: flex;
+}
+.v-align {
+  align-items: center;
+}
+.h-align {
+  justify-content: center;
+}
+.col-direction {
+  flex-direction: column;
+}
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.text-bold {
+  font-weight: bold;
+}
+[class*="col"] {
+  float: left;
+}
+.col-lg-1 {
+  width: 8.333%;
+}
+.col-lg-2 {
+  width: 16.66%;
+}
+.col-lg-3 {
+  width: 25%;
+}
+.col-lg-4 {
+  width: 33.33%;
+}
+.col-lg-5 {
+  width: 41.66%;
+}
+.col-lg-6 {
+  width: 50%;
+}
+.col-lg-7 {
+  width: 58.33%;
+}
+.col-lg-8 {
+  width: 66.66%;
+}
+.col-lg-9 {
+  width: 75%;
+}
+.col-lg-10 {
+  width: 83.33;
+}
+.col-lg-11 {
+  width: 91.66%;
+}
+.col-lg-12 {
+  width: 100%;
+}
+.margin-top-10 {
+  margin-top: 10px;
+}
+.formContainer {
+  width: 100%;
+  padding: 30px;
+}
+.inputLabel {
+  margin-left: 5px;
+}
+.formInput {
+  border: 0;
+  min-height: 25px;
+  border-radius: 3px;
+  padding: 0 10px;
+  color: var(--text-whiteBG);
+  border: 1px solid transparent;
+  font-family: "Raleway", sans-serif;
+}
+.formInput:focus {
+  border: 1px solid var(--text-whiteBG);
+}
+.formGroup {
+  min-height: 50px;
+  justify-content: space-around;
+}
+.formButton {
+  border: 0;
+  padding: 5px 20px;
+  margin: 5px;
+  border-radius: 3px;
+  color: var(--text);
+}
+.formButton:hover {
+  cursor: pointer;
+}
+.nextStepButton {
+  background-color: green;
+  float: right;
+}
+.prevStepButton {
+  background-color: lightcoral;
+  float: left;
+}
+.errorMessage {
+  color: red;
+  font-weight: bold;
+}

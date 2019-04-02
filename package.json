@@ -1,0 +1,26 @@
+{
+  "name": "online-shop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"npm run front\"  \"npm run back\" ",
+    "front": "cd client && npm start",
+    "back": "cd server && npm start",
+    "preinstall": "cd $(pwd)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aosinski93/react-express-online-shop.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aosinski93/react-express-online-shop/issues"
+  },
+  "homepage": "https://github.com/aosinski93/react-express-online-shop#readme",
+  "dependencies": {
+    "concurrently": "^4.1.0"
+  }
+}

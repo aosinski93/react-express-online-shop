@@ -1,0 +1,13 @@
+.adminPanel {
+  height: 100%;
+}
+.header {
+  padding: 0 40px;
+}
+.headerText {
+  color: #fff;
+}
+
+.panelContent {
+  display: flex;
+}
