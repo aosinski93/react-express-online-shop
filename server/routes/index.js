@@ -11,8 +11,15 @@ router.put("/menu/:id", menuController.menu_updateMenuItem);
 router.put("/menu/:id/subcategory", menuController.menu_addSubcategory);
 
 router.post("/product", productController.product_addProduct);
-router.get("/products/:manufacturerName",manufacturerController.manufacturer_getManfacturerProducts);
+// router.get("/products".productController.product_getProducts);
+router.get(
+  "/products/:manufacturerName",
+  manufacturerController.manufacturer_getManfacturerProducts
+);
 
-router.post("/manufacturer", manufacturerController.manufacturer_addManufacturer);
+router.post(
+  "/manufacturer",
+  manufacturerController.manufacturer_addManufacturer
+);
 
 module.exports = router;
