@@ -21,6 +21,6 @@ module.exports.addMenuItem = (menuItem, callback) => {
 module.exports.deleteMenuItem = (id, callback) => {
   Menu.findOneAndDelete(id, callback);
 };
-module.exports.updateMenuItem = (id, new_menuItem, callback) => {
-  Menu.findOneAndUpdate(id, new_menuItem, callback);
+module.exports.updateMenuItem = (id, update, options, callback) => {
+  Menu.findOneAndUpdate({ _id: id }, update, options, callback);
 };

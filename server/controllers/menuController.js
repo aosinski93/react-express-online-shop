@@ -42,6 +42,7 @@ exports.menu_updateMenuItem = (req, res) => {
   let { new_name, new_subcategories } = req.body;
   let new_menuItem = {
     name: slugify(new_name),
+    slug: slugify(new_name),
     subcategories: new_subcategories
   };
 
@@ -59,6 +60,7 @@ exports.menu_addSubcategory = (req, res) => {
     }
 
     let menuItem = {
+      _id: item.id,
       name: item.name,
       slug: item.slug,
       subcategories: item.subcategories
@@ -66,20 +68,20 @@ exports.menu_addSubcategory = (req, res) => {
 
     let update = Object.assign({}, menuItem);
     update.subcategories.push({
-      parentId: menuItem.id,
+      parentId: menuItem._id,
       name: req.body.subcategory.name,
       slug: slugify(req.body.subcategory.name)
     });
-
-    Menu.updateMenuItem(req.params.id, update, (err, new_menuItem) => {
-      if (err) {
-        throw err;
+    Menu.updateMenuItem(
+      req.params.id,
+      update,
+      { new: true },
+      (err, new_menuItem) => {
+        if (err) {
+          throw err;
+        }
+        res.send(new_menuItem);
       }
-      res.json({
-        success: `${
-          req.body.subcategory.name
-        } successfuly added as a subcategory of ${new_menuItem.name}`
-      });
-    });
+    );
   });
 };

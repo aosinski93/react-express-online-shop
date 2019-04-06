@@ -5,12 +5,7 @@ import "./adminpanel.css";
 import "../../css_utilities/common.css";
 import Footer from "../Footer/Footer";
 import ProductsList from "../ProductsList/ProductsList.jsx";
-import { connect } from "react-redux";
-import { fetchPanelMenu } from "../../actions/panelActions";
-
-const MenuItems = () => {
-  return <h3>Menu Items</h3>;
-};
+import MenuItems from "../MenuItems/MenuItems";
 
 const Manufacturers = () => {
   return <h3>Manufacturers</h3>;
@@ -18,13 +13,11 @@ const Manufacturers = () => {
 
 class AdminPanel extends Component {
   render() {
-    fetchPanelMenu();
     return (
       <div className="adminPanel">
         <div className="header">
           <h2 className="headerText">Admin Panel</h2>
         </div>
-
         <main className="panelContent">
           <nav className="panelNav col-lg-2 flex col-direction v-align">
             <ul>
@@ -69,11 +62,4 @@ class AdminPanel extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  menu: state.panel.menu
-});
-
-export default connect(
-  mapStateToProps,
-  { fetchPanelMenu }
-)(AdminPanel);
+export default AdminPanel;

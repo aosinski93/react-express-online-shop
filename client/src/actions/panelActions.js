@@ -3,7 +3,9 @@ import {
   FETCH_PRODUCTS,
   FETCH_MANUFACTURERS,
   ADD_PRODUCT,
-  ADD_MANUFACTURER
+  ADD_MANUFACTURER,
+  ADD_MENU_ITEM,
+  ADD_MENU_SUBCATEGORY
 } from "./types";
 
 export const fetchPanelMenu = () => dispatch => {
@@ -98,4 +100,50 @@ export const addManufacturer = manufacturer => dispatch => {
         console.log(err);
       })
   });
+};
+
+export const addCategory = category => dispatch => {
+  let url = "/menu";
+
+  fetch(url, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "content-type": "application/json"
+    },
+    body: JSON.stringify(category)
+  })
+    .then(res => res.json())
+    .then(category => {
+      dispatch({
+        type: ADD_MENU_ITEM,
+        payload: category
+      });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
+
+export const addSubcategory = (subcategory, parentId) => dispatch => {
+  let url = `/menu/${parentId}/subcategory`;
+
+  fetch(url, {
+    method: "PUT",
+    headers: {
+      Accept: "application/json",
+      "content-type": "application/json"
+    },
+    body: JSON.stringify(subcategory)
+  })
+    .then(res => res.json())
+    .then(subcategory => {
+      dispatch({
+        type: ADD_MENU_SUBCATEGORY,
+        payload: subcategory
+      });
+    })
+    .catch(err => {
+      console.log(err);
+    });
 };
