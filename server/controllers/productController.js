@@ -47,3 +47,24 @@ exports.product_addProduct = (req, res) => {
     res.send(`${product.name} succesfully added to database`);
   });
 };
+
+exports.product_getProduct = (req, res) => {
+  let id = req.params.id;
+
+  Product.getProduct(id, (err, product) => {
+    if (err) {
+      throw err;
+    }
+
+    res.send(product);
+  });
+};
+
+exports.product_getProducts = (req, res) => {
+  Product.getProducts((err, products) => {
+    if (err) {
+      throw err;
+    }
+    res.send(products);
+  });
+};

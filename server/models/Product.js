@@ -24,3 +24,9 @@ const Product = (module.exports = mongoose.model("Product", productSchema));
 module.exports.addProduct = (product, callback) => {
   Product.create(product, callback);
 };
+module.exports.getProducts = (callback, limit) => {
+  Product.find({}, callback).limit(limit);
+};
+module.exports.getProduct = (id, callback) => {
+  Product.findOne({ _id: id }, callback);
+};

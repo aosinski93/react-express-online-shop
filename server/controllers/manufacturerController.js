@@ -19,6 +19,16 @@ exports.manufacturer_addManufacturer = (req, res) => {
   });
 };
 
+exports.manufacturer_getManufacturers = (req, res) => {
+  console.log("gere");
+  Manufacturer.getManufacturers((err, manufacturers) => {
+    if (err) {
+      throw err;
+    }
+    res.send(manufacturers);
+  });
+};
+
 exports.manufacturer_addProductToManufacturer = product => {
   Manufacturer.getManufacturerById(
     product.manufacturer,

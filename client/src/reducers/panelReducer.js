@@ -1,7 +1,7 @@
 import {
   FETCH_PANEL_MENU,
   FETCH_PRODUCTS,
-  FECTH_MANUFACTURERS,
+  FETCH_MANUFACTURERS,
   ADD_PRODUCT,
   ADD_MANUFACTURER
 } from "../actions/types";
@@ -27,7 +27,7 @@ export default (state = initialState, action) => {
         ...state,
         products: action.payload
       };
-    case FECTH_MANUFACTURERS:
+    case FETCH_MANUFACTURERS:
       return {
         ...state,
         manufacturers: action.payload
