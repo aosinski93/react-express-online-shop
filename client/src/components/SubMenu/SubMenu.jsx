@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addSubcategory } from "../../actions/panelActions";
+import "./submenu.css";
 
 class SubMenu extends Component {
   constructor() {
@@ -9,6 +10,14 @@ class SubMenu extends Component {
       subcategoryName: ""
     };
   }
+
+  componentWillReceiveProps = nextProps => {
+    if (nextProps.addedSubcategory) {
+      if (nextProps.item._id === nextProps.addedSubcategory.parentId) {
+        nextProps.item.subcategories.unshift(nextProps.addedSubcategory);
+      }
+    }
+  };
 
   onChange = e => {
     let value = e.target.value;
@@ -39,33 +48,80 @@ class SubMenu extends Component {
     });
   };
 
+  onDelete = e => {
+    e.preventDefault();
+  };
+
   render() {
     return (
-      <div>
-        <p className="categoryName">{this.props.item.name}</p>
-        <form
-          className="menuForm"
-          id={this.props.item._id + "-form"}
-          onSubmit={this.onSubmit}
+      <div className="subMenuContainer col-lg-8">
+        <div className="subMenuHeader flex v-align">
+          <div className="col-lg-2">
+            <p className="categoryName">{this.props.item.name}</p>
+          </div>
+          <div className="col-lg-10">
+            <form
+              className="menuForm"
+              id={this.props.item._id + "-form"}
+              onSubmit={this.onSubmit}
+            >
+              <div className="col-lg-7">
+                <input
+                  type="text"
+                  name="subcategoryName"
+                  value={this.state.subcategoryName}
+                  onChange={this.onChange}
+                  className="postDataInput"
+                  placeholder={`Add new subcategory to ${
+                    this.props.item.name
+                  } `}
+                  style={{ marginLeft: 30 + "px" }}
+                />
+              </div>
+              <div className="col-lg-3">
+                <input
+                  type="submit"
+                  value="+"
+                  className="dataSubmit postDataButton"
+                  title="Add subcategory"
+                />
+                <button
+                  className="dataSubmit deleteDataButton"
+                  onClick={e => this.onDelete(e)}
+                  title="Delete submenu"
+                >
+                  &times;
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <ul
+          id={this.props.item._id + "-subcategories"}
+          className="subcategories"
         >
-          <input
-            type=""
-            name="subcategoryName"
-            value={this.state.subcategoryName}
-            onChange={this.onChange}
-            placeholder={`Add new ${this.props.item.name} subcategory`}
-            style={{ marginLeft: 30 + "px" }}
-          />
-          <input type="submit" value="+" />
-        </form>
-        <ul className="subcategories" style={{ marginLeft: 30 + "px" }}>
           {this.props.item.subcategories &&
             this.props.item.subcategories.map(subcategoryItem => (
-              <li key={this.props.item.subcategories.indexOf(subcategoryItem)}>
-                <p className="subcategoryName">{subcategoryItem.name}</p>
+              <li
+                key={this.props.item.subcategories.indexOf(subcategoryItem)}
+                className="subcategory flex v-align"
+              >
+                <div className="col-lg-10">
+                  <p className="subcategoryName col-lg-10">
+                    {subcategoryItem.name}
+                  </p>
+                </div>
+                <div className="col-lg-1">
+                  <button
+                    className="dataSubmit deleteDataButton"
+                    onClick={e => this.onDelete(e)}
+                    title="Delete subcategory"
+                  >
+                    &times;
+                  </button>
+                </div>
               </li>
             ))}
-          {this.props.addedSubcategory.name}
         </ul>
       </div>
     );
@@ -73,7 +129,7 @@ class SubMenu extends Component {
 }
 
 const mapStateToProps = state => ({
-  addedSubcategory: state.panel.newSubcategory
+  addedSubcategory: state.panel.addedSubcategory
 });
 
 export default connect(

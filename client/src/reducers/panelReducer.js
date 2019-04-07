@@ -4,13 +4,15 @@ import {
   FETCH_MANUFACTURERS,
   ADD_MENU_ITEM,
   ADD_PRODUCT,
-  ADD_MANUFACTURER
+  ADD_MANUFACTURER,
+  ADD_MENU_SUBCATEGORY
 } from "../actions/types";
 
 const initialState = {
   menu: [],
   products: [],
-  manufacturers: []
+  manufacturers: [],
+  addedSubcategory: {}
 };
 
 export default (state = initialState, action) => {
@@ -47,6 +49,13 @@ export default (state = initialState, action) => {
       return {
         ...state,
         menu: [...state.menu, action.payload]
+      };
+    case ADD_MENU_SUBCATEGORY:
+      let newSubcategorory = action.payload.subcategories.pop();
+
+      return {
+        ...state,
+        addedSubcategory: newSubcategorory
       };
     default:
       return state;

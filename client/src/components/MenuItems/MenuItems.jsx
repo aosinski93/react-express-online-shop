@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchPanelMenu, addCategory } from "../../actions/panelActions";
 import SubMenu from "../SubMenu/SubMenu.jsx";
+import "./menuitems.css";
 
 class MenuItems extends Component {
   constructor() {
@@ -10,10 +11,6 @@ class MenuItems extends Component {
       menuItemName: ""
     };
   }
-
-  componentWillMount = () => {
-    this.props.fetchPanelMenu();
-  };
 
   onChange = e => {
     let value = e.target.value;
@@ -40,19 +37,30 @@ class MenuItems extends Component {
 
   render() {
     return (
-      <div>
-        <p>Add new menu item</p>
-        <form id="new-menu-form" className="menuForm" onSubmit={this.onSubmit}>
-          <input
-            type="text"
-            name="menuItemName"
-            value={this.state.menuItemName}
-            onChange={this.onChange}
-          />
-          <input type="submit" value="Submit" />
-        </form>
-
-        <p>Menu list</p>
+      <div className="menuListContainer gridContainer">
+        <div className="menuItemFormWrapper">
+          <p className="panelPageTitle">Add new menu item</p>
+          <form
+            id="new-menu-form"
+            className="menuForm"
+            onSubmit={this.onSubmit}
+          >
+            <input
+              type="text"
+              name="menuItemName"
+              value={this.state.menuItemName}
+              onChange={this.onChange}
+              className="postDataInput"
+              placeholder="Add new category"
+            />
+            <input
+              type="submit"
+              value="+"
+              className="dataSubmit postDataButton"
+              title="Add top-level category"
+            />
+          </form>
+        </div>
         <ul className="categories">
           {this.props.menu &&
             this.props.menu.map(item => {

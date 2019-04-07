@@ -29,5 +29,5 @@ router.post(
 
 //  admin
 
-router.get("/admin", menuController.menu_displayMenu);
+router.get(["/admin"], menuController.menu_displayMenu);
 module.exports = router;

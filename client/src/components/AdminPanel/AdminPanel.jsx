@@ -1,17 +1,26 @@
 import React, { Component } from "react";
 import { Route, Link } from "react-router-dom";
+import { connect } from "react-redux";
 import PanelProducts from "../PanelProducts/PanelProducts";
 import "./adminpanel.css";
 import "../../css_utilities/common.css";
 import Footer from "../Footer/Footer";
-import ProductsList from "../ProductsList/ProductsList.jsx";
 import MenuItems from "../MenuItems/MenuItems";
+import {
+  fetchPanelMenu,
+  fetchPanelManufacturers
+} from "../../actions/panelActions";
 
 const Manufacturers = () => {
   return <h3>Manufacturers</h3>;
 };
 
 class AdminPanel extends Component {
+  componentWillMount = () => {
+    this.props.fetchPanelMenu();
+    this.props.fetchPanelManufacturers();
+  };
+
   render() {
     return (
       <div className="adminPanel">
@@ -21,14 +30,27 @@ class AdminPanel extends Component {
         <main className="panelContent">
           <nav className="panelNav col-lg-2 flex col-direction v-align">
             <ul>
-              <li className="panelNavItem">
-                <Link to={`${this.props.match.url}/products`}>Products</Link>
+              <li className="panelNavItem ">
+                <Link
+                  to={`${this.props.match.url}/products`}
+                  className="flex v-align h-align"
+                >
+                  <span>Products</span>
+                </Link>
               </li>
               <li className="panelNavItem">
-                <Link to={`${this.props.match.url}/menu`}>Menu</Link>
+                <Link
+                  to={`${this.props.match.url}/menu`}
+                  className="flex v-align h-align"
+                >
+                  Menu
+                </Link>
               </li>
               <li className="panelNavItem">
-                <Link to={`${this.props.match.url}/manufacturers`}>
+                <Link
+                  to={`${this.props.match.url}/manufacturers`}
+                  className="flex v-align h-align"
+                >
                   Manufacturers
                 </Link>
               </li>
@@ -48,12 +70,6 @@ class AdminPanel extends Component {
               path={`${this.props.match.path}/manufacturers`}
               component={Manufacturers}
             />
-            <Route
-              path="/admin/phones"
-              render={props => <ProductsList {...this.props} type="phones" />}
-            />
-            <Route path="/admin/laptops" component={ProductsList} />
-            <Route path="/admin/desktops" component={ProductsList} />
           </div>
         </main>
         <Footer />
@@ -62,4 +78,7 @@ class AdminPanel extends Component {
   }
 }
 
-export default AdminPanel;
+export default connect(
+  null,
+  { fetchPanelMenu, fetchPanelManufacturers }
+)(AdminPanel);

@@ -3,10 +3,11 @@ const Schema = mongoose.Schema;
 
 const productSchema = Schema({
   image: String,
-  slug: { type: String, required: true },
+  slug: String,
   name: { type: String, required: true },
   description: String,
   manufacturer: { type: Schema.Types.ObjectId, ref: "Manufacturer" },
+  category: { type: Schema.Types.ObjectId, ref: "Menu" },
   size: String,
   resolution: String,
   battery: Number,
