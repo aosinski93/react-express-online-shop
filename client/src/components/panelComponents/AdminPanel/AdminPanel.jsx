@@ -3,13 +3,13 @@ import { Route, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PanelProducts from "../PanelProducts/PanelProducts";
 import "./adminpanel.css";
-import "../../css_utilities/common.css";
+import "../../../css_utilities/common.css";
 import Footer from "../Footer/Footer";
 import MenuItems from "../MenuItems/MenuItems";
 import {
   fetchPanelMenu,
   fetchPanelManufacturers
-} from "../../actions/panelActions";
+} from "../../../actions/panelActions";
 
 const Manufacturers = () => {
   return <h3>Manufacturers</h3>;

@@ -26,7 +26,9 @@ module.exports.addProduct = (product, callback) => {
   Product.create(product, callback);
 };
 module.exports.getProducts = (callback, limit) => {
-  Product.find({}, callback).limit(limit);
+  Product.find({}, callback)
+    .limit(limit)
+    .populate(["manufacturer", "category"]);
 };
 module.exports.getProduct = (id, callback) => {
   Product.findOne({ _id: id }, callback);

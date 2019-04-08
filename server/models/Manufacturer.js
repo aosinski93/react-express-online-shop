@@ -15,7 +15,6 @@ module.exports.addManufacturer = (manufacturer, callback) => {
   Manufacturer.create(manufacturer, callback);
 };
 module.exports.getManufacturers = (callback, limit) => {
-  console.log("here");
   Manufacturer.find({}, callback).limit(limit);
 };
 module.exports.getManufacturerById = (id, callback) => {

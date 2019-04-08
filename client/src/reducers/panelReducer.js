@@ -51,11 +51,9 @@ export default (state = initialState, action) => {
         menu: [...state.menu, action.payload]
       };
     case ADD_MENU_SUBCATEGORY:
-      let newSubcategorory = action.payload.subcategories.pop();
-
       return {
         ...state,
-        addedSubcategory: newSubcategorory
+        addedSubcategory: action.payload.subcategories.pop()
       };
     default:
       return state;

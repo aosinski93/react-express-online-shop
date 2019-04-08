@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
-import Header from "../Header/Header";
-import Store from "../Store/Store";
+import Store from "../../frontComponents/Store/Store.jsx";
+import Header from "../../commonComponents/Header/Header";
 
 class Home extends Component {
   render() {

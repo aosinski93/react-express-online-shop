@@ -20,7 +20,6 @@ exports.manufacturer_addManufacturer = (req, res) => {
 };
 
 exports.manufacturer_getManufacturers = (req, res) => {
-  console.log("gere");
   Manufacturer.getManufacturers((err, manufacturers) => {
     if (err) {
       throw err;

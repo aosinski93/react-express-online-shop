@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addSubcategory } from "../../actions/panelActions";
+import { addSubcategory } from "../../../actions/panelActions";
 import "./submenu.css";
 
 class SubMenu extends Component {

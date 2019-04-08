@@ -42,7 +42,7 @@ export const fetchPanelProducts = () => dispatch => {
     });
 };
 export const fetchPanelManufacturers = () => dispatch => {
-  let url = "/maufacturers";
+  let url = "/manufacturers";
   fetch(url, {
     method: "GET"
   })

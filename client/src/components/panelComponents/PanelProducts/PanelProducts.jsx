@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchPanelProducts } from "../../actions/panelActions";
+import {
+  fetchPanelProducts,
+  fetchPanelManufacturers
+} from "../../../actions/panelActions";
 import ProductFormGroup from "../ProductFormGroup/ProductFormGroup";
+import ProductList from "../../commonComponents/ProductList/ProductList";
 
 class PanelProducts extends Component {
   constructor() {
@@ -19,7 +23,7 @@ class PanelProducts extends Component {
       camera: 0,
       sim_qty: 0,
       price: 0,
-      date_of_release: 0,
+      date_of_release: "",
       ram: 0,
       cpu: 0,
       operating_system: ""
@@ -28,6 +32,7 @@ class PanelProducts extends Component {
 
   componentWillMount = () => {
     this.props.fetchPanelProducts();
+    this.props.fetchPanelManufacturers();
   };
 
   onChange = e => {
@@ -39,10 +44,16 @@ class PanelProducts extends Component {
     });
   };
 
+  onSubmit = e => {
+    e.preventDefault();
+  };
+
   render() {
     return (
       <div className="productsPanel">
-        <div className="productList col-lg-7">list</div>
+        <div className="productListContainer col-lg-7">
+          <ProductList data={this.props.products} />
+        </div>
         <div className="productInputForm col-lg-5">
           <p>Add product</p>
 
@@ -59,6 +70,7 @@ class PanelProducts extends Component {
               name="name"
               type="text"
               labelText="Name"
+              placeholder="Product name"
               value={this.state.name}
               onChange={this.onChange}
             />
@@ -67,6 +79,7 @@ class PanelProducts extends Component {
               name="description"
               labelText="Description"
               value={this.state.description}
+              placeholder="Description"
               onChange={this.onChange}
             />
 
@@ -75,6 +88,7 @@ class PanelProducts extends Component {
               labelText="Manufacturer"
               value={this.state.manufacturer}
               onChange={this.onChange}
+              data={this.props.manufacturers}
             />
 
             <ProductFormGroup
@@ -82,12 +96,14 @@ class PanelProducts extends Component {
               labelText="Category"
               value={this.state.category}
               onChange={this.onChange}
+              data={this.props.menu}
             />
 
             <ProductFormGroup
               name="size"
               type="text"
               labelText="Size"
+              placeholder="Inches"
               value={this.state.size}
               onChange={this.onChange}
             />
@@ -96,6 +112,7 @@ class PanelProducts extends Component {
               name="resolution"
               type="text"
               labelText="Resolution"
+              placeholder="width x height"
               value={this.state.resolution}
               onChange={this.onChange}
             />
@@ -160,6 +177,7 @@ class PanelProducts extends Component {
               name="operating_system"
               type="text"
               labelText="Operating System"
+              placeholder="Operating system"
               value={this.state.operating_system}
               onChange={this.onChange}
             />
@@ -167,7 +185,7 @@ class PanelProducts extends Component {
             <input
               type="submit"
               value="Confirm"
-              className="dataSubmit postDataButton"
+              className="formButton postDataButton"
               title="Submit form"
             />
           </form>
@@ -180,10 +198,11 @@ class PanelProducts extends Component {
 const mapStateToProps = state => ({
   categories: state.panel.menu,
   products: state.panel.products,
-  menu: state.panel.menu
+  menu: state.panel.menu,
+  manufacturers: state.panel.manufacturers
 });
 
 export default connect(
   mapStateToProps,
-  { fetchPanelProducts }
+  { fetchPanelProducts, fetchPanelManufacturers }
 )(PanelProducts);

@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "./components/Home/Home.jsx";
-import NotFound from "./components/NotFound/NotFound.jsx";
-import LoginForm from "./components/LoginForm/LoginForm.jsx";
+import Home from "./components/frontComponents/Home/Home.jsx";
+import NotFound from "./components/commonComponents/NotFound/NotFound.jsx";
+import LoginForm from "./components/panelComponents/LoginForm/LoginForm.jsx";
 
 import "./App.css";
-import AdminPanel from "./components/AdminPanel/AdminPanel.jsx";
-import Store from "./components/Store/Store.jsx";
+import AdminPanel from "./components/panelComponents/AdminPanel/AdminPanel.jsx";
+import Store from "./components/frontComponents/Store/Store.jsx";
 
 class App extends Component {
   state = {

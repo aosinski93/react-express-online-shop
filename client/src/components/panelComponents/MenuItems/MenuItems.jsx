@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchPanelMenu, addCategory } from "../../actions/panelActions";
+import { fetchPanelMenu, addCategory } from "../../../actions/panelActions";
 import SubMenu from "../SubMenu/SubMenu.jsx";
 import "./menuitems.css";
 
