@@ -1,18 +1,19 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Loader from "../../commonComponents/Loader/Loader";
 
 class ProductList extends Component {
   constructor() {
     super();
     this.state = {
-      fetching: true
+      loading: true
     };
   }
 
   componentWillReceiveProps = nextProps => {
     if (nextProps.data !== []) {
       this.setState({
-        fetching: false
+        loading: false
       });
     }
   };
@@ -60,13 +61,19 @@ class ProductList extends Component {
         </ul>
       );
     } else {
-      return <p>Brak produktów w bazie</p>;
+      return <p>No products in database</p>;
     }
   };
   render() {
     return (
       <div className="productListWrapper">
-        {this.state.fetching ? "loading..." : this.buildList()}
+        {this.state.loading ? (
+          <div>
+            <Loader />
+          </div>
+        ) : (
+          this.buildList()
+        )}
       </div>
     );
   }

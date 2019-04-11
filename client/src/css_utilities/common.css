@@ -33,6 +33,7 @@
 
 [class*="col"] {
   float: left;
+  min-height: 1px;
 }
 .col-lg-1 {
   width: 8.333%;

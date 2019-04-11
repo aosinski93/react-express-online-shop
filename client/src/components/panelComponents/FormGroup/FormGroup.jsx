@@ -1,6 +1,6 @@
 import React from "react";
 
-const ProductFormGroup = props => {
+const FormGroup = props => {
   switch (props.name) {
     case "description":
       return (
@@ -24,7 +24,6 @@ const ProductFormGroup = props => {
             onChange={props.onChange}
             className="postDataInput"
           >
-            <option disabled>Choose manufacturer</option>
             {props.data.map(option => {
               return (
                 <option key={props.data.indexOf(option)} value={option.name}>
@@ -45,7 +44,6 @@ const ProductFormGroup = props => {
             onChange={props.onChange}
             className="postDataInput"
           >
-            <option disabled>Choose category</option>
             {props.data.map(option => {
               return (
                 <option key={props.data.indexOf(option)} value={option.name}>
@@ -85,4 +83,4 @@ const ProductFormGroup = props => {
   }
 };
 
-export default ProductFormGroup;
+export default FormGroup;

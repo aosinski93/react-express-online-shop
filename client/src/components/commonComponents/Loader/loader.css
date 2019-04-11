@@ -1,0 +1,65 @@
+.loader {
+  height: 100%;
+  width: 100%;
+  max-height: 500px;
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dot,
+.loaderText {
+  font-size: 20px;
+  font-weight: 700;
+}
+.first {
+  animation: showFirst 1s 0.1s ease-in-out infinite;
+}
+.second {
+  animation: showSecond 1s 0.2s ease-in-out infinite;
+}
+.third {
+  animation: showThird 1s 0.3s ease-in-out infinite;
+}
+@keyframes showFirst {
+  0% {
+    visibility: hidden;
+  }
+  33% {
+    visibility: hidden;
+  }
+  66% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+@keyframes showSecond {
+  0% {
+    visibility: hidden;
+  }
+  33% {
+    visibility: hidden;
+  }
+  66% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+@keyframes showThird {
+  0% {
+    visibility: hidden;
+  }
+  33% {
+    visibility: hidden;
+  }
+  66% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}

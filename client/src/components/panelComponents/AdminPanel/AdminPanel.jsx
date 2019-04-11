@@ -4,16 +4,13 @@ import { connect } from "react-redux";
 import PanelProducts from "../PanelProducts/PanelProducts";
 import "./adminpanel.css";
 import "../../../css_utilities/common.css";
-import Footer from "../Footer/Footer";
+import Footer from "../../commonComponents/Footer/Footer";
 import MenuItems from "../MenuItems/MenuItems";
 import {
   fetchPanelMenu,
   fetchPanelManufacturers
 } from "../../../actions/panelActions";
-
-const Manufacturers = () => {
-  return <h3>Manufacturers</h3>;
-};
+import Manufacturers from "../Manufacturers/Manufacturers";
 
 class AdminPanel extends Component {
   componentWillMount = () => {

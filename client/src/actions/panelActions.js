@@ -67,20 +67,22 @@ export const addProduct = product => dispatch => {
       "content-type": "application/json"
     },
     body: JSON.stringify(product)
-      .then(res => res.json())
-      .then(product => {
-        dispatch({
-          type: ADD_PRODUCT,
-          payload: product
-        });
-      })
-      .catch(err => {
-        console.log(err);
-      })
-  });
+  })
+    .then(res => res.json())
+    .then(product => {
+      dispatch({
+        type: ADD_PRODUCT,
+        payload: product
+      });
+    })
+    .catch(err => {
+      console.log(err);
+    });
 };
 
 export const addManufacturer = manufacturer => dispatch => {
+  console.log(manufacturer);
+
   let url = "/manufacturer";
   fetch(url, {
     method: "POST",
@@ -89,17 +91,17 @@ export const addManufacturer = manufacturer => dispatch => {
       "content-type": "application/json"
     },
     body: JSON.stringify(manufacturer)
-      .then(res => res.json())
-      .then(product => {
-        dispatch({
-          type: ADD_MANUFACTURER,
-          payload: manufacturer
-        });
-      })
-      .catch(err => {
-        console.log(err);
-      })
-  });
+  })
+    .then(res => res.json())
+    .then(manufacturer => {
+      dispatch({
+        type: ADD_MANUFACTURER,
+        payload: manufacturer
+      });
+    })
+    .catch(err => {
+      console.log(err);
+    });
 };
 
 export const addCategory = category => dispatch => {
