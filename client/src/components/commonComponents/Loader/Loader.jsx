@@ -4,7 +4,7 @@ import "./loader.css";
 const Loader = () => {
   return (
     <div className="loader">
-      <p className="flex">
+      <p className="d-flex">
         <span className="loaderText">Loading</span>
         <span className="first dot">.</span>
         <span className="second dot">.</span>

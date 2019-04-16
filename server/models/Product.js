@@ -33,3 +33,6 @@ module.exports.getProducts = (callback, limit) => {
 module.exports.getProduct = (id, callback) => {
   Product.findOne({ _id: id }, callback);
 };
+module.exports.deleteProduct = (id, callback) => {
+  Product.findByIdAndDelete(id, callback);
+};

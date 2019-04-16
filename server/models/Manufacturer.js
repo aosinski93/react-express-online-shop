@@ -28,3 +28,6 @@ module.exports.getManufacturerProducts = (name, callback) => {
     "products"
   );
 };
+module.exports.deleteManufacturer = (id, callback) => {
+  Manufacturer.findByIdAndDelete(id, callback);
+};

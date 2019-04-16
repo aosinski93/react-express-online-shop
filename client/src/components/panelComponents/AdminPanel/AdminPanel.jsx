@@ -8,7 +8,8 @@ import Footer from "../../commonComponents/Footer/Footer";
 import MenuItems from "../MenuItems/MenuItems";
 import {
   fetchPanelMenu,
-  fetchPanelManufacturers
+  fetchPanelManufacturers,
+  fetchPanelProducts
 } from "../../../actions/panelActions";
 import Manufacturers from "../Manufacturers/Manufacturers";
 
@@ -16,45 +17,55 @@ class AdminPanel extends Component {
   componentWillMount = () => {
     this.props.fetchPanelMenu();
     this.props.fetchPanelManufacturers();
+    this.props.fetchPanelProducts();
   };
 
   render() {
     return (
       <div className="adminPanel">
         <div className="header">
-          <h2 className="headerText">Admin Panel</h2>
+          <h2 className="header-text">Admin Panel</h2>
         </div>
-        <main className="panelContent">
-          <nav className="panelNav col-lg-2 flex col-direction v-align">
-            <ul>
-              <li className="panelNavItem ">
+        <main className="panelContent row">
+          <nav className="nav panel-nav col-lg-2 justify-content-center">
+            <ul className="list-group list-group-flush">
+              <li className="panel-nav-item list-group-item">
                 <Link
                   to={`${this.props.match.url}/products`}
-                  className="flex v-align h-align"
+                  className="row justify-content-between"
                 >
-                  <span>Products</span>
+                  <div className="col-lg-10">Products</div>
+                  <div className="col-lg-2 badge badge-secondary badge-pill">
+                    {this.props.products.length}
+                  </div>
                 </Link>
               </li>
-              <li className="panelNavItem">
+              <li className="panel-nav-item list-group-item">
                 <Link
                   to={`${this.props.match.url}/menu`}
-                  className="flex v-align h-align"
+                  className="row justify-content-between"
                 >
-                  Menu
+                  <div className="col-lg-10">Menu</div>
+                  <div className="col-lg-2 badge badge-secondary badge-pill">
+                    {this.props.menu.length}
+                  </div>
                 </Link>
               </li>
-              <li className="panelNavItem">
+              <li className="panel-nav-item list-group-item">
                 <Link
                   to={`${this.props.match.url}/manufacturers`}
-                  className="flex v-align h-align"
+                  className="row justify-content-between"
                 >
-                  Manufacturers
+                  <div className="col-lg-10">Manufacturers</div>
+                  <div className="col-lg-2 badge badge-secondary badge-pill">
+                    {this.props.manufacturers.length}
+                  </div>
                 </Link>
               </li>
             </ul>
           </nav>
 
-          <div className="panelView col-lg-10">
+          <div className="panel-view col-lg-10">
             <Route
               path={`${this.props.match.path}/products`}
               component={PanelProducts}
@@ -75,7 +86,13 @@ class AdminPanel extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  products: state.panel.products,
+  menu: state.panel.menu,
+  manufacturers: state.panel.manufacturers
+});
+
 export default connect(
-  null,
-  { fetchPanelMenu, fetchPanelManufacturers }
+  mapStateToProps,
+  { fetchPanelMenu, fetchPanelManufacturers, fetchPanelProducts }
 )(AdminPanel);

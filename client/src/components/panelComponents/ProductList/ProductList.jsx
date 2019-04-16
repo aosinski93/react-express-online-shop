@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import Loader from "../../commonComponents/Loader/Loader";
+import "./productlist.css";
+import { deleteProduct } from "../../../actions/panelActions";
 
 class ProductList extends Component {
   constructor() {
@@ -20,45 +23,52 @@ class ProductList extends Component {
 
   onDelete = e => {
     e.preventDefault();
+    this.props.deleteProduct(e.target.dataset.id);
   };
 
   buildList = () => {
     if (this.props.data !== []) {
       return (
-        <ul className="productsList" style={{ padding: 20 + "px" }}>
-          {this.props.data.map(item => {
-            return (
-              <li
-                key={item._id}
-                id={item._id}
-                className="flex v-align productItem"
-              >
-                <Link
-                  to={`product/${item._id}`}
-                  className="col-lg-12 flex v-align"
+        <div className="container">
+          <ul className="productsList list-group">
+            {this.props.data.map(item => {
+              return (
+                <li
+                  key={item._id}
+                  id={item._id}
+                  className="list-group-item box-shadow product-item"
                 >
-                  <div className="col-lg-2">{item.name}</div>
-                  <div className="col-lg-2">
-                    Battery capacity: {item.battery} mAh
+                  <div className="row d-flex align-item-center">
+                    <div className="col-lg-10">
+                      <Link to={`product/${item._id}`} className="row ">
+                        <div className="col-lg-3" />
+                        <div className="col-lg-3">
+                          <p>{item.name}</p>
+                        </div>
+                        <div className="col-lg-3">
+                          {/* <p>{item.manufacturer.name.toUpperCase()}</p> */}
+                        </div>
+                        <div className="col-lg-3">
+                          <p>{item.operating_system}</p>
+                        </div>
+                      </Link>
+                    </div>
+                    <div className="col-lg-2">
+                      <button
+                        className="btn btn-danger"
+                        onClick={e => this.onDelete(e)}
+                        title="Delete submenu"
+                        data-id={item._id}
+                      >
+                        &times;
+                      </button>
+                    </div>
                   </div>
-                  <div className="col-lg-2">
-                    Manufacturer: {item.manufacturer.name.toUpperCase()}
-                  </div>
-                  <div className="col-lg-2">OS: {item.operating_system}</div>
-                  <div className="col-lg-1" />
-                  <div className="col-lg-1" />
-                </Link>
-                <button
-                  className="dataSubmit deleteDataButton"
-                  onClick={e => this.onDelete(e)}
-                  title="Delete submenu"
-                >
-                  &times;
-                </button>
-              </li>
-            );
-          })}
-        </ul>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       );
     } else {
       return <p>No products in database</p>;
@@ -66,17 +76,36 @@ class ProductList extends Component {
   };
   render() {
     return (
-      <div className="productListWrapper">
+      <div className="productListWrapper col-lg-10">
+        <div className="topLabels container">
+          <div className="row">
+            <div className="col-lg-10">
+              <div className="row">
+                <div className="col-lg-3 text-center">Image</div>
+                <div className="col-lg-3 text-center">Name</div>
+                <div className="col-lg-3 text-center">Manufacturer</div>
+                <div className="col-lg-3 text-center">OS</div>
+              </div>
+            </div>
+          </div>
+        </div>
         {this.state.loading ? (
           <div>
             <Loader />
           </div>
         ) : (
-          this.buildList()
+          <div>{this.buildList()}</div>
         )}
       </div>
     );
   }
 }
 
-export default ProductList;
+const mapStateToProps = state => ({
+  products: state.panel.products
+});
+
+export default connect(
+  mapStateToProps,
+  { deleteProduct }
+)(ProductList);

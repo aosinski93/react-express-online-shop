@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addSubcategory } from "../../../actions/panelActions";
+import {
+  addSubcategory,
+  deleteMenuItem,
+  deleteMenuSubcategory
+} from "../../../actions/panelActions";
 import "./submenu.css";
+import FormGroup from "../../commonComponents/FormGroup/FormGroup";
 
 class SubMenu extends Component {
   constructor() {
@@ -13,7 +18,7 @@ class SubMenu extends Component {
 
   componentWillReceiveProps = nextProps => {
     if (nextProps.addedSubcategory) {
-      if (nextProps.item._id === nextProps.addedSubcategory.parentId) {
+      if (nextProps.item_id === nextProps.addedSubcategory.parentId) {
         nextProps.item.subcategories.unshift(nextProps.addedSubcategory);
       }
     }
@@ -35,10 +40,8 @@ class SubMenu extends Component {
 
     this.props.addSubcategory(
       {
-        subcategory: {
-          parentId: parentId,
-          name: this.state.subcategoryName
-        }
+        parentId: parentId,
+        subcategoryName: this.state.subcategoryName
       },
       parentId
     );
@@ -48,46 +51,56 @@ class SubMenu extends Component {
     });
   };
 
-  onDelete = e => {
+  onDeleteMenu = e => {
     e.preventDefault();
+    this.props.deleteMenuItem(e.target.dataset.id);
+  };
+  onDeleteSubcategory = e => {
+    e.preventDefault();
+    console.log(e.target.dataset.parent, e.target.dataset.name);
+
+    this.props.deleteMenuSubcategory(
+      e.target.dataset.parent,
+      e.target.dataset.name
+    );
   };
 
   render() {
     return (
-      <div className="subMenuContainer col-lg-8">
-        <div className="subMenuHeader flex v-align">
+      <li className="sub-menu-container col-lg-8">
+        <div className="sub-menu-header row flex v-align">
           <div className="col-lg-2">
-            <p className="categoryName">{this.props.item.name}</p>
+            <p className="category-name">{this.props.item.name}</p>
           </div>
           <div className="col-lg-10">
             <form
-              className="menuForm"
+              className="menu-form d-flex row "
               id={this.props.item._id + "-form"}
               onSubmit={this.onSubmit}
             >
               <div className="col-lg-7">
-                <input
+                <FormGroup
                   type="text"
                   name="subcategoryName"
                   value={this.state.subcategoryName}
                   onChange={this.onChange}
-                  className="postDataInput"
+                  className="post-data-input form-control"
                   placeholder={`Add new subcategory to ${
                     this.props.item.name
                   } `}
-                  style={{ marginLeft: 30 + "px" }}
                 />
               </div>
-              <div className="col-lg-3">
+              <div className="col-lg-3 offset-lg-1">
                 <input
                   type="submit"
                   value="+"
-                  className="dataSubmit postDataButton"
+                  className="data-submit post-data-button btn btn-success"
                   title="Add subcategory"
                 />
                 <button
-                  className="dataSubmit deleteDataButton"
-                  onClick={e => this.onDelete(e)}
+                  className="data-submit delete-data-button btn btn-danger"
+                  onClick={this.onDeleteMenu}
+                  data-id={this.props.item._id}
                   title="Delete submenu"
                 >
                   &times;
@@ -104,17 +117,19 @@ class SubMenu extends Component {
             this.props.item.subcategories.map(subcategoryItem => (
               <li
                 key={this.props.item.subcategories.indexOf(subcategoryItem)}
-                className="subcategory flex v-align"
+                className="subcategory flex v-align list-group-item d-flex align-item-center"
               >
-                <div className="col-lg-10">
-                  <p className="subcategoryName col-lg-10">
+                <div className="col-lg-10 d-flex align-item-center">
+                  <p className="subcategory-name col-lg-10">
                     {subcategoryItem.name}
                   </p>
                 </div>
-                <div className="col-lg-1">
+                <div className="col-lg-2 d-flex align-item-center">
                   <button
-                    className="dataSubmit deleteDataButton"
-                    onClick={e => this.onDelete(e)}
+                    className="data-submit delete-data-button btn btn-danger"
+                    onClick={this.onDeleteSubcategory}
+                    data-name={subcategoryItem.name}
+                    data-parent={subcategoryItem.parentId}
                     title="Delete subcategory"
                   >
                     &times;
@@ -123,7 +138,7 @@ class SubMenu extends Component {
               </li>
             ))}
         </ul>
-      </div>
+      </li>
     );
   }
 }
@@ -134,5 +149,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { addSubcategory }
+  { addSubcategory, deleteMenuItem, deleteMenuSubcategory }
 )(SubMenu);

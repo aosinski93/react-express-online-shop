@@ -4,13 +4,15 @@ const Schema = mongoose.Schema;
 const menuSchema = Schema({
   name: String,
   slug: String,
-  subcategories: Array
+  subcategories: [{ type: Schema.Types.ObjectId, ref: "Subcategory" }]
 });
 
 const Menu = (module.exports = mongoose.model("Menu", menuSchema));
 
 module.exports.getMenu = (callback, limit) => {
-  Menu.find({}, callback).limit(limit);
+  Menu.find({}, callback)
+    .limit(limit)
+    .populate("subcategories");
 };
 module.exports.getMenuItem = (id, callback) => {
   Menu.findOne({ _id: id }, callback);

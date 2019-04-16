@@ -2,12 +2,13 @@ const Product = require("../models/Product");
 const slugify = require("slugify");
 const manufacturerController = require("../controllers/manufacturerController");
 
-exports.product_addProduct = (req, res) => {
+exports.product_addProduct = (req, res, next) => {
   let {
     image,
     name,
     description,
     manufacturer,
+    category,
     size,
     resolution,
     battery,
@@ -18,14 +19,15 @@ exports.product_addProduct = (req, res) => {
     ram,
     cpu,
     operating_system
-  } = req.body.product;
+  } = req.body;
 
   let product = {
-    image: slugify(image),
+    image: slugify(image) || "",
     name,
     slug: slugify(name),
     description,
     manufacturer,
+    category,
     size,
     resolution,
     battery,
@@ -42,9 +44,14 @@ exports.product_addProduct = (req, res) => {
     if (err) {
       throw err;
     }
-    manufacturerController.manufacturer_addProductToManufacturer(product);
+    manufacturerController.manufacturer_addProductToManufacturer(
+      req,
+      res,
+      next,
+      product
+    );
 
-    res.send(`${product.name} succesfully added to database`);
+    res.send(product);
   });
 };
 
@@ -66,5 +73,16 @@ exports.product_getProducts = (req, res) => {
       throw err;
     }
     res.send(products);
+  });
+};
+
+exports.product_deleteProduct = (req, res) => {
+  let id = req.params.id;
+
+  Product.deleteProduct(id, (err, product) => {
+    if (err) {
+      throw err;
+    }
+    res.send(product);
   });
 };

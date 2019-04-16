@@ -1,4 +1,5 @@
 const Menu = require("../models/Menu");
+const Subcategory = require("../models/Subcategory");
 const uuid = require("uuid");
 const slugify = require("slugify");
 
@@ -28,13 +29,13 @@ exports.menu_addMenuItem = (req, res) => {
 };
 
 exports.menu_deleteMenuItem = (req, res) => {
-  let id = req.params;
+  let id = req.params.id;
 
   Menu.deleteMenuItem(id, (err, menuItem) => {
     if (err) {
       throw err;
     }
-    res.json({ success: ` "${menuItem.name}" successfuly deleted` });
+    res.json(menuItem);
   });
 };
 
@@ -54,34 +55,55 @@ exports.menu_updateMenuItem = (req, res) => {
   });
 };
 exports.menu_addSubcategory = (req, res) => {
-  Menu.getMenuItem(req.params.id, (err, item) => {
+  let { subcategoryName, parentId } = req.body;
+
+  let subcategory = {
+    parentId: parentId,
+    name: subcategoryName,
+    slug: slugify(subcategoryName)
+  };
+
+  Subcategory.addSubcategory(subcategory, (err, subcategory) => {
     if (err) {
       throw err;
     }
-
-    let menuItem = {
-      _id: item.id,
-      name: item.name,
-      slug: item.slug,
-      subcategories: item.subcategories
-    };
-
-    let update = Object.assign({}, menuItem);
-    update.subcategories.push({
-      parentId: menuItem._id,
-      name: req.body.subcategory.name,
-      slug: slugify(req.body.subcategory.name)
-    });
-    Menu.updateMenuItem(
-      req.params.id,
-      update,
-      { new: true },
-      (err, new_menuItem) => {
-        if (err) {
-          throw err;
-        }
-        res.send(new_menuItem);
+    Menu.getMenuItem(subcategory.parentId, (err, item) => {
+      if (err) {
+        throw err;
       }
-    );
+
+      let menuItem = {
+        _id: item.id,
+        name: item.name,
+        slug: item.slug,
+        subcategories: item.subcategories
+      };
+
+      let update = Object.assign({}, menuItem);
+      update.subcategories.push(subcategory._id);
+      Menu.updateMenuItem(
+        req.params.id,
+        update,
+        { new: true },
+        (err, new_menuItem) => {
+          if (err) {
+            throw err;
+          }
+        }
+      );
+    });
+    res.send(subcategory);
+  });
+};
+
+exports.menu_deleteSubcategory = (req, res) => {
+  Menu.getMenuItem(req.params.id, (err, menuItem) => {
+    if (err) {
+      throw err;
+    }
+    let menuItemToFilter = {
+      menuItem
+    };
+    console.log(menuItemToFilter);
   });
 };

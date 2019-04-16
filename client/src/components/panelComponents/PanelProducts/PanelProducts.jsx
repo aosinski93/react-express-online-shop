@@ -18,7 +18,7 @@ class PanelProducts extends Component {
 
   render() {
     return (
-      <div className="productsPanel">
+      <div className="productsPanel row">
         <div className="productListContainer col-lg-6">
           <ProductList data={this.props.products} />
         </div>

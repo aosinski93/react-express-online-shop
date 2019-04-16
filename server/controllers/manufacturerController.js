@@ -28,7 +28,7 @@ exports.manufacturer_getManufacturers = (req, res) => {
   });
 };
 
-exports.manufacturer_addProductToManufacturer = product => {
+exports.manufacturer_addProductToManufacturer = (req, res, next, product) => {
   Manufacturer.getManufacturerById(
     product.manufacturer,
     (err, manufacturer) => {
@@ -68,4 +68,13 @@ exports.manufacturer_getManfacturerProducts = (req, res) => {
       res.send(products.products);
     }
   );
+};
+
+exports.manufacturer_deleteManufacturer = (req, res) => {
+  Manufacturer.deleteManufacturer(req.params.id, (err, manufacturer) => {
+    if (err) {
+      throw err;
+    }
+    res.send(manufacturer);
+  });
 };

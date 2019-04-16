@@ -6,10 +6,12 @@ import ManufacturerInputForm from "../ManufacturersInputForm/ManufacturerInputFo
 class Manufacturers extends Component {
   render() {
     return (
-      <div className="manufacturersPanel">
-        <ManufacturersList data={this.props.manufacturers} />
-        <div className="col-lg-1" />
-        <ManufacturerInputForm />
+      <div className="container">
+        <div className="manufacturersPanel row">
+          <ManufacturersList data={this.props.manufacturers} />
+          <div className="col-lg-1" />
+          <ManufacturerInputForm />
+        </div>
       </div>
     );
   }

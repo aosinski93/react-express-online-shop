@@ -4,29 +4,36 @@ const FormGroup = props => {
   switch (props.name) {
     case "description":
       return (
-        <div className="formGroup">
-          <label className="inputLabel">{props.labelText}</label>
+        <div className="form-group">
+          <label htmlFor={`${props.name}`} className="inputLabel">
+            {props.labelText}
+          </label>
           <textarea
             name={props.name}
+            id={`${props.name}`}
             value={props.value}
             onChange={props.onChange}
-            className="postDataInput"
+            className="form-control"
           />
         </div>
       );
     case "manufacturer":
       return (
-        <div className="formGroup">
-          <label className="inputLabel">{props.labelText}</label>
+        <div className="form-group">
+          <label htmlFor={`${props.name}`} className="inputLabel">
+            {props.labelText}
+          </label>
           <select
             name={props.name}
+            id={`${props.name}`}
             value={props.value}
             onChange={props.onChange}
-            className="postDataInput"
+            required
+            className="form-control"
           >
             {props.data.map(option => {
               return (
-                <option key={props.data.indexOf(option)} value={option.name}>
+                <option key={props.data.indexOf(option)} value={option._id}>
                   {option.name.toUpperCase()}
                 </option>
               );
@@ -36,17 +43,20 @@ const FormGroup = props => {
       );
     case "category":
       return (
-        <div className="formGroup">
-          <label className="inputLabel">{props.labelText}</label>
+        <div className="form-group">
+          <label htmlFor={`${props.name}`} className="inputLabel">
+            {props.labelText}
+          </label>
           <select
             name={props.name}
+            id={`${props.name}`}
             value={props.value}
             onChange={props.onChange}
-            className="postDataInput"
+            className="form-control"
           >
             {props.data.map(option => {
               return (
-                <option key={props.data.indexOf(option)} value={option.name}>
+                <option key={props.data.indexOf(option)} value={option._id}>
                   {option.name.toUpperCase()}
                 </option>
               );
@@ -56,10 +66,13 @@ const FormGroup = props => {
       );
     case "image":
       return (
-        <div className="formGroup">
-          <label className="inputLabel">{props.labelText}</label>
+        <div className="form-group">
+          <label htmlFor={`${props.name}`} className="inputLabel">
+            {props.labelText}
+          </label>
           <input
             type={props.type}
+            id={`${props.name}`}
             name={props.name}
             value={props.value}
             onChange={props.onChange}
@@ -68,14 +81,17 @@ const FormGroup = props => {
       );
     default:
       return (
-        <div className="formGroup">
-          <label className="inputLabel">{props.labelText}</label>
+        <div className="form-group">
+          <label htmlFor={`${props.name}`} className="inputLabel">
+            {props.labelText}
+          </label>
           <input
             type={props.type}
+            id={`${props.name}`}
             name={props.name}
             value={props.value}
             onChange={props.onChange}
-            className="postDataInput formInput"
+            className="form-control"
             placeholder={props.placeholder}
           />
         </div>

@@ -1,14 +1,9 @@
 @import url("../../../css_utilities/common.css");
 
-.menuListContainer {
-  margin: 20px;
-  width: 50vw;
-  height: 100vh;
-  grid-template-columns: 1fr;
-  grid-template-rows: 0.1fr 0.3fr 2fr;
-  grid-row-gap: 10px;
+.menu-list-container {
+  padding-top: 20px;
 }
-.menuItemFormWrapper {
+.menu-item-form-wrapper {
   display: flex;
   justify-content: space-between;
 }

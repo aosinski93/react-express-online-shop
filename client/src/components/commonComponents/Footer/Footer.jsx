@@ -4,7 +4,7 @@ import "./footer.css";
 
 const Footer = () => {
   return (
-    <div className="footerBar flex h-align v-align">
+    <div className="d-flex align-items-center justify-content-center">
       <p>Created by Adam Osiński, {new Date().getFullYear()}&copy;</p>
     </div>
   );

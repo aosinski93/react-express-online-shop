@@ -5,7 +5,11 @@ import {
   ADD_PRODUCT,
   ADD_MANUFACTURER,
   ADD_MENU_ITEM,
-  ADD_MENU_SUBCATEGORY
+  ADD_MENU_SUBCATEGORY,
+  DELETE_MANUFACTURER,
+  DELETE_PRODUCT,
+  DELETE_MENU_ITEM,
+  DELETE_MENU_SUBCATEGORY
 } from "./types";
 
 export const fetchPanelMenu = () => dispatch => {
@@ -81,8 +85,6 @@ export const addProduct = product => dispatch => {
 };
 
 export const addManufacturer = manufacturer => dispatch => {
-  console.log(manufacturer);
-
   let url = "/manufacturer";
   fetch(url, {
     method: "POST",
@@ -140,9 +142,83 @@ export const addSubcategory = (subcategory, parentId) => dispatch => {
   })
     .then(res => res.json())
     .then(subcategory => {
+      console.log(subcategory);
+
       dispatch({
         type: ADD_MENU_SUBCATEGORY,
         payload: subcategory
+      });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
+
+export const deleteManufacturer = id => dispatch => {
+  let url = `/manufacturer/${id}`;
+
+  fetch(url, {
+    method: "DELETE"
+  })
+    .then(res => res.json())
+    .then(deletedManufacturer => {
+      dispatch({
+        type: DELETE_MANUFACTURER,
+        payload: deletedManufacturer
+      });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
+
+export const deleteProduct = id => dispatch => {
+  let url = `/product/${id}`;
+
+  fetch(url, {
+    method: "DELETE"
+  })
+    .then(res => res.json())
+    .then(deletedProduct => {
+      dispatch({
+        type: DELETE_PRODUCT,
+        payload: deletedProduct
+      });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
+
+export const deleteMenuItem = id => dispatch => {
+  let url = `/menu/${id}`;
+
+  fetch(url, {
+    method: "DELETE"
+  })
+    .then(res => res.json())
+    .then(deletedMenuItem => {
+      dispatch({
+        type: DELETE_MENU_ITEM,
+        payload: deletedMenuItem
+      });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
+
+export const deleteMenuSubcategory = (id, name) => dispatch => {
+  let url = `/menu/${id}/${name}`;
+
+  fetch(url, {
+    method: "DELETE"
+  })
+    .then(res => res.json())
+    .then(deletedMenuSubcategory => {
+      dispatch({
+        type: DELETE_MENU_SUBCATEGORY,
+        payload: deletedMenuSubcategory
       });
     })
     .catch(err => {

@@ -2,16 +2,14 @@
 
 .subMenuHeader {
 }
-.subcategories {
-  margin: 0 30px;
+.sub-menu-container {
+  margin: 20px 0;
 }
 .subcategory {
-  max-width: 70%;
+  max-width: 95%;
   justify-content: space-between;
-  border-bottom: 1px solid lightgrey;
-  height: 30px;
-  margin: 10px 0 5px 0;
+  margin: 5px 0;
 }
-.subcategory .postDataSubmit {
+.subcategory .post-data-submit {
   float: right;
 }

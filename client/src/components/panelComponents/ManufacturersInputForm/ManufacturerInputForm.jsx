@@ -28,11 +28,16 @@ class ManufacturerInputForm extends Component {
       name: this.state.name,
       products: []
     });
+
+    this.setState({
+      name: "",
+      products: []
+    });
   };
 
   render() {
     return (
-      <div className="manufacturerInputForm col-lg-5">
+      <div className="manufacturerInputForm col-lg-3">
         <p>Add manufacturer</p>
         <form onSubmit={this.onSubmit}>
           <FormGroup
@@ -46,7 +51,7 @@ class ManufacturerInputForm extends Component {
           <input
             type="submit"
             value="Confirm"
-            className="formButton postDataButton"
+            className="form-control btn-success"
             title="Submit form"
           />
         </form>

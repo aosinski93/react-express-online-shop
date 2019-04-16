@@ -1,25 +1,11 @@
-.adminPanel {
-  height: 100%;
-}
 .header {
   padding: 0 40px;
 }
-.headerText {
+.header-text {
   color: #fff;
 }
-
-.panelContent {
-  display: flex;
+.panel-nav {
+  padding-top: 50px;
 }
-.panelNav {
-  padding: 50px 0;
-  border-right: 1px solid teal;
-}
-.panelNavItem a {
-  height: 50px;
-  width: 250px;
-  margin: 15px;
-  box-shadow: 1px 1px 2px 1px lightgray;
-  text-decoration: none;
-  font-weight: 700;
+.nav-link {
 }

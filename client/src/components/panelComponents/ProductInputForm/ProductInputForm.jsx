@@ -38,12 +38,12 @@ class ProductInputForm extends Component {
   onSubmit = e => {
     e.preventDefault();
 
-    let product = {
-      image: this.state.image,
+    this.props.addProduct({
+      image: this.state.image || this.props.manufacturers[0],
       name: this.state.name,
       description: this.state.description,
       manufacturer: this.state.manufacturer,
-      category: this.state.category,
+      category: this.state.category || this.props.categories[0],
       size: this.state.size,
       resolution: this.state.resolution,
       battery: this.state.battery,
@@ -54,14 +54,12 @@ class ProductInputForm extends Component {
       ram: this.state.ram,
       cpu: this.state.cpu,
       operating_system: this.state.operating_system
-    };
-
-    console.log(product);
+    });
   };
 
   render() {
     return (
-      <div className="productInputForm col-lg-5">
+      <div className="productInputForm col-lg-2">
         <p>Add product</p>
 
         <form onSubmit={this.onSubmit}>
@@ -192,7 +190,7 @@ class ProductInputForm extends Component {
           <input
             type="submit"
             value="Confirm"
-            className="formButton postDataButton"
+            className="btn btn-success"
             title="Submit form"
           />
         </form>

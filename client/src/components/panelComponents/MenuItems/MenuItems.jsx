@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchPanelMenu, addCategory } from "../../../actions/panelActions";
 import SubMenu from "../SubMenu/SubMenu.jsx";
+import FormGroup from "../../commonComponents/FormGroup/FormGroup";
 import "./menuitems.css";
 
 class MenuItems extends Component {
@@ -37,31 +38,31 @@ class MenuItems extends Component {
 
   render() {
     return (
-      <div className="menuListContainer gridContainer">
-        <div className="menuItemFormWrapper">
-          <p className="panelPageTitle">Add new menu item</p>
+      <div className="menu-list-container container">
+        <div className="menu-item-form-wrapper col-lg-6">
           <form
             id="new-menu-form"
-            className="menuForm"
+            className="menu-form d-flex align-items-center"
             onSubmit={this.onSubmit}
           >
-            <input
+            <FormGroup
               type="text"
               name="menuItemName"
               value={this.state.menuItemName}
               onChange={this.onChange}
-              className="postDataInput"
+              className="post-datainput form-control"
               placeholder="Add new category"
+              labelText="Add new menu item"
             />
             <input
               type="submit"
               value="+"
-              className="dataSubmit postDataButton"
+              className="datasubmit post-databutton btn btn-success mt-2 ml-2"
               title="Add top-level category"
             />
           </form>
         </div>
-        <ul className="categories">
+        <ul className="categories list-group">
           {this.props.menu &&
             this.props.menu.map(item => {
               return <SubMenu key={item._id} item={item} />;
