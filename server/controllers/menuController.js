@@ -101,19 +101,7 @@ exports.menu_deleteSubcategory = (req, res) => {
   Subcategory.deleteSubcategory(req.params.subcategoryId, (err, subcategory) => {
     if(err) {
       throw err;
-    }
-    console.log(subcategory);
-    
+    }   
     res.send(subcategory);
   })
-
-  // Menu.getMenuItem(req.params.id, (err, menuItem) => {
-  //   if (err) {
-  //     throw err;
-  //   }
-  //   let menuItemToFilter = {
-  //     menuItem
-  //   };
-  //   console.log(req.params/subca);
-  // });
 };

@@ -23,7 +23,6 @@ class SubMenu extends Component {
           return nextProps.item.subcategories.unshift(nextProps.addedSubcategory);
         }
         else return nextProps.item.subcategories
-      
     }
   };
 
@@ -70,7 +69,7 @@ class SubMenu extends Component {
       <li className="sub-menu-container col-lg-8">
         <div className="sub-menu-header row flex v-align">
           <div className="col-lg-2">
-            <p className="category-name">{this.props.item.name}</p>
+            <p>{this.props.item.name}</p>
           </div>
           <div className="col-lg-10">
             <form
@@ -144,7 +143,8 @@ class SubMenu extends Component {
 }
 
 const mapStateToProps = state => ({
-  addedSubcategory: state.panel.addedSubcategory
+  addedSubcategory: state.panel.addedSubcategory,
+  menu: state.panel.menu
 });
 
 export default connect(

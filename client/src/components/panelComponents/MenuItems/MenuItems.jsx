@@ -57,7 +57,7 @@ class MenuItems extends Component {
             <input
               type="submit"
               value="+"
-              className="datasubmit post-databutton btn btn-success mt-2 ml-2"
+              className="data-submit post-data-button btn btn-success mt-2 ml-2"
               title="Add top-level category"
             />
           </form>

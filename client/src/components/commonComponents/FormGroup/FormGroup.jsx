@@ -5,7 +5,7 @@ const FormGroup = props => {
     case "description":
       return (
         <div className="form-group">
-          <label htmlFor={`${props.name}`} className="inputLabel">
+          <label htmlFor={`${props.name}`} className="input-label">
             {props.labelText}
           </label>
           <textarea
@@ -20,7 +20,7 @@ const FormGroup = props => {
     case "manufacturer":
       return (
         <div className="form-group">
-          <label htmlFor={`${props.name}`} className="inputLabel">
+          <label htmlFor={`${props.name}`} className="input-label">
             {props.labelText}
           </label>
           <select
@@ -44,7 +44,7 @@ const FormGroup = props => {
     case "category":
       return (
         <div className="form-group">
-          <label htmlFor={`${props.name}`} className="inputLabel">
+          <label htmlFor={`${props.name}`} className="input-label">
             {props.labelText}
           </label>
           <select
@@ -67,7 +67,7 @@ const FormGroup = props => {
     case "image":
       return (
         <div className="form-group">
-          <label htmlFor={`${props.name}`} className="inputLabel">
+          <label htmlFor={`${props.name}`} className="input-label">
             {props.labelText}
           </label>
           <input
@@ -82,9 +82,10 @@ const FormGroup = props => {
     default:
       return (
         <div className="form-group">
-          <label htmlFor={`${props.name}`} className="inputLabel">
-            {props.labelText}
-          </label>
+          {props.labelText && 
+          <label htmlFor={`${props.name}`} className="input-label">
+          {props.labelText}
+        </label>}
           <input
             type={props.type}
             id={`${props.name}`}

@@ -196,6 +196,7 @@ export const deleteMenuItem = id => dispatch => {
   })
     .then(res => res.json())
     .then(deletedMenuItem => {
+      
       dispatch({
         type: DELETE_MENU_ITEM,
         payload: deletedMenuItem
@@ -213,10 +214,10 @@ export const deleteMenuSubcategory = (id, subcategoryId) => dispatch => {
     method: "DELETE"
   })
     .then(res => res.json())
-    .then(deletedMenuSubcategory => {
+    .then(deletedSubcategory => {
       dispatch({
         type: DELETE_MENU_SUBCATEGORY,
-        payload: deletedMenuSubcategory
+        payload: deletedSubcategory
       });
     })
     .catch(err => {

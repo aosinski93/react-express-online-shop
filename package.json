@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "concurrently \"npm run front\"  \"npm run back\" ",
-    "front": "cd client && npm start",
-    "back": "cd server && npm start"
+    "front": "npm start --prefix client",
+    "back": "npm start --prefix server"
   },
   "repository": {
     "type": "git",
