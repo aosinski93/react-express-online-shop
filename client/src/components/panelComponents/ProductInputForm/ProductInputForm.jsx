@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import FormGroup from "../FormGroup/FormGroup";
+import FormGroup from "../../commonComponents/FormGroup/FormGroup";
 import { connect } from "react-redux";
 import { addProduct } from "../../../actions/panelActions";
 

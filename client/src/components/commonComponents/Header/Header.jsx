@@ -6,19 +6,19 @@ const Header = () => {
   return (
     <div className="header">
       <nav className="navigation">
-        <ul className="navigationList">
-          <li className="navItem">
-            <Link className="navLink" to="/">
+        <ul className="navigation-list">
+          <li className="nav-item">
+            <Link className="nav-link" to="/">
               Home
             </Link>
           </li>
           <li className="navItem">
-            <Link className="navLink" to="/store">
+            <Link className="nav-link" to="/store">
               Store
             </Link>
           </li>
           <li className="navItem">
-            <Link className="navLink" to="/contact">
+            <Link className="nav-link" to="/contact">
               Contact
             </Link>
           </li>

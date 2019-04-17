@@ -1,22 +1,22 @@
 .header {
   height: 50px;
-  background-color: teal;
+  background-color: #0099DD;
   display: flex;
   align-items: center;
 }
 .navigation {
   margin-left: 10%;
 }
-.navigationList {
+.navigation-list {
   display: flex;
   margin: 0;
   padding: 0;
   list-style-type: none;
 }
-.navItem {
+.nav-item {
   margin: 0 10%;
 }
-.navLink {
+.nav-link {
   color: #fff;
   text-transform: uppercase;
   text-decoration: none;

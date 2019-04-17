@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addManufacturer } from "../../../actions/panelActions";
-import FormGroup from "../FormGroup/FormGroup";
+import FormGroup from '../../commonComponents/FormGroup/FormGroup';
 
 class ManufacturerInputForm extends Component {
   constructor() {

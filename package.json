@@ -6,8 +6,7 @@
   "scripts": {
     "start": "concurrently \"npm run front\"  \"npm run back\" ",
     "front": "cd client && npm start",
-    "back": "cd server && npm start",
-    "preinstall": "cd $(pwd)"
+    "back": "cd server && npm start"
   },
   "repository": {
     "type": "git",

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./components/frontComponents/Home/Home.jsx";
 import NotFound from "./components/commonComponents/NotFound/NotFound.jsx";
@@ -7,6 +7,7 @@ import LoginForm from "./components/panelComponents/LoginForm/LoginForm.jsx";
 import "./App.css";
 import AdminPanel from "./components/panelComponents/AdminPanel/AdminPanel.jsx";
 import Store from "./components/frontComponents/Store/Store.jsx";
+import Footer from "./components/commonComponents/Footer/Footer.jsx";
 
 class App extends Component {
   state = {
@@ -21,6 +22,7 @@ class App extends Component {
   render() {
     return (
       <Router>
+        <Fragment>
         <div className="app flex col-direction">
           <Switch>
             <Route exact path="/" component={Home} />
@@ -38,6 +40,8 @@ class App extends Component {
             <Route component={NotFound} />
           </Switch>
         </div>
+        <Footer />
+        </Fragment>
       </Router>
     );
   }

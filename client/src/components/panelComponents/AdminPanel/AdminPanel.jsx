@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import PanelProducts from "../PanelProducts/PanelProducts";
 import "./adminpanel.css";
 import "../../../css_utilities/common.css";
-import Footer from "../../commonComponents/Footer/Footer";
 import MenuItems from "../MenuItems/MenuItems";
 import {
   fetchPanelMenu,
@@ -80,7 +79,6 @@ class AdminPanel extends Component {
             />
           </div>
         </main>
-        <Footer />
       </div>
     );
   }
