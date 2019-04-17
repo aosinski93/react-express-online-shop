@@ -97,13 +97,23 @@ exports.menu_addSubcategory = (req, res) => {
 };
 
 exports.menu_deleteSubcategory = (req, res) => {
-  Menu.getMenuItem(req.params.id, (err, menuItem) => {
-    if (err) {
+  
+  Subcategory.deleteSubcategory(req.params.subcategoryId, (err, subcategory) => {
+    if(err) {
       throw err;
     }
-    let menuItemToFilter = {
-      menuItem
-    };
-    console.log(menuItemToFilter);
-  });
+    console.log(subcategory);
+    
+    res.send(subcategory);
+  })
+
+  // Menu.getMenuItem(req.params.id, (err, menuItem) => {
+  //   if (err) {
+  //     throw err;
+  //   }
+  //   let menuItemToFilter = {
+  //     menuItem
+  //   };
+  //   console.log(req.params/subca);
+  // });
 };

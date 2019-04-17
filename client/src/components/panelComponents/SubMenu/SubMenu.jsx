@@ -17,17 +17,19 @@ class SubMenu extends Component {
   }
 
   componentWillReceiveProps = nextProps => {
+    
     if (nextProps.addedSubcategory) {
-      if (nextProps.item_id === nextProps.addedSubcategory.parentId) {
-        nextProps.item.subcategories.unshift(nextProps.addedSubcategory);
-      }
+        if(nextProps.item._id === nextProps.addedSubcategory.parentId) {
+          return nextProps.item.subcategories.unshift(nextProps.addedSubcategory);
+        }
+        else return nextProps.item.subcategories
+      
     }
   };
 
   onChange = e => {
     let value = e.target.value;
     let name = e.target.name;
-
     this.setState({
       [name]: value
     });
@@ -57,11 +59,9 @@ class SubMenu extends Component {
   };
   onDeleteSubcategory = e => {
     e.preventDefault();
-    console.log(e.target.dataset.parent, e.target.dataset.name);
-
     this.props.deleteMenuSubcategory(
       e.target.dataset.parent,
-      e.target.dataset.name
+      e.target.dataset.id
     );
   };
 
@@ -116,7 +116,7 @@ class SubMenu extends Component {
           {this.props.item.subcategories &&
             this.props.item.subcategories.map(subcategoryItem => (
               <li
-                key={this.props.item.subcategories.indexOf(subcategoryItem)}
+                key={subcategoryItem._id}
                 className="subcategory flex v-align list-group-item d-flex align-item-center"
               >
                 <div className="col-lg-10 d-flex align-item-center">
@@ -128,7 +128,7 @@ class SubMenu extends Component {
                   <button
                     className="data-submit delete-data-button btn btn-danger"
                     onClick={this.onDeleteSubcategory}
-                    data-name={subcategoryItem.name}
+                    data-id={subcategoryItem._id}
                     data-parent={subcategoryItem.parentId}
                     title="Delete subcategory"
                   >

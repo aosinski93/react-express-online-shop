@@ -57,8 +57,10 @@ export default (state = initialState, action) => {
     case ADD_MENU_SUBCATEGORY:
       return {
         ...state,
-        addedSubcategory: action.payload
+        addedSubcategory:  action.payload
       };
+
+
     case DELETE_PRODUCT:
       let productsUpdate = Object.assign([], state.products);
       productsUpdate = productsUpdate.filter(
@@ -87,6 +89,8 @@ export default (state = initialState, action) => {
         menu: menuItemsUpdate
       };
     case DELETE_MENU_SUBCATEGORY:
+    console.log(action.payload);
+    
       return {
         ...state
       };

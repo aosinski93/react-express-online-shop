@@ -142,8 +142,6 @@ export const addSubcategory = (subcategory, parentId) => dispatch => {
   })
     .then(res => res.json())
     .then(subcategory => {
-      console.log(subcategory);
-
       dispatch({
         type: ADD_MENU_SUBCATEGORY,
         payload: subcategory
@@ -208,8 +206,8 @@ export const deleteMenuItem = id => dispatch => {
     });
 };
 
-export const deleteMenuSubcategory = (id, name) => dispatch => {
-  let url = `/menu/${id}/${name}`;
+export const deleteMenuSubcategory = (id, subcategoryId) => dispatch => {
+  let url = `/menu/${id}/${subcategoryId}`;
 
   fetch(url, {
     method: "DELETE"
