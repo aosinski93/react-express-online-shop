@@ -9,8 +9,10 @@ import {
   DELETE_MANUFACTURER,
   DELETE_PRODUCT,
   DELETE_MENU_ITEM,
-  DELETE_MENU_SUBCATEGORY
+  DELETE_MENU_SUBCATEGORY,
+  NOTIFY_SUCCESS
 } from "./types";
+import { notifySuccess } from "./notificationsActions";
 
 export const fetchPanelMenu = () => dispatch => {
   let url = "/admin";
@@ -196,7 +198,6 @@ export const deleteMenuItem = id => dispatch => {
   })
     .then(res => res.json())
     .then(deletedMenuItem => {
-      
       dispatch({
         type: DELETE_MENU_ITEM,
         payload: deletedMenuItem

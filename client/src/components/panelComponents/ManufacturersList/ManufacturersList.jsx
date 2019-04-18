@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { deleteManufacturer } from "../../../actions/panelActions";
+import { notifySuccess } from "../../../actions/notificationsActions";
 import DeleteButton from "../../commonComponents/DeleteButton/DeleteButton";
 // import Loader from "../../commonComponents/Loader/Loader";
 
@@ -23,6 +24,7 @@ class ManufacturersList extends Component {
   handleDelete = e => {
     e.preventDefault();
     this.props.deleteManufacturer(e.target.dataset.id);
+    // this.props.notifySuccess("success");
   };
 
   buildList = () => {
@@ -84,5 +86,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { deleteManufacturer }
+  { deleteManufacturer, notifySuccess }
 )(ManufacturersList);
