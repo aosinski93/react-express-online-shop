@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addManufacturer } from "../../../actions/panelActions";
-import FormGroup from '../../commonComponents/FormGroup/FormGroup';
+import FormGroup from "../../commonComponents/FormGroup/FormGroup";
+import SubmitButton from "../../commonComponents/SubmitButton/SubmitButton";
 
 class ManufacturerInputForm extends Component {
   constructor() {
@@ -47,8 +48,7 @@ class ManufacturerInputForm extends Component {
             onChange={this.onChange}
             labelText="Name"
           />
-
-          <input
+          <SubmitButton
             type="submit"
             value="Confirm"
             className="form-control btn-success"

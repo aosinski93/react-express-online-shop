@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { deleteManufacturer } from "../../../actions/panelActions";
+import DeleteButton from "../../commonComponents/DeleteButton/DeleteButton";
 // import Loader from "../../commonComponents/Loader/Loader";
 
 class ManufacturersList extends Component {
@@ -27,10 +28,14 @@ class ManufacturersList extends Component {
   buildList = () => {
     if (this.props.data !== []) {
       return (
-        <ul className="list-group">
+        <ul className="list-group mt-4">
           {this.props.data.map(item => {
             return (
-              <li key={item._id} id={item._id} className="list-group-item">
+              <li
+                key={item._id}
+                id={item._id}
+                className="list-group-item box-shadow"
+              >
                 <Link to={`products/${item.name}`} className="row">
                   <div className="col">
                     <p>{item.name}</p>
@@ -39,14 +44,12 @@ class ManufacturersList extends Component {
                     <p>{item.products.lenght}</p>
                   </div>
                   <div className="col">
-                    <button
+                    <DeleteButton
                       type="submit"
                       className="btn btn-danger"
                       onClick={this.handleDelete}
-                      data-id={item._id}
-                    >
-                      &times;
-                    </button>
+                      dataId={item._id}
+                    />
                   </div>
                 </Link>
               </li>

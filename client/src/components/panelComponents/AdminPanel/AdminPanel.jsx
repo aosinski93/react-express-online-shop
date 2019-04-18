@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Route, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PanelProducts from "../PanelProducts/PanelProducts";
@@ -11,6 +11,7 @@ import {
   fetchPanelProducts
 } from "../../../actions/panelActions";
 import Manufacturers from "../Manufacturers/Manufacturers";
+import Notification from "../../commonComponents/Notification/Notification";
 
 class AdminPanel extends Component {
   componentWillMount = () => {
@@ -27,14 +28,14 @@ class AdminPanel extends Component {
         </div>
         <main className="panelContent row">
           <nav className="nav panel-nav col-lg-2 justify-content-center">
-            <ul className="list-group list-group-flush">
+            <ul className="list-group">
               <li className="panel-nav-item list-group-item">
                 <Link
                   to={`${this.props.match.url}/products`}
                   className="row justify-content-between"
                 >
                   <div className="col-lg-10">Products</div>
-                  <div className="col-lg-2 badge badge-secondary badge-pill">
+                  <div className="col-lg-2 badge badge-primary pt-1 badge-pill">
                     {this.props.products.length}
                   </div>
                 </Link>
@@ -45,7 +46,7 @@ class AdminPanel extends Component {
                   className="row justify-content-between"
                 >
                   <div className="col-lg-10">Menu</div>
-                  <div className="col-lg-2 badge badge-secondary badge-pill">
+                  <div className="col-lg-2 badge badge-primary pt-1 badge-pill">
                     {this.props.menu.length}
                   </div>
                 </Link>
@@ -56,7 +57,7 @@ class AdminPanel extends Component {
                   className="row justify-content-between"
                 >
                   <div className="col-lg-10">Manufacturers</div>
-                  <div className="col-lg-2 badge badge-secondary badge-pill">
+                  <div className="col-lg-2 badge badge-primary pt-1 badge-pill">
                     {this.props.manufacturers.length}
                   </div>
                 </Link>
@@ -65,6 +66,9 @@ class AdminPanel extends Component {
           </nav>
 
           <div className="panel-view col-lg-10">
+            <Fragment>
+              <Notification message={"new message"} />
+            </Fragment>
             <Route
               path={`${this.props.match.path}/products`}
               component={PanelProducts}

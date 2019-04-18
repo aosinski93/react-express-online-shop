@@ -4,6 +4,7 @@ import { fetchPanelMenu, addCategory } from "../../../actions/panelActions";
 import SubMenu from "../SubMenu/SubMenu.jsx";
 import FormGroup from "../../commonComponents/FormGroup/FormGroup";
 import "./menuitems.css";
+import SubmitButton from "../../commonComponents/SubmitButton/SubmitButton";
 
 class MenuItems extends Component {
   constructor() {
@@ -54,7 +55,7 @@ class MenuItems extends Component {
               placeholder="Add new category"
               labelText="Add new menu item"
             />
-            <input
+            <SubmitButton
               type="submit"
               value="+"
               className="data-submit post-data-button btn btn-success mt-2 ml-2"

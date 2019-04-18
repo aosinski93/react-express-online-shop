@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import FormGroup from "../../commonComponents/FormGroup/FormGroup";
+import SubmitButton from "../../commonComponents/SubmitButton/SubmitButton";
 import { connect } from "react-redux";
 import { addProduct } from "../../../actions/panelActions";
 
@@ -59,7 +60,7 @@ class ProductInputForm extends Component {
 
   render() {
     return (
-      <div className="productInputForm col-lg-2">
+      <div className="productInputForm col-lg-2 mt-1 mb-1">
         <p>Add product</p>
 
         <form onSubmit={this.onSubmit}>
@@ -187,7 +188,7 @@ class ProductInputForm extends Component {
             onChange={this.onChange}
           />
 
-          <input
+          <SubmitButton
             type="submit"
             value="Confirm"
             className="btn btn-success"

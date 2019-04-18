@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import Loader from "../../commonComponents/Loader/Loader";
 import "./productlist.css";
 import { deleteProduct } from "../../../actions/panelActions";
+import DeleteButton from "../../commonComponents/DeleteButton/DeleteButton";
 
 class ProductList extends Component {
   constructor() {
@@ -54,14 +55,12 @@ class ProductList extends Component {
                       </Link>
                     </div>
                     <div className="col-lg-2">
-                      <button
+                      <DeleteButton
                         className="btn btn-danger"
-                        onClick={e => this.onDelete(e)}
+                        onClick={this.onDelete}
                         title="Delete submenu"
-                        data-id={item._id}
-                      >
-                        &times;
-                      </button>
+                        dataId={item._id}
+                      />
                     </div>
                   </div>
                 </li>

@@ -7,6 +7,9 @@ import {
 } from "../../../actions/panelActions";
 import "./submenu.css";
 import FormGroup from "../../commonComponents/FormGroup/FormGroup";
+import DeleteButton from "../../commonComponents/DeleteButton/DeleteButton";
+import SubmitButton from "../../commonComponents/SubmitButton/SubmitButton";
+import SubcategoryItem from "../../commonComponents/SubcategoryItem/SubcategoryItem";
 
 class SubMenu extends Component {
   constructor() {
@@ -17,12 +20,10 @@ class SubMenu extends Component {
   }
 
   componentWillReceiveProps = nextProps => {
-    
     if (nextProps.addedSubcategory) {
-        if(nextProps.item._id === nextProps.addedSubcategory.parentId) {
-          return nextProps.item.subcategories.unshift(nextProps.addedSubcategory);
-        }
-        else return nextProps.item.subcategories
+      if (nextProps.item._id === nextProps.addedSubcategory.parentId) {
+        return nextProps.item.subcategories.unshift(nextProps.addedSubcategory);
+      } else return nextProps.item.subcategories;
     }
   };
 
@@ -90,20 +91,18 @@ class SubMenu extends Component {
                 />
               </div>
               <div className="col-lg-3 offset-lg-1">
-                <input
+                <SubmitButton
+                  className="data-submit post-data-button btn btn-success"
                   type="submit"
                   value="+"
-                  className="data-submit post-data-button btn btn-success"
-                  title="Add subcategory"
+                  title="Add next subcategory"
                 />
-                <button
+                <DeleteButton
                   className="data-submit delete-data-button btn btn-danger"
                   onClick={this.onDeleteMenu}
-                  data-id={this.props.item._id}
+                  dataId={this.props.item._id}
                   title="Delete submenu"
-                >
-                  &times;
-                </button>
+                />
               </div>
             </form>
           </div>
@@ -114,27 +113,11 @@ class SubMenu extends Component {
         >
           {this.props.item.subcategories &&
             this.props.item.subcategories.map(subcategoryItem => (
-              <li
-                key={subcategoryItem._id}
+              <SubcategoryItem
                 className="subcategory flex v-align list-group-item d-flex align-item-center"
-              >
-                <div className="col-lg-10 d-flex align-item-center">
-                  <p className="subcategory-name col-lg-10">
-                    {subcategoryItem.name}
-                  </p>
-                </div>
-                <div className="col-lg-2 d-flex align-item-center">
-                  <button
-                    className="data-submit delete-data-button btn btn-danger"
-                    onClick={this.onDeleteSubcategory}
-                    data-id={subcategoryItem._id}
-                    data-parent={subcategoryItem.parentId}
-                    title="Delete subcategory"
-                  >
-                    &times;
-                  </button>
-                </div>
-              </li>
+                subcategoryItem={subcategoryItem}
+                onDeleteSubcategory={this.onDeleteSubcategory}
+              />
             ))}
         </ul>
       </li>
