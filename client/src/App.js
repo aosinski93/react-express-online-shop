@@ -8,7 +8,6 @@ import "./App.css";
 import AdminPanel from "./components/panelComponents/AdminPanel/AdminPanel.jsx";
 import Store from "./components/frontComponents/Store/Store.jsx";
 import Footer from "./components/commonComponents/Footer/Footer.jsx";
-import Notification from "./components/commonComponents/Notification/Notification.jsx";
 
 class App extends Component {
   state = {
@@ -25,7 +24,6 @@ class App extends Component {
       <Router>
         <Fragment>
           <div className="app flex col-direction">
-            <Notification />
             <Switch>
               <Route exact path="/" component={Home} />
               <Route

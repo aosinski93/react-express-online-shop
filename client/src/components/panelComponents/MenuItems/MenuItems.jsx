@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchPanelMenu, addCategory } from "../../../actions/panelActions";
+import {
+  notifyError,
+  notifySuccess
+} from "../../../actions/notificationsActions";
 import SubMenu from "../SubMenu/SubMenu.jsx";
 import FormGroup from "../../commonComponents/FormGroup/FormGroup";
 import "./menuitems.css";
@@ -25,16 +29,28 @@ class MenuItems extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    if (e.target.id === "new-menu-form") {
-      this.props.addCategory({
-        name: this.state.menuItemName,
-        children: []
-      });
+
+    if (this.state.menuItemName === "") {
+      return this.props.notifyError(`Category name can't be empty!`);
     }
 
-    this.setState({
-      menuItemName: ""
-    });
+    try {
+      if (e.target.id === "new-menu-form") {
+        this.props.addCategory({
+          name: this.state.menuItemName,
+          children: []
+        });
+      }
+
+      this.setState({
+        menuItemName: ""
+      });
+    } catch (err) {
+      console.error(err);
+      this.props.notifyError("Something went wrong");
+    } finally {
+      this.props.notifySuccess("Successfuly added new category");
+    }
   };
 
   render() {
@@ -80,5 +96,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { fetchPanelMenu, addCategory }
+  { fetchPanelMenu, addCategory, notifySuccess, notifyError }
 )(MenuItems);

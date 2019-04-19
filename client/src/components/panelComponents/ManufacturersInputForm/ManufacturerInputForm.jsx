@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addManufacturer } from "../../../actions/panelActions";
+import {
+  notifySuccess,
+  notifyError
+} from "../../../actions/notificationsActions";
 import FormGroup from "../../commonComponents/FormGroup/FormGroup";
 import SubmitButton from "../../commonComponents/SubmitButton/SubmitButton";
 
@@ -22,18 +26,28 @@ class ManufacturerInputForm extends Component {
       [name]: value
     });
   };
-  onSubmit = e => {
+  onSubmit = async e => {
     e.preventDefault();
 
-    this.props.addManufacturer({
-      name: this.state.name,
-      products: []
-    });
+    if (this.state.name === "") {
+      return this.props.notifyError("Name can't be empty!");
+    }
 
-    this.setState({
-      name: "",
-      products: []
-    });
+    try {
+      await this.props.addManufacturer({
+        name: this.state.name,
+        products: []
+      });
+    } catch (err) {
+      console.error(err);
+      this.props.notifyError("Something went wrong");
+    } finally {
+      this.props.notifySuccess(`Successfully added ${this.state.name}`);
+      this.setState({
+        name: "",
+        products: []
+      });
+    }
   };
 
   render() {
@@ -62,5 +76,5 @@ class ManufacturerInputForm extends Component {
 
 export default connect(
   null,
-  { addManufacturer }
+  { addManufacturer, notifySuccess, notifyError }
 )(ManufacturerInputForm);

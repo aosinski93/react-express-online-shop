@@ -9,10 +9,8 @@ import {
   DELETE_MANUFACTURER,
   DELETE_PRODUCT,
   DELETE_MENU_ITEM,
-  DELETE_MENU_SUBCATEGORY,
-  NOTIFY_SUCCESS
+  DELETE_MENU_SUBCATEGORY
 } from "./types";
-import { notifySuccess } from "./notificationsActions";
 
 export const fetchPanelMenu = () => dispatch => {
   let url = "/admin";

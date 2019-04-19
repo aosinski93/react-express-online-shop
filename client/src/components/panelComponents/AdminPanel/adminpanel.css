@@ -9,3 +9,18 @@
 }
 .nav-link {
 }
+.notification-box {
+  position: absolute;
+  bottom: 10vh;
+  left: 5vw;
+  animation: slideLeft 0.4s ease-in;
+}
+
+@keyframes slideLeft {
+  from {
+    left: -5vw;
+  }
+  to {
+    left: 5vw;
+  }
+}

@@ -1,4 +1,8 @@
-import { NOTIFY_SUCCESS, NOTIFY_ERROR } from "../actions/types";
+import {
+  NOTIFY_SUCCESS,
+  NOTIFY_ERROR,
+  CLEAR_NOTIFICATION
+} from "../actions/types";
 
 const initialState = {
   errorMessage: "",
@@ -16,6 +20,11 @@ export default (state = initialState, action) => {
       return {
         successMessage: "",
         errorMessage: action.payload
+      };
+    case CLEAR_NOTIFICATION:
+      return {
+        successMessage: "",
+        errorMessage: ""
       };
 
     default:

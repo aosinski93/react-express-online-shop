@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { Route, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PanelProducts from "../PanelProducts/PanelProducts";
@@ -65,10 +65,11 @@ class AdminPanel extends Component {
             </ul>
           </nav>
 
+          <div className="notification-box">
+            <Notification />
+          </div>
+
           <div className="panel-view col-lg-10">
-            <Fragment>
-              <Notification message={"new message"} />
-            </Fragment>
             <Route
               path={`${this.props.match.path}/products`}
               component={PanelProducts}

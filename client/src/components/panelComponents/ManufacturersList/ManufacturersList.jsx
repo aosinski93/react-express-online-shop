@@ -2,9 +2,12 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { deleteManufacturer } from "../../../actions/panelActions";
-import { notifySuccess } from "../../../actions/notificationsActions";
+import {
+  notifySuccess,
+  notifyError
+} from "../../../actions/notificationsActions";
 import DeleteButton from "../../commonComponents/DeleteButton/DeleteButton";
-// import Loader from "../../commonComponents/Loader/Loader";
+import Loader from "../../commonComponents/Loader/Loader";
 
 class ManufacturersList extends Component {
   constructor() {
@@ -23,8 +26,14 @@ class ManufacturersList extends Component {
 
   handleDelete = e => {
     e.preventDefault();
-    this.props.deleteManufacturer(e.target.dataset.id);
-    // this.props.notifySuccess("success");
+    try {
+      this.props.deleteManufacturer(e.target.dataset.id);
+    } catch (err) {
+      console.error(err);
+      this.props.notifyError("Something went wrong");
+    } finally {
+      this.props.notifySuccess(`Successfully deleted manufacturer`);
+    }
   };
 
   buildList = () => {
@@ -67,14 +76,13 @@ class ManufacturersList extends Component {
   render() {
     return (
       <div className="manufacturers-list-wrapper col-lg-6">
-        {/* {this.state.loading ? (
+        {this.state.loading ? (
           <div>
             <Loader />
           </div>
         ) : (
           this.buildList()
-        )} */}
-        {this.buildList()}
+        )}
       </div>
     );
   }
@@ -86,5 +94,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { deleteManufacturer, notifySuccess }
+  { deleteManufacturer, notifySuccess, notifyError }
 )(ManufacturersList);
