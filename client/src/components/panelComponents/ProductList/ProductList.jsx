@@ -58,7 +58,7 @@ class ProductList extends Component {
                       <DeleteButton
                         className="btn btn-danger"
                         onClick={this.onDelete}
-                        title="Delete submenu"
+                        title={`Delete ${item.name}`}
                         dataId={item._id}
                       />
                     </div>

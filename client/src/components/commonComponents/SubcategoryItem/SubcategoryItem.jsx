@@ -15,8 +15,8 @@ const SubcategoryItem = props => {
           onClick={props.onDeleteSubcategory}
           dataId={props.subcategoryItem._id}
           dataParent={props.subcategoryItem.parentId}
-          title="Delete subcategory"
-        />
+          title={`Delete ${props.subcategoryItem.name}`} 
+          />
       </div>
     </li>
   );

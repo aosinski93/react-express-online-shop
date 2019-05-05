@@ -3,6 +3,7 @@ import FormGroup from "../../commonComponents/FormGroup/FormGroup";
 import SubmitButton from "../../commonComponents/SubmitButton/SubmitButton";
 import { connect } from "react-redux";
 import { addProduct } from "../../../actions/panelActions";
+import { notifyError } from "../../../actions/notificationsActions";
 
 class ProductInputForm extends Component {
   constructor() {
@@ -10,6 +11,7 @@ class ProductInputForm extends Component {
 
     this.state = {
       image: "",
+      imageName: "",
       name: "",
       description: "",
       manufacturer: "",
@@ -31,16 +33,23 @@ class ProductInputForm extends Component {
     let value = e.target.value;
     let name = e.target.name;
 
-    this.setState({
-      [name]: value
-    });
+    if (name === "image") {
+      this.setState({
+        image: e.target.files[0],
+        imageName: e.target.files[0].name
+      });
+    } else {
+      this.setState({
+        [name]: value
+      });
+    }
   };
 
-  onSubmit = e => {
+  onSubmit = async e => {
     e.preventDefault();
-
-    this.props.addProduct({
-      image: this.state.image || this.props.manufacturers[0],
+    const product = {
+      image: this.state.image,
+      imageName: this.state.imageName,
       name: this.state.name,
       description: this.state.description,
       manufacturer: this.state.manufacturer,
@@ -55,7 +64,19 @@ class ProductInputForm extends Component {
       ram: this.state.ram,
       cpu: this.state.cpu,
       operating_system: this.state.operating_system
-    });
+    };
+
+    let formData = new FormData();
+    for (let key in product) {
+      formData.append(key, product[key]);
+    }
+
+    try {
+      await this.props.addProduct(formData);
+    } catch (err) {
+      this.props.notifyError("Something went wrong");
+      console.error(err);
+    }
   };
 
   render() {
@@ -68,7 +89,6 @@ class ProductInputForm extends Component {
             name="image"
             type="file"
             labelText="Image"
-            value={this.state.image}
             onChange={this.onChange}
           />
 
@@ -207,5 +227,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { addProduct }
+  { addProduct, notifyError }
 )(ProductInputForm);

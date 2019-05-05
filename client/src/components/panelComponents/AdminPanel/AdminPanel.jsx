@@ -29,10 +29,10 @@ class AdminPanel extends Component {
         <main className="panelContent row">
           <nav className="nav panel-nav col-lg-2 justify-content-center">
             <ul className="list-group">
-              <li className="panel-nav-item list-group-item">
+              <li className="panel-nav-item list-group-item box-shadow">
                 <Link
                   to={`${this.props.match.url}/products`}
-                  className="row justify-content-between"
+                  className="row justify-content-between panel-nav-link"
                 >
                   <div className="col-lg-10">Products</div>
                   <div className="col-lg-2 badge badge-primary pt-1 badge-pill">
@@ -40,10 +40,10 @@ class AdminPanel extends Component {
                   </div>
                 </Link>
               </li>
-              <li className="panel-nav-item list-group-item">
+              <li className="panel-nav-item list-group-item box-shadow">
                 <Link
                   to={`${this.props.match.url}/menu`}
-                  className="row justify-content-between"
+                  className="row justify-content-between panel-nav-link"
                 >
                   <div className="col-lg-10">Menu</div>
                   <div className="col-lg-2 badge badge-primary pt-1 badge-pill">
@@ -51,10 +51,10 @@ class AdminPanel extends Component {
                   </div>
                 </Link>
               </li>
-              <li className="panel-nav-item list-group-item">
+              <li className="panel-nav-item list-group-item box-shadow">
                 <Link
                   to={`${this.props.match.url}/manufacturers`}
-                  className="row justify-content-between"
+                  className="row justify-content-between panel-nav-link"
                 >
                   <div className="col-lg-10">Manufacturers</div>
                   <div className="col-lg-2 badge badge-primary pt-1 badge-pill">
@@ -69,7 +69,7 @@ class AdminPanel extends Component {
             <Notification />
           </div>
 
-          <div className="panel-view col-lg-10">
+          <div className="panel-view col-lg-10 pt-4">
             <Route
               path={`${this.props.match.path}/products`}
               component={PanelProducts}

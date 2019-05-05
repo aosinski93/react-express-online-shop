@@ -55,6 +55,7 @@ class SubMenu extends Component {
 
   onDeleteMenu = e => {
     e.preventDefault();
+    
     this.props.deleteMenuItem(e.target.dataset.id);
   };
   onDeleteSubcategory = e => {
@@ -101,7 +102,7 @@ class SubMenu extends Component {
                   className="data-submit delete-data-button btn btn-danger"
                   onClick={this.onDeleteMenu}
                   dataId={this.props.item._id}
-                  title="Delete submenu"
+                  title={`Delete ${this.props.item.name}`}
                 />
               </div>
             </form>
@@ -114,7 +115,8 @@ class SubMenu extends Component {
           {this.props.item.subcategories &&
             this.props.item.subcategories.map(subcategoryItem => (
               <SubcategoryItem
-                className="subcategory flex v-align list-group-item d-flex align-item-center"
+                key={subcategoryItem._id}
+                className="subcategory box-shadow flex v-align list-group-item d-flex align-item-center"
                 subcategoryItem={subcategoryItem}
                 onDeleteSubcategory={this.onDeleteSubcategory}
               />

@@ -1,8 +1,18 @@
 const Product = require("../models/Product");
 const slugify = require("slugify");
 const manufacturerController = require("../controllers/manufacturerController");
+const easyFtp = require("easy-ftp");
 
 exports.product_addProduct = (req, res, next) => {
+  const ftp = new easyFtp();
+  ftp.connect({
+    host: process.env.FTP_HOST,
+    port: process.env.FTP_PORT,
+    username: process.env.FTP_USERNAME,
+    password: process.env.FTP_PASSWORD,
+    type: process.env.FTP_TYPE
+  });
+
   let {
     image,
     name,
@@ -21,6 +31,10 @@ exports.product_addProduct = (req, res, next) => {
     operating_system
   } = req.body;
 
+  console.log(req.body);
+  
+  
+
   let product = {
     image: slugify(image) || "",
     name,
@@ -38,7 +52,7 @@ exports.product_addProduct = (req, res, next) => {
     ram,
     cpu,
     operating_system
-  };
+  };  
 
   Product.addProduct(product, (err, product) => {
     if (err) {

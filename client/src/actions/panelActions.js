@@ -63,14 +63,12 @@ export const fetchPanelManufacturers = () => dispatch => {
 };
 
 export const addProduct = product => dispatch => {
+  console.log(product);
+  
   let url = "/product";
   fetch(url, {
     method: "POST",
-    headers: {
-      Accept: "application/json",
-      "content-type": "application/json"
-    },
-    body: JSON.stringify(product)
+    body: product
   })
     .then(res => res.json())
     .then(product => {

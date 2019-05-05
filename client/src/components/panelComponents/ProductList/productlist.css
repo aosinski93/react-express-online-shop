@@ -4,3 +4,6 @@
 .product-item {
   margin: 10px 20px;
 }
+.product-item:hover {
+  box-shadow: 2px 2px 4px 2px lightgrey;
+}

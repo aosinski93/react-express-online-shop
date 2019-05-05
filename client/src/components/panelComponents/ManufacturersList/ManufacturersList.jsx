@@ -7,7 +7,7 @@ import {
   notifyError
 } from "../../../actions/notificationsActions";
 import DeleteButton from "../../commonComponents/DeleteButton/DeleteButton";
-import Loader from "../../commonComponents/Loader/Loader";
+import "./manufacturerlist.css";
 
 class ManufacturersList extends Component {
   constructor() {
@@ -16,13 +16,6 @@ class ManufacturersList extends Component {
       loading: true
     };
   }
-  componentWillReceiveProps = nextProps => {
-    if (nextProps.data !== []) {
-      this.setState({
-        loading: false
-      });
-    }
-  };
 
   handleDelete = e => {
     e.preventDefault();
@@ -45,21 +38,26 @@ class ManufacturersList extends Component {
               <li
                 key={item._id}
                 id={item._id}
-                className="list-group-item box-shadow"
+                className="list-group-item box-shadow manufacturer-item"
               >
-                <Link to={`products/${item.name}`} className="row">
+                <Link
+                  to={`products/${item.name}`}
+                  className="row d-flex align-items-center"
+                  title={`Show all ${item.name}'s products`}
+                >
                   <div className="col">
-                    <p>{item.name}</p>
+                    <p className="manufacturer-name mb-0">{item.name}</p>
                   </div>
                   <div className="col">
-                    <p>{item.products.lenght}</p>
+                    <p>{item.products.length}</p>
                   </div>
-                  <div className="col">
+                  <div className="col d-flex justify-content-end">
                     <DeleteButton
                       type="submit"
                       className="btn btn-danger"
                       onClick={this.handleDelete}
                       dataId={item._id}
+                      title={`Delete ${item.name}`}
                     />
                   </div>
                 </Link>
@@ -76,13 +74,7 @@ class ManufacturersList extends Component {
   render() {
     return (
       <div className="manufacturers-list-wrapper col-lg-6">
-        {this.state.loading ? (
-          <div>
-            <Loader />
-          </div>
-        ) : (
-          this.buildList()
-        )}
+        {this.buildList()}
       </div>
     );
   }

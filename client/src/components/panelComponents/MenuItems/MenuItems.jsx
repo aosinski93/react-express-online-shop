@@ -14,7 +14,8 @@ class MenuItems extends Component {
   constructor() {
     super();
     this.state = {
-      menuItemName: ""
+      menuItemName: "",
+      loading: true
     };
   }
 
@@ -74,7 +75,7 @@ class MenuItems extends Component {
             <SubmitButton
               type="submit"
               value="+"
-              className="data-submit post-data-button btn btn-success mt-2 ml-2"
+              className="data-submit post-data-button btn btn-success mt-3 ml-2"
               title="Add top-level category"
             />
           </form>
