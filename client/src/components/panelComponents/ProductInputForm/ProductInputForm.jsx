@@ -3,7 +3,7 @@ import FormGroup from "../../commonComponents/FormGroup/FormGroup";
 import SubmitButton from "../../commonComponents/SubmitButton/SubmitButton";
 import { connect } from "react-redux";
 import { addProduct } from "../../../actions/panelActions";
-import { notifyError } from "../../../actions/notificationsActions";
+import { notifyError, notifySuccess } from "../../../actions/notificationsActions";
 
 class ProductInputForm extends Component {
   constructor() {
@@ -12,6 +12,7 @@ class ProductInputForm extends Component {
     this.state = {
       image: "",
       imageName: "",
+      imageLocalization: "",
       name: "",
       description: "",
       manufacturer: "",
@@ -34,10 +35,22 @@ class ProductInputForm extends Component {
     let name = e.target.name;
 
     if (name === "image") {
-      this.setState({
+      
+    var reader = new FileReader();
+
+    reader.onload = function(e) {      
+      document.getElementById('preview').setAttribute('src', e.target.result); 
+    }
+
+    reader.readAsDataURL(e.target.files[0]);
+
+
+    this.setState({
         image: e.target.files[0],
-        imageName: e.target.files[0].name
+        imageName: e.target.files[0].name,
       });
+
+
     } else {
       this.setState({
         [name]: value
@@ -49,7 +62,7 @@ class ProductInputForm extends Component {
     e.preventDefault();
     const product = {
       image: this.state.image,
-      imageName: this.state.imageName,
+      imageName: this.state.name,
       name: this.state.name,
       description: this.state.description,
       manufacturer: this.state.manufacturer,
@@ -66,22 +79,21 @@ class ProductInputForm extends Component {
       operating_system: this.state.operating_system
     };
 
-    let formData = new FormData();
-    for (let key in product) {
-      formData.append(key, product[key]);
-    }
-
+    
     try {
-      await this.props.addProduct(formData);
+      this.props.addProduct(product);
     } catch (err) {
       this.props.notifyError("Something went wrong");
       console.error(err);
+    }
+    finally {
+      this.props.notifySuccess('Success')
     }
   };
 
   render() {
     return (
-      <div className="productInputForm col-lg-2 mt-1 mb-1">
+      <div className="productInputForm col-lg-2 col-md-2 col-sm-2 mt-1 mb-1">
         <p>Add product</p>
 
         <form onSubmit={this.onSubmit}>
@@ -91,7 +103,7 @@ class ProductInputForm extends Component {
             labelText="Image"
             onChange={this.onChange}
           />
-
+          <img src="" alt="img" id="preview"/>
           <FormGroup
             name="name"
             type="text"
@@ -227,5 +239,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { addProduct, notifyError }
+  { addProduct, notifyError, notifySuccess }
 )(ProductInputForm);

@@ -2,8 +2,10 @@ const Product = require("../models/Product");
 const slugify = require("slugify");
 const manufacturerController = require("../controllers/manufacturerController");
 const easyFtp = require("easy-ftp");
+const fs = require('fs');
 
 exports.product_addProduct = (req, res, next) => {
+
   const ftp = new easyFtp();
   ftp.connect({
     host: process.env.FTP_HOST,
@@ -15,6 +17,7 @@ exports.product_addProduct = (req, res, next) => {
 
   let {
     image,
+    imageName,
     name,
     description,
     manufacturer,
@@ -31,12 +34,9 @@ exports.product_addProduct = (req, res, next) => {
     operating_system
   } = req.body;
 
-  console.log(req.body);
-  
-  
-
   let product = {
-    image: slugify(image) || "",
+    image: image,
+    imageName: slugify(imageName),
     name,
     slug: slugify(name),
     description,
@@ -64,6 +64,23 @@ exports.product_addProduct = (req, res, next) => {
       next,
       product
     );
+
+
+    let stream = fs.createReadStream(imageName);
+
+    console.log(stream);
+    
+
+      ftp.cd('/adam-osinski.com/sites/phone-store/images'), (err) => {  
+        if(err) {
+          throw err;
+        }      
+        ftp.upload(`../../client/resources/product_images/${product.imageName}.jpg`, product.imageName +  '.jpg', err => {
+          if(err) {
+            throw err;
+          }
+        })
+      }
 
     res.send(product);
   });

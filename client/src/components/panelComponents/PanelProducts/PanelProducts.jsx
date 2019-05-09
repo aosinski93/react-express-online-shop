@@ -19,10 +19,10 @@ class PanelProducts extends Component {
   render() {
     return (
       <div className="productsPanel row">
-        <div className="productListContainer col-lg-6">
+        <div className="productListContainer col-lg-6 col-md-6 col-sm-6">
           <ProductList data={this.props.products} />
         </div>
-        <div className="col-lg-1" />
+        <div className="col-lg-1 col-md-1 col-sm-1" />
         <ProductInputForm />
       </div>
     );

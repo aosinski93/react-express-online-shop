@@ -62,13 +62,32 @@ export const fetchPanelManufacturers = () => dispatch => {
     });
 };
 
-export const addProduct = product => dispatch => {
-  console.log(product);
+export const addProduct = product => dispatch => {  
+
+  console.log( product);
   
+
+  const data = new FormData();
+  data.append('image', product.image);
+  data.append('imageName',product.imageName);
+  data.append('name', product.name,);
+  data.append('description', product.description);
+  data.append('manufacturer', product.manufacturer);
+  data.append('category', product.category || "");
+  data.append('size', product.size);
+  data.append('resolution', product.resolution);
+  data.append('batery', product.battery);
+  data.append('camera', product.camera);
+  data.append('sim_qty', product.sim_qty);
+  data.append('price', product.price);
+  data.append('ram', product.ram);
+  data.append('cpu', product.cpu);
+  data.append('oprating_system', product.operating_system);
+
   let url = "/product";
   fetch(url, {
     method: "POST",
-    body: product
+    body: data
   })
     .then(res => res.json())
     .then(product => {
@@ -78,7 +97,7 @@ export const addProduct = product => dispatch => {
       });
     })
     .catch(err => {
-      console.log(err);
+      console.error(err);
     });
 };
 

@@ -73,7 +73,7 @@ class ManufacturersList extends Component {
 
   render() {
     return (
-      <div className="manufacturers-list-wrapper col-lg-6">
+      <div className="manufacturers-list-wrapper col-lg-6 col-md-6 col-sm-6">
         {this.buildList()}
       </div>
     );

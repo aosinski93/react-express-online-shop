@@ -3,6 +3,9 @@ const router = express.Router();
 const menuController = require("../controllers/menuController");
 const productController = require("../controllers/productController");
 const manufacturerController = require("../controllers/manufacturerController");
+const multer = require('multer');
+
+const upload = multer();
 
 router.get("/", menuController.menu_displayMenu);
 router.post("/menu", menuController.menu_addMenuItem);
@@ -11,7 +14,7 @@ router.put("/menu/:id", menuController.menu_updateMenuItem);
 router.put("/menu/:id/subcategory", menuController.menu_addSubcategory);
 router.delete("/menu/:id/:subcategoryId", menuController.menu_deleteSubcategory);
 
-router.post("/product", productController.product_addProduct);
+router.post("/product", upload.single('image'), productController.product_addProduct);
 router.get("/products", productController.product_getProducts);
 router.get("/product/:id", productController.product_getProduct);
 router.delete("/product/:id", productController.product_deleteProduct);

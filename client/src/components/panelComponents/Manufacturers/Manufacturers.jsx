@@ -9,7 +9,7 @@ class Manufacturers extends Component {
       <div className="container">
         <div className="manufacturersPanel row">
           <ManufacturersList data={this.props.manufacturers} />
-          <div className="col-lg-1" />
+          <div className="col-lg-1 col-md-1 col-sm-1" />
           <ManufacturerInputForm />
         </div>
       </div>

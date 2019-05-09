@@ -68,18 +68,18 @@ class SubMenu extends Component {
 
   render() {
     return (
-      <li className="sub-menu-container col-lg-8">
+      <li className="sub-menu-container col-lg-8 col-md-8 col-sm-8">
         <div className="sub-menu-header row flex v-align">
-          <div className="col-lg-2">
+          <div className="col-lg-2 col-md-2 col-sm-2">
             <p>{this.props.item.name}</p>
           </div>
-          <div className="col-lg-10">
+          <div className="col-lg-10 col-md-10 col-sm-10">
             <form
               className="menu-form d-flex row "
               id={this.props.item._id + "-form"}
               onSubmit={this.onSubmit}
             >
-              <div className="col-lg-7">
+              <div className="col-lg-7 col-md-7 col-sm-7">
                 <FormGroup
                   type="text"
                   name="subcategoryName"
@@ -91,7 +91,7 @@ class SubMenu extends Component {
                   } `}
                 />
               </div>
-              <div className="col-lg-3 offset-lg-1">
+              <div className="col-lg-3 offset-lg-1 col-md-3 offset-md-1 col-sm-3 offset-sm-1">
                 <SubmitButton
                   className="data-submit post-data-button btn btn-success"
                   type="submit"

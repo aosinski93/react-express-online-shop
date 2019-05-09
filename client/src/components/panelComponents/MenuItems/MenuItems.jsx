@@ -57,7 +57,7 @@ class MenuItems extends Component {
   render() {
     return (
       <div className="menu-list-container container">
-        <div className="menu-item-form-wrapper col-lg-6">
+        <div className="menu-item-form-wrapper col-lg-6 col-md-6 col-sm-6">
           <form
             id="new-menu-form"
             className="menu-form d-flex align-items-center"
