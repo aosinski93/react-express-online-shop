@@ -1,18 +1,16 @@
+require("dotenv").config();
 const Product = require("../models/Product");
 const slugify = require("slugify");
 const manufacturerController = require("../controllers/manufacturerController");
-const easyFtp = require("easy-ftp");
-const fs = require('fs');
+const jsftp = require("jsftp");
+const fs = require("fs");
 
 exports.product_addProduct = (req, res, next) => {
-
-  const ftp = new easyFtp();
-  ftp.connect({
-    host: process.env.FTP_HOST,
-    port: process.env.FTP_PORT,
-    username: process.env.FTP_USERNAME,
-    password: process.env.FTP_PASSWORD,
-    type: process.env.FTP_TYPE
+  const ftp = new jsftp({
+    host: "server226.web-hosting.com",
+    port: "21",
+    user: "adamvjek",
+    pass: "eTCnGp2mDQZH"
   });
 
   let {
@@ -52,7 +50,7 @@ exports.product_addProduct = (req, res, next) => {
     ram,
     cpu,
     operating_system
-  };  
+  };
 
   Product.addProduct(product, (err, product) => {
     if (err) {
@@ -65,22 +63,21 @@ exports.product_addProduct = (req, res, next) => {
       product
     );
 
-
-    let stream = fs.createReadStream(imageName);
-
-    console.log(stream);
-    
-
-      ftp.cd('/adam-osinski.com/sites/phone-store/images'), (err) => {  
-        if(err) {
-          throw err;
-        }      
-        ftp.upload(`../../client/resources/product_images/${product.imageName}.jpg`, product.imageName +  '.jpg', err => {
-          if(err) {
-            throw err;
+    let local = `/home/adam/Pulpit/webDev/w trakcie/online-shop/client/resources/product_images/${imageName}`;
+    let remote = `/adam-osinski.com/sites/phone-store/product_images/${name}.jpg`;
+    fs.readFile(local, function(err, buffer) {
+      if (err) {
+        console.error(err);
+      } else {
+        ftp.put(buffer, remote, function(err) {
+          if (err) {
+            console.error(err);
+          } else {
+            console.log(name + " - uploaded successfuly");
           }
-        })
+        });
       }
+    });
 
     res.send(product);
   });

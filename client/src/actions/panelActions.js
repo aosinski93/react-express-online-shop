@@ -63,10 +63,7 @@ export const fetchPanelManufacturers = () => dispatch => {
 };
 
 export const addProduct = product => dispatch => {  
-
-  console.log( product);
-  
-
+ 
   const data = new FormData();
   data.append('image', product.image);
   data.append('imageName',product.imageName);

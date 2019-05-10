@@ -3,7 +3,10 @@ import FormGroup from "../../commonComponents/FormGroup/FormGroup";
 import SubmitButton from "../../commonComponents/SubmitButton/SubmitButton";
 import { connect } from "react-redux";
 import { addProduct } from "../../../actions/panelActions";
-import { notifyError, notifySuccess } from "../../../actions/notificationsActions";
+import {
+  notifyError,
+  notifySuccess
+} from "../../../actions/notificationsActions";
 
 class ProductInputForm extends Component {
   constructor() {
@@ -35,22 +38,18 @@ class ProductInputForm extends Component {
     let name = e.target.name;
 
     if (name === "image") {
-      
-    var reader = new FileReader();
+      var reader = new FileReader();
 
-    reader.onload = function(e) {      
-      document.getElementById('preview').setAttribute('src', e.target.result); 
-    }
+      reader.onload = function(e) {
+        document.getElementById("preview").setAttribute("src", e.target.result);
+      };
 
-    reader.readAsDataURL(e.target.files[0]);
+      reader.readAsDataURL(e.target.files[0]);
 
-
-    this.setState({
+      this.setState({
         image: e.target.files[0],
-        imageName: e.target.files[0].name,
+        imageName: e.target.files[0].name
       });
-
-
     } else {
       this.setState({
         [name]: value
@@ -58,36 +57,44 @@ class ProductInputForm extends Component {
     }
   };
 
-  onSubmit = async e => {
+  onSubmit = e => {
     e.preventDefault();
-    const product = {
-      image: this.state.image,
-      imageName: this.state.name,
-      name: this.state.name,
-      description: this.state.description,
-      manufacturer: this.state.manufacturer,
-      category: this.state.category || this.props.categories[0],
-      size: this.state.size,
-      resolution: this.state.resolution,
-      battery: this.state.battery,
-      camera: this.state.camera,
-      sim_qty: this.state.sim_qty,
-      price: this.state.price,
-      date_of_release: this.state.date_of_release,
-      ram: this.state.ram,
-      cpu: this.state.cpu,
-      operating_system: this.state.operating_system
-    };
 
-    
-    try {
-      this.props.addProduct(product);
-    } catch (err) {
-      this.props.notifyError("Something went wrong");
-      console.error(err);
+    if (this.state.manufacturer === "") {
+      e.preventDefault();
+      this.props.notifyError("Set the manufacturer");
+    } else if (this.state.category === "") {
+      e.preventDefault();
+      this.props.notifyError("Set the category");
     }
-    finally {
-      this.props.notifySuccess('Success')
+      else {
+      const product = {
+        image: this.state.image,
+        imageName: this.state.imageName,
+        name: this.state.name,
+        description: this.state.description,
+        manufacturer: this.state.manufacturer,
+        category: this.state.category || this.props.categories[0],
+        size: this.state.size,
+        resolution: this.state.resolution,
+        battery: this.state.battery,
+        camera: this.state.camera,
+        sim_qty: this.state.sim_qty,
+        price: this.state.price,
+        date_of_release: this.state.date_of_release,
+        ram: this.state.ram,
+        cpu: this.state.cpu,
+        operating_system: this.state.operating_system
+      };
+
+      try {
+        this.props.addProduct(product);
+      } catch (err) {
+        this.props.notifyError("Something went wrong");
+        console.error(err);
+      } finally {
+        this.props.notifySuccess("Success");
+      }
     }
   };
 
@@ -103,7 +110,7 @@ class ProductInputForm extends Component {
             labelText="Image"
             onChange={this.onChange}
           />
-          <img src="" alt="img" id="preview"/>
+          <img src="" alt="img" id="preview" />
           <FormGroup
             name="name"
             type="text"

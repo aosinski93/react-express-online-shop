@@ -41,7 +41,15 @@ class ProductList extends Component {
                 <div className="row d-flex align-item-center">
                   <div className="col-lg-10 col-md-10 col-sm-10">
                     <Link to={`product/${item._id}`} className="row">
-                      <div className="col-lg-3 col-md-3 col-sm-3 text-center" />
+                      <div className="col-lg-3 col-md-3 col-sm-3 text-center">
+                        <img
+                          src={`https://www.adam-osinski.com/sites/phone-store/product_images/${
+                            item.name
+                          }.jpg`}
+                          alt={item.name}
+                          className="img-fluid"
+                        />
+                      </div>
                       <div className="col-lg-3 col-md-3 col-sm-3 text-center">
                         <p>{item.name}</p>
                       </div>

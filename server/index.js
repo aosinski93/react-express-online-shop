@@ -9,6 +9,7 @@ const router = require("./routes/index");
 const { DB_USER, DB_HOST, DB_PASSWORD, DB_NAME, DB_PORT } = process.env;
 const db_URI = `mongodb://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`;
 
+
 mongoose.connect(db_URI, {
   useNewUrlParser: true
 });
