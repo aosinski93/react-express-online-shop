@@ -1,17 +1,13 @@
-require("dotenv").config();
+const config = require('../config.js');
 const Product = require("../models/Product");
 const slugify = require("slugify");
 const manufacturerController = require("../controllers/manufacturerController");
 const jsftp = require("jsftp");
 const fs = require("fs");
+const sharp = require("sharp");
 
 exports.product_addProduct = (req, res, next) => {
-  const ftp = new jsftp({
-    host: "server226.web-hosting.com",
-    port: "21",
-    user: "adamvjek",
-    pass: "eTCnGp2mDQZH"
-  });
+  const ftp = new jsftp(config.ftpConfig);
 
   let {
     image,
@@ -65,6 +61,7 @@ exports.product_addProduct = (req, res, next) => {
 
     let local = `/home/adam/Pulpit/webDev/w trakcie/online-shop/client/resources/product_images/${imageName}`;
     let remote = `/adam-osinski.com/sites/phone-store/product_images/${name}.jpg`;
+
     fs.readFile(local, function(err, buffer) {
       if (err) {
         console.error(err);
@@ -76,6 +73,23 @@ exports.product_addProduct = (req, res, next) => {
             console.log(name + " - uploaded successfuly");
           }
         });
+
+        sharp(buffer)
+          .resize(320, 240)
+          .toBuffer()
+          .then(resized => {
+            new jsftp(config.ftpConfig).put(
+              resized,
+              `/adam-osinski.com/sites/phone-store/product_images/mini/mini-${name}.jpg`,
+              function(err) {
+                if (err) {
+                  console.error(err);
+                } else {
+                  console.log(`resized ${name} - uploaded successfuly`);
+                }
+              }
+            );
+          });
       }
     });
 
