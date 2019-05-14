@@ -24,19 +24,21 @@ class ProductsListContainer extends Component {
     this.props.deleteProduct(e.target.dataset.id);
   };
 
-  render() {
+  render() {      
     return (
       <ProductList
         loading={this.props.loading}
-        products={this.props.products}
+        products={this.props.products.filter(item => item.manufacturer.name !== this.props.chosenManufacturer)}
         onDelete={this.onDelete}
+        filter={this.props.chosenManufacturer}
       />
     );
   }
 }
 
 const mapStateToProps = state => ({
-  products: state.panel.products
+  products: state.panel.products,
+  chosenManufacturer: state.panel.chosenManufacturer
 });
 
 export default connect(

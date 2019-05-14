@@ -4,7 +4,7 @@ import DeleteButton from "../../commonComponents/DeleteButton/DeleteButton";
 import "./manufacturerlist.css";
 
 const ManufacturersList = props => {
-  if (props.manufacturers !== []) {
+  if (props.manufacturers.length !== 0) {
     return (
       <div className="manufacturer-list-wrapper col-lg-6 col-md-6">
         <ul className="list-group mt-4">
@@ -24,7 +24,7 @@ const ManufacturersList = props => {
                     <p className="manufacturer-name mb-0">{item.name}</p>
                   </div>
                   <div className="col">
-                    <p>{item.products.length}</p>
+                    <p>Products: {item.products.length}</p>
                   </div>
                   <div className="col d-flex justify-content-end">
                     <DeleteButton
@@ -43,7 +43,11 @@ const ManufacturersList = props => {
       </div>
     );
   } else {
-    return <p>No manufacturers</p>;
+    return (
+      <div className="col-lg-6 col-md-6">
+        <p>No manufacturers</p>
+      </div>
+    );
   }
 };
 export default ManufacturersList;

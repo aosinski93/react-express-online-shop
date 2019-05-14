@@ -17,6 +17,7 @@ const initialState = {
   products: [],
   manufacturers: [],
   addedSubcategory: {},
+  chosenManufacturer: ""
 };
 
 export default (state = initialState, action) => {
