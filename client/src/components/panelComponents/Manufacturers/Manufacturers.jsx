@@ -1,27 +1,19 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import ManufacturersList from "../ManufacturersList/ManufacturersList";
-import ManufacturerInputForm from "../ManufacturersInputForm/ManufacturerInputForm";
+import ManufacturersInputFormContainer from "../../../containers/ManufacturersInputFormContainer/ManufacturersInputForm.container";
+import ManufacturersListContainer from "../../../containers/ManufacturersListContainer/ManufacturersList.container";
 
 class Manufacturers extends Component {
   render() {
     return (
       <div className="container">
         <div className="manufacturersPanel row">
-          <ManufacturersList data={this.props.manufacturers} />
+          <ManufacturersListContainer data={this.props.manufacturers} />
           <div className="col-lg-1 col-md-1 col-sm-1" />
-          <ManufacturerInputForm />
+          <ManufacturersInputFormContainer />
         </div>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  manufacturers: state.panel.manufacturers
-});
-
-export default connect(
-  mapStateToProps,
-  null
-)(Manufacturers);
+export default Manufacturers;

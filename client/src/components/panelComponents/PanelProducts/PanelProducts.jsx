@@ -1,39 +1,18 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import {
-  fetchPanelProducts,
-  fetchPanelManufacturers
-} from "../../../actions/panelActions";
-import ProductList from "../../panelComponents/ProductList/ProductList";
-import ProductInputForm from "../ProductInputForm/ProductInputForm";
+import React from "react";
+import ProductsListContainer from "../../../containers/ProductsListContainer/ProductsList.container";
+import ProductInputFormContainer from "../../../containers/ProductInputFormContainer/ProductInputForm.container";
 
-class PanelProducts extends Component {
-  componentWillMount = () => {
-    this.props.fetchPanelProducts();
-  };
-
-  onSubmit = e => {
-    e.preventDefault();
-  };
-
-  render() {
-    return (
-      <div className="productsPanel row">
-        <div className="productListContainer col-lg-6 col-md-6 col-sm-6">
-          <ProductList data={this.props.products} />
-        </div>
-        <div className="col-lg-1 col-md-1 col-sm-1" />
-        <ProductInputForm />
+const PanelProducts = props => {
+  return (
+    <div className="productsPanel row">
+      <div className="productListContainer col-lg-6 col-md-6 col-sm-6">
+        <ProductsListContainer />
       </div>
-    );
-  }
-}
+      <div className="col-lg-1 col-md-1 col-sm-1" />
+      <ProductInputFormContainer />
+    </div>
+  );
+};
 
-const mapStateToProps = state => ({
-  products: state.panel.products
-});
 
-export default connect(
-  mapStateToProps,
-  { fetchPanelProducts, fetchPanelManufacturers }
-)(PanelProducts);
+export default PanelProducts;

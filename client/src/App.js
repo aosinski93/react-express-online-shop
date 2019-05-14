@@ -5,9 +5,9 @@ import NotFound from "./components/commonComponents/NotFound/NotFound.jsx";
 import LoginForm from "./components/panelComponents/LoginForm/LoginForm.jsx";
 
 import "./App.css";
-import AdminPanel from "./components/panelComponents/AdminPanel/AdminPanel.jsx";
 import Store from "./components/frontComponents/Store/Store.jsx";
 import Footer from "./components/commonComponents/Footer/Footer.jsx";
+import AdminPanelContainer from "./containers/AdminPanelContainer/AdminPanel.container.jsx";
 
 class App extends Component {
   state = {
@@ -33,7 +33,7 @@ class App extends Component {
               <Route
                 path="/admin"
                 render={props => (
-                  <AdminPanel {...props} auth={this.state.loggedIn} />
+                  <AdminPanelContainer {...props} auth={this.state.loggedIn} />
                 )}
               />
               <Route path="/store" component={Store} />

@@ -1,76 +1,18 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
+import React from "react";
 import Loader from "../../commonComponents/Loader/Loader";
 import "./productlist.css";
-import { deleteProduct } from "../../../actions/panelActions";
-import DeleteButton from "../../commonComponents/DeleteButton/DeleteButton";
+import PanelProductListItem from "../PanelProductListItem/PanelProductListItem";
 
-class ProductList extends Component {
-  constructor() {
-    super();
-    this.state = {
-      loading: true
-    };
-  }
+const ProductList = props => {
+  
 
-  componentWillReceiveProps = nextProps => {
-    if (nextProps.data !== []) {
-      this.setState({
-        loading: false
-      });
-    }
-  };
-
-  onDelete = e => {
-    e.preventDefault();
-    this.props.deleteProduct(e.target.dataset.id);
-  };
-
-  buildList = () => {
-    if (this.props.data !== []) {
+  const buildList = () => {
+    if (props.products !== []) {
       return (
         <ul className="products-list list-group">
-          {this.props.data.map(item => {
+          {props.products.map(item => {
             return (
-              <li
-                key={item._id}
-                id={item._id}
-                className="list-group-item box-shadow product-item"
-              >
-                <div className="row d-flex align-item-center">
-                  <div className="col-lg-10 col-md-10 col-sm-10">
-                    <Link to={`product/${item._id}`} className="row">
-                      <div className="col-lg-3 col-md-3 col-sm-3 text-center">
-                        <img
-                          src={`https://www.adam-osinski.com/sites/phone-store/product_images/${
-                            item.name
-                          }.jpg`}
-                          alt={item.name}
-                          className="img-fluid"
-                        />
-                      </div>
-                      <div className="col-lg-3 col-md-3 col-sm-3 text-center">
-                        <p>{item.name}</p>
-                      </div>
-                      <div className="col-lg-3 col-md-3 col-sm-3 text-center">
-                        <p>{item.manufacturer && item.manufacturer.name}</p>
-                      </div>
-                      <div className="col-lg-3 col-md-3 col-sm-3 text-center">
-                        <p>{item.operating_system}</p>
-                      </div>
-                    </Link>
-                  </div>
-                  <div className="col-lg-2 col-md-2 col-sm-2">
-                    <DeleteButton
-                      className="btn btn-danger"
-                      onClick={this.onDelete}
-                      title={`Delete ${item.name}`}
-                      dataId={item._id}
-                    />
-                  </div>
-                </div>
-              </li>
+              <PanelProductListItem key={item._id} item={item} onDelete={props.onDelete}/>
             );
           })}
         </ul>
@@ -79,7 +21,6 @@ class ProductList extends Component {
       return <p>No products in database</p>;
     }
   };
-  render() {
     return (
       <div className="row">
         <div className="top-labels container">
@@ -101,24 +42,16 @@ class ProductList extends Component {
           </div>
         </div>
         <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          {this.state.loading ? (
+          {props.loading ? (
             <div>
               <Loader />
             </div>
           ) : (
-            <>{this.buildList()}</>
+            <>{buildList()}</>
           )}
         </div>
       </div>
     );
   }
-}
 
-const mapStateToProps = state => ({
-  products: state.panel.products
-});
-
-export default connect(
-  mapStateToProps,
-  { deleteProduct }
-)(ProductList);
+export default ProductList;

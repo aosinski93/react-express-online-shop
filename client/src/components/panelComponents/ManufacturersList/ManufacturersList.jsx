@@ -1,39 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import { deleteManufacturer } from "../../../actions/panelActions";
-import {
-  notifySuccess,
-  notifyError
-} from "../../../actions/notificationsActions";
 import DeleteButton from "../../commonComponents/DeleteButton/DeleteButton";
 import "./manufacturerlist.css";
 
-class ManufacturersList extends Component {
-  constructor() {
-    super();
-    this.state = {
-      loading: true
-    };
-  }
-
-  handleDelete = e => {
-    e.preventDefault();
-    try {
-      this.props.deleteManufacturer(e.target.dataset.id);
-    } catch (err) {
-      console.error(err);
-      this.props.notifyError("Something went wrong");
-    } finally {
-      this.props.notifySuccess(`Successfully deleted manufacturer`);
-    }
-  };
-
-  buildList = () => {
-    if (this.props.data !== []) {
-      return (
+const ManufacturersList = props => {
+  if (props.manufacturers !== []) {
+    return (
+      <div className="manufacturer-list-wrapper col-lg-6 col-md-6">
         <ul className="list-group mt-4">
-          {this.props.data.map(item => {
+          {props.manufacturers.map(item => {
             return (
               <li
                 key={item._id}
@@ -55,7 +30,7 @@ class ManufacturersList extends Component {
                     <DeleteButton
                       type="submit"
                       className="btn btn-danger"
-                      onClick={this.handleDelete}
+                      onClick={props.handleDelete}
                       dataId={item._id}
                       title={`Delete ${item.name}`}
                     />
@@ -65,26 +40,10 @@ class ManufacturersList extends Component {
             );
           })}
         </ul>
-      );
-    } else {
-      return <p>No manufacturers</p>;
-    }
-  };
-
-  render() {
-    return (
-      <div className="manufacturers-list-wrapper col-lg-6 col-md-6 col-sm-6">
-        {this.buildList()}
       </div>
     );
+  } else {
+    return <p>No manufacturers</p>;
   }
-}
-
-const mapStateToProps = state => ({
-  manufacturers: state.panel.manufacturers
-});
-
-export default connect(
-  mapStateToProps,
-  { deleteManufacturer, notifySuccess, notifyError }
-)(ManufacturersList);
+};
+export default ManufacturersList;
