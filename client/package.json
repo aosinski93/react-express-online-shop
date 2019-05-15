@@ -29,5 +29,10 @@
     "not op_mini all"
   ],
   "proxy": "http://localhost:3001",
-  "homepage": "https://adam-osinski.com/sites/online-shop"
+  "homepage": "https://adam-osinski.com/sites/online-shop",
+  "devDependencies": {
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.13.0",
+    "react-test-renderer": "^16.8.6"
+  }
 }

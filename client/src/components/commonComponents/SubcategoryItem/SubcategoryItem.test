@@ -1,0 +1,10 @@
+import React from 'react';
+import SubcategoryItem from './SubcategoryItem';
+import { shallow } from 'enzyme';
+import '../../../setupTests';
+
+describe('SubcategoryItem component', () => {
+  it('renders without crashing', () => {
+    shallow(<SubcategoryItem />);
+  });
+})
