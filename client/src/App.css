@@ -1,6 +1,5 @@
 .app {
-  height: 95vh;
-  width: 100vw;
+  height: 90vh;
   overflow-x: hidden;
   overflow-y: overlay;
 }

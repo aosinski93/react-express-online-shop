@@ -1,4 +1,4 @@
-import { NEW_USER, FETCH_USER, USER_LOGOUT } from "../actions/types";
+import { NEW_USER, USER_LOGIN, USER_LOGOUT } from "../actions/types";
 
 const initialState = {
   registeredUser: {},
@@ -7,15 +7,15 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_USER:
-      return {
-        ...state,
-        loggedUser: action.payload
-      };
     case NEW_USER:
       return {
         ...state,
         registeredUser: action.payload
+      };
+    case USER_LOGIN:
+      return {
+        ...state,
+        loggedUser: action.payload
       };
     case USER_LOGOUT:
       return initialState;

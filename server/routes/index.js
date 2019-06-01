@@ -1,11 +1,16 @@
-var express = require("express");
+const express = require("express");
 const router = express.Router();
 const menuController = require("../controllers/menuController");
 const productController = require("../controllers/productController");
 const manufacturerController = require("../controllers/manufacturerController");
+const userController = require('../controllers/userController');
 const multer = require('multer');
 
 const upload = multer();
+
+
+router.post(["/admin/user/login", "/user/login"], userController.user_userLogin);
+router.post('/user/register', userController.user_addUser);
 
 router.get("/", menuController.menu_displayMenu);
 router.post("/menu", menuController.menu_addMenuItem);

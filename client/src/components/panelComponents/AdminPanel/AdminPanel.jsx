@@ -3,7 +3,6 @@ import { Route, Link } from "react-router-dom";
 import "./adminpanel.css";
 import "../../../css_utilities/common.css";
 import PanelProduct from "../PanelProduct/PanelProduct";
-import Notification from "../../commonComponents/Notification/Notification";
 import ManufacturersContainer from "../../../containers/ManufacturersContainer/Manufacturers.container";
 import MenuItemsContainer from "../../../containers/MenuItemsContainer/MenuItems.container";
 import PanelProductsContainer from "../../../containers/PanelProductsContainer/PanelProducts.container";
@@ -11,9 +10,6 @@ import PanelProductsContainer from "../../../containers/PanelProductsContainer/P
 const AdminPanel = props => {
   return (
     <div className="adminPanel">
-      <div className="header">
-        <h2 className="header-text">Admin Panel</h2>
-      </div>
       <main className="panelContent row">
         <nav className="nav panel-nav col-lg-2 col-md-2 col-sm-2 pt-5 justify-content-center">
           <ul className="list-group">
@@ -62,10 +58,6 @@ const AdminPanel = props => {
             </li>
           </ul>
         </nav>
-
-        <div className="notification-box">
-          <Notification />
-        </div>
 
         <div className="container">
           <div className="panel-view">

@@ -1,30 +1,5 @@
-import { NEW_USER, FETCH_USER, USER_LOGOUT } from "./types";
+import { NEW_USER, USER_LOGOUT, USER_LOGIN, NOTIFY_ERROR } from "./types";
 
-// a'la login
-
-export const fetchUser = user => dispatch => {
-  let url = "/users/login";
-  fetch(url, {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(user)
-  })
-    .then(res => res.json())
-    .then(loggedUser => {
-      dispatch({
-        type: FETCH_USER,
-        payload: loggedUser.user
-      });
-    })
-    .catch(err => {
-      console.log(err);
-    });
-};
-
-// register
 
 export const newUser = userData => dispatch => {
   fetch("/users", {
@@ -41,6 +16,39 @@ export const newUser = userData => dispatch => {
         payload: user
       })
     );
+};
+
+
+export const userLogin = (path, user) => dispatch => {
+
+  let url = path ? `${path}/user/login` : '/user/login' ;
+  
+  fetch(url, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(user)
+  })
+    .then(res => res.json())
+    .then(loggedUser => {
+      if(loggedUser.user) {
+        dispatch({
+          type: USER_LOGIN,
+          payload: loggedUser.user
+        });
+      }
+      else {
+        dispatch({
+          type: NOTIFY_ERROR,
+          payload: loggedUser.msg
+        })
+      }
+    })
+    .catch(err => {
+      console.log(err);
+    });
 };
 
 export const userLogout = () => dispatch => {
