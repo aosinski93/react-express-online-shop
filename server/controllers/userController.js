@@ -1,12 +1,15 @@
 const User = require("../models/User");
+const bcrypt = require("bcrypt");
 
 exports.user_addUser = (req, res) => {
   let { username, email, password, isAdmin } = req.body;
 
+  let hashedPassword = bcrypt.hashSync(password, 10);
+
   let user = {
     username,
     email,
-    password,
+    password: hashedPassword,
     isAdmin
   };
 
@@ -26,15 +29,15 @@ exports.user_userLogin = (req, res) => {
       throw err;
     }
 
-    if(!user) {
-        return res.json({msg: `No such user, please check the username`});
+    if (!user) {
+      return res.json({ msg: `No such user, please check the username` });
     }
 
     if (req.path.indexOf("admin") !== -1 && user.isAdmin !== true) {
       res.json({ msg: `No Admin access granted` });
     } else {
       res.json(
-        validateUser(user, inputPassword)
+        validateUser(inputPassword, user)
           ? { msg: `Hi ${user.username}`, user }
           : `Wrong password`
       );
@@ -42,6 +45,10 @@ exports.user_userLogin = (req, res) => {
   });
 };
 
-const validateUser = (user, inputPassword) => {
-  return user.password === inputPassword;
+const validateUser = (inputPassword, user) => {
+  if(bcrypt.compareSync(inputPassword, user.password)) {
+    return true
+   } else {
+    return false
+   }
 };
