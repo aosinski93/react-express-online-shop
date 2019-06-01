@@ -22,10 +22,7 @@
 .panel-nav-link:hover {
   text-decoration: none;
 }
-.panel-nav {
-  padding-top: 50px;
-  padding-left: 20px;
-}
+
 
 .notification-box {
   position: absolute;

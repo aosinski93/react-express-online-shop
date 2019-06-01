@@ -4,7 +4,7 @@ import SubmitButton from "../../commonComponents/SubmitButton/SubmitButton";
 
 const ProductInputForm = props => {
   return (
-    <div className="productInputForm col-lg-2 col-md-2 col-sm-2 mt-1 mb-1">
+    <div className="productInputForm col-lg-6 col-md-6 col-sm-6 mt-1 mb-1">
       <p>Add product</p>
 
       <form onSubmit={props.onSubmit}>

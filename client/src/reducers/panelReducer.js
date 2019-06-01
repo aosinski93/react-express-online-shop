@@ -9,15 +9,16 @@ import {
   DELETE_PRODUCT,
   DELETE_MANUFACTURER,
   DELETE_MENU_ITEM,
-  DELETE_MENU_SUBCATEGORY
+  DELETE_MENU_SUBCATEGORY,
+  FILTER_PRODUCTS
 } from "../actions/types";
 
 const initialState = {
   menu: [],
   products: [],
+  filteredProducts: [],
   manufacturers: [],
   addedSubcategory: {},
-  chosenManufacturer: ""
 };
 
 export default (state = initialState, action) => {
@@ -61,7 +62,7 @@ export default (state = initialState, action) => {
     case ADD_MENU_SUBCATEGORY:
       return {
         ...state,
-        addedSubcategory:  action.payload,
+        addedSubcategory: action.payload
       };
     case DELETE_PRODUCT:
       let productsUpdate = Object.assign([], state.products);
@@ -95,20 +96,31 @@ export default (state = initialState, action) => {
         addedSubcategory: {}
       };
     case DELETE_MENU_SUBCATEGORY:
-      let menu = Object.assign([], state.menu);      
-      
+      let menu = Object.assign([], state.menu);
+
       let newMenu = menu.map(menuItem => {
-        if(menuItem._id === action.payload.parentId) {
-          menuItem.subcategories = menuItem.subcategories.filter(subcategory => subcategory._id !== action.payload._id)
+        if (menuItem._id === action.payload.parentId) {
+          menuItem.subcategories = menuItem.subcategories.filter(
+            subcategory => subcategory._id !== action.payload._id
+          );
         }
-        return menuItem
-      })
-      
-      
+        return menuItem;
+      });
       return {
         ...state,
         menu: newMenu,
         addedSubcategory: {}
+      };
+
+    case FILTER_PRODUCTS:
+      return {
+        ...state,
+        filteredProducts:
+          action.payload === ""
+            ? state.products
+            : state.products.filter(
+                product => product.manufacturer.name === action.payload
+              )
       };
     default:
       return state;

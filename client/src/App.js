@@ -10,15 +10,6 @@ import Footer from "./components/commonComponents/Footer/Footer.jsx";
 import AdminPanelContainer from "./containers/AdminPanelContainer/AdminPanel.container.jsx";
 
 class App extends Component {
-  state = {
-    loggedIn: false
-  };
-
-  signIn = () => {
-    console.log("hello");
-    this.setState({ loggedIn: true });
-  };
-
   render() {
     return (
       <Router>
@@ -30,12 +21,8 @@ class App extends Component {
                 path="/login"
                 render={props => <LoginForm {...props} signIn={this.signIn} />}
               />
-              <Route
-                path="/admin"
-                render={props => (
-                  <AdminPanelContainer {...props} auth={this.state.loggedIn} />
-                )}
-              />
+              <Route path="/admin" component={AdminPanelContainer} />
+              )} />
               <Route path="/store" component={Store} />
               <Route component={NotFound} />
             </Switch>

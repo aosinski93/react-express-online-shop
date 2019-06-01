@@ -14,6 +14,7 @@ const ManufacturersList = props => {
                 key={item._id}
                 id={item._id}
                 className="list-group-item box-shadow manufacturer-item"
+                onClick={() => props.setProductsFilter(item.name)}
               >
                 <Link
                   to={`products/${item.name}`}

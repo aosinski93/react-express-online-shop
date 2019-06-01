@@ -4,7 +4,6 @@ import "./productlist.css";
 import PanelProductListItem from "../PanelProductListItem/PanelProductListItem";
 
 const ProductList = props => {
-   
   const buildList = () => {
     if (props.products.length !== 0) {
       return (

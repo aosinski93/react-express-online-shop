@@ -5,6 +5,7 @@ import {
   fetchPanelManufacturers,
   fetchPanelProducts
 } from "../../actions/panelActions";
+import { setProductsFilter } from "../../actions/panelActions";
 import AdminPanel from "../../components/panelComponents/AdminPanel/AdminPanel";
 
 class AdminPanelContainer extends Component {
@@ -21,6 +22,7 @@ class AdminPanelContainer extends Component {
         products={this.props.products}
         menu={this.props.menu}
         manufacturers={this.props.manufacturers}
+        setProductsFilter={this.props.setProductsFilter}
       />
     );
   }
@@ -34,5 +36,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { fetchPanelMenu, fetchPanelManufacturers, fetchPanelProducts }
+  { fetchPanelMenu, fetchPanelManufacturers, fetchPanelProducts, setProductsFilter }
 )(AdminPanelContainer);

@@ -3,30 +3,32 @@ import { connect } from "react-redux";
 import {
   fetchPanelProducts,
   fetchPanelManufacturers
-} from '../../actions/panelActions';
+} from "../../actions/panelActions";
 import PanelProducts from "../../components/panelComponents/PanelProducts/PanelProducts";
 
-
 class PanelProductsContainer extends Component {
-    componentWillMount = () => {
-        this.props.fetchPanelProducts();
-      };
-    
-      onSubmit = e => {
-        e.preventDefault();
-      };
+  componentWillMount = () => {
+    if (this.props.productsFilter === "") {
+      this.props.fetchPanelProducts();
+    }
+  };
 
-      render() {
-          return <PanelProducts products={this.props.products} onSubmit={this.onSubmit} />
-      }
+  onSubmit = e => {
+    e.preventDefault();
+  };
+
+  render() {
+    return (
+      <PanelProducts />
+    );
+  }
 }
 
 const mapStateToProps = state => ({
-    products: state.panel.products
-  });
-  
-  export default connect(
-    mapStateToProps,
-    { fetchPanelProducts, fetchPanelManufacturers }
-  )(PanelProductsContainer);
-  
+  products: state.panel.products
+});
+
+export default connect(
+  mapStateToProps,
+  { fetchPanelProducts, fetchPanelManufacturers }
+)(PanelProductsContainer);

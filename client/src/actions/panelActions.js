@@ -9,7 +9,8 @@ import {
   DELETE_MANUFACTURER,
   DELETE_PRODUCT,
   DELETE_MENU_ITEM,
-  DELETE_MENU_SUBCATEGORY
+  DELETE_MENU_SUBCATEGORY,
+  FILTER_PRODUCTS
 } from "./types";
 
 export const fetchPanelMenu = () => dispatch => {
@@ -237,3 +238,10 @@ export const deleteMenuSubcategory = (id, subcategoryId) => dispatch => {
       console.log(err);
     });
 };
+
+export const setProductsFilter = (filter) => dispatch => {
+  dispatch({
+    type: FILTER_PRODUCTS,
+    payload: filter
+  })
+}
