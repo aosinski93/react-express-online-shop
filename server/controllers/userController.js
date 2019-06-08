@@ -46,9 +46,9 @@ exports.user_userLogin = (req, res) => {
 };
 
 const validateUser = (inputPassword, user) => {
-  if(bcrypt.compareSync(inputPassword, user.password)) {
-    return true
-   } else {
-    return false
-   }
+  if (bcrypt.compareSync(inputPassword, user.password)) {
+    return true;
+  } else {
+    return false;
+  }
 };
