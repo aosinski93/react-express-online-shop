@@ -1,42 +1,47 @@
 import React from "react";
 import FormGroup from "../../commonComponents/FormGroup/FormGroup";
-import "./menuitems.css";
 import SubmitButton from "../../commonComponents/SubmitButton/SubmitButton";
 import SubMenuContainer from "../../../containers/SubMenuContainer/SubMenu.container.jsx";
+import { Container, List, Grid } from "@material-ui/core";
+import { makeStyles } from "@material-ui/styles";
+
+const useStyles = makeStyles(theme => ({
+  menuItems: {}
+}));
 
 const MenuItems = props => {
+  const classes = useStyles();
+
   return (
-    <div className="menu-list-container container">
-      <div className="menu-item-form-wrapper col-lg-6 col-md-6 col-sm-6">
-        <form
-          id="new-menu-form"
-          className="menu-form d-flex align-items-center"
-          onSubmit={props.onSubmit}
-        >
-          <FormGroup
-            type="text"
-            name="menuItemName"
-            value={props.menuItemName}
-            onChange={props.onChange}
-            className="post-datainput form-control"
-            placeholder="Add new category"
-            labelText="Add new menu item"
-          />
-          <SubmitButton
-            type="submit"
-            value="+"
-            className="data-submit post-data-button btn btn-success mt-3 ml-2"
-            title="Add top-level category"
-          />
-        </form>
-      </div>
-      <ul className="categories list-group">
+    <Container className={classes.menuItems}>
+      <form id="new-menu-form" onSubmit={props.onSubmit}>
+        <Grid container display="flex" alignItems="center">
+          <Grid item xs={4}>
+            <FormGroup
+              type="text"
+              name="menuItemName"
+              value={props.menuItemName}
+              onChange={props.onChange}
+              placeholder="Add new category"
+              labelText="Add new menu item"
+            />
+          </Grid>
+          <Grid item xs={3}>
+            <SubmitButton
+              type="submit"
+              value="+"
+              title="Add top-level category"
+            />
+          </Grid>
+        </Grid>
+      </form>
+      <List>
         {props.menu &&
           props.menu.map(item => {
             return <SubMenuContainer key={item._id} item={item} />;
           })}
-      </ul>
-    </div>
+      </List>
+    </Container>
   );
 };
 

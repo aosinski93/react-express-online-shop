@@ -1,45 +1,51 @@
 import React from "react";
 import Loader from "../../commonComponents/Loader/Loader";
-import "./productlist.css";
 import PanelProductListItem from "../PanelProductListItem/PanelProductListItem";
+import { Container, Grid, List, Typography } from "@material-ui/core";
 
 const ProductList = props => {
   const buildList = () => {
     if (props.products.length !== 0) {
       return (
-        <ul className="products-list list-group">
+        <List className="products-list list-group">
           {props.products.map(item => {
             return (
-              <PanelProductListItem key={item._id} item={item} onDelete={props.onDelete}/>
+              <PanelProductListItem
+                key={item._id}
+                item={item}
+                onDelete={props.onDelete}
+              />
             );
           })}
-        </ul>
+        </List>
       );
     } else {
       return <p>No products in database</p>;
     }
   };
-    return (
-      <div className="row">
-        <div className="top-labels container">
-          <div className="row">
-            <div className="col-lg-10 col-md-10 col-sm-10">
-              <div className="row">
-                <div className="col-lg-3 col-sm-3 co-md-3 text-center">
-                  Image
-                </div>
-                <div className="col-lg-3 col-sm-3 co-md-3 text-center">
-                  Name
-                </div>
-                <div className="col-lg-3 col-sm-3 co-md-3 text-center">
-                  Manufacturer
-                </div>
-                <div className="col-lg-3 col-sm-3 co-md-3 text-center">OS</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+  return (
+    <Container>
+      <Grid container>
+        <Grid item xs={10}>
+          <Grid container>
+            <Grid item xs={3}>
+              <Typography align="center">Image</Typography>
+            </Grid>
+            <Grid item xs={3}>
+              <Typography align="center">Name</Typography>
+            </Grid>
+            <Grid item xs={3}>
+              <Typography align="center">Manufacturer</Typography>
+            </Grid>
+            <Grid item xs={3}>
+              <Typography align="center">OS</Typography>
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid item xs={2} />
+      </Grid>
+      <Grid container>
+        <Grid item xs={12}>
           {props.loading ? (
             <div>
               <Loader />
@@ -47,9 +53,10 @@ const ProductList = props => {
           ) : (
             <>{buildList()}</>
           )}
-        </div>
-      </div>
-    );
-  }
+        </Grid>
+      </Grid>
+    </Container>
+  );
+};
 
 export default ProductList;

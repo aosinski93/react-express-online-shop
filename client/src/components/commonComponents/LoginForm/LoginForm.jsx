@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import FormGroup from "../FormGroup/FormGroup";
 import SubmitButton from "../SubmitButton/SubmitButton";
+import { Container, Grid, Typography, Box } from "@material-ui/core";
 
 class LoginForm extends Component {
   constructor(props) {
@@ -35,45 +36,47 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <div className="container p-5">
-        <div className="row">
-          <div className="col-lg-6 offset-lg-3 col-md-6 offset-md-3 col-sm-6 offset-sm-3">
-            <h2>Sign in</h2>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-lg-6 offset-lg-3">
-            <form id="loginForm" onSubmit={this.onSubmit}>
-              <FormGroup
-                type="text"
-                name="username"
-                value={this.state.username}
-                onChange={this.onChange}
-                labelText="Name"
-                required={true}
-              />
+      <Container maxWidth={"xs"}>
+        <Box m={3}>
+          <Grid container>
+            <Grid item xs={6}>
+              <h2>Sign in</h2>
+            </Grid>
+          </Grid>
+          <Grid container>
+            <Grid item xs={3}>
+              <form id="loginForm" onSubmit={this.onSubmit}>
+                <FormGroup
+                  type="text"
+                  name="username"
+                  value={this.state.username}
+                  onChange={this.onChange}
+                  labelText="Name"
+                  required={true}
+                />
 
-              <FormGroup
-                type="password"
-                name="inputPassword"
-                value={this.state.inputPassword}
-                onChange={this.onChange}
-                labelText="Password"
-                required={true}
-              />
+                <FormGroup
+                  type="password"
+                  name="inputPassword"
+                  value={this.state.inputPassword}
+                  onChange={this.onChange}
+                  labelText="Password"
+                  required={true}
+                />
 
-              <SubmitButton
-                type="submit"
-                value="Log in"
-                className="form-control btn-success"
-                title="Submit form"
-              />
+                <SubmitButton
+                  type="submit"
+                  value="Log in"
+                  className="form-control btn-success"
+                  title="Submit form"
+                />
 
-              <p className="errorField" />
-            </form>
-          </div>
-        </div>
-      </div>
+                <Typography className="errorField" />
+              </form>
+            </Grid>
+          </Grid>
+        </Box>
+      </Container>
     );
   }
 }

@@ -1,47 +1,50 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import DeleteButton from "../../commonComponents/DeleteButton/DeleteButton";
-import "./manufacturerlist.css";
+import { List, ListItem, Grid, Typography, Container } from "@material-ui/core";
 
 const ManufacturersList = props => {
   if (props.manufacturers.length !== 0) {
     return (
-      <div className="manufacturer-list-wrapper col-lg-6 col-md-6">
-        <ul className="list-group mt-4">
-          {props.manufacturers.map(item => {
-            return (
-              <li
-                key={item._id}
-                id={item._id}
-                className="list-group-item box-shadow manufacturer-item"
-                onClick={() => props.setProductsFilter(item.name)}
-              >
+      <List>
+        {props.manufacturers.map(item => {
+          return (
+            <ListItem
+              button
+              key={item._id}
+              id={item._id}
+              onClick={() => props.setProductsFilter(item.name)}
+            >
+              <Container>
                 <Link
                   to={`products/${item.name}`}
-                  className="row d-flex align-items-center"
                   title={`Show all ${item.name}'s products`}
                 >
-                  <div className="col">
-                    <p className="manufacturer-name mb-0">{item.name}</p>
-                  </div>
-                  <div className="col">
-                    <p>Products: {item.products.length}</p>
-                  </div>
-                  <div className="col d-flex justify-content-end">
-                    <DeleteButton
-                      type="submit"
-                      className="btn btn-danger"
-                      onClick={props.handleDelete}
-                      dataId={item._id}
-                      title={`Delete ${item.name}`}
-                    />
-                  </div>
+                  <Grid container>
+                    <Grid item xs={3}>
+                      <Typography>{item.name}</Typography>
+                    </Grid>
+                    <Grid item xs={3}>
+                      <Typography>{item.products.length}</Typography>
+                    </Grid>
+                    <Grid item xs={3} />
+                    <Grid item xs={3}>
+                      <DeleteButton
+                        type="submit"
+                        className="btn btn-danger"
+                        onClick={props.handleDelete}
+                        dataId={item._id}
+                        title={`Delete ${item.name}`}
+                      />
+                    </Grid>
+                    <Grid item xs={3} />
+                  </Grid>
                 </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+              </Container>
+            </ListItem>
+          );
+        })}
+      </List>
     );
   } else {
     return (

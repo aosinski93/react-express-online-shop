@@ -1,9 +1,0 @@
-@import url("../../../css_utilities/common.css");
-
-.menu-list-container {
-  padding-top: 20px;
-}
-.menu-item-form-wrapper {
-  display: flex;
-  justify-content: space-between;
-}

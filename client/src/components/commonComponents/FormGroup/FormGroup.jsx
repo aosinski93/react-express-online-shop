@@ -1,76 +1,75 @@
 import React from "react";
+import {
+  TextField,
+  FormControl,
+  InputLabel,
+  Input,
+  Select,
+  MenuItem,
+  Box
+} from "@material-ui/core";
+import { makeStyles } from "@material-ui/styles";
+
+const useStyles = makeStyles(theme => ({
+  textField: {
+    width: 300,
+    marginTop: 10,
+    marginBottom: 10
+  }
+}));
 
 const FormGroup = props => {
+  const classes = useStyles();
+
   switch (props.name) {
     case "description":
       return (
-        <div className="form-group">
-          <label htmlFor={`${props.name}`} className="input-label">
-            {props.labelText}
-          </label>
-          <textarea
-            name={props.name}
-            id={`${props.name}`}
-            value={props.value}
-            onChange={props.onChange}
-            className="form-control"
-          />
-        </div>
+        <TextField
+          multiline={true}
+          rows={2}
+          rowsMax={4}
+          id={`${props.name}`}
+          name={`${props.name}`}
+          label={props.labelText}
+          value={props.value}
+          onChange={props.onChange}
+          variant="outlined"
+        />
       );
     case "manufacturer":
-      return (
-        <div className="form-group">
-          <label htmlFor={`${props.name}`} className="input-label">
-            {props.labelText}
-          </label>
-          <select
-            name={props.name}
-            id={`${props.name}`}
-            value={props.value}
-            onChange={props.onChange}
-            required
-            className="form-control"
-          >
-            {props.data.map(option => {
-              return (
-                <option key={props.data.indexOf(option)} value={option._id}>
-                  {option.name.toUpperCase()}
-                </option>
-              );
-            })}
-          </select>
-        </div>
-      );
     case "category":
       return (
-        <div className="form-group">
-          <label htmlFor={`${props.name}`} className="input-label">
+        <Box mt={2}>
+          <InputLabel htmlFor={`${props.name}`} className="input-label">
             {props.labelText}
-          </label>
-          <select
-            name={props.name}
-            id={`${props.name}`}
-            value={props.value}
+          </InputLabel>
+
+          <Select
+            value={props.value || ""}
             onChange={props.onChange}
-            className="form-control"
+            inputProps={{
+              name: props.name,
+              id: `${props.name}`
+            }}
+            className={classes.textField}
           >
             {props.data.map(option => {
               return (
-                <option key={props.data.indexOf(option)} value={option._id}>
+                <MenuItem key={props.data.indexOf(option)} value={option._id}>
                   {option.name.toUpperCase()}
-                </option>
+                </MenuItem>
               );
             })}
-          </select>
-        </div>
+          </Select>
+        </Box>
       );
     case "image":
       return (
         <div className="form-group">
-          <label htmlFor={`${props.name}`} className="input-label">
+          <InputLabel htmlFor={`${props.name}`} className="input-label">
             {props.labelText}
-          </label>
-          <input
+          </InputLabel>
+          <Input
             type={props.type}
             id={`${props.name}`}
             name={props.name}
@@ -81,21 +80,19 @@ const FormGroup = props => {
       );
     default:
       return (
-        <div className="form-group">
-          {props.labelText && 
-          <label htmlFor={`${props.name}`} className="input-label">
-          {props.labelText}
-        </label>}
-          <input
-            type={props.type}
+        <FormControl fullWidth>
+          <TextField
             id={`${props.name}`}
-            name={props.name}
+            type={props.type}
+            name={`${props.name}`}
+            label={props.labelText}
             value={props.value}
+            defaultValue={props.defaultValue}
             onChange={props.onChange}
-            className="form-control"
-            placeholder={props.placeholder}
+            variant="outlined"
+            className={classes.textField}
           />
-        </div>
+        </FormControl>
       );
   }
 };

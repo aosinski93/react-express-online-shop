@@ -1,12 +1,21 @@
 import React from "react";
 import "../../../css_utilities/common.css";
-import "./footer.css";
+import { makeStyles, Container, Typography } from "@material-ui/core";
+
+const useStyles = makeStyles(theme => ({
+  footerBar: {
+    textAlign: 'center'
+  }
+}));
 
 const Footer = () => {
+  const classes = useStyles();
   return (
-    <div className="footer-bar d-flex align-items-center justify-content-center">
-      <p>Created by Adam Osiński, {new Date().getFullYear()}&copy;</p>
-    </div>
+    <Container maxWidth={"sm"} className={classes.footerBar}>
+      <Typography>
+        Created by Adam Osiński, {new Date().getFullYear()}&copy;
+      </Typography>
+    </Container>
   );
 };
 

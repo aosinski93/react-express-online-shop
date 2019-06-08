@@ -15,7 +15,7 @@ class App extends Component {
     return (
       <Router>
         <Fragment>
-          <HeaderContainer />
+          <Route component={HeaderContainer}/>
           <div className="app">
             <Switch>
               <Route exact path="/" component={Home} />

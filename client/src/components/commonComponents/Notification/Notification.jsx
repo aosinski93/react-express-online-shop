@@ -1,22 +1,41 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { clearNotification } from "../../../actions/notificationsActions";
-import "./notification.css";
+import { makeStyles } from "@material-ui/styles";
+import { Box } from "@material-ui/core";
 
 class Notification extends Component {
+  useStyles = () =>
+    makeStyles(theme => ({
+      successMessage: {
+        backgroundColor: "#238837",
+        color: "white",
+        padding: "30px 60px"
+      },
+      errorMessage: {
+        backgroundColor: "#c92232",
+        color: "#fff",
+        padding: "30px 60px"
+      }
+    }));
+
   render() {
+    const classes = this.useStyles();
+
     setTimeout(() => {
       this.props.clearNotification();
     }, 2000);
     return (
-      <div className="d-flex justify-content-center">
+      <Box m={5}>
         {this.props.successMessage !== "" ? (
-          <div className="successMsg">{this.props.successMessage}</div>
+          <div className={classes.successMessage}>
+            {this.props.successMessage}
+          </div>
         ) : null}
         {this.props.errorMessage !== "" ? (
-          <div className="errorMsg">{this.props.errorMessage}</div>
+          <div className={classes.errorMessage}>{this.props.errorMessage}</div>
         ) : null}
-      </div>
+      </Box>
     );
   }
 }

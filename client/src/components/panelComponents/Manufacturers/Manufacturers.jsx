@@ -1,15 +1,21 @@
 import React, { Component } from "react";
 import ManufacturersInputFormContainer from "../../../containers/ManufacturersInputFormContainer/ManufacturersInputForm.container";
 import ManufacturersListContainer from "../../../containers/ManufacturersListContainer/ManufacturersList.container";
+import { Grid, Box } from "@material-ui/core";
 
 class Manufacturers extends Component {
   render() {
     return (
-      <div className="manufacturersPanel row">
-        <ManufacturersListContainer data={this.props.manufacturers} />
-        <div className="col-lg-1 col-md-1 col-sm-1" />
-        <ManufacturersInputFormContainer />
-      </div>
+      <Grid container>
+        <Grid item xs={7}>
+          <ManufacturersListContainer data={this.props.manufacturers} />
+        </Grid>
+        <Grid item xs={4}>
+          <Box pl={3}>
+            <ManufacturersInputFormContainer />
+          </Box>
+        </Grid>
+      </Grid>
     );
   }
 }

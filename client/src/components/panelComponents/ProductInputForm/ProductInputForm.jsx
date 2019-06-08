@@ -1,11 +1,12 @@
 import React from "react";
 import FormGroup from "../../commonComponents/FormGroup/FormGroup";
 import SubmitButton from "../../commonComponents/SubmitButton/SubmitButton";
+import { Container, Typography } from "@material-ui/core";
 
-const ProductInputForm = props => {
+const ProductInputForm = props => { 
   return (
-    <div className="productInputForm col-lg-6 col-md-6 col-sm-6 mt-1 mb-1">
-      <p>Add product</p>
+    <Container>
+     <Typography variant='h4'>Add product</Typography>
 
       <form onSubmit={props.onSubmit}>
         <FormGroup
@@ -102,6 +103,7 @@ const ProductInputForm = props => {
           name="date_of_release"
           type="date"
           labelText="Date of release"
+          defaultValue={new Date().toJSON().slice(0,10)}
           value={props.date_of_release}
           onChange={props.onChange}
         />
@@ -138,7 +140,7 @@ const ProductInputForm = props => {
           title="Submit form"
         />
       </form>
-    </div>
+    </Container>
   );
 }
 

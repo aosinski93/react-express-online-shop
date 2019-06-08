@@ -1,10 +1,13 @@
 import React from "react";
+import { Container, Box } from "@material-ui/core";
 
 const NotFound = () => {
   return (
-    <div>
-      <h1>Page not found</h1>
-    </div>
+    <Container>
+      <Box m={10}>
+        <h1>Page not found</h1>
+      </Box>
+    </Container>
   );
 };
 
