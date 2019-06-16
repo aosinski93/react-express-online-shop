@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addProduct } from "../../actions/panelActions";
+import { addProduct, uploadImage } from "../../actions/panelActions";
 import { notifyError, notifySuccess } from "../../actions/notificationsActions";
 import ProductInputForm from "../../components/panelComponents/ProductInputForm/ProductInputForm";
 
@@ -11,7 +11,6 @@ class ProductInputFormContainer extends Component {
     this.state = {
       image: "",
       imageName: "",
-      imageLocalization: "",
       name: "",
       description: "",
       manufacturer: "",
@@ -34,15 +33,7 @@ class ProductInputFormContainer extends Component {
     let name = e.target.name;
 
     if (name === "image") {
-      var reader = new FileReader();
-
-      reader.onload = function(e) {
-        document.getElementById("preview").setAttribute("src", e.target.result);
-      };
-
-      reader.readAsDataURL(e.target.files[0]);
-
-      this.setState({
+        this.setState({
         image: e.target.files[0],
         imageName: e.target.files[0].name
       });
@@ -64,8 +55,6 @@ class ProductInputFormContainer extends Component {
       this.props.notifyError("Set the category");
     } else {
       const product = {
-        image: this.state.image,
-        imageName: this.state.imageName,
         name: this.state.name,
         description: this.state.description,
         manufacturer: this.state.manufacturer,
@@ -83,7 +72,10 @@ class ProductInputFormContainer extends Component {
       };
 
       try {
-        this.props.addProduct(product);
+
+        // this.props.addProduct(product);
+
+        this.props.uploadImage(this.state.image);
       } catch (err) {
         this.props.notifyError("Something went wrong");
         console.error(err);
@@ -112,5 +104,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { addProduct, notifyError, notifySuccess }
+  { addProduct, uploadImage, notifyError, notifySuccess }
 )(ProductInputFormContainer);

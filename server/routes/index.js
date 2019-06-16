@@ -6,8 +6,7 @@ const manufacturerController = require("../controllers/manufacturerController");
 const userController = require('../controllers/userController');
 const multer = require('multer');
 
-const upload = multer();
-
+let upload = multer();
 
 router.post(["/admin/user/login", "/user/login"], userController.user_userLogin);
 router.post('/user/register', userController.user_addUser);
@@ -19,10 +18,11 @@ router.put("/menu/:id", menuController.menu_updateMenuItem);
 router.put("/menu/:id/subcategory", menuController.menu_addSubcategory);
 router.delete("/menu/:id/:subcategoryId", menuController.menu_deleteSubcategory);
 
-router.post("/product", upload.single('image'), productController.product_addProduct);
+router.post("/product", productController.product_addProduct);
 router.get("/products", productController.product_getProducts);
 router.get("/product/:id", productController.product_getProduct);
 router.delete("/product/:id", productController.product_deleteProduct);
+router.post('/upload', upload.single('image'), productController.product_uploadImage);
 
 router.get(
   "/products/:manufacturerName",

@@ -10,13 +10,15 @@ import {
   DELETE_PRODUCT,
   DELETE_MENU_ITEM,
   DELETE_MENU_SUBCATEGORY,
-  FILTER_PRODUCTS
-} from "./types";
+  FILTER_PRODUCTS,
+  NOTIFY_SUCCESS,
+  NOTIFY_ERROR
+} from './types';
 
 export const fetchPanelMenu = () => dispatch => {
-  let url = "/admin";
+  let url = '/admin';
   fetch(url, {
-    method: "GET"
+    method: 'GET'
   })
     .then(res => res.json())
     .then(fetchedMenu => {
@@ -31,9 +33,9 @@ export const fetchPanelMenu = () => dispatch => {
 };
 
 export const fetchPanelProducts = () => dispatch => {
-  let url = "/products";
+  let url = '/products';
   fetch(url, {
-    method: "GET"
+    method: 'GET'
   })
     .then(res => res.json())
     .then(fetchedProducts => {
@@ -47,9 +49,9 @@ export const fetchPanelProducts = () => dispatch => {
     });
 };
 export const fetchPanelManufacturers = () => dispatch => {
-  let url = "/manufacturers";
+  let url = '/manufacturers';
   fetch(url, {
-    method: "GET"
+    method: 'GET'
   })
     .then(res => res.json())
     .then(fetchedManufacturers => {
@@ -63,29 +65,15 @@ export const fetchPanelManufacturers = () => dispatch => {
     });
 };
 
-export const addProduct = product => dispatch => {  
- 
-  const data = new FormData();
-  data.append('image', product.image);
-  data.append('imageName',product.imageName);
-  data.append('name', product.name,);
-  data.append('description', product.description);
-  data.append('manufacturer', product.manufacturer);
-  data.append('category', product.category || "");
-  data.append('size', product.size);
-  data.append('resolution', product.resolution);
-  data.append('batery', product.battery);
-  data.append('camera', product.camera);
-  data.append('sim_qty', product.sim_qty);
-  data.append('price', product.price);
-  data.append('ram', product.ram);
-  data.append('cpu', product.cpu);
-  data.append('oprating_system', product.operating_system);
-
-  let url = "/product";
+export const addProduct = product => dispatch => {
+  let url = '/product';
   fetch(url, {
-    method: "POST",
-    body: data
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify(product)
   })
     .then(res => res.json())
     .then(product => {
@@ -99,13 +87,38 @@ export const addProduct = product => dispatch => {
     });
 };
 
-export const addManufacturer = manufacturer => dispatch => {
-  let url = "/manufacturer";
+export const uploadImage = image => dispatch => {
+  
+  const formData = new FormData();
+  formData.append('image', image)
+
+  let url = '/upload';
+
   fetch(url, {
-    method: "POST",
+    method: 'POST',
+    body: formData
+  })
+    .then(() => {
+      dispatch({
+        type: NOTIFY_SUCCESS,
+        payload: 'success'
+      });
+    })
+    .catch(err => {
+      dispatch({
+        type: NOTIFY_ERROR,
+        payload: 'error'
+      });
+    })
+};
+
+export const addManufacturer = manufacturer => dispatch => {
+  let url = '/manufacturer';
+  fetch(url, {
+    method: 'POST',
     headers: {
-      Accept: "application/json",
-      "content-type": "application/json"
+      Accept: 'application/json',
+      'content-type': 'application/json'
     },
     body: JSON.stringify(manufacturer)
   })
@@ -122,13 +135,13 @@ export const addManufacturer = manufacturer => dispatch => {
 };
 
 export const addCategory = category => dispatch => {
-  let url = "/menu";
+  let url = '/menu';
 
   fetch(url, {
-    method: "POST",
+    method: 'POST',
     headers: {
-      Accept: "application/json",
-      "content-type": "application/json"
+      Accept: 'application/json',
+      'content-type': 'application/json'
     },
     body: JSON.stringify(category)
   })
@@ -148,10 +161,10 @@ export const addSubcategory = (subcategory, parentId) => dispatch => {
   let url = `/menu/${parentId}/subcategory`;
 
   fetch(url, {
-    method: "PUT",
+    method: 'PUT',
     headers: {
-      Accept: "application/json",
-      "content-type": "application/json"
+      Accept: 'application/json',
+      'content-type': 'application/json'
     },
     body: JSON.stringify(subcategory)
   })
@@ -171,7 +184,7 @@ export const deleteManufacturer = id => dispatch => {
   let url = `/manufacturer/${id}`;
 
   fetch(url, {
-    method: "DELETE"
+    method: 'DELETE'
   })
     .then(res => res.json())
     .then(deletedManufacturer => {
@@ -189,7 +202,7 @@ export const deleteProduct = id => dispatch => {
   let url = `/product/${id}`;
 
   fetch(url, {
-    method: "DELETE"
+    method: 'DELETE'
   })
     .then(res => res.json())
     .then(deletedProduct => {
@@ -207,7 +220,7 @@ export const deleteMenuItem = id => dispatch => {
   let url = `/menu/${id}`;
 
   fetch(url, {
-    method: "DELETE"
+    method: 'DELETE'
   })
     .then(res => res.json())
     .then(deletedMenuItem => {
@@ -225,7 +238,7 @@ export const deleteMenuSubcategory = (id, subcategoryId) => dispatch => {
   let url = `/menu/${id}/${subcategoryId}`;
 
   fetch(url, {
-    method: "DELETE"
+    method: 'DELETE'
   })
     .then(res => res.json())
     .then(deletedSubcategory => {
@@ -239,9 +252,9 @@ export const deleteMenuSubcategory = (id, subcategoryId) => dispatch => {
     });
 };
 
-export const setProductsFilter = (filter) => dispatch => {
+export const setProductsFilter = filter => dispatch => {
   dispatch({
     type: FILTER_PRODUCTS,
     payload: filter
-  })
-}
+  });
+};

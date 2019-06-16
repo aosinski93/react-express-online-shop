@@ -21,7 +21,7 @@ class ProductsListContainer extends Component {
 
   onDelete = e => {
     e.preventDefault();
-    this.props.deleteProduct(e.target.dataset.id);
+    this.props.deleteProduct(e.currentTarget.dataset.id);
   };
 
   render() {      

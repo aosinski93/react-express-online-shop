@@ -6,7 +6,8 @@
   "scripts": {
     "start": "concurrently \"npm run front\"  \"npm run back\" ",
     "front": "npm start --prefix client",
-    "back": "npm start --prefix server"
+    "back": "npm start --prefix server",
+    "install_all": "npm install --prefix client && npm install --prefix server"
   },
   "repository": {
     "type": "git",
@@ -20,7 +21,6 @@
   },
   "homepage": "https://github.com/aosinski93/react-express-online-shop#readme",
   "dependencies": {
-    "bcrypt": "^3.0.6",
     "concurrently": "^4.1.0"
   }
 }
