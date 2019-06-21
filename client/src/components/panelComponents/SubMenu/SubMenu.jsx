@@ -39,7 +39,7 @@ const SubMenu = props => {
                     className="data-submit delete-data-button btn btn-danger"
                     onClick={props.onDeleteMenu}
                     dataId={props.item._id}
-                    title={`Delete ${props.item.name}`}
+                    title={`Delete ${props.item._id}`}
                   />
                 </Grid>
               </Grid>

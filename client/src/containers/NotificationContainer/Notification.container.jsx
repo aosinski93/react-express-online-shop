@@ -13,13 +13,13 @@ class NotificationContainer extends Component {
 
         return (
             <Fragment>
-                {this.props.successMessage !== '' 
-                ? <Notification 
-                isOpen={true}
-                message={this.props.successMessage}
-                messageType="successMessage"
-                /> :
-                <></>}
+                {this.props.successMessage !== ''
+                    ? <Notification
+                        isOpen={true}
+                        message={this.props.successMessage}
+                        messageType="successMessage"
+                    /> :
+                    <></>}
             </Fragment>
 
         )

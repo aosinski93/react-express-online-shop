@@ -25,10 +25,19 @@ export const fetchPanelMenu = () => dispatch => {
       dispatch({
         type: FETCH_PANEL_MENU,
         payload: fetchedMenu
-      });
+      })
+    })
+    .then(() => {
+      dispatch({
+        type: NOTIFY_SUCCESS,
+        payload: 'Menu fetched'
+      })
     })
     .catch(err => {
-      console.log(err);
+      dispatch({
+        type: NOTIFY_ERROR,
+        payload: err.message
+      })
     });
 };
 
@@ -44,8 +53,17 @@ export const fetchPanelProducts = () => dispatch => {
         payload: fetchedProducts
       });
     })
+    .then(() => {
+      dispatch({
+        type: NOTIFY_SUCCESS,
+        payload: 'Products fetched'
+      })
+    })
     .catch(err => {
-      console.log(err);
+      dispatch({
+        type: NOTIFY_ERROR,
+        payload: err.message
+      })
     });
 };
 export const fetchPanelManufacturers = () => dispatch => {
@@ -60,8 +78,17 @@ export const fetchPanelManufacturers = () => dispatch => {
         payload: fetchedManufacturers
       });
     })
+    .then(() => {
+      dispatch({
+        type: NOTIFY_SUCCESS,
+        payload: 'Manufacturers fetched'
+      })
+    })
     .catch(err => {
-      console.log(err);
+      dispatch({
+        type: NOTIFY_ERROR,
+        payload: err.message
+      })
     });
 };
 
@@ -82,8 +109,17 @@ export const addProduct = product => dispatch => {
         payload: product
       });
     })
+    .then(() => {
+      dispatch({
+        type: NOTIFY_SUCCESS,
+        payload: `${product.name} successfuly created!`
+      })
+    })
     .catch(err => {
-      console.error(err);
+      dispatch({
+        type: NOTIFY_ERROR,
+        payload: err.message
+      })
     });
 };
 
@@ -107,8 +143,8 @@ export const uploadImage = image => dispatch => {
     .catch(err => {
       dispatch({
         type: NOTIFY_ERROR,
-        payload: 'error'
-      });
+        payload: err.message
+      })
     })
 };
 
@@ -129,8 +165,17 @@ export const addManufacturer = manufacturer => dispatch => {
         payload: manufacturer
       });
     })
+    .then(() => {
+      dispatch({
+        type: NOTIFY_SUCCESS,
+        payload: `${manufacturer.name} successfuly created!`
+      })
+    })
     .catch(err => {
-      console.log(err);
+      dispatch({
+        type: NOTIFY_ERROR,
+        payload: err.message
+      })
     });
 };
 
@@ -152,8 +197,17 @@ export const addCategory = category => dispatch => {
         payload: category
       });
     })
+    .then(() => {
+      dispatch({
+        type: NOTIFY_SUCCESS,
+        payload: `${category.name} successfuly created!`
+      })
+    })
     .catch(err => {
-      console.log(err);
+      dispatch({
+        type: NOTIFY_ERROR,
+        payload: err.message
+      })
     });
 };
 
@@ -175,8 +229,17 @@ export const addSubcategory = (subcategory, parentId) => dispatch => {
         payload: subcategory
       });
     })
+    .then(() => {
+      dispatch({
+        type: NOTIFY_SUCCESS,
+        payload: `${subcategory.name} successfuly created!`
+      })
+    })
     .catch(err => {
-      console.log(err);
+      dispatch({
+        type: NOTIFY_ERROR,
+        payload: err.message
+      })
     });
 };
 
@@ -193,8 +256,17 @@ export const deleteManufacturer = id => dispatch => {
         payload: deletedManufacturer
       });
     })
+    .then(() => {
+      dispatch({
+        type: NOTIFY_SUCCESS,
+        payload: `Manufacturer successfuly deleted!`
+      })
+    })
     .catch(err => {
-      console.log(err);
+      dispatch({
+        type: NOTIFY_ERROR,
+        payload: err.message
+      })
     });
 };
 
@@ -211,8 +283,17 @@ export const deleteProduct = id => dispatch => {
         payload: deletedProduct
       });
     })
+    .then(() => {
+      dispatch({
+        type: NOTIFY_SUCCESS,
+        payload: `Product successfuly deleted!`
+      })
+    })
     .catch(err => {
-      console.log(err);
+      dispatch({
+        type: NOTIFY_ERROR,
+        payload: err.message
+      })
     });
 };
 
@@ -229,8 +310,17 @@ export const deleteMenuItem = id => dispatch => {
         payload: deletedMenuItem
       });
     })
+    .then(() => {
+      dispatch({
+        type: NOTIFY_SUCCESS,
+        payload: `Menu item successfuly deleted!`
+      })
+    })
     .catch(err => {
-      console.log(err);
+      dispatch({
+        type: NOTIFY_ERROR,
+        payload: err.message
+      })
     });
 };
 
@@ -247,8 +337,17 @@ export const deleteMenuSubcategory = (id, subcategoryId) => dispatch => {
         payload: deletedSubcategory
       });
     })
+    .then(() => {
+      dispatch({
+        type: NOTIFY_SUCCESS,
+        payload: `Subcategory successfuly deleted!`
+      })
+    })
     .catch(err => {
-      console.log(err);
+      dispatch({
+        type: NOTIFY_ERROR,
+        payload: err.message
+      })
     });
 };
 

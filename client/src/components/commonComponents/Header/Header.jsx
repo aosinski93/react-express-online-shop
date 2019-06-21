@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
   },
   header: {
     minHeight: 45,
-    backgroundColor: "#0099DD"
+    backgroundColor: "#333"
   },
   link: {
     margin: theme.spacing(1),

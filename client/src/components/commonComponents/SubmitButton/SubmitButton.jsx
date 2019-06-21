@@ -3,7 +3,13 @@ import { Button, makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   submitButton: {
-    backgroundColor: "green"
+    margin: '0 5px',
+    backgroundColor: '#333',
+    color: '#fff',
+    border: '1px solid #333',
+    '&:hover': {
+      backgroundColor: '#238837',
+    }
   }
 }));
 

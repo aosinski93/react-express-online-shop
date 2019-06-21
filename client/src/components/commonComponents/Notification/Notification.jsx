@@ -18,8 +18,6 @@ const useStyles = makeStyles(theme => ({
 const Notification = props => {
   const classes = useStyles();
 
-  console.log(props);
-  
   return (
     <Snackbar
       anchorOrigin={{

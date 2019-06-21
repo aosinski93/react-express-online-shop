@@ -24,8 +24,8 @@ class SubMenuContainer extends Component {
   };
 
   onChange = e => {
-    let value = e.target.value;
-    let name = e.target.name;
+    let value = e.currentTarget.value;
+    let name = e.currentTarget.name;
     this.setState({
       [name]: value
     });
@@ -34,7 +34,7 @@ class SubMenuContainer extends Component {
   onSubmit = e => {
     e.preventDefault();
 
-    let parentId = e.target.id.split("-")[0];
+    let parentId = e.currentTarget.id.split("-")[0];
 
     this.props.addSubcategory(
       {
@@ -51,19 +51,24 @@ class SubMenuContainer extends Component {
 
   onDeleteMenu = e => {
     e.preventDefault();
-
     this.props.deleteMenuItem(e.currentTarget.dataset.id);
   };
   onDeleteSubcategory = e => {
     e.preventDefault();
+  
     this.props.deleteMenuSubcategory(
-      e.target.dataset.parent,
-      e.target.dataset.id
+      e.currentTarget.dataset.parent,
+      e.currentTarget.dataset.id
     );
   };
 
   render() {
-    return <SubMenu item={this.props.item} />;
+    return <SubMenu
+      item={this.props.item}
+      onChange={this.onChange}
+      onDeleteMenu={this.onDeleteMenu}
+      onDeleteSubcategory={this.onDeleteSubcategory} 
+      onSubmit={this.onSubmit}/>;
   }
 }
 

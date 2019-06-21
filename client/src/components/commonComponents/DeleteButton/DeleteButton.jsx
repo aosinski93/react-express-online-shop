@@ -3,7 +3,14 @@ import { Button, makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   deleteButton: {
-    backgroundColor: 'red',
+    margin: '0 5px',
+    backgroundColor: '#fff',
+    color: '#333',
+    border: '1px solid #333',
+    '&:hover': {
+      backgroundColor: '#c92232',
+      color: '#fff'
+    }
   }
 }))
 

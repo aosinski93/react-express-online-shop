@@ -19,9 +19,6 @@ class ManufacturersListContainer extends Component {
       this.props.deleteManufacturer(e.currentTarget.dataset.id);
     } catch (err) {
       console.error(err);
-      this.props.notifyError("Something went wrong");
-    } finally {
-      this.props.notifySuccess(`Successfully deleted manufacturer`);
     }
   };
 
