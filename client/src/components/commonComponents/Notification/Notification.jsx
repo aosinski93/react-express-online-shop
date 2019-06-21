@@ -1,51 +1,40 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { clearNotification } from "../../../actions/notificationsActions";
+import React from "react";
 import { makeStyles } from "@material-ui/styles";
-import { Box } from "@material-ui/core";
+import { Snackbar, SnackbarContent } from "@material-ui/core";
 
-class Notification extends Component {
-  useStyles = () =>
-    makeStyles(theme => ({
-      successMessage: {
-        backgroundColor: "#238837",
-        color: "white",
-        padding: "30px 60px"
-      },
-      errorMessage: {
-        backgroundColor: "#c92232",
-        color: "#fff",
-        padding: "30px 60px"
-      }
-    }));
+const useStyles = makeStyles(theme => ({
+    successMessage: {
+      backgroundColor: "#238837",
+      color: "white",
+      padding: "30px 60px"
+    },
+    errorMessage: {
+      backgroundColor: "#c92232",
+      color: "#fff",
+      padding: "30px 60px"
+    }
+  }));
 
-  render() {
-    const classes = this.useStyles();
+const Notification = props => {
+  const classes = useStyles();
 
-    setTimeout(() => {
-      this.props.clearNotification();
-    }, 2000);
-    return (
-      <Box m={5}>
-        {this.props.successMessage !== "" ? (
-          <div className={classes.successMessage}>
-            {this.props.successMessage}
-          </div>
-        ) : null}
-        {this.props.errorMessage !== "" ? (
-          <div className={classes.errorMessage}>{this.props.errorMessage}</div>
-        ) : null}
-      </Box>
-    );
-  }
+  console.log(props);
+  
+  return (
+    <Snackbar
+      anchorOrigin={{
+        vertical: 'bottom',
+        horizontal: 'left',
+      }}
+      open={props.isOpen || false}
+      autoHideDuration={6000}
+    >
+      <SnackbarContent className={props.messageType === 'successMessage' ? classes.successMessage : classes.errorMessage} message={props.message}>
+
+      </SnackbarContent>
+    </Snackbar>
+
+  );
 }
 
-const mapStateToProps = state => ({
-  errorMessage: state.notifications.errorMessage,
-  successMessage: state.notifications.successMessage
-});
-
-export default connect(
-  mapStateToProps,
-  { clearNotification }
-)(Notification);
+export default Notification;

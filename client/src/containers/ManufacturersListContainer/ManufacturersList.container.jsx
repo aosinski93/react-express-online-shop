@@ -16,7 +16,7 @@ class ManufacturersListContainer extends Component {
   handleDelete = e => {
     e.preventDefault();
     try {
-      this.props.deleteManufacturer(e.target.dataset.id);
+      this.props.deleteManufacturer(e.currentTarget.dataset.id);
     } catch (err) {
       console.error(err);
       this.props.notifyError("Something went wrong");

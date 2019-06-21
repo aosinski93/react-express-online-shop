@@ -1,21 +1,21 @@
-import React, { Component, Fragment } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "./components/frontComponents/Home/Home.jsx";
-import NotFound from "./components/commonComponents/NotFound/NotFound.jsx";
-import "./App.css";
-import Store from "./components/frontComponents/Store/Store.jsx";
-import Footer from "./components/commonComponents/Footer/Footer.jsx";
-import AdminPanelContainer from "./containers/AdminPanelContainer/AdminPanel.container.jsx";
-import Notification from "./components/commonComponents/Notification/Notification.jsx";
-import HeaderContainer from "./containers/HeaderContainer/Header.container.jsx";
-import LoginFormContainer from "./containers/LoginFormContainer/LoginForm.container.jsx";
+import React, { Component, Fragment } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './components/frontComponents/Home/Home.jsx';
+import NotFound from './components/commonComponents/NotFound/NotFound.jsx';
+import './App.css';
+import Store from './components/frontComponents/Store/Store.jsx';
+import Footer from './components/commonComponents/Footer/Footer.jsx';
+import AdminPanelContainer from './containers/AdminPanelContainer/AdminPanel.container.jsx';
+import HeaderContainer from './containers/HeaderContainer/Header.container.jsx';
+import LoginFormContainer from './containers/LoginFormContainer/LoginForm.container.jsx';
+import NotificationContainer from './containers/NotificationContainer/Notification.container.jsx';
 
 class App extends Component {
   render() {
     return (
       <Router>
         <Fragment>
-          <Route component={HeaderContainer}/>
+          <Route component={HeaderContainer} />
           <div className="app">
             <Switch>
               <Route exact path="/" component={Home} />
@@ -25,9 +25,7 @@ class App extends Component {
               <Route path="/store" component={Store} />
               <Route component={NotFound} />
             </Switch>
-            <div className="notification-box">
-              <Notification />
-            </div>
+            <NotificationContainer />
           </div>
           <Footer />
         </Fragment>

@@ -52,7 +52,7 @@ class SubMenuContainer extends Component {
   onDeleteMenu = e => {
     e.preventDefault();
 
-    this.props.deleteMenuItem(e.target.dataset.id);
+    this.props.deleteMenuItem(e.currentTarget.dataset.id);
   };
   onDeleteSubcategory = e => {
     e.preventDefault();
