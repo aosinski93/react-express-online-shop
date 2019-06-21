@@ -9,8 +9,8 @@ class ProductInputFormContainer extends Component {
     super();
 
     this.state = {
-      image: "",
-      imageName: "",
+      // image: "",
+      // imageName: "",
       name: "",
       description: "",
       manufacturer: "",
@@ -73,9 +73,9 @@ class ProductInputFormContainer extends Component {
 
       try {
 
-        // this.props.addProduct(product);
+        this.props.addProduct(product);
 
-        this.props.uploadImage(this.state.image);
+        // this.props.uploadImage(this.state.image);
       } catch (err) {
         this.props.notifyError("Something went wrong");
         console.error(err);

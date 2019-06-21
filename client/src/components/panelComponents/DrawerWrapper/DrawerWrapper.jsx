@@ -26,7 +26,8 @@ const useStyles = makeStyles(theme => ({
     color: "black"
   },
   link: {
-    textDecoration: "none"
+    textDecoration: "none",
+    color: '#000'
   }
 }));
 
@@ -36,7 +37,7 @@ const DrawerWrapper = props => {
   const classes = useStyles();
 
   const handleCLick = (filter) => {
-    if(filter) {
+    if (filter) {
       props.setProductsFilter("")
     }
     props.toggleDrawer();
@@ -53,50 +54,54 @@ const DrawerWrapper = props => {
         </IconButton>
       </Box>
       <List component="nav" aria-label="Panel navigation">
-        <ListItem button>
-          <Box mr={3}>
-            <DevicesIcon />
-          </Box>
-          <Link
-            to={`${props.match.url}/products`}
-            className={classes.link}
-            onClick={() => handleCLick(true)}
-          >
+        <Link
+          to={`${props.match.url}/products`}
+          className={classes.link}
+          onClick={() => handleCLick(true)}
+        >
+          <ListItem button>
+            <Box mr={3}>
+              <DevicesIcon />
+            </Box>
             <Typography>Products</Typography>
-          </Link>
-        </ListItem>
-        <ListItem button>
-          <Box mr={3}>
-            <StorageIcon />
-          </Box>
-          <Link to={`${props.match.url}/menu`} className={classes.link} onClick={() => handleCLick(false)}>
+          </ListItem>
+        </Link>
+        <Link to={`${props.match.url}/menu`} className={classes.link} onClick={() => handleCLick(false)}>
+          <ListItem button>
+            <Box mr={3}>
+              <StorageIcon />
+            </Box>
+
             <Typography>Menu</Typography>
-          </Link>
-        </ListItem>
-        <ListItem button>
-          <Box mr={3}>
-            <AccountBoxIcon />
-          </Box>
-          <Link
-            to={`${props.match.url}/manufacturers`}
-            className={classes.link}
-            onClick={() => handleCLick(true)}
-          >
+
+          </ListItem>
+        </Link>
+
+        <Link
+          to={`${props.match.url}/manufacturers`}
+          className={classes.link}
+          onClick={() => handleCLick(true)}
+        >
+          <ListItem button>
+            <Box mr={3}>
+              <AccountBoxIcon />
+            </Box>
             <Typography>Manufacturers</Typography>
-          </Link>
-        </ListItem>
-        <ListItem button>
-          <Box mr={3}>
-            <GroupIcon />
-          </Box>
-          <Link
-            to={`${props.match.url}/users`}
-            className={classes.link}
-            onClick={() => handleCLick(true)}
-          >
+          </ListItem>
+        </Link>
+
+        <Link
+          to={`${props.match.url}/users`}
+          className={classes.link}
+          onClick={() => handleCLick(true)}
+        >
+          <ListItem button>
+            <Box mr={3}>
+              <GroupIcon />
+            </Box>
             <Typography>Users</Typography>
-          </Link>
-        </ListItem>
+          </ListItem>
+        </Link>
       </List>
     </Drawer>
   );

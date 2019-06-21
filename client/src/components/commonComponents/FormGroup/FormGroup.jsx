@@ -5,7 +5,6 @@ import {
   InputLabel,
   Input,
   Select,
-  MenuItem,
   Box
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
@@ -45,19 +44,18 @@ const FormGroup = props => {
           </InputLabel>
 
           <Select
-            value={props.value || ""}
+            native
             onChange={props.onChange}
-            inputProps={{
-              name: props.name,
-              id: `${props.name}`
-            }}
+            value={props.value}
+            name={props.name}
+            id={`${props.name}`}
             className={classes.textField}
           >
             {props.data.map(option => {
               return (
-                <MenuItem key={props.data.indexOf(option)} value={option._id}>
+                <option key={props.data.indexOf(option)} value={option._id}>
                   {option.name.toUpperCase()}
-                </MenuItem>
+                </option>
               );
             })}
           </Select>

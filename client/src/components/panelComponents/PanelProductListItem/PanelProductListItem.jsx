@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import DeleteButton from "../../commonComponents/DeleteButton/DeleteButton";
 import { Box, Grid, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
+import SmartphoneIcon from "@material-ui/icons/Smartphone";
+import ComputerIcon from "@material-ui/icons/Computer";
+import DevicesIcon from "@material-ui/icons/Devices";
 
 const useStyles = makeStyles(theme => ({
   image: {
@@ -17,23 +20,30 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+const selectIcon = (category) => {
+  switch (category) {
+    case 'phones': {
+      return <SmartphoneIcon />
+    }
+    case 'computers': {
+      return <ComputerIcon />
+    }
+    default: {
+      return <DevicesIcon />
+    }
+  }
+}
+
 const PanelProductListItem = props => {
   const classes = useStyles();
-
   return (
     <Box id={props.item._id} className={classes.singleProduct}>
       <Grid container display="flex" alignItems="center">
         <Grid item xs={10}>
           <Link to={`product/${props.item._id}`} className={classes.link}>
             <Grid container display="flex" alignItems="center">
-              <Grid item xs={3}>
-                <img
-                  src={`https://www.adam-osinski.com/sites/phone-store/product_images/${
-                    props.item.name
-                  }.jpg`}
-                  alt={props.item.name}
-                  className={classes.image}
-                />
+              <Grid align='center' item xs={3}>
+                {selectIcon(props.item.category.name && props.item.category.name.toLowerCase())}
               </Grid>
               <Grid item xs={3}>
                 <Typography align='center'>{props.item.name}</Typography>

@@ -3,7 +3,7 @@ import Loader from "../../commonComponents/Loader/Loader";
 import PanelProductListItem from "../PanelProductListItem/PanelProductListItem";
 import { Container, Grid, List, Typography } from "@material-ui/core";
 
-const ProductList = props => {
+const ProductList = props => {  
   const buildList = () => {
     if (props.products.length !== 0) {
       return (

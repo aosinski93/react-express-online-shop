@@ -9,13 +9,13 @@ const ProductInputForm = props => {
      <Typography variant='h4'>Add product</Typography>
 
       <form onSubmit={props.onSubmit}>
-        <FormGroup
+        {/* <FormGroup
           name="image"
           type="file"
           labelText="Image"
           onChange={props.onChange}
         />
-        <img src="" alt="img" id="preview" />
+        <img src="" alt="img" id="preview" /> */}
         <FormGroup
           name="name"
           type="text"

@@ -8,7 +8,7 @@ const path = require('path');
 const sharp = require('sharp');
 
 exports.product_addProduct = (req, res, next) => {
-  const ftp = new jsftp(config.ftpConfig);
+  // const ftp = new jsftp(config.ftpConfig);
 
   let {
     name,
@@ -28,7 +28,7 @@ exports.product_addProduct = (req, res, next) => {
   } = req.body;
 
   let product = {
-    imageName: slugify(name),
+    // imageName: slugify(name),
     name,
     slug: slugify(name),
     description,
