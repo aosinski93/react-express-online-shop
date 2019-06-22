@@ -10,8 +10,10 @@ import {
   DELETE_MANUFACTURER,
   DELETE_MENU_ITEM,
   DELETE_MENU_SUBCATEGORY,
-  FILTER_PRODUCTS
-} from "../actions/types";
+  FILTER_PRODUCTS,
+  FETCH_USERS,
+  TOGGLE_ADMIN
+} from '../actions/types';
 
 const initialState = {
   menu: [],
@@ -19,6 +21,7 @@ const initialState = {
   filteredProducts: [],
   manufacturers: [],
   addedSubcategory: {},
+  users: []
 };
 
 export default (state = initialState, action) => {
@@ -116,11 +119,29 @@ export default (state = initialState, action) => {
       return {
         ...state,
         filteredProducts:
-          action.payload === ""
+          action.payload === ''
             ? state.products
             : state.products.filter(
                 product => product.manufacturer.name === action.payload
               )
+      };
+    case FETCH_USERS:
+      return {
+        ...state,
+        users: action.payload
+      };
+    case TOGGLE_ADMIN:
+      return {
+        ...state,
+        users: state.users.map(user => {
+          if (user._id === action.payload) {
+            return (user = {
+              ...user,
+              isAdmin: !user.isAdmin
+            });
+          }
+          return user;
+        })
       };
     default:
       return state;

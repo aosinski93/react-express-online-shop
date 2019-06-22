@@ -1,15 +1,22 @@
+require('dotenv').config();
 const Menu = require("../models/Menu");
 const Subcategory = require("../models/Subcategory");
 const uuid = require("uuid");
 const slugify = require("slugify");
 
 exports.menu_displayMenu = (req, res) => {
-  Menu.getMenu((err, menu) => {
-    if (err) {
-      throw err;
-    }
-    res.send(menu);
-  });
+  if(process.env.CONNECTION_ERROR) {
+    // read default data from file
+    res.send();
+  }
+  else {
+    Menu.getMenu((err, menu) => {
+      if (err) {
+        throw err;
+      }
+      res.send(menu);
+    });
+  }
 };
 
 exports.menu_addMenuItem = (req, res) => {

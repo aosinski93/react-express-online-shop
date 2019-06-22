@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import FormGroup from "../FormGroup/FormGroup";
 import SubmitButton from "../SubmitButton/SubmitButton";
+import { Link } from 'react-router-dom';
 import { Container, Grid, Typography, Box } from "@material-ui/core";
 
 class LoginForm extends Component {
@@ -67,13 +68,15 @@ class LoginForm extends Component {
                 <SubmitButton
                   type="submit"
                   value="Log in"
-                  className="form-control btn-success"
                   title="Submit form"
                 />
 
-                <Typography className="errorField" />
               </form>
             </Grid>
+
+            <Link to="/register">
+              <Typography>Don't have an account? Sing up here!</Typography>
+            </Link>
           </Grid>
         </Box>
       </Container>
@@ -83,7 +86,3 @@ class LoginForm extends Component {
 
 export default LoginForm;
 
-// export default connect(
-//   null,
-//   { fetchUser, fetchTransactions }
-// )(UserForm);

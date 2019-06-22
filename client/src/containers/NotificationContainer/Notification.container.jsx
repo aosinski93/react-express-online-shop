@@ -6,32 +6,37 @@ import { clearNotification } from "../../actions/notificationsActions";
 class NotificationContainer extends Component {
 
 
-    render() {
-        setTimeout(() => {
-            this.props.clearNotification();
-        }, 6000);
+  render() {
+    setTimeout(() => {
+      this.props.clearNotification();
+    }, 6000);
 
-        return (
-            <Fragment>
-                {this.props.successMessage !== ''
-                    ? <Notification
-                        isOpen={true}
-                        message={this.props.successMessage}
-                        messageType="successMessage"
-                    /> :
-                    <></>}
-            </Fragment>
+    return (
+      <Fragment>
+        {this.props.successMessage !== ''
+          ? <Notification
+            isOpen={true}
+            message={this.props.successMessage}
+            messageType="successMessage"
+          /> :
+          this.props.errorMessage !== ''
+            ? <Notification
+              isOpen={true}
+              message={this.props.errorMessage}
+              messageType="errorMessage"
+            /> : null}
+      </Fragment>
 
-        )
-    }
+    )
+  }
 }
 
 const mapStateToProps = state => ({
-    errorMessage: state.notifications.errorMessage,
-    successMessage: state.notifications.successMessage
+  errorMessage: state.notifications.errorMessage,
+  successMessage: state.notifications.successMessage
 });
 
 export default connect(
-    mapStateToProps,
-    { clearNotification }
+  mapStateToProps,
+  { clearNotification }
 )(NotificationContainer);

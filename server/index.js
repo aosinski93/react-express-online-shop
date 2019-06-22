@@ -19,6 +19,9 @@ mongoose.connect(db_URI, {
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
+db.on('error', () => {
+  app.set('connectionError', true);  
+});
 
 app.use(cors());
 
@@ -31,6 +34,11 @@ app.use(bodyParser.json());
 app.set('json spaces', 2);
 
 const port = process.env.PORT || 3001;
+
+app.get(['/api', '/api/'], (req, res) => {
+  res.json({error: app.get('connectionError')});
+  
+})
 
 app.use('/', router);
 

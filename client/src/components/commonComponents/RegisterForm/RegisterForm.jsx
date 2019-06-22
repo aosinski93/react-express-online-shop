@@ -1,67 +1,61 @@
-import React, { Component } from 'react';
+import React from 'react';
 import FormGroup from '../FormGroup/FormGroup';
+import { Container, Box, Grid } from '@material-ui/core';
+import SubmitButton from '../SubmitButton/SubmitButton';
 
-class RegisterForm extends Component {
-    constructor(props) {
-        super(props);
+const RegisterForm = (props) => {
 
-        this.state = {
-            username: "",
-            email: "",
-            password: ""
-        }
-    }
 
-    onChange = e => {
-        this.setState({
-          [e.target.name]: e.target.value
-        });
-      };
+  return (
+    <Container maxWidth={"xs"}>
+      <Box m={3}>
+        <Grid container>
+          <Grid item xs={6}>
+            <h2>Sign up</h2>
+          </Grid>
+        </Grid>
+        <Grid container>
+          <Grid item >
+            <form id="registerForm" onSubmit={props.onSubmit}>
+              <FormGroup
+                type="text"
+                name="username"
+                value={props.username}
+                onChange={props.onChange}
+                labelText="Username"
+                required={true}
+              />
 
-      onSubmit = e => {
-        e.preventDefault();
-        this.props.newUser({
-            username: this.state.username,
-            email: this.state.email,
-            password: this.state.password,
-            isAdmin: false
-        });
-        this.clearFields("");
-      };
+              <FormGroup
+                type="email"
+                name="email"
+                value={props.email}
+                onChange={props.onChange}
+                labelText="Email"
+                required={true}
+              />
 
-      clearFields = () => {
-        this.setState({
-          username: "",
-          password: "",
-          email: ""
-        });
-      };
+              <FormGroup
+                type="password"
+                name="password"
+                value={props.password}
+                onChange={props.onChange}
+                labelText="Password"
+                required={true}
+              />
 
-    render() {
-        return (
-            <div className="container p-5">
-                <div className="row">
-                    <div className="col-lg-3 offset-lg-6 col-md-3 offset-md-3 col-sm-3 offset-sm-3">
-                        <h2>Sign up</h2>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-lg-6 offset-lg-3 col-md-6 offset-md-3 col-sm-3 offset-sm-3">
-                        <form id="registerForm">
-                            <FormGroup 
-                                type="text"
-                                name="username"
-                                value={this.state.username}
-                                onChange={this.onChange}
-                                labelText="Username"
-                                required={true}
-                            />
-                        </form>
-                    </div>
-                </div>
-            </div>
-        )
-    }
+              <SubmitButton
+                type="submit"
+                value="Sign up"
+                title="Submit form"
+              />
+            </form>
+          </Grid>
+        </Grid>
+      </Box>
+    </Container>
+  )
 }
+
 
 export default RegisterForm;

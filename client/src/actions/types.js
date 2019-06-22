@@ -5,10 +5,13 @@ export const USER_LOGOUT = "USER_LOGOUT";
 export const ERROR_MESSAGE = "ERROR_MESSAGE";
 export const SUCCESS_MESSAGE = "SUCCESS_MESSAGE";
 
+export const DB_ERROR = "DB_ERROR";
+
 // panel
 export const FETCH_PANEL_MENU = "FETCH_PANEL_MENU";
 export const FETCH_PRODUCTS = "FETCH_PRODUCTS";
 export const FETCH_MANUFACTURERS = "FETCH_MANUFACTURERS";
+export const FETCH_USERS = "FETCH_USERS";
 
 export const ADD_MENU_ITEM = "ADD_MENU_ITEM";
 export const ADD_PRODUCT = "ADD_PRODUCT";
@@ -28,3 +31,4 @@ export const CLEAR_NOTIFICATION = "CLEAR_NOTIFICATION";
 export const FILTER_PRODUCTS = "FILTER_PRODUCTS";
 
 export const TOGGLE_DRAWER = "TOGGLE_DRAWER";
+export const TOGGLE_ADMIN = "TOGGLE_ADMIN";

@@ -1,11 +1,12 @@
-import { NEW_USER, USER_LOGOUT, USER_LOGIN, NOTIFY_ERROR } from "./types";
+import { NEW_USER, USER_LOGOUT, USER_LOGIN, NOTIFY_ERROR, NOTIFY_SUCCESS, TOGGLE_ADMIN } from "./types";
 
 
 export const newUser = userData => dispatch => {
-  fetch("/users", {
+  fetch("/users/register", {
     method: "POST",
     headers: {
-      "content-type": "application/json"
+      Accept: 'application/json',
+      'content-type': 'application/json'
     },
     body: JSON.stringify(userData)
   })
@@ -15,7 +16,19 @@ export const newUser = userData => dispatch => {
         type: NEW_USER,
         payload: user
       })
-    );
+    )
+    .then(() => {
+      dispatch({
+        type: NOTIFY_SUCCESS,
+        payload: 'Successful registration'
+      })
+    })
+    .catch(err => {
+      dispatch({
+        type: NOTIFY_ERROR,
+        payload: err.message
+      })
+    })
 };
 
 
@@ -56,3 +69,11 @@ export const userLogout = () => dispatch => {
     type: USER_LOGOUT
   });
 };
+
+
+export const toggleAdmin = (id) => dispatch => {
+  dispatch({
+    type: TOGGLE_ADMIN,
+    payload: id
+  })
+}

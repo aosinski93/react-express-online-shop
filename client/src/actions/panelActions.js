@@ -12,7 +12,8 @@ import {
   DELETE_MENU_SUBCATEGORY,
   FILTER_PRODUCTS,
   NOTIFY_SUCCESS,
-  NOTIFY_ERROR
+  NOTIFY_ERROR,
+  FETCH_USERS
 } from './types';
 
 export const fetchPanelMenu = () => dispatch => {
@@ -357,3 +358,24 @@ export const setProductsFilter = filter => dispatch => {
     payload: filter
   });
 };
+
+export const fetchUsers = () => dispatch => {
+  let url = '/users';
+
+  fetch(url, {
+    method: "GET"
+  })
+  .then(res => res.json())
+  .then(users => {
+    dispatch({
+      type: FETCH_USERS,
+      payload : users
+    })
+  })
+  .catch(err => {
+    dispatch({
+      type: NOTIFY_ERROR,
+      payload: err.message
+    })
+  });
+}

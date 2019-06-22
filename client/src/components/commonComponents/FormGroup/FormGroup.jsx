@@ -32,6 +32,7 @@ const FormGroup = props => {
           label={props.labelText}
           value={props.value}
           onChange={props.onChange}
+          className={classes.textField}
           variant="outlined"
         />
       );

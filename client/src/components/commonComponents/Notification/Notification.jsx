@@ -24,7 +24,7 @@ const Notification = props => {
         vertical: 'bottom',
         horizontal: 'left',
       }}
-      open={props.isOpen || false}
+      open={props.isOpen}
       autoHideDuration={6000}
     >
       <SnackbarContent className={props.messageType === 'successMessage' ? classes.successMessage : classes.errorMessage} message={props.message}>

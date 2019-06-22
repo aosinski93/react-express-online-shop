@@ -43,7 +43,7 @@ const PanelProductListItem = props => {
           <Link to={`product/${props.item._id}`} className={classes.link}>
             <Grid container display="flex" alignItems="center">
               <Grid align='center' item xs={3}>
-                {selectIcon(props.item.category.name && props.item.category.name.toLowerCase())}
+                {props.item.category.name ? selectIcon(props.item.category.name.toLowerCase()) : selectIcon()}
               </Grid>
               <Grid item xs={3}>
                 <Typography align='center'>{props.item.name}</Typography>

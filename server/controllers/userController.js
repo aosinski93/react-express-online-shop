@@ -1,6 +1,16 @@
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
 
+exports.user_getUsers = (req, res) => {
+  User.getUsers((err, users) => {
+    if(err) {
+      throw err;
+    }
+
+    res.send(users);
+  })
+}
+
 exports.user_addUser = (req, res) => {
   let { username, email, password, isAdmin } = req.body;
 
@@ -52,3 +62,23 @@ const validateUser = (inputPassword, user) => {
     return false;
   }
 };
+
+exports.toggleAdmin = (user) => {
+  User.getUserById(user._id, (err, user) => {
+    if(err) {
+      throw err;
+    }
+
+    let update = user => ({
+      ...user,
+      isAdmin: !user.isAdmin
+    });
+
+    User.updateUser(user._id, update, {}, (err, updatedUser) => {
+      if(err) {
+        throw err;
+      }
+      res.send(updatedUser);
+    })
+  })
+}
