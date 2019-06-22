@@ -28,7 +28,7 @@ class ProductsListContainer extends Component {
     return (
       <ProductList
         loading={this.props.loading}
-        products={this.props.filteredProducts.length !== 0 ? this.props.filteredProducts : this.props.products}
+        products={this.props.products}
         onDelete={this.onDelete}
         filter={this.props.chosenManufacturer}
       />

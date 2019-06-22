@@ -7,7 +7,6 @@ import {
   List,
   ListItem,
   Typography,
-  ClickAwayListener
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -46,8 +45,7 @@ const DrawerWrapper = props => {
   }
 
   return (
-    <ClickAwayListener onClickAway={() => props.toggleDrawer()}>
-      <Drawer
+    <Drawer
       open={props.isVisible}
       className={props.isVisible ? classes.hidden : classes.visible}
     >
@@ -107,7 +105,6 @@ const DrawerWrapper = props => {
         </Link>
       </List>
     </Drawer>
-    </ClickAwayListener>
   );
 };
 

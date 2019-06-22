@@ -29,6 +29,7 @@ const UserListItem = (props) => {
                   checked={props.user.isAdmin}
                   onClick={props.toggleAdmin}
                   data-id={props.user._id}
+                  color="primary"
                 />
               </Grid>
             </Grid>

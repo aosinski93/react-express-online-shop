@@ -72,13 +72,16 @@ class ProductInputFormContainer extends Component {
       };
 
       try {
-
         this.props.addProduct(product);
 
         // this.props.uploadImage(this.state.image);
       } catch (err) {
         console.error(err);
-      } 
+      } finally {
+        this.setState({
+          
+        })
+      }
     }
   };
 
