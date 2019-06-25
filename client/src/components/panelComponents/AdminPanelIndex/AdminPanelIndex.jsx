@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-const AdminPanelIndex = () => {
+const AdminPanelIndex = (props) => {
     const classes = useStyles();
 
     return (
@@ -56,7 +56,7 @@ const AdminPanelIndex = () => {
                                 <Grid container alignItems='center'>
                                     <Grid item lg={8}>
                                         <Typography>Total visits</Typography>
-                                        <Typography>555</Typography>
+                                        <Typography>{ props.pageVisits }</Typography>
                                     </Grid>
                                     <Grid item lg={4}>
                                         <ImportantDevicesIcon fontSize='large' />

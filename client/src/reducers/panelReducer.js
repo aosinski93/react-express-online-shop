@@ -12,7 +12,7 @@ import {
   DELETE_MENU_SUBCATEGORY,
   FILTER_PRODUCTS,
   FETCH_USERS,
-  TOGGLE_ADMIN
+  TOGGLE_ADMIN,
 } from '../actions/types';
 
 const initialState = {

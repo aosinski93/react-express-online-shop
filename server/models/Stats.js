@@ -2,8 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const statsSchema = Schema({
-  page: String,
-  pageVisits: { type: Number, default: 0 }
+  name: String,
+  data: {
+    pageVisits: { type: Number, default: 0 }
+  }
 });
 
 const Stats = (module.exports = mongoose.model('Stats', statsSchema));

@@ -13,7 +13,7 @@ import {
   FILTER_PRODUCTS,
   NOTIFY_SUCCESS,
   NOTIFY_ERROR,
-  FETCH_USERS
+  FETCH_USERS,
 } from './types';
 
 export const fetchPanelMenu = () => dispatch => {

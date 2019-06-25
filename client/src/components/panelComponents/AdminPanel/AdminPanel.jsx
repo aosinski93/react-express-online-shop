@@ -8,7 +8,7 @@ import PanelProductsContainer from "../../../containers/PanelProductsContainer/P
 import { Container, Box } from "@material-ui/core";
 import DrawerContainer from '../../../containers/DrawerContainer/Drawer.container';
 import UsersListContainer from "../../../containers/UsersListContainer/UsersList.container";
-import AdminPanelIndex from "../AdminPanelIndex/AdminPanelIndex";
+import AdminPanelIndexContainer from "../../../containers/AdminPanelIndexContainer/AdminPanelIndex.container";
 
 const AdminPanel = props => {
   return (
@@ -16,7 +16,7 @@ const AdminPanel = props => {
       <main className="panelContent">
         <DrawerContainer match={props.match}/>
         <Container>
-          <Route exact path='/admin' component={AdminPanelIndex} />
+          <Route exact path='/admin' component={AdminPanelIndexContainer} />
           <Route
             path={`${props.match.path}/products`}
             component={PanelProductsContainer}
