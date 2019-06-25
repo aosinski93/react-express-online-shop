@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const mainController = require('../controllers/mainController');
 const menuController = require('../controllers/menuController');
 const productController = require('../controllers/productController');
 const manufacturerController = require('../controllers/manufacturerController');
@@ -14,7 +15,10 @@ router.post(
 );
 router.post('/users/register', userController.user_addUser);
 
-router.get('/', menuController.menu_displayMenu);
+router.get('/', [
+  // menuController.menu_displayMenu,
+  mainController.setViewsCount
+]);
 router.post('/menu', menuController.menu_addMenuItem);
 router.delete('/menu/:id', menuController.menu_deleteMenuItem);
 router.put('/menu/:id', menuController.menu_updateMenuItem);
