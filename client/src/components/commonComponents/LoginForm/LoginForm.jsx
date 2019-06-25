@@ -44,8 +44,8 @@ class LoginForm extends Component {
               <h2>Sign in</h2>
             </Grid>
           </Grid>
-          <Grid container>
-            <Grid item xs={3}>
+          <Grid container alignContent="center">
+            <Grid item xs={12}>
               <form id="loginForm" onSubmit={this.onSubmit}>
                 <FormGroup
                   type="text"
@@ -72,11 +72,10 @@ class LoginForm extends Component {
                 />
 
               </form>
+              <Link to="/register">
+                <Typography align='center'>Don't have an account? Sing up here!</Typography>
+              </Link>
             </Grid>
-
-            <Link to="/register">
-              <Typography>Don't have an account? Sing up here!</Typography>
-            </Link>
           </Grid>
         </Box>
       </Container>

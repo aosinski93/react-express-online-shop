@@ -17,10 +17,10 @@ import GroupIcon from "@material-ui/icons/Group";
 
 const useStyles = makeStyles(theme => ({
   hidden: {
-    width: 0
+    width: 0,
   },
   visible: {
-    width: 300
+    width: '300px',
   },
   icon: {
     color: "black"
