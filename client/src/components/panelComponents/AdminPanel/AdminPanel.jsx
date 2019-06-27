@@ -1,7 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import "../../../css_utilities/common.css";
-import PanelProduct from "../PanelProduct/PanelProduct";
 import ManufacturersContainer from "../../../containers/ManufacturersContainer/Manufacturers.container";
 import MenuItemsContainer from "../../../containers/MenuItemsContainer/MenuItems.container";
 import PanelProductsContainer from "../../../containers/PanelProductsContainer/PanelProducts.container";
@@ -9,6 +8,7 @@ import { Container, Box } from "@material-ui/core";
 import DrawerContainer from '../../../containers/DrawerContainer/Drawer.container';
 import UsersListContainer from "../../../containers/UsersListContainer/UsersList.container";
 import AdminPanelIndexContainer from "../../../containers/AdminPanelIndexContainer/AdminPanelIndex.container";
+import ProductCardContainer from "../../../containers/ProductCardContainer/ProductCard.container";
 
 const AdminPanel = props => {
   return (
@@ -34,8 +34,8 @@ const AdminPanel = props => {
             component={UsersListContainer}
           />
           <Route
-            path={`${props.match.path}/product/:id`}
-            component={PanelProduct}
+            path={`${props.match.path}/product/:name`}
+            component={ProductCardContainer}
           />
         </Container>
       </main>

@@ -1,16 +1,13 @@
 import React from "react";
-import "./loader.css";
+import { Box, Grid, CircularProgress } from "@material-ui/core";
 
 const Loader = () => {
   return (
-    <div className="loader">
-      <p className="d-flex">
-        <span className="loaderText">Loading</span>
-        <span className="first dot">.</span>
-        <span className="second dot">.</span>
-        <span className="third dot">.</span>
-      </p>
-    </div>
+    <Box mt={15}>
+      <Grid container alignItems='center' justify='center'>
+      <CircularProgress/>
+    </Grid>
+    </Box>
   );
 };
 
