@@ -8,11 +8,14 @@ import {
   Typography,
   Button,
   Grid,
-  Box
+  Hidden,
+  Box,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import PersonIcon from "@material-ui/icons/Person";
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import DevicesIcon from "@material-ui/icons/Devices";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -29,7 +32,10 @@ const useStyles = makeStyles(theme => ({
   },
   icon: {
     color: '#fff'
-  }
+  },
+  logo: {
+    fontStyle: 'italic'
+  },
 }));
 
 const Header = props => {
@@ -47,53 +53,65 @@ const Header = props => {
                   </IconButton>
                 </Toolbar>
               </Grid>
-              <Grid item xs={9} sm={9} md={9} lg={9}></Grid>
             </>
           )
           : (
-            <Grid item xs={10} lg={10} md={10} sm={10}>
-              <Toolbar>
-                <Fragment>
-                  <Typography>
-                    <Button>
-                      <Link className={classes.link} to="/">
-                        Home
+            <>
+              <Grid item lg={2} md={2} sm={2} xs={2}>
+                <Toolbar>
+                  <Box mr={2}>
+                    <DevicesIcon />
+                  </Box>
+                  <Typography className={classes.logo}>Phone store</Typography>
+                </Toolbar>
+              </Grid>
+              <Hidden xsDown>
+                <Grid item lg={8} md={6} sm={6}>
+                  <Toolbar>
+                    <Fragment>
+                      <Typography>
+                        <Button>
+                          <Link className={classes.link} to="/">
+                            Home
                     </Link>
-                    </Button>
-                  </Typography>
-                  <Typography>
-                    <Button>
-                      <Link className={classes.link} to="/store">
-                        Store
+                        </Button>
+                      </Typography>
+                      <Typography>
+                        <Button>
+                          <Link className={classes.link} to="/store">
+                            Store
                     </Link>
-                    </Button>
-                  </Typography>
-                  <Typography>
-                    <Button>
-                      <Link className={classes.link} to="/contact">
-                        Contact
+                        </Button>
+                      </Typography>
+                      <Typography>
+                        <Button>
+                          <Link className={classes.link} to="/contact">
+                            Contact
                     </Link>
-                    </Button>
-                  </Typography>
-                </Fragment>
+                        </Button>
+                      </Typography>
+                    </Fragment>
 
-              </Toolbar>
-            </Grid>
+                  </Toolbar>
+                </Grid>
+              </Hidden>
+            </>
           )}
-        <Grid item xs={2} sm={2} md={2} lg={2}>
+        <Grid item xs={6} sm={4} md={4} lg={2}>
           <Toolbar>
             {props.user ? (
               <Grid container>
-                <Grid item></Grid>
-                <Grid item>
-                  <Button className={classes.link}>
-                    <Box mr={2}>
-                      <PersonIcon />
-                    </Box>
-                    <Typography>{props.user.username}</Typography>
+                <Grid item lg={4} md={4} sm={4} xs={4}>
+                  <Button className={classes.link} title={`${props.username}, check your profile`}>
+                    <PersonIcon />
                   </Button>
                 </Grid>
-                <Grid item>
+                <Grid item lg={4} md={4} sm={4} xs={4}>
+                  <Button className={classes.link} title="Finalize your order">
+                    <ShoppingCartIcon />
+                  </Button>
+                </Grid>
+                <Grid item lg={4} md={4} sm={4} xs={4}>
                   <Button className={classes.link} onClick={props.userLogout} title="Logout">
                     <PowerSettingsNewIcon />
                   </Button>

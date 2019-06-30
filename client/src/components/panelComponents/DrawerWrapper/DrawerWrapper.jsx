@@ -15,6 +15,7 @@ import StorageIcon from "@material-ui/icons/Storage";
 import AccountBoxIcon from "@material-ui/icons/AccountBox";
 import GroupIcon from "@material-ui/icons/Group";
 import DashboardIcon from '@material-ui/icons/Dashboard';
+import HomeIcon from '@material-ui/icons/Home';
 
 const useStyles = makeStyles(theme => ({
   hidden: {
@@ -56,7 +57,20 @@ const DrawerWrapper = props => {
         </IconButton>
       </Box>
       <List component="nav" aria-label="Panel navigation">
+
       <Link
+          to={`/`}
+          className={classes.link}
+        >
+          <ListItem button>
+            <Box mr={3}>
+              <HomeIcon />
+            </Box>
+            <Typography>Home (Front)</Typography>
+          </ListItem>
+        </Link>
+
+        <Link
           to={`${props.match.url}`}
           className={classes.link}
           onClick={() => handleCLick(true)}

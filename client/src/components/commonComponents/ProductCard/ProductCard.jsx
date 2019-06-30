@@ -21,7 +21,7 @@ const selectIcon = (category) => {
 
 const ProductCard = (props) => {
   console.log(props);
-  let { manufacturer, category, description, name, cpu, ram, battery, resolution, operating_system, date_of_release } = props.data;
+  let { manufacturer, category, description, name, cpu, ram, battery, resolution, operating_system, date_of_release, price } = props.data;
   return (
     <Fragment>
       <Card>
@@ -48,6 +48,21 @@ const ProductCard = (props) => {
           {props.isInAdmin ? (
             <>
               <List>
+              <ListItem button>
+                  <Grid container alignItems='center'>
+                    <Grid item lg={3} md={3} sm={3} xs={12}>
+                      <InputLabel>
+                        Price
+                  </InputLabel>
+                    </Grid>
+                    <Grid item lg={6} md={6} sm={6} xs={12}>
+                      <Typography>
+                        {price} $
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                </ListItem>
+
                 <ListItem button>
                   <Grid container alignItems='center'>
                     <Grid item lg={3} md={3} sm={3} xs={12}>

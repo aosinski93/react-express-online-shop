@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchUsers } from '../../actions/panelActions';
 import { toggleAdmin } from '../../actions/userActions';
 import UserList from '../../components/panelComponents/UsersList/UsersList';
 
 class UsersListContainer extends Component {
-
-    componentDidMount = () => {
-        this.props.fetchUsers();
-    }
 
     handleToggleAdmin = (e) => {
         console.log(e.currentTarget.dataset.id);
@@ -29,5 +24,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { fetchUsers, toggleAdmin }
+    { toggleAdmin }
 )(UsersListContainer);
