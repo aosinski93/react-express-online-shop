@@ -7,4 +7,4 @@ describe('Notification component', () => {
   it('renders without crashing', () => {
     shallow(<Notification />);
   });
-})
+});

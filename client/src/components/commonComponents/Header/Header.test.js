@@ -11,4 +11,4 @@ describe('Header component', () => {
   it('should be selectable by class "header"', function() {
     expect(shallow(<Header />).is(".header")).toBe(true);
   });
-})
+});

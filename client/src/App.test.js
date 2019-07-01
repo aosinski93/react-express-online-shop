@@ -7,4 +7,4 @@ describe('App component', () => {
   it('renders without crashing', () => {
     shallow(<App />);
   });
-})
+});

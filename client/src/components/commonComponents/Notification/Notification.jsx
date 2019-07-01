@@ -33,6 +33,6 @@ const Notification = props => {
     </Snackbar>
 
   );
-}
+};
 
 export default Notification;

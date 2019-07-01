@@ -7,4 +7,4 @@ describe('Button component', () => {
   it('renders without crashing', () => {
     shallow(<DeleteButton />);
   });
-})
+});

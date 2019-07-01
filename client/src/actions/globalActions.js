@@ -20,7 +20,7 @@ export const checkConnection = () => dispatch => {
         dispatch({
           type: DB_ERROR,
           payload: res.msg
-        })
+        });
         dispatch({
           type: NOTIFY_ERROR,
           payload: 'Database connection error'

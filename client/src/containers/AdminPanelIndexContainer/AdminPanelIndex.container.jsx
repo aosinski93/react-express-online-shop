@@ -23,7 +23,7 @@ class AdminPanelIndexContainer extends Component {
                     pageVisits: stat.pageVisits
                 })
             })
-    }
+    };
 
     render() {
         return (

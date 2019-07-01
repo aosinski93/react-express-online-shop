@@ -55,7 +55,7 @@ const RegisterForm = (props) => {
       </Box>
     </Container>
   )
-}
+};
 
 
 export default RegisterForm;

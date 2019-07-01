@@ -17,7 +17,7 @@ const selectIcon = (category) => {
       return <DevicesIcon />
     }
   }
-}
+};
 
 const ProductCard = (props) => {
   console.log(props);

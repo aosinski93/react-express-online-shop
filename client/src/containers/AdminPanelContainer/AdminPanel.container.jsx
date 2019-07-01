@@ -28,7 +28,7 @@ class AdminPanelContainer extends Component {
     setTimeout(() => {
       // this.props.toggleDrawer();
     }, 1000)
-  }
+  };
 
   render() {
     return (

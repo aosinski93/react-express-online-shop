@@ -9,7 +9,7 @@ exports.user_getUsers = (req, res) => {
 
     res.send(users);
   })
-}
+};
 
 exports.user_addUser = (req, res) => {
   let { username, email, password, isAdmin } = req.body;
@@ -81,4 +81,4 @@ exports.toggleAdmin = (user) => {
       res.send(updatedUser);
     })
   })
-}
+};

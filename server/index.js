@@ -37,7 +37,7 @@ const port = process.env.PORT || 3001;
 
 app.get(['/api', '/api/'], (req, res) => {
   res.json({error: app.get('connectionError')});
-})
+});
 
 app.use('/', router);
 

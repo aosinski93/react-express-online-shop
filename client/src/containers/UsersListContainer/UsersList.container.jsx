@@ -9,7 +9,7 @@ class UsersListContainer extends Component {
         console.log(e.currentTarget.dataset.id);
         
         this.props.toggleAdmin(e.currentTarget.dataset.id)
-    }
+    };
 
     render() {
         return (
@@ -20,7 +20,7 @@ class UsersListContainer extends Component {
 
 const mapStateToProps = state => ({
     users: state.panel.users
-})
+});
 
 export default connect(
     mapStateToProps,

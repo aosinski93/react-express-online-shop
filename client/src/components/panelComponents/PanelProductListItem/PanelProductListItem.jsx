@@ -32,7 +32,7 @@ const selectIcon = (category) => {
       return <DevicesIcon />
     }
   }
-}
+};
 
 const PanelProductListItem = props => {
   const classes = useStyles();

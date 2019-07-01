@@ -1,20 +1,24 @@
 import React, {Component} from 'react';
-import { connect } from "react-redux";
+import {connect} from "react-redux";
 import Home from "../../components/frontComponents/Home/Home";
+import Loader from "../../components/commonComponents/Loader/Loader";
 
 class HomeContainer extends Component {
     render() {
         return (
-            <Home hotDeals={this.props.hotDeals}/>
+            <>
+                {this.props.hotDeals.length > 0 ? <Home hotDeals={this.props.hotDeals} /> : <Loader />}
+            </>
+
         );
     }
 }
 
 const mapStateToProps = state => ({
-     hotDeals: []
+    hotDeals: state.front.hotDeals
 });
 
 export default connect(
     mapStateToProps,
-    null  
+    null
 )(HomeContainer);

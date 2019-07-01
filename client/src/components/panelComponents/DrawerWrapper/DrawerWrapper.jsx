@@ -44,7 +44,7 @@ const DrawerWrapper = props => {
       props.setProductsFilter("")
     }
     props.toggleDrawer();
-  }
+  };
 
   return (
     <Drawer

@@ -22,6 +22,6 @@ const UserList = (props) => {
                 </Fragment> : 'No users'}
         </Container>
     )
-}
+};
 
 export default UserList;

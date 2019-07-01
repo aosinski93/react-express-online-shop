@@ -20,7 +20,7 @@ class LoginFormContainer extends Component {
 
 const mapStateToProps = state => ({
     loggedUser: state.user.loggedUser
-})
+});
 
 export default connect(
     mapStateToProps,

@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
       color: '#fff'
     }
   }
-}))
+}));
 
 const DeleteButton = props => {
   const classes = useStyles();

@@ -127,7 +127,7 @@ export const addProduct = product => dispatch => {
 export const uploadImage = image => dispatch => {
   
   const formData = new FormData();
-  formData.append('image', image)
+  formData.append('image', image);
 
   let url = '/upload';
 
@@ -378,4 +378,4 @@ export const fetchUsers = () => dispatch => {
       payload: err.message
     })
   });
-}
+};

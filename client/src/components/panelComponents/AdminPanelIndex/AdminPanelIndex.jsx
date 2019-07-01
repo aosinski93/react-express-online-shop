@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
         minHeight: '150px',
         border: '1px solid #999'
     }
-}))
+}));
 
 const AdminPanelIndex = (props) => {
     const classes = useStyles();

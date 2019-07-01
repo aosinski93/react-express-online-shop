@@ -7,4 +7,4 @@ describe('SubmitButton component', () => {
   it('renders without crashing', () => {
     shallow(<SubmitButton />);
   });
-})
+});

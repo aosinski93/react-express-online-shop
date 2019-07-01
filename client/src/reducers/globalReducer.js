@@ -16,7 +16,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         dbError: true
-      }
+      };
     default:
       return state;
   }

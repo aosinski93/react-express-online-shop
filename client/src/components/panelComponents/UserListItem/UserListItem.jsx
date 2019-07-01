@@ -40,6 +40,6 @@ const UserListItem = (props) => {
       }
     </Fragment>
   )
-}
+};
 
 export default UserListItem;

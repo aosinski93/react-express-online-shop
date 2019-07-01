@@ -100,7 +100,7 @@ exports.product_uploadImage = (req, res) => {
   
 
   
-}
+};
 
 
 // fs.readFile(local, function(err, buffer) {

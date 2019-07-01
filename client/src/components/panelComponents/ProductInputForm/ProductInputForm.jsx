@@ -142,6 +142,6 @@ const ProductInputForm = props => {
       </form>
     </Container>
   );
-}
+};
 
 export default ProductInputForm;

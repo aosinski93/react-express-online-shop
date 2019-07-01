@@ -7,4 +7,4 @@ describe('Loader component', () => {
   it('renders without crashing', () => {
     shallow(<Loader />);
   });
-})
+});

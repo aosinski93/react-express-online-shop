@@ -7,4 +7,4 @@ describe('FormGroup component', () => {
   it('renders without crashing', () => {
     shallow(<FormGroup />);
   });
-})
+});
