@@ -1,6 +1,6 @@
-import React, { Fragment } from "react";
-import { Link } from "react-router-dom";
-import { makeStyles } from "@material-ui/core/styles";
+import React, {Fragment} from "react";
+import {Link} from "react-router-dom";
+import {makeStyles} from "@material-ui/core/styles";
 import {
   AppBar,
   Toolbar,
@@ -73,21 +73,21 @@ const Header = props => {
                         <Button>
                           <Link className={classes.link} to="/">
                             Home
-                    </Link>
+                          </Link>
                         </Button>
                       </Typography>
                       <Typography>
                         <Button>
                           <Link className={classes.link} to="/store">
                             Store
-                    </Link>
+                          </Link>
                         </Button>
                       </Typography>
                       <Typography>
                         <Button>
                           <Link className={classes.link} to="/contact">
                             Contact
-                    </Link>
+                          </Link>
                         </Button>
                       </Typography>
                     </Fragment>
@@ -102,7 +102,7 @@ const Header = props => {
             {props.user ? (
               <Grid container>
                 <Grid item lg={4} md={4} sm={4} xs={4}>
-                  <Button className={classes.link} title={`${props.username}, check your profile`}>
+                  <Button className={classes.link} title={`${props.user.username}, check your profile`}>
                     <PersonIcon />
                   </Button>
                 </Grid>
@@ -118,14 +118,14 @@ const Header = props => {
                 </Grid>
               </Grid>
             ) : (
+              <Link className={classes.link} to="/login">
                 <Typography>
                   <Button>
-                    <Link className={classes.link} to="/login">
-                      Log in
-                  </Link>
+                    Log in
                   </Button>
                 </Typography>
-              )}
+              </Link>
+            )}
           </Toolbar>
         </Grid>
       </Grid>
