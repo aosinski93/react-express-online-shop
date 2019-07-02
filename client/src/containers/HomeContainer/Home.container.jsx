@@ -7,7 +7,7 @@ class HomeContainer extends Component {
     render() {
         return (
             <>
-                {this.props.hotDeals.length > 0 ? <Home hotDeals={this.props.hotDeals} /> : <Loader />}
+                {this.props.hotDeals.length > 0 ? <Home hotDeals={this.props.hotDeals} match={this.props.match}/> : <Loader />}
             </>
 
         );

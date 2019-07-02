@@ -31,6 +31,7 @@ class App extends Component {
               <Route path="/register" component={RegisterFormContainer} />
               <Route path="/admin" component={AdminPanelContainer} />
               <Route path="/store" component={Store} />
+              <Route path='/product/:slug' render={() => (<div>product</div>)} />
               <Route component={NotFound} />
             </Switch>
             <NotificationContainer />
