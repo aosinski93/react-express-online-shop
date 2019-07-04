@@ -20,45 +20,45 @@ const AdminPanelIndex = (props) => {
         <Fragment>
             <Box mt={4}>
                 <Grid container>
-                    <Grid item lg={4}>
+                    <Grid item lg={4} md={4} sm={4} xs={12} >
                         <Card className={classes.dataWrapper} raised={true}>
                             <CardContent>
                                 <Grid container alignItems='center' justify='center'>
-                                    <Grid item lg={8}>
+                                    <Grid item xs={8}>
                                         <Typography>Total orders</Typography>
                                         <Typography>555</Typography>
                                     </Grid>
-                                    <Grid item lg={4}>
+                                    <Grid item xs={4}>
                                         <LocalShippingIcon fontSize='large' />
                                     </Grid>
                                 </Grid>
                             </CardContent>
                         </Card>
                     </Grid>
-                    <Grid item lg={4}>
+                    <Grid item lg={4} md={4} sm={4} xs={12}>
                         <Card className={classes.dataWrapper} raised={true}>
                             <CardContent>
                                 <Grid container alignItems='center'>
-                                    <Grid item lg={8}>
+                                    <Grid item xs={8}>
                                         <Typography>Total icome</Typography>
                                         <Typography>555</Typography>
                                     </Grid>
-                                    <Grid item lg={4}>
+                                    <Grid item xs={4}>
                                         <AttachMoneyIcon fontSize='large' />
                                     </Grid>
                                 </Grid>
                             </CardContent>
                         </Card>
                     </Grid>
-                    <Grid item lg={4}>
+                    <Grid item lg={4} md={4} sm={4} xs={12}>
                         <Card className={classes.dataWrapper} raised={true} >
                             <CardContent>
                                 <Grid container alignItems='center'>
-                                    <Grid item lg={8}>
+                                    <Grid item xs={8}>
                                         <Typography>Total visits</Typography>
                                         <Typography>{ props.pageVisits }</Typography>
                                     </Grid>
-                                    <Grid item lg={4}>
+                                    <Grid item xs={4}>
                                         <ImportantDevicesIcon fontSize='large' />
                                     </Grid>
                                 </Grid>
@@ -70,7 +70,7 @@ const AdminPanelIndex = (props) => {
 
             <Box mt={4}>
                 <Grid container>
-                    <Grid item lg={12}>
+                    <Grid item xs={12}>
                         <Card className={classes.dataWrapper} raised={true}>
                             <CardHeader avatar={
                                 <Avatar aria-label='Recent Orders'>

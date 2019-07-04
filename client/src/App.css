@@ -2,7 +2,5 @@
   height: 90vh;
   overflow-x: hidden;
   overflow-y: overlay;
-  background: radial-gradient(at top left, transparent, #111) #666;
-  background-attachment: fixed;
   color: #fff;
 }

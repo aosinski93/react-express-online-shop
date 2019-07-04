@@ -10,13 +10,23 @@ import LoginFormContainer from './containers/LoginFormContainer/LoginForm.contai
 import RegisterFormContainer from './containers/RegisterFormContainer/RegisterForm.container';
 import NotificationContainer from './containers/NotificationContainer/Notification.container.jsx';
 import HomeContainer from "./containers/HomeContainer/Home.container";
+import makeStyles from "@material-ui/core/styles/makeStyles";
+
+const useStyles = makeStyles(theme => ({
+  appBackground: {
+    background: 'radial-gradient(at top left, transparent, #111) #666',
+    backgroundAttachment: 'fixed'
+  }
+}));
 
 const App = () => {
+  const classes = useStyles();
+
   return (
     <Router>
       <Fragment>
         <Route component={HeaderContainer} />
-        <div className="app">
+        <div className={`app ${window.location.pathname.indexOf('admin') === -1 ? classes.appBackground : '' }`}>
           <Switch>
             <Route exact path="/" component={HomeContainer} />
             <Route path="/login" component={LoginFormContainer} />
