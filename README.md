@@ -3,6 +3,10 @@
 Full-stack app build with React (create-react-app) and Express.js.
 Connecting to MongoDB (this app assumes you have it installed) via mongoose.
 
+If you dont have it installed, check MongoDB [installation guide](https://docs.mongodb.com/manual/installation/ "installation guide")
+
+Before starting the app make sure to start local mongoDB service
+
 ## Start the app
 Clone the repository and from the main directory run 
 
@@ -26,4 +30,5 @@ After installation simply run
 
 ###### Notes
 - Currently working on admin panel -  '/admin'
-- To do: check mongoDB initial configuration,
+- To do: check mongoDB initial configuration, 
+         starting app without DB (with dummy data)
