@@ -38,11 +38,6 @@ const DeviceListItem = (props) => {
             </Grid>
             <Grid item xs={8}>
               <Grid container alignItems="stretch">
-                {/*<Grid item xs={12}>*/}
-                {/*  <Typography>*/}
-                {/*    {props.device.manufacturer.name}*/}
-                {/*  </Typography>*/}
-                {/*</Grid>*/}
                 <Grid item xs={12}>
                   <Typography className={classes.listItemName}>
                     {props.device.name}

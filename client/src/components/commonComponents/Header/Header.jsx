@@ -36,6 +36,9 @@ const useStyles = makeStyles(theme => ({
   logo: {
     fontStyle: 'italic'
   },
+  whiteText: {
+    color: 'white'
+  }
 }));
 
 const Header = props => {
@@ -69,27 +72,27 @@ const Header = props => {
                 <Grid item lg={8} md={6} sm={6}>
                   <Toolbar>
                     <Fragment>
-                      <Typography>
-                        <Button>
-                          <Link className={classes.link} to="/">
+                      <Link className={classes.link} to="/">
+                        <Typography>
+                          <Button className={classes.whiteText}>
                             Home
-                          </Link>
-                        </Button>
-                      </Typography>
-                      <Typography>
-                        <Button>
-                          <Link className={classes.link} to="/store">
+                          </Button>
+                        </Typography>
+                      </Link>
+                      <Link className={classes.link} to="/store">
+                        <Typography>
+                          <Button className={classes.whiteText}>
                             Store
-                          </Link>
-                        </Button>
-                      </Typography>
-                      <Typography>
-                        <Button>
-                          <Link className={classes.link} to="/contact">
+                          </Button>
+                        </Typography>
+                      </Link>
+                      <Link className={`${classes.link}`} to="/contact">
+                        <Typography>
+                          <Button className={classes.whiteText}>
                             Contact
-                          </Link>
-                        </Button>
-                      </Typography>
+                          </Button>
+                        </Typography>
+                      </Link>
                     </Fragment>
 
                   </Toolbar>
@@ -120,7 +123,7 @@ const Header = props => {
             ) : (
               <Link className={classes.link} to="/login">
                 <Typography>
-                  <Button>
+                  <Button className={classes.whiteText}>
                     Log in
                   </Button>
                 </Typography>

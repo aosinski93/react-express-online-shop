@@ -16,10 +16,10 @@ export const checkConnection = () => dispatch => {
   })
     .then(res => res.json())
     .then(res => {
-      if(res.msg === true) {
+      if(res.error === true) {
         dispatch({
           type: DB_ERROR,
-          payload: res.msg
+          payload: res.error
         });
         dispatch({
           type: NOTIFY_ERROR,
