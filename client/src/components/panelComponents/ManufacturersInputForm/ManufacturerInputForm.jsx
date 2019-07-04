@@ -14,6 +14,14 @@ const ManufacturerInputForm = (props) => {
           onChange={props.onChange}
           labelText="Name"
         />
+        <FormGroup
+          type="text"
+          name="logoSrc"
+          value={props.logoSrc}
+          onChange={props.onChange}
+          labelText="Logo source"
+          placeholder='URL from web'
+        />
         <SubmitButton
           type="submit"
           value="Confirm"

@@ -89,6 +89,7 @@ const FormGroup = props => {
             defaultValue={props.defaultValue}
             onChange={props.onChange}
             variant="outlined"
+            placeholder={props.placeholder}
             className={classes.textField}
           />
         </FormControl>

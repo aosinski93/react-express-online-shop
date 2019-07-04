@@ -3,6 +3,8 @@ const Schema = mongoose.Schema;
 
 const manufacturerSchema = Schema({
   name: String,
+  slug: String,
+  logoSrc: String,
   products: [{ type: Schema.Types.ObjectId, ref: "Product" }]
 });
 

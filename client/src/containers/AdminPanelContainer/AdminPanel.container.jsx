@@ -15,11 +15,11 @@ import LoginFormContainer from "../LoginFormContainer/LoginForm.container";
 class AdminPanelContainer extends Component {
   componentWillMount = () => {
 
-    if (this.props.dbError !== "") {
+    if (this.props.dbError !== true) {
       this.props.fetchPanelMenu();
       this.props.fetchPanelManufacturers();
       this.props.fetchPanelProducts();
-      this.props.fetchUsers();
+      // this.props.fetchUsers();
     }
 
   };

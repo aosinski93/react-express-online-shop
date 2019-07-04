@@ -3,11 +3,12 @@ const Product = require("../controllers/productController");
 const slugify = require("slugify");
 
 exports.manufacturer_addManufacturer = (req, res) => {
-  let { name, products } = req.body;
+  let { name, logoSrc, products } = req.body;
 
   let manufacturer = {
     name,
     slug: slugify(name),
+    logoSrc: logoSrc,
     products: products || []
   };
 

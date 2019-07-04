@@ -13,6 +13,7 @@ class ManufacturerInputFormContainer extends Component {
 
     this.state = {
       name: "",
+      logoSrc: "",
       products: []
     };
   }
@@ -35,6 +36,7 @@ class ManufacturerInputFormContainer extends Component {
     try {
       await this.props.addManufacturer({
         name: this.state.name,
+        logoSrc: this.state.logoSrc,
         products: []
       });
     } catch (err) {
@@ -42,6 +44,7 @@ class ManufacturerInputFormContainer extends Component {
     } finally {
       this.setState({
         name: "",
+        logoSrc: "",
         products: []
       });
     }
