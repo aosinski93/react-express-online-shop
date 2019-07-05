@@ -3,11 +3,6 @@ import {Container, Grid, Box, Typography, Card, CardContent, makeStyles} from "@
 import DeviceListItem from "../DeviceListItem/DeviceListItem";
 import HomeBanner from "../HomeBanner";
 
-const manufacturers = [
-  { name: 'Xiaomi', logoSrc: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Xiaomi_logo.svg/240px-Xiaomi_logo.svg.png'},
-  { name: 'Sony', logoSrc: 'https://www.telix.pl/wp-content/uploads/2012/08/sony-logo.jpg'},
-  { name: 'Apple', logoSrc: 'https://cdn.pixabay.com/photo/2018/05/08/21/28/apple-3384010_960_720.png'}];
-
 const useStyles = makeStyles(theme => ({
   manufacturerWrapper: {
     margin: theme.spacing(2)
@@ -43,9 +38,9 @@ const Home = props => {
 
         <Box mt={3}>
           <Grid container>
-            {manufacturers.map(manufacturer => {
+            {props.manufacturers.map(manufacturer => {
               return (
-                <Grid key={manufacturers.indexOf(manufacturer)} item xs={12} sm={4} md={4} lg={4}>
+                <Grid key={`manufacturer_${manufacturer.name}}`} item xs={12} sm={4} md={4} lg={4}>
                   <Card raised={true} className={classes.manufacturerWrapper}>
                     <CardContent>
                       <Grid container alignItems='center'>

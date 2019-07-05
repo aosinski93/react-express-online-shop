@@ -28,7 +28,7 @@ class ProductsListContainer extends Component {
     return (
       <ProductList
         loading={this.props.loading}
-        products={this.props.products}
+        products={this.props.products.length > 0 ? this.props.products : this.props.dummyData.products}
         onDelete={this.onDelete}
         filter={this.props.chosenManufacturer}
       />
@@ -39,6 +39,7 @@ class ProductsListContainer extends Component {
 const mapStateToProps = state => ({
   products: state.panel.products,
   filteredProducts: state.panel.filteredProducts,
+  dummyData: state.global.dummyData
 });
 
 export default connect(

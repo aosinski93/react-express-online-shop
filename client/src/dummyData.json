@@ -90,5 +90,36 @@
       "ram": 2,
       "cpu": 1
     }
+  ],
+  "manufacturers": [
+    {
+      "_id": "1",
+      "name": "Xiaomi",
+      "slug":"Xiaomi",
+      "logoSrc": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Xiaomi_logo.svg/240px-Xiaomi_logo.svg.png",
+      "products": []
+    },
+    {
+      "_id": "2",
+      "name": "Sony",
+      "slug":"Sony",
+      "logoSrc": "https://www.telix.pl/wp-content/uploads/2012/08/sony-logo.jpg",
+      "products": []
+    },
+    {
+      "_id": "3",
+      "name": "Apple",
+      "slug":"Apple",
+      "logoSrc": "https://cdn.pixabay.com/photo/2018/05/08/21/28/apple-3384010_960_720.png",
+      "products": []
+    },
+    {
+      "_id": "4",
+      "name": "Samsung",
+      "slug":"Samsung",
+      "logoSrc": "https://d8erc925jcb7k.cloudfront.net/9/1869/954005/6f/w/samsung_logo.png",
+      "products": []
+
+    }
   ]
 }

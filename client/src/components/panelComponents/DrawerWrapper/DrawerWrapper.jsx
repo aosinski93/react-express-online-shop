@@ -1,12 +1,11 @@
 import React from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   Drawer,
   IconButton,
   Box,
   List,
   ListItem,
-  Link,
   Typography,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
@@ -44,7 +43,7 @@ const DrawerWrapper = props => {
     // if (filter) {
     //   props.setProductsFilter("")
     // }
-    // props.toggleDrawer();
+    props.toggleDrawer();
   };
 
   return (
@@ -60,7 +59,7 @@ const DrawerWrapper = props => {
       <List component="nav" aria-label="Panel navigation">
 
       <Link
-          href={'/'}
+          to={'/'}
           className={classes.link}
         >
           <ListItem button>
