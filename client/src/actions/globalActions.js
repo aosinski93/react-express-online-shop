@@ -1,4 +1,5 @@
-import { TOGGLE_DRAWER, NOTIFY_ERROR, DB_ERROR } from './types';
+import {TOGGLE_DRAWER, NOTIFY_ERROR, DB_ERROR, FETCH_DUMMY_DATA} from './types';
+import dummyData from '../dummyData';
 
 export const toggleDrawer = () => dispatch => {
   return dispatch({
@@ -34,4 +35,14 @@ export const checkConnection = () => dispatch => {
         payload: err
       });
     });
+};
+
+export const fetchDummyData = () => dispatch => {
+  if(dummyData) {
+      dispatch({
+          type: FETCH_DUMMY_DATA,
+          payload: dummyData
+      })
+  }
+
 };

@@ -15,6 +15,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Home = props => {
+  console.log(props);
   const classes = useStyles();
   return (
     <Container>
@@ -54,7 +55,7 @@ const Home = props => {
                             alt={manufacturer.name} className='img-responsive' />
                         </Grid>
                         <Grid item lg={8} md={8} sm={8} xs={12}>
-                          <Typography align='center'>
+                          <Typography variant={"h4"} align='center'>
                             {manufacturer.name}
                           </Typography>
                         </Grid>

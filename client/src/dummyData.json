@@ -1,0 +1,94 @@
+{
+  "products": [
+    {
+      "name": "Xperia Z5",
+      "slug": "Xperia",
+      "description": "SONY Xperia Z2 to smartfon z systemem Android,  aparatem fotograficznym o rozdzielczości 20.7 megapikseli i przetwornikiem o 30% większym niż w standardowych smartfonach, co umożliwia wykonanie niezwykle ostrych i wyraźnych zdjęć.  Nagrywa filmy w standardzie 4K, dzięki czemu obrazy wideo  są czterokrotnie wyraźniejsze niż w jakości Full HD. Posiada olbrzymi 5,2-calowy ekran Full HD z pierwszym na świecie wyświetlaczem Live Colour LED. Xperia Z2 jest odporna na kurz i wodę, co pozwala na przełączanie utworów nawet mokrymi palcami w strugach deszczu. Interfejs użytkownika działa bez opóźnień, można więc bardzo szybko przeglądać strony internetowe.",
+      "price": 666,
+      "manufacturer": {
+        "name": "sony",
+        "logoSrc": "https://www.telix.pl/wp-content/uploads/2012/08/sony-logo.jpg"
+      },
+      "category": {
+        "name": "phones"
+      },
+      "operating_system": "Android",
+      "size": "5,5",
+      "resolution": "360 x 640",
+      "battery": 2700,
+      "camera": 9,
+      "sim_qty": 1,
+      "date_of_release": "2013-10-21T13:28:06.419Z",
+      "ram": 2,
+      "cpu": 1
+    },
+    {
+      "name": "Galaxy s7",
+      "slug": "Samsung",
+      "description": "Poznaj smartfon, który wyprzedza swoje czasy. Galaxy S7 i S7 edge to dowód nadzwyczajnego postępu. Odkryj rozwiązania, których nie znajdziesz w żadnym innym smartfonie. Galaxy S7 i S7 edge to zero kompromisów. Doceń minimalistyczne wzornictwo i niezrównaną funkcjonalność, opartą na najnowszych rozwiązaniach technologicznych.",
+      "price": 666,
+      "manufacturer": {
+        "name": "Samsung",
+        "logoSrc": "https://d8erc925jcb7k.cloudfront.net/9/1869/954005/6f/w/samsung_logo.png"
+      },
+      "category": {
+        "name": "phones"
+      },
+      "operating_system": "Android",
+      "size": "5",
+      "resolution": "360 x 640",
+      "battery": 3500,
+      "camera": 13,
+      "sim_qty": 1,
+      "date_of_release": "2013-10-21T13:28:06.419Z",
+      "ram": 2,
+      "cpu": 1
+    }
+  ],
+  "hotDeals": [
+    {
+      "name": "Xperia Z5",
+      "slug": "Xperia-z5",
+      "description": "SONY Xperia Z2 to smartfon z systemem Android,  aparatem fotograficznym o rozdzielczości 20.7 megapikseli i przetwornikiem o 30% większym niż w standardowych smartfonach, co umożliwia wykonanie niezwykle ostrych i wyraźnych zdjęć.  Nagrywa filmy w standardzie 4K, dzięki czemu obrazy wideo  są czterokrotnie wyraźniejsze niż w jakości Full HD. Posiada olbrzymi 5,2-calowy ekran Full HD z pierwszym na świecie wyświetlaczem Live Colour LED. Xperia Z2 jest odporna na kurz i wodę, co pozwala na przełączanie utworów nawet mokrymi palcami w strugach deszczu. Interfejs użytkownika działa bez opóźnień, można więc bardzo szybko przeglądać strony internetowe.",
+      "price": 399,
+      "manufacturer": {
+        "name": "sony",
+        "logoSrc": "https://www.telix.pl/wp-content/uploads/2012/08/sony-logo.jpg"
+      },
+      "category": {
+        "name": "phones"
+      },
+      "operating_system": "Android",
+      "size": "5,5",
+      "resolution": "360 x 640",
+      "battery": 2700,
+      "camera": 9,
+      "sim_qty": 1,
+      "date_of_release": "2013-10-21T13:28:06.419Z",
+      "ram": 2,
+      "cpu": 1
+    },
+    {
+      "name": "Galaxy s7",
+      "slug": "Galaxy-s7",
+      "description": "Poznaj smartfon, który wyprzedza swoje czasy. Galaxy S7 i S7 edge to dowód nadzwyczajnego postępu. Odkryj rozwiązania, których nie znajdziesz w żadnym innym smartfonie. Galaxy S7 i S7 edge to zero kompromisów. Doceń minimalistyczne wzornictwo i niezrównaną funkcjonalność, opartą na najnowszych rozwiązaniach technologicznych.",
+      "price": 666,
+      "manufacturer": {
+        "name": "Samsung",
+        "logoSrc": "https://d8erc925jcb7k.cloudfront.net/9/1869/954005/6f/w/samsung_logo.png"
+      },
+      "category": {
+        "name": "phones"
+      },
+      "operating_system": "Android",
+      "size": "5",
+      "resolution": "360 x 640",
+      "battery": 3500,
+      "camera": 13,
+      "sim_qty": 1,
+      "date_of_release": "2013-10-21T13:28:06.419Z",
+      "ram": 2,
+      "cpu": 1
+    }
+  ]
+}

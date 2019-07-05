@@ -41,10 +41,10 @@ const DrawerWrapper = props => {
   const classes = useStyles();
 
   const handleCLick = (filter) => {
-    if (filter) {
-      props.setProductsFilter("")
-    }
-    props.toggleDrawer();
+    // if (filter) {
+    //   props.setProductsFilter("")
+    // }
+    // props.toggleDrawer();
   };
 
   return (
