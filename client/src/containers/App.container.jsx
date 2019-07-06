@@ -1,37 +1,40 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import App from "../App";
-import {checkConnection, fetchDummyData} from "../actions/globalActions";
-import {fetchActiveProducts} from "../actions/frontActions";
+import {checkConnection, fetchDummyData, fetchManufacturers, fetchProducts} from "../actions/globalActions";
 
 class AppContainer extends Component {
 
-    componentDidMount() {
-        this.props.checkConnection();
+  componentDidMount() {
+    this.props.checkConnection();
 
-        setTimeout(() => {
-            this.props.dbError ? this.props.fetchDummyData() : this.props.fetchActiveProducts();
-        }, 1000)
-    }
+    setTimeout(() => {
+      if (this.props.dbError) {
+        this.props.fetchDummyData()
+      } else {
+        this.props.fetchManufacturers();
+        this.props.fetchProducts();
+      }
+    }, 1000)
+  }
 
-    render() {
+  render() {
 
 
-        return (
-            <>
-                <App/>
-            </>
-        )
-    }
+    return (
+      <>
+        <App />
+      </>
+    )
+  }
 }
 
 const mapStateToProps = state => ({
-    activeProducts: state.front.activeProducts,
-    dummyData: state.global.dummyData,
-    dbError: state.global.dbError
+  dummyData: state.global.dummyData,
+  dbError: state.global.dbError
 });
 
 export default connect(
-    mapStateToProps,
-    {fetchActiveProducts, checkConnection, fetchDummyData}
+  mapStateToProps,
+  {fetchProducts, fetchManufacturers, checkConnection, fetchDummyData}
 )(AppContainer);

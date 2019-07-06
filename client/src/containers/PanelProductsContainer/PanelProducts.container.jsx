@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import {
   fetchProducts,
-} from "../../actions/panelActions";
+} from "../../actions/globalActions";
 import PanelProducts from "../../components/panelComponents/PanelProducts/PanelProducts";
 
 class PanelProductsContainer extends Component {

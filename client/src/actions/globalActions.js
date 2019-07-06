@@ -1,4 +1,12 @@
-import {TOGGLE_DRAWER, NOTIFY_ERROR, DB_ERROR, FETCH_DUMMY_DATA, FETCH_MANUFACTURERS, NOTIFY_SUCCESS} from './types';
+import {
+  TOGGLE_DRAWER,
+  NOTIFY_ERROR,
+  DB_ERROR,
+  FETCH_DUMMY_DATA,
+  FETCH_PRODUCTS,
+  FETCH_MANUFACTURERS,
+  NOTIFY_SUCCESS, FETCH_HOT_DEALS
+} from './types';
 import dummyData from '../dummyData';
 
 export const toggleDrawer = () => dispatch => {
@@ -17,7 +25,7 @@ export const checkConnection = () => dispatch => {
   })
     .then(res => res.json())
     .then(res => {
-      if(res.error === true) {
+      if (res.error === true) {
         dispatch({
           type: DB_ERROR,
           payload: res.error
@@ -36,6 +44,37 @@ export const checkConnection = () => dispatch => {
       });
     });
 };
+export const fetchProducts = () => dispatch => {
+  let url = '/products';
+  fetch(url, {
+    method: 'GET'
+  })
+    .then(res => res.json())
+    .then(fetchedProducts => {
+      dispatch({
+        type: FETCH_PRODUCTS,
+        payload: fetchedProducts
+      });
+    })
+    .then(() => {
+      dispatch({
+        type: FETCH_HOT_DEALS
+      })
+    })
+    .then(() => {
+      dispatch({
+        type: NOTIFY_SUCCESS,
+        payload: 'Products fetched'
+      })
+    })
+    .catch(err => {
+      dispatch({
+        type: NOTIFY_ERROR,
+        payload:  `Error when fetching products: ${err.message}`
+      })
+    });
+};
+
 export const fetchManufacturers = () => dispatch => {
   let url = '/manufacturers';
   fetch(url, {
@@ -62,11 +101,11 @@ export const fetchManufacturers = () => dispatch => {
     });
 };
 export const fetchDummyData = () => dispatch => {
-  if(dummyData) {
-      dispatch({
-          type: FETCH_DUMMY_DATA,
-          payload: dummyData
-      })
+  if (dummyData) {
+    dispatch({
+      type: FETCH_DUMMY_DATA,
+      payload: dummyData
+    })
   }
 
 };

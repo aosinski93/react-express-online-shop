@@ -30,7 +30,7 @@ class HomeContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  hotDeals: state.front.hotDeals,
+  hotDeals: state.global.hotDeals,
   manufacturers: state.global.manufacturers,
   dbError: state.global.dbError,
   dummyData: state.global.dummyData

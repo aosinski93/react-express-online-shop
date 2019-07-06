@@ -13,11 +13,6 @@ export const fetchActiveProducts = () => dispatch => {
                 payload: activeProducts
             })
         })
-        .then(() => {
-            dispatch({
-                type: FETCH_HOT_DEALS
-            })
-        })
         .catch(err => {
             dispatch({
                 type: NOTIFY_ERROR,
