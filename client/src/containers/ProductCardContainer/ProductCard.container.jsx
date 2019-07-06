@@ -10,7 +10,6 @@ class ProductCardContainer extends Component {
 
 
     render() {
-        console.log(this.props)
         return (
             <>
                 {this.props.product !== undefined ? <ProductCard data={this.props.product} isInAdmin={this.props.match.path.indexOf('admin') !== -1} /> : <Loader />}
@@ -21,7 +20,7 @@ class ProductCardContainer extends Component {
 
 const mapStateToProps = (state, ownProps) => ({
     product: state.global.products.find(
-       item => item.slug === ownProps.match.params.name
+       item => item.slug === ownProps.match.params.slug
     )
 
 });

@@ -40,7 +40,7 @@ export const checkConnection = () => dispatch => {
       console.log(err);
       dispatch({
         type: NOTIFY_ERROR,
-        payload: err
+        payload: err.message
       });
     });
 };

@@ -12,15 +12,17 @@ class AppContainer extends Component {
       if (this.props.dbError) {
         this.props.fetchDummyData()
       } else {
-        this.props.fetchManufacturers();
-        this.props.fetchProducts();
+        if (this.props.manufacturers === [] || this.props.manufacturers.length === 0) {
+          this.props.fetchManufacturers();
+        }
+        if (this.props.products === [] || this.props.products.length === 0) {
+          this.props.fetchProducts();
+        }
       }
     }, 1000)
   }
 
   render() {
-
-
     return (
       <>
         <App />
@@ -31,7 +33,9 @@ class AppContainer extends Component {
 
 const mapStateToProps = state => ({
   dummyData: state.global.dummyData,
-  dbError: state.global.dbError
+  dbError: state.global.dbError,
+  manufacturers: state.global.manufacturers,
+  products: state.global.products,
 });
 
 export default connect(

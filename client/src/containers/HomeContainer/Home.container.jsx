@@ -5,13 +5,6 @@ import Loader from "../../components/commonComponents/Loader/Loader";
 import {fetchManufacturers} from "../../actions/globalActions";
 
 class HomeContainer extends Component {
-
-  componentDidMount = () => {
-    if (this.props.dbError !== true) {
-      this.props.fetchManufacturers();
-    }
-  };
-
   render() {
     return (
       <>
