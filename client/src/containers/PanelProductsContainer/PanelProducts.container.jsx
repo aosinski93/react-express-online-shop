@@ -1,15 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import {
-  fetchPanelProducts,
-  fetchPanelManufacturers
+  fetchProducts,
 } from "../../actions/panelActions";
 import PanelProducts from "../../components/panelComponents/PanelProducts/PanelProducts";
 
 class PanelProductsContainer extends Component {
   componentWillMount = () => {
     if (this.props.productsFilter === "") {
-      this.props.fetchPanelProducts();
+      this.props.fetchProducts();
     }
   };
 
@@ -25,10 +24,10 @@ class PanelProductsContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  products: state.panel.products
+  products: state.global.products
 });
 
 export default connect(
   mapStateToProps,
-  { fetchPanelProducts, fetchPanelManufacturers }
+  { fetchProducts }
 )(PanelProductsContainer);

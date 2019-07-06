@@ -37,7 +37,7 @@ class ProductsListContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  products: state.panel.products,
+  products: state.global.products,
   filteredProducts: state.panel.filteredProducts,
   dummyData: state.global.dummyData
 });

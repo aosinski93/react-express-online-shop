@@ -1,4 +1,4 @@
-import {TOGGLE_DRAWER, NOTIFY_ERROR, DB_ERROR, FETCH_DUMMY_DATA} from './types';
+import {TOGGLE_DRAWER, NOTIFY_ERROR, DB_ERROR, FETCH_DUMMY_DATA, FETCH_MANUFACTURERS, NOTIFY_SUCCESS} from './types';
 import dummyData from '../dummyData';
 
 export const toggleDrawer = () => dispatch => {
@@ -36,7 +36,31 @@ export const checkConnection = () => dispatch => {
       });
     });
 };
-
+export const fetchManufacturers = () => dispatch => {
+  let url = '/manufacturers';
+  fetch(url, {
+    method: 'GET'
+  })
+    .then(res => res.json())
+    .then(fetchedManufacturers => {
+      dispatch({
+        type: FETCH_MANUFACTURERS,
+        payload: fetchedManufacturers
+      });
+    })
+    .then(() => {
+      dispatch({
+        type: NOTIFY_SUCCESS,
+        payload: 'Manufacturers fetched'
+      })
+    })
+    .catch(err => {
+      dispatch({
+        type: NOTIFY_ERROR,
+        payload: err.message
+      })
+    });
+};
 export const fetchDummyData = () => dispatch => {
   if(dummyData) {
       dispatch({

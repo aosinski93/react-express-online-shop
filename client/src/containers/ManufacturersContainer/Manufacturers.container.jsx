@@ -9,7 +9,7 @@ class ManufacturersContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  manufacturers: state.panel.manufacturers
+  manufacturers: state.global.manufacturers
 });
 
 export default connect(

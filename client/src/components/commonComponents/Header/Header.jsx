@@ -65,7 +65,7 @@ const Header = props => {
                   <Box mr={2}>
                     <DevicesIcon />
                   </Box>
-                  <Typography className={classes.logo}>Phone store</Typography>
+                  <Typography className={classes.logo}>DigiStore</Typography>
                 </Toolbar>
               </Grid>
               <Hidden xsDown>

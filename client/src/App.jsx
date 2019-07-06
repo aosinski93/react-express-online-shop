@@ -8,8 +8,9 @@ import AdminPanelContainer from './containers/AdminPanelContainer/AdminPanel.con
 import HeaderContainer from './containers/HeaderContainer/Header.container.jsx';
 import LoginFormContainer from './containers/LoginFormContainer/LoginForm.container.jsx';
 import RegisterFormContainer from './containers/RegisterFormContainer/RegisterForm.container';
-import NotificationContainer from './containers/NotificationContainer/Notification.container.jsx';
+import NotificationContainer from './containers/NotificationContainer/Notification.container';
 import HomeContainer from "./containers/HomeContainer/Home.container";
+import ProductCardContainer from './containers/ProductCardContainer/ProductCard.container';
 import makeStyles from "@material-ui/core/styles/makeStyles";
 
 const useStyles = makeStyles(theme => ({
@@ -33,7 +34,7 @@ const App = () => {
             <Route path="/register" component={RegisterFormContainer} />
             <Route path="/admin" component={AdminPanelContainer} />
             <Route path="/store" component={Store} />
-            <Route path='/product/:slug' render={() => (<div>product</div>)} />
+            <Route path='/product/:slug' component={ProductCardContainer} />
             <Route component={NotFound} />
           </Switch>
           <NotificationContainer />

@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
 
     },
     listItemName: {
-        // fontSize: '16px'
+        fontSize: '3em'
     },
     shortDescription: {
         textOverflow: 'ellipsis',
@@ -43,15 +43,10 @@ const DeviceListItem = (props) => {
                             </Box>
                         </Grid>
                         <Grid item xs={8}>
-                            <Grid container>
+                            <Grid container style={{'height':'100%'}}>
                                 <Grid item xs={12}>
-                                    <Typography variant='h3' className={classes.listItemName}>
+                                    <Typography className={classes.listItemName}>
                                         {props.device.name}
-                                    </Typography>
-                                </Grid>
-                                <Grid item xs={12}>
-                                    <Typography variant='h5'>
-                                        {props.device.operating_system || 'unknown'}
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={12}>

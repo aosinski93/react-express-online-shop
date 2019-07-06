@@ -34,7 +34,7 @@ class ManufacturersListContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-    manufacturers: state.panel.manufacturers,
+    manufacturers: state.global.manufacturers,
     dummyData: state.global.dummyData
 });
 

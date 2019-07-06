@@ -99,7 +99,7 @@ class ProductInputFormContainer extends Component {
 
 const mapStateToProps = state => ({
   categories: state.panel.menu,
-  manufacturers: state.panel.manufacturers
+  manufacturers: state.global.manufacturers
 });
 
 export default connect(

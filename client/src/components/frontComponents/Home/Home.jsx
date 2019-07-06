@@ -6,11 +6,15 @@ import HomeBanner from "../HomeBanner";
 const useStyles = makeStyles(theme => ({
   manufacturerWrapper: {
     margin: theme.spacing(2)
+  },
+  logoHeight: {
+    maxHeight: '100px'
   }
 }));
 
+
 const Home = props => {
-  console.log(props);
+  const manufacturers = ( props.manufacturers && props.manufacturers.length > 0 ) ? props.manufacturers : props.dummyData.manufacturers;
   const classes = useStyles();
   return (
     <Container>
@@ -38,7 +42,7 @@ const Home = props => {
 
         <Box mt={3}>
           <Grid container>
-            {props.manufacturers.map(manufacturer => {
+            {manufacturers.slice(0, 3).map(manufacturer => {
               return (
                 <Grid key={`manufacturer_${manufacturer.name}}`} item xs={12} sm={4} md={4} lg={4}>
                   <Card raised={true} className={classes.manufacturerWrapper}>
@@ -47,7 +51,7 @@ const Home = props => {
                         <Grid item lg={4} md={4} sm={4} xs={12}>
                           <img
                             src={manufacturer.logoSrc}
-                            alt={manufacturer.name} className='img-responsive' />
+                            alt={manufacturer.name} className={`img-responsive ${classes.logoHeight}`} />
                         </Grid>
                         <Grid item lg={8} md={8} sm={8} xs={12}>
                           <Typography variant={"h4"} align='center'>

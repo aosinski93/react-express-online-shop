@@ -2,10 +2,9 @@ import React, {Component, Fragment} from "react";
 import {connect} from "react-redux";
 import {
     fetchPanelMenu,
-    fetchPanelManufacturers,
-    fetchPanelProducts
+    fetchProducts
 } from "../../actions/panelActions";
-import {toggleDrawer} from '../../actions/globalActions';
+import {toggleDrawer, fetchManufacturers} from '../../actions/globalActions';
 import {userLogin} from "../../actions/userActions";
 import {setProductsFilter} from "../../actions/panelActions";
 import {notifyError} from '../../actions/notificationsActions';
@@ -16,8 +15,8 @@ class AdminPanelContainer extends Component {
     componentDidMount = () => {
         if (this.props.dbError !== true) {
             this.props.fetchPanelMenu();
-            this.props.fetchPanelManufacturers();
-            this.props.fetchPanelProducts();
+            this.props.fetchManufacturers();
+            this.props.fetchProducts();
             // this.props.fetchUsers();
         }
         setTimeout(() => {
@@ -32,7 +31,6 @@ class AdminPanelContainer extends Component {
                     this.props.loggedUser.isAdmin === true) ? (
                     <AdminPanel
                         match={this.props.match}
-                        products={this.props.dbError ? this.props.dummyData.products : this.props.products}
                         menu={this.props.menu}
                         manufacturers={this.props.manufacturers}
                         setProductsFilter={this.props.setProductsFilter}
@@ -46,9 +44,8 @@ class AdminPanelContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-    products: state.panel.products,
     menu: state.panel.menu,
-    manufacturers: state.panel.manufacturers,
+    manufacturers: state.global.manufacturers,
     loggedUser: state.user.loggedUser,
     dbError: state.global.dbError,
     dummyData: state.global.dummyData
@@ -58,8 +55,8 @@ export default connect(
     mapStateToProps,
     {
         fetchPanelMenu,
-        fetchPanelManufacturers,
-        fetchPanelProducts,
+        fetchManufacturers,
+        fetchProducts,
         setProductsFilter,
         userLogin,
         toggleDrawer,

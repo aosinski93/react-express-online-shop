@@ -13,7 +13,8 @@ const useStyles = makeStyles(theme => ({
   textField: {
     width: 300,
     marginTop: 10,
-    marginBottom: 10
+    marginBottom: 10,
+    color: '#fff'
   }
 }));
 
