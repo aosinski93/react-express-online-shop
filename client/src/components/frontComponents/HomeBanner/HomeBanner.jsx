@@ -1,9 +1,9 @@
 import React from 'react';
-import {Box, Grid, Typography, Hidden} from "@material-ui/core";
+import {Box, Grid, Typography, Hidden} from "@material-ui/core/index";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import screen from '../../resources/images/screen.svg';
-import phone from '../../resources/images/phone.svg';
-import Fab from "@material-ui/core/Fab";
+import screen from '../../../resources/images/screen.svg';
+import phone from '../../../resources/images/phone.svg';
+import Fab from "@material-ui/core/Fab/index";
 import {Link} from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({

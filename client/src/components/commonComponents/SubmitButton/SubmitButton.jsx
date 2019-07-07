@@ -26,7 +26,7 @@ const SubmitButton = props => {
         value={props.value}
         title={props.title}
       >
-        {props.value}
+        {props.content}
       </Button>
     </Fragment>
   );

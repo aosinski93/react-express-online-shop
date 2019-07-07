@@ -1,7 +1,7 @@
 import React from "react";
 import {Container, Grid, Box, Typography, Card, CardContent, makeStyles} from "@material-ui/core";
 import DeviceListItem from "../DeviceListItem/DeviceListItem";
-import HomeBanner from "../HomeBanner";
+import HomeBanner from "../HomeBanner/HomeBanner";
 
 const useStyles = makeStyles(theme => ({
   manufacturerWrapper: {
