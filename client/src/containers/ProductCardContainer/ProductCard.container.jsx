@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import ProductCard from '../../components/commonComponents/ProductCard/ProductCard';
 import Loader from '../../components/commonComponents/Loader/Loader';
 
@@ -12,7 +12,9 @@ class ProductCardContainer extends Component {
     render() {
         return (
             <>
-                {this.props.product !== undefined ? <ProductCard data={this.props.product} isInAdmin={this.props.match.path.indexOf('admin') !== -1} /> : <Loader />}
+                {(this.props.product !== undefined || this.props.dummyProduct !== undefined) ?
+                    <ProductCard data={this.props.product !== undefined ? this.props.product : this.props.dummyProduct}
+                                 isInAdmin={this.props.match.path.indexOf('admin') !== -1}/> : <Loader/>}
             </>
         )
     }
@@ -20,7 +22,10 @@ class ProductCardContainer extends Component {
 
 const mapStateToProps = (state, ownProps) => ({
     product: state.global.products.find(
-       item => item.slug === ownProps.match.params.slug
+        item => item.slug === ownProps.match.params.slug
+    ),
+    dummyProduct: state.global.dummyData.products.find(
+        item => item.slug === ownProps.match.params.slug
     )
 
 });

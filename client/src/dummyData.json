@@ -2,7 +2,7 @@
   "products": [
     {
       "name": "Xperia Z5",
-      "slug": "Xperia",
+      "slug": "Xperia-z5",
       "description": "SONY Xperia Z2 to smartfon z systemem Android,  aparatem fotograficznym o rozdzielczości 20.7 megapikseli i przetwornikiem o 30% większym niż w standardowych smartfonach, co umożliwia wykonanie niezwykle ostrych i wyraźnych zdjęć.  Nagrywa filmy w standardzie 4K, dzięki czemu obrazy wideo  są czterokrotnie wyraźniejsze niż w jakości Full HD. Posiada olbrzymi 5,2-calowy ekran Full HD z pierwszym na świecie wyświetlaczem Live Colour LED. Xperia Z2 jest odporna na kurz i wodę, co pozwala na przełączanie utworów nawet mokrymi palcami w strugach deszczu. Interfejs użytkownika działa bez opóźnień, można więc bardzo szybko przeglądać strony internetowe.",
       "price": 666,
       "manufacturer": {
@@ -24,7 +24,7 @@
     },
     {
       "name": "Galaxy s7",
-      "slug": "Samsung",
+      "slug": "Galaxy-s7",
       "description": "Poznaj smartfon, który wyprzedza swoje czasy. Galaxy S7 i S7 edge to dowód nadzwyczajnego postępu. Odkryj rozwiązania, których nie znajdziesz w żadnym innym smartfonie. Galaxy S7 i S7 edge to zero kompromisów. Doceń minimalistyczne wzornictwo i niezrównaną funkcjonalność, opartą na najnowszych rozwiązaniach technologicznych.",
       "price": 666,
       "manufacturer": {
