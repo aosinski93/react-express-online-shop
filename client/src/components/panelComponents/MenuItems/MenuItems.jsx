@@ -31,6 +31,7 @@ const MenuItems = props => {
               type="submit"
               value="+"
               title="Add top-level category"
+              content={'+'}
             />
           </Grid>
         </Grid>

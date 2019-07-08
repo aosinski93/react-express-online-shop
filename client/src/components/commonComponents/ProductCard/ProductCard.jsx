@@ -32,15 +32,17 @@ const ProductCard = (props) => {
             <Grid container alignItems='center'>
               <Grid item lg={3}>
                 <Box mr={4}>
-                  {category.name ? selectIcon(category.name.toLowerCase()) : selectIcon()}
+                  {category && category.name ? selectIcon(category.name.toLowerCase()) : selectIcon()}
                 </Box>
                 <Typography variant='h5'>
                   {name}
                 </Typography>
               </Grid>
-              <Grid item lg={9}>
-                <SubmitButton type={'submit'} value={_id} title={`Add ${name} to cart`} content={<AddShoppingCartIcon />}/>
-              </Grid>
+              {!props.isInAdmin && (
+                <Grid item lg={9}>
+                  <SubmitButton type={'submit'} value={_id} title={`Add ${name} to cart`} content={<AddShoppingCartIcon />}/>
+                </Grid>
+              )}
             </Grid>
             <Grid container alignItems='center'>
               <Grid item lg={6} md={6} sm={6} xs={12}>

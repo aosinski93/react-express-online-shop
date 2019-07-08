@@ -1,7 +1,8 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { deleteProduct } from "../../actions/panelActions";
+import React, {Component} from "react";
+import {connect} from "react-redux";
+import {deleteProduct} from "../../actions/panelActions";
 import ProductList from "../../components/panelComponents/ProductList/ProductList";
+import Loader from "../../components/commonComponents/Loader/Loader";
 
 class ProductsListContainer extends Component {
   constructor() {
@@ -24,15 +25,15 @@ class ProductsListContainer extends Component {
     this.props.deleteProduct(e.currentTarget.dataset.id);
   };
 
-  render() {      
-    return (
-      <ProductList
+  render() {
+    return (this.props.products.length > 0 || Object.keys(this.props.dummyData).length > 0)
+      ? (<ProductList
         loading={this.props.loading}
         products={this.props.products.length > 0 ? this.props.products : this.props.dummyData.products}
         onDelete={this.onDelete}
-        filter={this.props.chosenManufacturer}
-      />
-    );
+
+      />)
+      : <Loader />;
   }
 }
 
@@ -44,5 +45,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { deleteProduct }
+  {deleteProduct}
 )(ProductsListContainer);

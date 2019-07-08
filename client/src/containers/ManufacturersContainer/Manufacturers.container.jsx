@@ -4,7 +4,7 @@ import Manufacturers from "../../components/panelComponents/Manufacturers/Manufa
 
 class ManufacturersContainer extends Component {
   render() {
-    return <Manufacturers manufacturers={this.props.manufacturers} />;
+    return <Manufacturers />;
   }
 }
 

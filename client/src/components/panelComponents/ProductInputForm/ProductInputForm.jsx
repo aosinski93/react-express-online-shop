@@ -138,6 +138,7 @@ const ProductInputForm = props => {
           value="Confirm"
           className="btn btn-success"
           title="Submit form"
+          content={'Submit'}
         />
       </form>
     </Container>

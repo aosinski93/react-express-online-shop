@@ -8,7 +8,7 @@ class Manufacturers extends Component {
     return (
       <Grid container>
         <Grid item xs={7}>
-          <ManufacturersListContainer data={this.props.manufacturers} />
+          <ManufacturersListContainer />
         </Grid>
         <Grid item xs={4}>
           <Box pl={3}>

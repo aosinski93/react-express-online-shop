@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, {Component} from "react";
+import {connect} from "react-redux";
 import {
   fetchProducts,
 } from "../../actions/globalActions";
@@ -7,9 +7,7 @@ import PanelProducts from "../../components/panelComponents/PanelProducts/PanelP
 
 class PanelProductsContainer extends Component {
   componentWillMount = () => {
-    if (this.props.productsFilter === "") {
-      this.props.fetchProducts();
-    }
+    this.props.fetchProducts();
   };
 
   onSubmit = e => {
@@ -29,5 +27,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { fetchProducts }
+  {fetchProducts}
 )(PanelProductsContainer);

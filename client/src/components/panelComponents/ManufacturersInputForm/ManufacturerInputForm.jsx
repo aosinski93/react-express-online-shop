@@ -27,6 +27,7 @@ const ManufacturerInputForm = (props) => {
           value="Confirm"
           className="form-control btn-success"
           title="Submit form"
+          content={'Submit'}
         />
       </form>
     </div>

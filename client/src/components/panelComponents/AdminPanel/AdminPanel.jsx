@@ -34,7 +34,7 @@ const AdminPanel = props => {
             component={UsersListContainer}
           />
           <Route
-            path={`${props.match.path}/product/:name`}
+            path={`${props.match.path}/product/:slug`}
             component={ProductCardContainer}
           />
         </Container>
