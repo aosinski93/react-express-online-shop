@@ -56,7 +56,7 @@ const ProductCard = (props) => {
                     <ProductSpecDetail detailName={'price'} value={`${price} $`} />
                   )}
                   {manufacturer && (
-                    <ProductSpecDetail detailName={'manufacturer'} value={manufacturer} />
+                    <ProductSpecDetail detailName={'manufacturer'} value={manufacturer.name} />
                   )}
 
                   {category && (

@@ -34,7 +34,7 @@ class ProductsListContainer extends Component {
         onDelete={this.onDelete}
 
       />)
-      : <Loader />;
+      : <Loader content={'Building products list'}/>;
   }
 }
 

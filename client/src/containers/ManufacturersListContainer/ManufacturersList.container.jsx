@@ -24,7 +24,7 @@ class ManufacturersListContainer extends Component {
                     handleDelete={this.handleDelete}
                     setProductsFilter={this.props.setProductsFilter}
                 />
-                : <Loader/>
+                : <Loader content={'Listing manufacturers...'}/>
         );
     }
 }
