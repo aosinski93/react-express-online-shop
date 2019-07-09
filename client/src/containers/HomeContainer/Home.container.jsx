@@ -3,13 +3,14 @@ import {connect} from "react-redux";
 import Home from "../../components/frontComponents/Home/Home";
 import Loader from "../../components/commonComponents/Loader/Loader";
 import {fetchManufacturers} from "../../actions/globalActions";
+import { objIsEmpty } from "../../helpers";
 
 class HomeContainer extends Component {
   render() {
     return (
       <>
         {this.props.dbError
-          ? (Object.keys(this.props.dummyData).length > 0 ?
+          ? (!objIsEmpty(this.props.dummyData) ?
             <Home hotDeals={this.props.dummyData.hotDeals} match={this.props.match}
                   dummyData={this.props.dummyData} /> : <Loader />)
           : (this.props.hotDeals.length > 0 ?

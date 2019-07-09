@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {deleteProduct} from "../../actions/panelActions";
 import ProductList from "../../components/panelComponents/ProductList/ProductList";
 import Loader from "../../components/commonComponents/Loader/Loader";
+import {objIsEmpty} from "../../helpers";
 
 class ProductsListContainer extends Component {
   constructor() {
@@ -26,7 +27,7 @@ class ProductsListContainer extends Component {
   };
 
   render() {
-    return (this.props.products.length > 0 || Object.keys(this.props.dummyData).length > 0)
+    return (this.props.products.length > 0 || !objIsEmpty(this.props.dummyData))
       ? (<ProductList
         loading={this.props.loading}
         products={this.props.products.length > 0 ? this.props.products : this.props.dummyData.products}

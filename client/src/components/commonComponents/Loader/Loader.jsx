@@ -1,7 +1,7 @@
 import React from "react";
 import {Box, Grid, CircularProgress, Typography} from "@material-ui/core";
 
-const Loader = () => {
+const Loader = (props) => {
   return (
     <Box mt={15}>
       <Grid container alignItems='center' justify='center'>
@@ -9,7 +9,7 @@ const Loader = () => {
       </Grid>
       <Box mt={3}>
         <Typography align='center'>
-          Charging batteries, hold on...
+            {props.content}
         </Typography>
       </Box>
     </Box>
