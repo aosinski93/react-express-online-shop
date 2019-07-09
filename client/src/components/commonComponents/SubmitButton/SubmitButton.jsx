@@ -20,8 +20,7 @@ const SubmitButton = props => {
       <Button
         size="small"
         variant="contained"
-        color="primary"
-        className={classes.submitButton}
+        className={`${classes.submitButton} ${props.className}`}
         type={props.type}
         value={props.value}
         title={props.title}

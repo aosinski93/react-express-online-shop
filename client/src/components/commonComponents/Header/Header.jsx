@@ -102,33 +102,39 @@ const Header = props => {
           )}
         <Grid item xs={6} sm={4} md={4} lg={2}>
           <Toolbar>
-            {props.user ? (
-              <Grid container>
-                <Grid item lg={4} md={4} sm={4} xs={4}>
-                  <Button className={classes.link} title={`${props.user.username}, check your profile`}>
-                    <PersonIcon />
-                  </Button>
-                </Grid>
-                <Grid item lg={4} md={4} sm={4} xs={4}>
-                  <Button className={classes.link} title="Finalize your order">
-                    <ShoppingCartIcon />
-                  </Button>
-                </Grid>
+
+            <Grid container justify={"flex-end"}>
+
+
+              <Grid item lg={4} md={4} sm={4} xs={4}>
+                {props.user ? (
+                    <Button className={classes.link} title={`${props.user.username}, check your profile`}>
+                      <PersonIcon />
+                    </Button>)
+                  : (
+                    <Button className={classes.whiteText}>
+                      <Link className={classes.link} to="/login">
+                        <Typography>
+                          Log in
+                        </Typography>
+                      </Link>
+                    </Button>
+                  )}
+              </Grid>
+              <Grid item lg={4} md={4} sm={4} xs={4}>
+                <Button className={classes.link} title="Finalize your order">
+                  <ShoppingCartIcon />
+                </Button>
+              </Grid>
+
+              {props.user && (
                 <Grid item lg={4} md={4} sm={4} xs={4}>
                   <Button className={classes.link} onClick={props.userLogout} title="Logout">
                     <PowerSettingsNewIcon />
                   </Button>
                 </Grid>
-              </Grid>
-            ) : (
-              <Link className={classes.link} to="/login">
-                <Typography>
-                  <Button className={classes.whiteText}>
-                    Log in
-                  </Button>
-                </Typography>
-              </Link>
-            )}
+              )}
+            </Grid>
           </Toolbar>
         </Grid>
       </Grid>

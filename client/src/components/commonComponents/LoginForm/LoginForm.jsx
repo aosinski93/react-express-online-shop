@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import FormGroup from "../FormGroup/FormGroup";
 import SubmitButton from "../SubmitButton/SubmitButton";
 import { Link } from 'react-router-dom';
-import { Container, Grid, Typography, Box } from "@material-ui/core";
+import { Container, Grid, Box } from "@material-ui/core";
 
 class LoginForm extends Component {
   constructor(props) {
@@ -43,6 +43,13 @@ class LoginForm extends Component {
             <Grid item xs={6}>
               <h2>Sign in</h2>
             </Grid>
+            <Grid item xs={6}>
+              <h2>
+                <Link to="/register">
+                  Sign up
+                </Link>
+              </h2>
+            </Grid>
           </Grid>
           <Grid container alignContent="center">
             <Grid item xs={12}>
@@ -52,7 +59,7 @@ class LoginForm extends Component {
                   name="username"
                   value={this.state.username}
                   onChange={this.onChange}
-                  labelText="Name"
+                  labelText="Username"
                   required={true}
                 />
 
@@ -69,12 +76,10 @@ class LoginForm extends Component {
                   type="submit"
                   value="Log in"
                   title="Submit form"
+                  content={'Sign in'}
                 />
 
               </form>
-              <Link to="/register">
-                <Typography align='center'>Don't have an account? Sing up here!</Typography>
-              </Link>
             </Grid>
           </Grid>
         </Box>

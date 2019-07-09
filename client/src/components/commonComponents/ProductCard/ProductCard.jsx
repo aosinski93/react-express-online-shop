@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card, CardContent, Grid, Typography, Box, List, Container} from '@material-ui/core';
+import {Card, CardContent, Grid, Typography, Box, List, Container, makeStyles} from '@material-ui/core';
 
 import SmartphoneIcon from "@material-ui/icons/Smartphone";
 import ComputerIcon from "@material-ui/icons/Computer";
@@ -22,7 +22,14 @@ const selectIcon = (category) => {
   }
 };
 
+const useStyles = makeStyles(theme => ({
+  addToCartButton: {
+    backgroundColor: '#238837'
+  }
+}));
+
 const ProductCard = (props) => {
+  const classes = useStyles();
   let {manufacturer, category, description, name, cpu, ram, battery, resolution, operating_system, date_of_release, price, _id} = props.data;
   return (
     <Container>
@@ -40,7 +47,12 @@ const ProductCard = (props) => {
               </Grid>
               {!props.isInAdmin && (
                 <Grid item lg={9}>
-                  <SubmitButton type={'submit'} value={_id} title={`Add ${name} to cart`} content={<AddShoppingCartIcon />}/>
+                  <Grid container justify={"flex-end"}>
+                    <Box mr={3}>
+                      <SubmitButton type={'submit'} value={_id} title={`Add ${name} to cart`}
+                                    content={<AddShoppingCartIcon />} className={classes.addToCartButton} />
+                    </Box>
+                  </Grid>
                 </Grid>
               )}
             </Grid>

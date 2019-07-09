@@ -1,7 +1,8 @@
 import React from 'react';
 import FormGroup from '../FormGroup/FormGroup';
-import { Container, Box, Grid } from '@material-ui/core';
+import {Container, Box, Grid, Typography} from '@material-ui/core';
 import SubmitButton from '../SubmitButton/SubmitButton';
+import {Link} from "react-router-dom";
 
 const RegisterForm = (props) => {
 
@@ -11,11 +12,18 @@ const RegisterForm = (props) => {
       <Box m={3}>
         <Grid container>
           <Grid item xs={6}>
+            <h2>
+              <Link to="/login">
+                Sign in
+              </Link>
+            </h2>
+          </Grid>
+          <Grid item xs={6}>
             <h2>Sign up</h2>
           </Grid>
         </Grid>
         <Grid container>
-          <Grid item >
+          <Grid item>
             <form id="registerForm" onSubmit={props.onSubmit}>
               <FormGroup
                 type="text"
@@ -48,6 +56,7 @@ const RegisterForm = (props) => {
                 type="submit"
                 value="Sign up"
                 title="Submit form"
+                content={'Sign up'}
               />
             </form>
           </Grid>
