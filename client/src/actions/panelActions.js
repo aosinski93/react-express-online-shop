@@ -71,12 +71,8 @@ export const addProduct = product => dispatch => {
     });
 };
 
-export const uploadImage = image => dispatch => {
-  
-  const formData = new FormData();
-  formData.append('image', image);
-
-  let url = '/upload';
+export const uploadImage = (formData, slug) => dispatch => {
+  let url = '/upload/' + slug;
 
   fetch(url, {
     method: 'POST',

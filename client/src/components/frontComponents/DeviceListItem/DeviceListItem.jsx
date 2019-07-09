@@ -4,7 +4,7 @@ import CardContent from "@material-ui/core/CardContent";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import image from '../../../resources/product_images/galaxy-s5.png';
+// import image from '../../../../public/product_images/galaxy-s5.png';
 import Box from "@material-ui/core/Box";
 import {Link} from 'react-router-dom';
 
@@ -39,7 +39,7 @@ const DeviceListItem = (props) => {
                     <Grid container>
                         <Grid item xs={4} align='center'>
                             <Box className={classes.listItemImageWrapper}>
-                                <img src={image} alt={props.device.name} className='img-responsive'/>
+                                <img alt={props.device.name} className='img-responsive'/>
                             </Box>
                         </Grid>
                         <Grid item xs={8}>

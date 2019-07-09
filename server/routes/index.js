@@ -33,7 +33,7 @@ router.get('/products', productController.product_getProducts);
 router.get('/product/:id', productController.product_getProduct);
 router.delete('/product/:id', productController.product_deleteProduct);
 router.post(
-  '/upload',
+  '/upload/:slug',
   upload.single('image'),
   productController.product_uploadImage
 );

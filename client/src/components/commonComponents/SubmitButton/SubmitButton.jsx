@@ -10,6 +10,9 @@ const useStyles = makeStyles(theme => ({
     '&:hover': {
       backgroundColor: '#238837',
     }
+  },
+  addToCartButton: {
+    backgroundColor: '#238837'
   }
 }));
 

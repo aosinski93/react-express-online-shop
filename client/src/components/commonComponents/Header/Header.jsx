@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1
   },
   header: {
-    minHeight: 45,
+    minHeight: '5vh',
     backgroundColor: "#333"
   },
   link: {

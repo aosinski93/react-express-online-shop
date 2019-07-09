@@ -1,21 +1,25 @@
 import React from "react";
-import "../../../css_utilities/common.css";
-import { makeStyles, Container, Typography } from "@material-ui/core";
+import {makeStyles, Container, Typography, Box} from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   footerBar: {
-    textAlign: 'center'
+    height: 'calc(100vh - 90vh - 64px)',
+    textAlign: 'center',
+    backgroundColor: "#333"
   }
 }));
 
 const Footer = () => {
   const classes = useStyles();
   return (
-    <Container maxWidth={"sm"} className={classes.footerBar}>
-      <Typography>
-        Created by Adam Osiński, {new Date().getFullYear()}&copy;
-      </Typography>
-    </Container>
+    <Box className={classes.footerBar}>
+      <Container>
+        <Typography>
+          Created by Adam Osiński, {new Date().getFullYear()}&copy;
+        </Typography>
+      </Container>
+    </Box>
+
   );
 };
 

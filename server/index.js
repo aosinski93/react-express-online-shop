@@ -5,8 +5,9 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const router = require('./routes/index');
+const fileUpload = require('express-fileupload');
 
-const { DB_USER, DB_HOST, DB_PASSWORD, DB_NAME, DB_PORT } = process.env;
+const {DB_USER, DB_HOST, DB_PASSWORD, DB_NAME, DB_PORT} = process.env;
 
 const db_URI =
   DB_USER === undefined || DB_HOST === undefined || DB_NAME === undefined
@@ -20,11 +21,11 @@ mongoose.connect(db_URI, {
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.on('error', () => {
-  app.set('connectionError', true);  
+  app.set('connectionError', true);
 });
 
 app.use(cors());
-
+app.use(fileUpload());
 app.use(
   bodyParser.urlencoded({
     extended: true

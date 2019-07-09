@@ -95,11 +95,21 @@ exports.product_deleteProduct = (req, res) => {
 
 
 exports.product_uploadImage = (req, res) => {
-  let file = req.file;
-  console.log(path.dirname(file.originalname));
-  
+  if (req.files === null) {
+    return res.status(400).json({msg: 'No file uploaded'});
+  }
 
-  
+  let image = req.files.image;
+  let imageName = `${req.params.slug}.${path.extname(image.name)}`;
+
+  image.mv(`${__dirname}/../../client/public/product_images/${imageName}`, err => {
+    if (err) {
+      console.error(err);
+      return res.status(500).send(err);
+    }
+
+    res.json({fileName: image.name, filePath: `/resources/${image.name}`});
+  })
 };
 
 

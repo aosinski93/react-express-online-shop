@@ -1,6 +1,6 @@
 import React from 'react';
 import FormGroup from '../FormGroup/FormGroup';
-import {Container, Box, Grid, Typography} from '@material-ui/core';
+import {Container, Box, Grid } from '@material-ui/core';
 import SubmitButton from '../SubmitButton/SubmitButton';
 import {Link} from "react-router-dom";
 
