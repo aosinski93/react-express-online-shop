@@ -17,7 +17,8 @@ const productSchema = Schema({
   date_of_release: Date,
   ram: Number,
   cpu: Number,
-  operating_system: String
+  operating_system: String,
+  qtyOnStock: Number
 });
 
 const Product = (module.exports = mongoose.model("Product", productSchema));
@@ -35,4 +36,7 @@ module.exports.getProduct = (id, callback) => {
 };
 module.exports.deleteProduct = (id, callback) => {
   Product.findByIdAndDelete(id, callback);
+};
+module.exports.updateProduct = (query, update, options, callback) => {
+  Product.findOneAndUpdate(query, update, options, callback);
 };

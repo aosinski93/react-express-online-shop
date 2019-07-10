@@ -94,6 +94,20 @@ exports.product_deleteProduct = (req, res) => {
   });
 };
 
+exports.subtractFromStock = (req, res) => {
+  let query = {
+    _id: req.product._id
+  };
+  let options = {new: true};
+  let update = { qtyOnStock: qtyOnStock - req.qty}
+
+  Product.updateProduct(query,update, options, (err, product) => {
+    if(err) {
+      throw err;
+    }
+    res.send(product);
+  })
+};
 
 exports.product_uploadImage = (req, res) => {
   if (req.files === null) {
