@@ -38,11 +38,7 @@ const useStyles = makeStyles(theme => ({
 
 const DrawerWrapper = props => {
   const classes = useStyles();
-
-  const handleCLick = (filter) => {
-    // if (filter) {
-    //   props.setProductsFilter("")
-    // }
+  const handleClick = (filter) => {
     props.toggleDrawer();
   };
 
@@ -73,7 +69,7 @@ const DrawerWrapper = props => {
         <Link
           to={`${props.match.url}`}
           className={classes.link}
-          onClick={() => handleCLick(true)}
+          onClick={() => handleClick()}
         >
           <ListItem button>
             <Box mr={3}>
@@ -86,7 +82,7 @@ const DrawerWrapper = props => {
         <Link
           to={`${props.match.url}/products`}
           className={classes.link}
-          onClick={() => handleCLick(true)}
+          onClick={() => handleClick()}
         >
           <ListItem button>
             <Box mr={3}>
@@ -95,7 +91,7 @@ const DrawerWrapper = props => {
             <Typography>Products</Typography>
           </ListItem>
         </Link>
-        <Link to={`${props.match.url}/menu`} className={classes.link} onClick={() => handleCLick(false)}>
+        <Link to={`${props.match.url}/menu`} className={classes.link} onClick={() => handleClick()}>
           <ListItem button>
             <Box mr={3}>
               <StorageIcon />
@@ -109,7 +105,7 @@ const DrawerWrapper = props => {
         <Link
           to={`${props.match.url}/manufacturers`}
           className={classes.link}
-          onClick={() => handleCLick(true)}
+          onClick={() => handleClick()}
         >
           <ListItem button>
             <Box mr={3}>
@@ -122,7 +118,7 @@ const DrawerWrapper = props => {
         <Link
           to={`${props.match.url}/users`}
           className={classes.link}
-          onClick={() => handleCLick(true)}
+          onClick={() => handleClick()}
         >
           <ListItem button>
             <Box mr={3}>

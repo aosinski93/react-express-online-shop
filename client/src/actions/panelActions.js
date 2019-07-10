@@ -295,13 +295,6 @@ export const deleteMenuSubcategory = (id, subcategoryId) => dispatch => {
     });
 };
 
-export const setProductsFilter = filter => dispatch => {
-  dispatch({
-    type: FILTER_PRODUCTS,
-    payload: filter
-  });
-};
-
 export const fetchUsers = () => dispatch => {
   let url = '/users';
 

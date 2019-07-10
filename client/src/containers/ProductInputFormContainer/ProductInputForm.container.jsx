@@ -24,7 +24,8 @@ class ProductInputFormContainer extends Component {
       date_of_release: "",
       ram: 0,
       cpu: 0,
-      operating_system: ""
+      operating_system: "",
+      qtyOnStock: 0
     };
   }
 
@@ -68,7 +69,8 @@ class ProductInputFormContainer extends Component {
         date_of_release: this.state.date_of_release,
         ram: this.state.ram,
         cpu: this.state.cpu,
-        operating_system: this.state.operating_system
+        operating_system: this.state.operating_system,
+        qtyOnStock: this.state.qtyOnStock
       };
 
       try {

@@ -25,11 +25,11 @@ exports.product_addProduct = (req, res, next) => {
     date_of_release,
     ram,
     cpu,
-    operating_system
+    operating_system,
+    qtyOnStock
   } = req.body;
 
   let product = {
-    // imageName: slugify(name),
     name,
     slug: slugify(name),
     description,
@@ -44,7 +44,8 @@ exports.product_addProduct = (req, res, next) => {
     date_of_release,
     ram,
     cpu,
-    operating_system
+    operating_system,
+    qtyOnStock
   };
 
   Product.addProduct(product, (err, product) => {

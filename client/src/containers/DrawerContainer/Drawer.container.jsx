@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import DrawerWrapper from "../../components/panelComponents/DrawerWrapper/DrawerWrapper";
 import { toggleDrawer } from "../../actions/globalActions";
-import { setProductsFilter } from '../../actions/panelActions';
 
 class DrawerContainer extends Component {
   render() {
@@ -11,7 +10,6 @@ class DrawerContainer extends Component {
         match={this.props.match}
         isVisible={this.props.drawerIsVisible}
         toggleDrawer={this.props.toggleDrawer}
-        setProductsFilter={this.props.setProductsFilter}
       />
     );
   }
@@ -23,5 +21,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { toggleDrawer, setProductsFilter }
+  { toggleDrawer }
 )(DrawerContainer);

@@ -3,7 +3,6 @@ import {connect} from "react-redux";
 import {fetchPanelMenu} from "../../actions/panelActions";
 import {toggleDrawer, fetchManufacturers, fetchProducts} from '../../actions/globalActions';
 import {userLogin} from "../../actions/userActions";
-import {setProductsFilter} from "../../actions/panelActions";
 import {notifyError} from '../../actions/notificationsActions';
 import AdminPanel from "../../components/panelComponents/AdminPanel/AdminPanel";
 import LoginFormContainer from "../LoginFormContainer/LoginForm.container";
@@ -28,7 +27,6 @@ class AdminPanelContainer extends Component {
             match={this.props.match}
             menu={this.props.menu}
             manufacturers={this.props.manufacturers}
-            setProductsFilter={this.props.setProductsFilter}
           />
         ) : (
           <LoginFormContainer path={this.props.match.path} />
@@ -52,7 +50,6 @@ export default connect(
     fetchPanelMenu,
     fetchManufacturers,
     fetchProducts,
-    setProductsFilter,
     userLogin,
     toggleDrawer,
     notifyError

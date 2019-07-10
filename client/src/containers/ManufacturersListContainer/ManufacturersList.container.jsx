@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import {deleteManufacturer} from "../../actions/panelActions";
 import {notifySuccess, notifyError} from "../../actions/notificationsActions";
-import {setProductsFilter} from "../../actions/panelActions";
 import ManufacturersList from "../..//components/panelComponents/ManufacturersList/ManufacturersList";
 import Loader from "../../components/commonComponents/Loader/Loader";
 import {objIsEmpty} from "../../helpers";
@@ -22,7 +21,6 @@ class ManufacturersListContainer extends Component {
                 <ManufacturersList
                     manufacturers={this.props.manufacturers.length > 0 ? this.props.manufacturers : this.props.dummyData.manufacturers}
                     handleDelete={this.handleDelete}
-                    setProductsFilter={this.props.setProductsFilter}
                 />
                 : <Loader content={'Listing manufacturers...'}/>
         );
@@ -36,5 +34,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    {deleteManufacturer, notifySuccess, notifyError, setProductsFilter}
+    {deleteManufacturer, notifySuccess, notifyError}
 )(ManufacturersListContainer);

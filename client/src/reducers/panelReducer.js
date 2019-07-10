@@ -4,14 +4,12 @@ import {
   ADD_MENU_SUBCATEGORY,
   DELETE_MENU_ITEM,
   DELETE_MENU_SUBCATEGORY,
-  FILTER_PRODUCTS,
   FETCH_USERS,
   TOGGLE_ADMIN,
 } from '../actions/types';
 
 const initialState = {
   menu: [],
-  filteredProducts: [],
   addedSubcategory: {},
   users: []
 };
@@ -60,17 +58,6 @@ export default (state = initialState, action) => {
         ...state,
         menu: newMenu,
         addedSubcategory: {}
-      };
-
-    case FILTER_PRODUCTS:
-      return {
-        ...state,
-        filteredProducts:
-          action.payload === ''
-            ? state.products
-            : state.products.filter(
-                product => product.manufacturer.name === action.payload
-              )
       };
     case FETCH_USERS:
       return {
