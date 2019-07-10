@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
 
 
 const Home = props => {
-  const manufacturers = ( props.manufacturers && props.manufacturers.length > 0 ) ? props.manufacturers : props.dummyData.manufacturers;
+  const manufacturers = (props.manufacturers && props.manufacturers.length > 0) ? props.manufacturers : props.dummyData.manufacturers;
   const classes = useStyles();
   return (
     <Container>
@@ -22,15 +22,19 @@ const Home = props => {
         <HomeBanner />
         <Grid item lg={12} md={12} sm={12} xs={12}>
           <Box m={4}>
-            <Typography variant='h4' align='center'>Hot deals</Typography>
-            <Grid container>
-              <Grid item lg={6} md={6} sm={6} xs={6}>
-                <DeviceListItem match={props.match} device={props.hotDeals[0]} />
+            {props.hotDeals.length === 2 && (
+              <Grid container>
+                <Grid item xs={12}>
+                  <Typography variant='h4' align='center'>Hot deals</Typography>
+                </Grid>
+                <Grid item lg={6} md={6} sm={6} xs={6}>
+                  <DeviceListItem match={props.match} device={props.hotDeals[0]} />
+                </Grid>
+                <Grid item lg={6} md={6} sm={6} xs={6}>
+                  <DeviceListItem match={props.match} device={props.hotDeals[1]} />
+                </Grid>
               </Grid>
-              <Grid item lg={6} md={6} sm={6} xs={6}>
-                <DeviceListItem match={props.match} device={props.hotDeals[1]} />
-              </Grid>
-            </Grid>
+            )}
           </Box>
         </Grid>
       </Grid>

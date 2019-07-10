@@ -13,7 +13,6 @@ const ManufacturersList = props => {
               button
               key={item._id}
               id={item._id}
-              onClick={() => props.setProductsFilter(item.name)}
             >
               <Container>
                 <Link

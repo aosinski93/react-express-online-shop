@@ -24,10 +24,13 @@ export default (state = initialState, action) => {
         products: action.payload
       };
     case FETCH_HOT_DEALS: {
-      return {
-        ...state,
-        hotDeals: [state.products[0], state.products[1]]
+      if(state.products.length >= 2) {
+        return {
+          ...state,
+          hotDeals: [state.products[0], state.products[1]]
+        }
       }
+      return state;
     }
     case FETCH_MANUFACTURERS:
       return {

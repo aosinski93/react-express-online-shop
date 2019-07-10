@@ -15,7 +15,7 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 
 const useStyles = makeStyles(theme => ({
   appBackground: {
-    background: 'radial-gradient(at top left, transparent, #111) #666',
+    background: 'radial-gradient(at top left, transparent, #777) #888',
     backgroundAttachment: 'fixed'
   }
 }));

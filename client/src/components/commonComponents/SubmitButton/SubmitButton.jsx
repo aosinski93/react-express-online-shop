@@ -13,6 +13,9 @@ const useStyles = makeStyles(theme => ({
   },
   addToCartButton: {
     backgroundColor: '#238837'
+  },
+  addToFavouritesButton: {
+    backgroundColor: '#886185'
   }
 }));
 

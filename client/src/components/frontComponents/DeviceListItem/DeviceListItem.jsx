@@ -39,7 +39,7 @@ const DeviceListItem = (props) => {
                     <Grid container>
                         <Grid item xs={4} align='center'>
                             <Box className={classes.listItemImageWrapper}>
-                                <img alt={props.device.name} className='img-responsive'/>
+                                <img src={`/product_images/${props.device.slug}.png`} alt={props.device.name} className='img-responsive'/>
                             </Box>
                         </Grid>
                         <Grid item xs={8}>

@@ -6,7 +6,7 @@ import {Box, Container, Typography} from "@material-ui/core";
 const ProductInputForm = props => { 
   return (
     <Container>
-     <Typography variant='h4'>Add product</Typography>
+     <Typography variant='h4' color={"primary"}>Add product</Typography>
 
       <Box mb={3}>
         <form onSubmit={props.onSubmit}>

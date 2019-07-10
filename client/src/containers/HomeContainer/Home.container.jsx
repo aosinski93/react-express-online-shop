@@ -13,8 +13,8 @@ class HomeContainer extends Component {
           ? (!objIsEmpty(this.props.dummyData) ?
             <Home hotDeals={this.props.dummyData.hotDeals} match={this.props.match}
                   dummyData={this.props.dummyData} /> : <Loader />)
-          : (this.props.hotDeals.length > 0 ?
-            <Home hotDeals={this.props.hotDeals} match={this.props.match} manufacturers={this.props.manufacturers} /> :
+          : (this.props.manufacturers.length > 0 ?
+            <Home hotDeals={this.props.hotDeals && this.props.hotDeals} match={this.props.match} manufacturers={this.props.manufacturers} /> :
             <Loader />)
 
         }

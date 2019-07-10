@@ -33,3 +33,6 @@ a:hover {
   height: auto;
   display: block;
 }
+.h-centered {
+  margin: 0 auto;
+}

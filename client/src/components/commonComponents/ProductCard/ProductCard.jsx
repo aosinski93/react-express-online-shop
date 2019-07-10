@@ -1,10 +1,22 @@
 import React, {Component} from 'react';
-import {Card, CardContent, Grid, Typography, Box, List, Container, Input, InputLabel} from '@material-ui/core';
+import {
+  Card,
+  CardContent,
+  Grid,
+  Typography,
+  Box,
+  List,
+  Container,
+  Input,
+  InputLabel,
+  CardActions
+} from '@material-ui/core';
 
 import SmartphoneIcon from "@material-ui/icons/Smartphone";
 import ComputerIcon from "@material-ui/icons/Computer";
 import DevicesIcon from "@material-ui/icons/Devices";
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart'
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import ProductSpecDetail from "../../frontComponents/ProductSpecDetail/ProductSpecDetail";
 import SubmitButton from "../SubmitButton/SubmitButton";
 
@@ -58,23 +70,33 @@ class ProductCard extends Component {
         <Box mt={4}>
           <Card>
             <CardContent>
-              <Grid container alignItems='center'>
-                <Grid item lg={3}>
-                  <Box mr={4}>
-                    {category && category.name ? selectIcon(category.name.toLowerCase()) : selectIcon()}
-                  </Box>
-                  <Typography variant='h5'>
-                    {name}
-                  </Typography>
+              <Grid container>
+                <Grid item xs={5}>
+                  <Grid container spacing={2} alignItems={"center"}>
+                    <Grid item>
+                      {category && category.name ? selectIcon(category.name.toLowerCase()) : selectIcon()}
+                    </Grid>
+                    <Grid item>
+                      <Typography variant='h5'>
+                        {name}
+                      </Typography>
+                    </Grid>
+                  </Grid>
                 </Grid>
                 {!this.props.isInAdmin && (
-                  <Grid item lg={9}>
-                    <Grid container justify={"flex-end"}>
-                      <Box mr={3}>
-                        <SubmitButton type={'submit'} value={_id} title={`Add ${name} to cart`}
-                                      content={<AddShoppingCartIcon />} className={'addToCartButton'} />
-                      </Box>
-                    </Grid>
+                  <Grid item xs={7} >
+                    <CardActions>
+                      <Grid container justify={"flex-end"} spacing={2}>
+                        <Grid item>
+                          <SubmitButton type={'submit'} value={_id} title={`Add ${name} to cart`}
+                                        content={<AddShoppingCartIcon />} className={'addToCartButton'} />
+                        </Grid>
+                        <Grid item>
+                          <SubmitButton type={'submit'} value={_id} title={`Add ${name}  to favourites`}
+                                        content={<FavoriteBorderIcon />} className={'addToFavouritesButton'} />
+                        </Grid>
+                      </Grid>
+                    </CardActions>
                   </Grid>
                 )}
               </Grid>
@@ -90,17 +112,17 @@ class ProductCard extends Component {
                         id={'product-image'}
                         onChange={this.onChange}
                       />
-                      <SubmitButton content={"Add image"} type={'submit'}/>
+                      <SubmitButton content={"Add image"} type={'submit'} />
                     </form>
                   )}
-                  <img className={'img-responsive'}
-                       src={`/product_images/${slug}.png`}
-                       alt={name} />
+                    <img className={'img-responsive h-centered'}
+                         src={`/product_images/${slug}.png`}
+                         alt={name} />
                 </Grid>
                 <Grid item lg={4} md={4} sm={4} xs={12}>
                   <List>
                     {price && (
-                      <ProductSpecDetail detailName={'price'} value={price}
+                      <ProductSpecDetail detailName={'price'} value={`$ ${price}`}
                       />
                     )}
                     {manufacturer && (
