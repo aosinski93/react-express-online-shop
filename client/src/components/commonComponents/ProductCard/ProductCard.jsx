@@ -80,17 +80,19 @@ class ProductCard extends Component {
               </Grid>
               <Grid container alignItems='center'>
                 <Grid item lg={6} md={6} sm={6} xs={12}>
-                  <form onSubmit={this.onSubmit}>
-                    <InputLabel htmlFor={'product-image'}>
-                      {this.state.imageName}
-                    </InputLabel>
-                    <Input
-                      type={'file'}
-                      id={'product-image'}
-                      onChange={this.onChange}
-                    />
-                    <SubmitButton content={"Add image"} type={'submit'}/>
-                  </form>
+                  {this.props.isInAdmin && (
+                    <form onSubmit={this.onSubmit}>
+                      <InputLabel htmlFor={'product-image'}>
+                        {this.state.imageName}
+                      </InputLabel>
+                      <Input
+                        type={'file'}
+                        id={'product-image'}
+                        onChange={this.onChange}
+                      />
+                      <SubmitButton content={"Add image"} type={'submit'}/>
+                    </form>
+                  )}
                   <img className={'img-responsive'}
                        src={`/product_images/${slug}.png`}
                        alt={name} />

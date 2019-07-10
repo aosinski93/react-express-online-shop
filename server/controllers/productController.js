@@ -6,6 +6,7 @@ const jsftp = require('jsftp');
 const fs = require('fs');
 const path = require('path');
 const sharp = require('sharp');
+const jimp = require('jimp');
 
 exports.product_addProduct = (req, res, next) => {
   // const ftp = new jsftp(config.ftpConfig);
@@ -100,13 +101,34 @@ exports.product_uploadImage = (req, res) => {
   }
 
   let image = req.files.image;
-  let imageName = `${req.params.slug}.${path.extname(image.name)}`;
+  let imageName = `${req.params.slug}${path.extname(image.name)}`;
 
-  image.mv(`${__dirname}/../../client/public/product_images/${imageName}`, err => {
+  const imageDir = `${__dirname}/../../client/public/product_images/`;
+
+  image.mv(`${imageDir}${imageName}`, err => {
     if (err) {
       console.error(err);
       return res.status(500).send(err);
     }
+
+    jimp.read(`${imageDir}${imageName}`, (err, image) => {
+      if (err) throw err;
+      image
+        .resize(256, 256)
+        .write(`${imageDir}${req.params.slug}.png`);
+    });
+
+    fs.exists(`${imageDir}${imageName}`, (exists) => {
+      if (exists) {
+        fs.unlink(`${imageDir}${imageName}`, (err) => {
+          if (err) {
+            throw err;
+          }
+        });
+      } else {
+        console.log('File not found, so not deleting.');
+      }
+    });
 
     res.json({fileName: image.name, filePath: `/resources/${image.name}`});
   })
