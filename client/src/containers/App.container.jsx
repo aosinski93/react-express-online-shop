@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import App from "../App";
 import {checkConnection, fetchDummyData, fetchManufacturers, fetchProducts} from "../actions/globalActions";
+import ErrorBoundary from "../components/commonComponents/ErrorBoundary/ErrorBoundary";
 
 class AppContainer extends Component {
 
@@ -25,7 +26,9 @@ class AppContainer extends Component {
   render() {
     return (
       <>
-        <App />
+        <ErrorBoundary>
+          <App />
+        </ErrorBoundary>
       </>
     )
   }

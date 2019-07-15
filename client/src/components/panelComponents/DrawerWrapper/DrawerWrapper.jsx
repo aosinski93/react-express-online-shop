@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import {
   Drawer,
   IconButton,
@@ -8,7 +8,7 @@ import {
   ListItem,
   Typography,
 } from "@material-ui/core";
-import { makeStyles } from "@material-ui/styles";
+import {makeStyles} from "@material-ui/styles";
 import MenuIcon from "@material-ui/icons/Menu";
 import DevicesIcon from "@material-ui/icons/Devices";
 import StorageIcon from "@material-ui/icons/Storage";
@@ -35,7 +35,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-
 const DrawerWrapper = props => {
   const classes = useStyles();
   const handleClick = (filter) => {
@@ -54,17 +53,14 @@ const DrawerWrapper = props => {
       </Box>
       <List component="nav" aria-label="Panel navigation">
 
-      <Link
-          to={'/'}
-          className={classes.link}
-        >
+        <a href="/" className={classes.link}>
           <ListItem button>
             <Box mr={3}>
               <HomeIcon />
             </Box>
             <Typography>Home (Front)</Typography>
           </ListItem>
-        </Link>
+        </a>
 
         <Link
           to={`${props.match.url}`}

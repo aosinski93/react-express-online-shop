@@ -39,8 +39,8 @@ export const checkConnection = () => dispatch => {
     .catch(err => {
       console.log(err);
       dispatch({
-        type: NOTIFY_ERROR,
-        payload: err.message
+        type: DB_ERROR,
+        payload: true
       });
     });
 };
