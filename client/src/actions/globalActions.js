@@ -2,7 +2,7 @@ import {
   TOGGLE_DRAWER,
   NOTIFY_ERROR,
   DB_ERROR,
-  FETCH_DUMMY_DATA,
+  // FETCH_DUMMY_DATA,
   FETCH_PRODUCTS,
   FETCH_MANUFACTURERS,
   NOTIFY_SUCCESS, FETCH_HOT_DEALS
@@ -103,8 +103,12 @@ export const fetchManufacturers = () => dispatch => {
 export const fetchDummyData = () => dispatch => {
   if (dummyData) {
     dispatch({
-      type: FETCH_DUMMY_DATA,
-      payload: dummyData
+      type: FETCH_PRODUCTS,
+      payload: dummyData.products
+    });
+    dispatch({
+      type: FETCH_MANUFACTURERS,
+      payload: dummyData.manufacturers
     })
   }
 

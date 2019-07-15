@@ -14,15 +14,13 @@ class ProductCardContainer extends Component {
   render() {
     return (
       <>
-        {(this.props.product === undefined && objIsEmpty(this.props.dummyProduct)) ?
-          <Loader content={'Building product card..'} /> :
-          <>
-            {this.props.product !== undefined || !objIsEmpty(this.props.dummyProduct) ?
-              <ProductCard data={this.props.product !== undefined ? this.props.product : this.props.dummyProduct}
-                           isInAdmin={this.props.match.path.indexOf('admin') !== -1}
-                           uploadImage={this.props.uploadImage}
-              /> : 'error'}
-          </>
+        {(this.props.product !== undefined)
+          ? <ProductCard data={this.props.product}
+                         isInAdmin={this.props.match.path.indexOf('admin') !== -1}
+                         uploadImage={this.props.uploadImage} />
+
+          : <Loader content={'Building product card..'} />
+
         }
       </>
     )

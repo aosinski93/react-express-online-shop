@@ -3,7 +3,6 @@ import {connect} from "react-redux";
 import {deleteProduct} from "../../actions/panelActions";
 import ProductList from "../../components/panelComponents/ProductList/ProductList";
 import Loader from "../../components/commonComponents/Loader/Loader";
-import {objIsEmpty} from "../../helpers";
 import ErrorBoundary from "../../components/commonComponents/ErrorBoundary/ErrorBoundary";
 
 class ProductsListContainer extends Component {
@@ -28,12 +27,11 @@ class ProductsListContainer extends Component {
   };
 
   render() {
-    return (this.props.products.length > 0 || !objIsEmpty(this.props.dummyData))
+    return (this.props.products.length > 0 )
       ? (
         <ErrorBoundary>
           <ProductList
-            loading={this.props.loading}
-            products={this.props.products.length > 0 ? this.props.products : this.props.dummyData.products}
+            products={this.props.products}
             onDelete={this.onDelete}
           />
         </ErrorBoundary>
@@ -44,8 +42,6 @@ class ProductsListContainer extends Component {
 
 const mapStateToProps = state => ({
   products: state.global.products,
-  filteredProducts: state.panel.filteredProducts,
-  dummyData: state.global.dummyData
 });
 
 export default connect(
