@@ -70,7 +70,7 @@ export const fetchProducts = () => dispatch => {
     .catch(err => {
       dispatch({
         type: NOTIFY_ERROR,
-        payload:  `Error when fetching products: ${err.message}`
+        payload: `Error when fetching products: ${err.message}`
       })
     });
 };
@@ -102,10 +102,21 @@ export const fetchManufacturers = () => dispatch => {
 };
 export const fetchDummyData = () => dispatch => {
   if (dummyData) {
-    dispatch({
-      type: FETCH_PRODUCTS,
-      payload: dummyData.products
+    let products = new Promise((resolve, reject) => {
+      resolve(
+        dispatch({
+          type: FETCH_PRODUCTS,
+          payload: dummyData.products
+        })
+      );
+      reject(new Error('Products not fetched'))
     });
+      products.then(() => {
+        dispatch({
+          type: FETCH_HOT_DEALS
+        })
+      });
+
     dispatch({
       type: FETCH_MANUFACTURERS,
       payload: dummyData.manufacturers
