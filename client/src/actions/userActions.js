@@ -4,7 +4,7 @@ import {
   USER_LOGIN,
   NOTIFY_ERROR,
   NOTIFY_SUCCESS,
-  TOGGLE_ADMIN
+  TOGGLE_ADMIN, FAKE_LOGIN, FAKE_REGISTER
 } from './types';
 
 export const newUser = userData => dispatch => {
@@ -26,7 +26,7 @@ export const newUser = userData => dispatch => {
     .then(() => {
       dispatch({
         type: NOTIFY_SUCCESS,
-        payload: 'Successful registration'
+        payload: 'Successful registration, now you can log in using given credentials'
       });
     })
     .catch(err => {
@@ -88,5 +88,24 @@ export const toggleAdmin = id => dispatch => {
   dispatch({
     type: TOGGLE_ADMIN,
     payload: id
+  });
+};
+
+export const fakeLogin = (user) => dispatch => {
+  dispatch({
+    type: FAKE_LOGIN,
+    payload: user
+  })
+};
+
+
+export const fakeRegister = (user) => dispatch => {
+  dispatch({
+    type: FAKE_REGISTER,
+    payload: user
+  });
+  dispatch({
+    type: NOTIFY_SUCCESS,
+    payload: 'Successful registration, now you can log in using given credentials'
   });
 };

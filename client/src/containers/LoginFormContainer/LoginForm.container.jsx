@@ -1,28 +1,64 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { userLogin } from "../../actions/userActions";
+import { userLogin, fakeLogin } from "../../actions/userActions";
 import LoginForm from '../../components/commonComponents/LoginForm/LoginForm';
 import { Redirect } from 'react-router-dom';
+import {objIsEmpty} from "../../helpers";
 
 class LoginFormContainer extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            username: "",
+            inputPassword: ""
+        };
+    }
+    onChange = e => {
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    };
+
+    onSubmit = e => {
+        e.preventDefault();
+        this.props.dbError !== true
+          ? this.props.userLogin(this.props.path, {
+              username: this.state.username,
+              inputPassword: this.state.inputPassword
+          })
+          : this.fakeLogin();
+        this.clearFields("loginForm");
+    };
+
+    clearFields = () => {
+        this.setState({
+            username: "",
+            inputPassword: ""
+        });
+    };
+    fakeLogin = () => {
+        this.props.fakeLogin({
+            username: this.state.username,
+        })
+    };
+
     render() {
-        
-        
         return (
             <>
-                { Object.entries(this.props.loggedUser).length !== 0 
-                ? <Redirect to="/" />
-                : <LoginForm path={this.props.path} userLogin={this.props.userLogin} /> }
+                { !objIsEmpty(this.props.loggedUser)
+                ? <Redirect to={`/`} />
+                : <LoginForm path={this.props.path} onChange={this.onChange} onSubmit={this.onSubmit} /> }
             </>
         )
     }
 }
 
 const mapStateToProps = state => ({
-    loggedUser: state.user.loggedUser
+    loggedUser: state.user.loggedUser,
+    dbError: state.global.dbError
 });
 
 export default connect(
     mapStateToProps,
-    { userLogin }
+    { userLogin, fakeLogin }
 )(LoginFormContainer); 

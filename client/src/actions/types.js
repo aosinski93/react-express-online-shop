@@ -36,3 +36,5 @@ export const FETCH_HOT_DEALS = "FETCH_HOT_DEALS";
 
 
 export const FETCH_DUMMY_DATA = "FETCH_DUMMY_DATA";
+export const FAKE_LOGIN = "FAKE_LOGIN";
+export const FAKE_REGISTER = "FAKE_REGISTER";

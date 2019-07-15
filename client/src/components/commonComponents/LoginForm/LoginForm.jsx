@@ -1,92 +1,60 @@
-import React, { Component } from "react";
+import React from "react";
 import FormGroup from "../FormGroup/FormGroup";
 import SubmitButton from "../SubmitButton/SubmitButton";
-import { Link } from 'react-router-dom';
-import { Container, Grid, Box } from "@material-ui/core";
+import {Link} from 'react-router-dom';
+import {Container, Grid, Box} from "@material-ui/core";
 
-class LoginForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: "",
-      inputPassword: ""
-    };
-  }
-
-  onChange = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  };
-
-  onSubmit = e => {
-    e.preventDefault();
-    this.props.userLogin(this.props.path, {
-      username: this.state.username,
-      inputPassword: this.state.inputPassword
-    });
-    this.clearFields("loginForm");
-  };
-
-  clearFields = () => {
-    this.setState({
-      username: "",
-      inputPassword: ""
-    });
-  };
-
-  render() {
-    return (
-      <Container maxWidth={"xs"}>
-        <Box m={3}>
-          <Grid container>
-            <Grid item xs={6}>
-              <h2>Sign in</h2>
-            </Grid>
-            <Grid item xs={6}>
-              <h2>
-                <Link to="/register">
-                  Sign up
-                </Link>
-              </h2>
-            </Grid>
+const LoginForm = props => {
+  return (
+    <Container maxWidth={"xs"}>
+      <Box m={3}>
+        <Grid container>
+          <Grid item xs={6}>
+            <h2>Sign in</h2>
           </Grid>
-          <Grid container alignContent="center">
-            <Grid item xs={12}>
-              <form id="loginForm" onSubmit={this.onSubmit}>
-                <FormGroup
-                  type="text"
-                  name="username"
-                  value={this.state.username}
-                  onChange={this.onChange}
-                  labelText="Username"
-                  required={true}
-                />
-
-                <FormGroup
-                  type="password"
-                  name="inputPassword"
-                  value={this.state.inputPassword}
-                  onChange={this.onChange}
-                  labelText="Password"
-                  required={true}
-                />
-
-                <SubmitButton
-                  type="submit"
-                  value="Log in"
-                  title="Submit form"
-                  content={'Sign in'}
-                />
-
-              </form>
-            </Grid>
+          <Grid item xs={6}>
+            <h2>
+              <Link to="/register">
+                Sign up
+              </Link>
+            </h2>
           </Grid>
-        </Box>
-      </Container>
-    );
-  }
-}
+        </Grid>
+        <Grid container alignContent="center">
+          <Grid item xs={12}>
+            <form id="loginForm" onSubmit={props.onSubmit}>
+              <FormGroup
+                type="text"
+                name="username"
+                value={props.username}
+                onChange={props.onChange}
+                labelText="Username"
+                required={true}
+              />
+
+              <FormGroup
+                type="password"
+                name="inputPassword"
+                value={props.inputPassword}
+                onChange={props.onChange}
+                labelText="Password"
+                required={true}
+              />
+
+              <SubmitButton
+                type="submit"
+                value="Log in"
+                title="Submit form"
+                content={'Sign in'}
+              />
+
+            </form>
+          </Grid>
+        </Grid>
+      </Box>
+    </Container>
+  );
+};
 
 export default LoginForm;
 

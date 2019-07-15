@@ -1,4 +1,4 @@
-import { NEW_USER, USER_LOGIN, USER_LOGOUT } from "../actions/types";
+import {FAKE_LOGIN, FAKE_REGISTER, NEW_USER, USER_LOGIN, USER_LOGOUT} from "../actions/types";
 
 const initialState = {
   registeredUser: {},
@@ -19,6 +19,16 @@ export default (state = initialState, action) => {
       };
     case USER_LOGOUT:
       return initialState;
+    case FAKE_LOGIN:
+      return {
+        ...state,
+        loggedUser: action.payload
+      };
+    case FAKE_REGISTER:
+      return {
+        ...state,
+        registeredUser: action.payload.newUser
+      };
     default:
       return state;
   }
