@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: "#333"
   },
   link: {
-    margin: theme.spacing(1),
+    whiteSpace: 'nowrap',
     color: "white",
     textDecoration: "none"
   },
@@ -55,6 +55,8 @@ const Header = props => {
                     <MenuIcon className={classes.icon} />
                   </IconButton>
                 </Toolbar>
+              </Grid>
+              <Grid item lg={9} md={7} sm={7} xs={5}>
               </Grid>
             </>
           )

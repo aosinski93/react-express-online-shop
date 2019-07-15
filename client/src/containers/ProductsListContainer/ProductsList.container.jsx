@@ -4,6 +4,7 @@ import {deleteProduct} from "../../actions/panelActions";
 import ProductList from "../../components/panelComponents/ProductList/ProductList";
 import Loader from "../../components/commonComponents/Loader/Loader";
 import {objIsEmpty} from "../../helpers";
+import ErrorBoundary from "../../components/commonComponents/ErrorBoundary/ErrorBoundary";
 
 class ProductsListContainer extends Component {
   constructor() {
@@ -28,13 +29,16 @@ class ProductsListContainer extends Component {
 
   render() {
     return (this.props.products.length > 0 || !objIsEmpty(this.props.dummyData))
-      ? (<ProductList
-        loading={this.props.loading}
-        products={this.props.products.length > 0 ? this.props.products : this.props.dummyData.products}
-        onDelete={this.onDelete}
-
-      />)
-      : <Loader content={'Building products list'}/>;
+      ? (
+        <ErrorBoundary>
+          <ProductList
+            loading={this.props.loading}
+            products={this.props.products.length > 0 ? this.props.products : this.props.dummyData.products}
+            onDelete={this.onDelete}
+          />
+        </ErrorBoundary>
+      )
+      : <Loader content={'Building products list'} />;
   }
 }
 
