@@ -6,10 +6,6 @@ import {
 import PanelProducts from "../../components/panelComponents/PanelProducts/PanelProducts";
 
 class PanelProductsContainer extends Component {
-  componentWillMount = () => {
-    this.props.fetchProducts();
-  };
-
   onSubmit = e => {
     e.preventDefault();
   };

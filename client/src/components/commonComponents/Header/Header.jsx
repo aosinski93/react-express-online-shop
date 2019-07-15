@@ -95,6 +95,17 @@ const Header = props => {
                           </Button>
                         </Typography>
                       </Link>
+
+                      { props.user && props.user.isAdmin && (
+                        <Link className={classes.link} to="/admin">
+                          <Typography>
+                            <Button className={classes.whiteText}>
+                              Admin Page
+                            </Button>
+                          </Typography>
+                        </Link>
+                      )}
+
                     </Fragment>
 
                   </Toolbar>

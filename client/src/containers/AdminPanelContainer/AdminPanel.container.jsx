@@ -1,11 +1,11 @@
 import React, {Component, Fragment} from "react";
 import {connect} from "react-redux";
+import {Redirect} from 'react-router-dom';
 import {fetchPanelMenu} from "../../actions/panelActions";
 import {toggleDrawer} from '../../actions/globalActions';
 import {userLogin} from "../../actions/userActions";
 import {notifyError} from '../../actions/notificationsActions';
 import AdminPanel from "../../components/panelComponents/AdminPanel/AdminPanel";
-import LoginFormContainer from "../LoginFormContainer/LoginForm.container";
 
 class AdminPanelContainer extends Component {
   componentDidMount = () => {
@@ -21,14 +21,14 @@ class AdminPanelContainer extends Component {
   render() {
     return (
       <Fragment>
-        {(Object.entries(this.props.loggedUser).length !== 0 &&
+        {true || (Object.entries(this.props.loggedUser).length !== 0 &&
           this.props.loggedUser.isAdmin === true) ? (
           <AdminPanel
             match={this.props.match}
             menu={this.props.menu}
           />
         ) : (
-          <LoginFormContainer path={this.props.match.path} />
+          <Redirect to={'/login'} />
         )}
       </Fragment>
     );
