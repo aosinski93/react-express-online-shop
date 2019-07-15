@@ -15,7 +15,7 @@ export const toggleDrawer = () => dispatch => {
   });
 };
 
-export const checkConnection = () => dispatch => {
+export const checkConnection = () => dispatch => new Promise((resolve, reject) => {
   fetch('/api/', {
     method: 'GET',
     headers: {
@@ -35,6 +35,7 @@ export const checkConnection = () => dispatch => {
           payload: 'Database connection error'
         })
       }
+      resolve();
     })
     .catch(err => {
       console.log(err);
@@ -43,7 +44,7 @@ export const checkConnection = () => dispatch => {
         payload: true
       });
     });
-};
+}) ;
 export const fetchProducts = () => dispatch => {
   let url = '/products';
   fetch(url, {

@@ -12,7 +12,7 @@ const initialState = {
   products: [],
   hotDeals: [],
   drawerIsVisible: false,
-  dbError: false,
+  dbError: '',
   dummyData: {}
 };
 

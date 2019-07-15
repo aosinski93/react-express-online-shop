@@ -7,9 +7,8 @@ import ErrorBoundary from "../components/commonComponents/ErrorBoundary/ErrorBou
 class AppContainer extends Component {
 
   componentDidMount() {
-    this.props.checkConnection();
-
-    setTimeout(() => {
+    let check = this.props.checkConnection();
+    check.then(() => {
       if (this.props.dbError) {
         this.props.fetchDummyData()
       } else {
@@ -20,7 +19,7 @@ class AppContainer extends Component {
           this.props.fetchProducts();
         }
       }
-    }, 1000)
+    })
   }
 
   render() {
