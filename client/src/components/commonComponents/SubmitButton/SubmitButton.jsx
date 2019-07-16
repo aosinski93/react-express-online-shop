@@ -30,6 +30,7 @@ const SubmitButton = props => {
         type={props.type}
         value={props.value}
         title={props.title}
+        onClick={props.onClick}
       >
         {props.content}
       </Button>
