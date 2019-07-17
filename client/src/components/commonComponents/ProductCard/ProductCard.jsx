@@ -9,7 +9,7 @@ import {
   Container,
   Input,
   InputLabel,
-  CardActions
+  CardActions,
 } from '@material-ui/core';
 
 import SmartphoneIcon from "@material-ui/icons/Smartphone";
@@ -65,6 +65,7 @@ class ProductCard extends Component {
   }
 
 
+
   render() {
     let { manufacturer, category, description, name, slug, cpu, ram, battery, resolution, operating_system, date_of_release, price, _id } = this.props.data;
     let quantityToCart = this.state.qty
@@ -104,7 +105,7 @@ class ProductCard extends Component {
                   </Grid>
                 )}
               </Grid>
-              <Grid container alignItems='center'>
+              <Grid container alignItems='center' justify='center'>
                 <Grid item lg={6} md={6} sm={6} xs={12}>
                   {this.props.isInAdmin && (
                     <form onSubmit={this.onSubmit}>
@@ -115,8 +116,18 @@ class ProductCard extends Component {
                         type={'file'}
                         id={'product-image'}
                         onChange={this.onChange}
+                        className={'hiddenInput'}
                       />
-                      <SubmitButton content={"Add image"} type={'submit'} />
+
+                      <Grid container alignItems='center'>
+                        <SubmitButton
+                          type={'button'}
+                          content={'Choose image to add'}
+                          className={'customImgInput'}
+                          onClick={() => document.getElementById('product-image').click()}
+                        />
+                        <SubmitButton content={"Add image"} type={'submit'} />
+                      </Grid>
                     </form>
                   )}
                   <img className={'img-responsive h-centered'}

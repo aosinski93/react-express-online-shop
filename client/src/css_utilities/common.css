@@ -1,6 +1,6 @@
 /* file imported in index.js */
 
-@import url("../css_utilities//variables.css");
+@import url('../css_utilities//variables.css');
 
 .gridContainer {
   display: grid;
@@ -33,7 +33,7 @@
   min-height: 30px;
   border-radius: 3px;
   color: var(--text-whiteBG);
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 .formInput:focus {
   border: 1px solid var(--text-whiteBG);
@@ -96,4 +96,9 @@
 }
 .box-shadow {
   box-shadow: 2px 2px 2px 1px lightgray;
+}
+.hiddenInput {
+  height: 0;
+  width: 0;
+  overflow: hidden;
 }
