@@ -1,15 +1,13 @@
 require('dotenv').config();
-const Menu = require("../models/Menu");
-const Subcategory = require("../models/Subcategory");
-const uuid = require("uuid");
-const slugify = require("slugify");
+const Menu = require('../models/Menu');
+const uuid = require('uuid');
+const slugify = require('slugify');
 
 exports.menu_displayMenu = (req, res) => {
-  if(process.env.CONNECTION_ERROR) {
+  if (process.env.CONNECTION_ERROR) {
     // read default data from file
     res.send();
-  }
-  else {
+  } else {
     Menu.getMenu((err, menu) => {
       if (err) {
         throw err;
@@ -104,11 +102,13 @@ exports.menu_addSubcategory = (req, res) => {
 };
 
 exports.menu_deleteSubcategory = (req, res) => {
-  
-  Subcategory.deleteSubcategory(req.params.subcategoryId, (err, subcategory) => {
-    if(err) {
-      throw err;
-    }   
-    res.send(subcategory);
-  })
+  Subcategory.deleteSubcategory(
+    req.params.subcategoryId,
+    (err, subcategory) => {
+      if (err) {
+        throw err;
+      }
+      res.send(subcategory);
+    }
+  );
 };
