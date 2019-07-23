@@ -1,12 +1,13 @@
 import React from "react";
 import FormGroup from "../../commonComponents/FormGroup/FormGroup";
 import SubmitButton from "../../commonComponents/SubmitButton/SubmitButton";
-import {Box, Container, Typography} from "@material-ui/core";
+import { Box, Container, Typography } from "@material-ui/core";
+import Loader from "../../commonComponents/Loader/Loader";
 
-const ProductInputForm = props => { 
+const ProductInputForm = props => {
   return (
     <Container>
-     <Typography variant='h4' color={"primary"}>Add product</Typography>
+      <Typography variant='h4' color={"primary"}>Add product</Typography>
 
       <Box mb={3}>
         <form onSubmit={props.onSubmit}>
@@ -97,7 +98,7 @@ const ProductInputForm = props => {
             name="date_of_release"
             type="date"
             labelText="Date of release"
-            defaultValue={new Date().toJSON().slice(0,10)}
+            defaultValue={new Date().toJSON().slice(0, 10)}
             value={props.date_of_release}
             onChange={props.onChange}
           />
@@ -134,13 +135,19 @@ const ProductInputForm = props => {
             onChange={props.onChange}
           />
 
-          <SubmitButton
-            type="submit"
-            value="Confirm"
-            className="btn btn-success"
-            title="Submit form"
-            content={'Submit'}
-          />
+
+          {props.loading
+            ? <Loader />
+            : (
+              <SubmitButton
+                type="submit"
+                value="Confirm"
+                className="btn btn-success"
+                title="Submit form"
+                content={'Submit'}
+              />
+            )}
+
         </form>
       </Box>
     </Container>

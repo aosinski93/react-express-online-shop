@@ -5,16 +5,18 @@ import {
   InputLabel,
   Input,
   Select,
-  Box
+  Box,
+  MenuItem,
+  OutlinedInput
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 
 const useStyles = makeStyles(theme => ({
   textField: {
     width: 300,
+    minHeight: '56px',
     marginTop: 10,
-    marginBottom: 10,
-    color: '#fff'
+    marginBottom: 10
   }
 }));
 
@@ -46,20 +48,21 @@ const FormGroup = props => {
           </InputLabel>
 
           <Select
-            native
+            variant='outlined'
             onChange={props.onChange}
-            value={props.value}
-            name={props.name}
-            id={`${props.name}`}
+            value={props.value || ''}
             className={classes.textField}
+            input={<OutlinedInput name={props.name} id={`${props.name}`} />}
           >
-            {props.data.map(option => {
-              return (
-                <option key={props.data.indexOf(option)} value={option._id}>
-                  {option.name.toUpperCase()}
-                </option>
-              );
-            })}
+            {
+              props.data.map(option => {
+                return (
+                  <MenuItem key={props.data.indexOf(option)} value={option._id}>
+                    {option.name.toUpperCase()}
+                  </MenuItem>
+                );
+              })
+            }
           </Select>
         </Box>
       );
@@ -87,7 +90,6 @@ const FormGroup = props => {
             name={`${props.name}`}
             label={props.labelText}
             value={props.value}
-            defaultValue={props.defaultValue}
             onChange={props.onChange}
             variant="outlined"
             placeholder={props.placeholder}
