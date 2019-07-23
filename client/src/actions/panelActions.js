@@ -11,6 +11,8 @@ import {
   NOTIFY_SUCCESS,
   NOTIFY_ERROR,
   FETCH_USERS,
+  DEVICE_IS_BEING_ADDED,
+  DEVICE_HAS_BEEN_ADDED
 } from './types';
 
 export const fetchPanelMenu = () => dispatch => {
@@ -23,23 +25,27 @@ export const fetchPanelMenu = () => dispatch => {
       dispatch({
         type: FETCH_PANEL_MENU,
         payload: fetchedMenu
-      })
+      });
     })
     .then(() => {
       dispatch({
         type: NOTIFY_SUCCESS,
         payload: 'Menu fetched'
-      })
+      });
     })
     .catch(err => {
       dispatch({
         type: NOTIFY_ERROR,
         payload: err.message
-      })
+      });
     });
 };
 
 export const addProduct = product => dispatch => {
+  dispatch({
+    type: DEVICE_IS_BEING_ADDED
+  });
+
   let url = '/product';
   fetch(url, {
     method: 'POST',
@@ -60,13 +66,18 @@ export const addProduct = product => dispatch => {
       dispatch({
         type: NOTIFY_SUCCESS,
         payload: `${product.name} successfuly created!`
-      })
+      });
+    })
+    .then(() => {
+      dispatch({
+        type: DEVICE_HAS_BEEN_ADDED
+      });
     })
     .catch(err => {
       dispatch({
         type: NOTIFY_ERROR,
         payload: err.message
-      })
+      });
     });
 };
 
@@ -87,8 +98,8 @@ export const uploadImage = (formData, slug) => dispatch => {
       dispatch({
         type: NOTIFY_ERROR,
         payload: err.message
-      })
-    })
+      });
+    });
 };
 
 export const addManufacturer = manufacturer => dispatch => {
@@ -112,13 +123,13 @@ export const addManufacturer = manufacturer => dispatch => {
       dispatch({
         type: NOTIFY_SUCCESS,
         payload: `${manufacturer.name} successfuly created!`
-      })
+      });
     })
     .catch(err => {
       dispatch({
         type: NOTIFY_ERROR,
         payload: err.message
-      })
+      });
     });
 };
 
@@ -144,13 +155,13 @@ export const addCategory = category => dispatch => {
       dispatch({
         type: NOTIFY_SUCCESS,
         payload: `${category.name} successfuly created!`
-      })
+      });
     })
     .catch(err => {
       dispatch({
         type: NOTIFY_ERROR,
         payload: err.message
-      })
+      });
     });
 };
 
@@ -176,13 +187,13 @@ export const addSubcategory = (subcategory, parentId) => dispatch => {
       dispatch({
         type: NOTIFY_SUCCESS,
         payload: `${subcategory.name} successfuly created!`
-      })
+      });
     })
     .catch(err => {
       dispatch({
         type: NOTIFY_ERROR,
         payload: err.message
-      })
+      });
     });
 };
 
@@ -203,13 +214,13 @@ export const deleteManufacturer = id => dispatch => {
       dispatch({
         type: NOTIFY_SUCCESS,
         payload: `Manufacturer successfuly deleted!`
-      })
+      });
     })
     .catch(err => {
       dispatch({
         type: NOTIFY_ERROR,
         payload: err.message
-      })
+      });
     });
 };
 
@@ -230,13 +241,13 @@ export const deleteProduct = id => dispatch => {
       dispatch({
         type: NOTIFY_SUCCESS,
         payload: `Product successfuly deleted!`
-      })
+      });
     })
     .catch(err => {
       dispatch({
         type: NOTIFY_ERROR,
         payload: err.message
-      })
+      });
     });
 };
 
@@ -257,13 +268,13 @@ export const deleteMenuItem = id => dispatch => {
       dispatch({
         type: NOTIFY_SUCCESS,
         payload: `Menu item successfuly deleted!`
-      })
+      });
     })
     .catch(err => {
       dispatch({
         type: NOTIFY_ERROR,
         payload: err.message
-      })
+      });
     });
 };
 
@@ -284,13 +295,13 @@ export const deleteMenuSubcategory = (id, subcategoryId) => dispatch => {
       dispatch({
         type: NOTIFY_SUCCESS,
         payload: `Subcategory successfuly deleted!`
-      })
+      });
     })
     .catch(err => {
       dispatch({
         type: NOTIFY_ERROR,
         payload: err.message
-      })
+      });
     });
 };
 
@@ -298,19 +309,19 @@ export const fetchUsers = () => dispatch => {
   let url = '/users';
 
   fetch(url, {
-    method: "GET"
+    method: 'GET'
   })
-  .then(res => res.json())
-  .then(users => {
-    dispatch({
-      type: FETCH_USERS,
-      payload : users
+    .then(res => res.json())
+    .then(users => {
+      dispatch({
+        type: FETCH_USERS,
+        payload: users
+      });
     })
-  })
-  .catch(err => {
-    dispatch({
-      type: NOTIFY_ERROR,
-      payload: err.message
-    })
-  });
+    .catch(err => {
+      dispatch({
+        type: NOTIFY_ERROR,
+        payload: err.message
+      });
+    });
 };

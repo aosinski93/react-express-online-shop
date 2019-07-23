@@ -11,6 +11,7 @@ import NotificationContainer from './containers/NotificationContainer/Notificati
 import HomeContainer from "./containers/HomeContainer/Home.container";
 import ProductCardContainer from './containers/ProductCardContainer/ProductCard.container';
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import ContactPage from './components/frontComponents/ContactPage/ContactPage.jsx';
 // import StoreContainer from "./containers/StoreContainer/Store.container";
 
 const useStyles = makeStyles(theme => ({
@@ -35,6 +36,7 @@ const App = () => {
             <Route path="/admin" component={AdminPanelContainer} />
             {/* <Route path="/store" component={StoreContainer} /> */}
             <Route path='/product/:slug' component={ProductCardContainer} />
+            <Route path='/contact' component={ContactPage} />
             <Route component={NotFound} />
           </Switch>
           <NotificationContainer />
