@@ -17,10 +17,10 @@ const useStyles = makeStyles(theme => ({
     },
     listItemPrice: {
         color: '#333',
-
+        fontSize: '2vw'
     },
     listItemName: {
-        fontSize: '3em'
+        fontSize: '2vw'
     },
     shortDescription: {
         textOverflow: 'ellipsis',
