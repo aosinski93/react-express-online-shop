@@ -16,7 +16,7 @@ router.post(
 router.post('/users/register', userController.user_addUser);
 
 router.get('/', [
-  // menuController.menu_displayMenu,
+  menuController.menu_displayMenu,
   mainController.setViewsCount
 ]);
 router.post('/menu', menuController.menu_addMenuItem);
