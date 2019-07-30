@@ -51,7 +51,7 @@ class ManufacturerInputFormContainer extends Component {
   };
 
   render() {
-    return <ManufacturerInputForm onSubmit={this.onSubmit} onChange={this.onChange} name={this.state.name} />
+    return <ManufacturerInputForm onSubmit={this.onSubmit} onChange={this.onChange} name={this.state.name} logoSrc={this.state.logoSrc} />
   }
 }
 

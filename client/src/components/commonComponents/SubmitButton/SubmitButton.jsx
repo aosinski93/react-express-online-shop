@@ -16,6 +16,17 @@ const useStyles = makeStyles(theme => ({
   },
   addToFavouritesButton: {
     backgroundColor: '#886185'
+  },
+  customImgInput: {
+    padding: '15px',
+    border: '1px dashed black',
+    boxShadow: 'none',
+    margin: '10px',
+    backgroundColor: 'lightgray',
+    color: '#000',
+    '&:hover': {
+      backgroundColor: 'lightblue'
+    }
   }
 }));
 
@@ -26,10 +37,11 @@ const SubmitButton = props => {
       <Button
         size="small"
         variant="contained"
-        className={`${classes.submitButton} ${props.className}`}
+        className={`${classes.submitButton} ${classes[props.className]}`}
         type={props.type}
         value={props.value}
         title={props.title}
+        onClick={props.onClick}
       >
         {props.content}
       </Button>

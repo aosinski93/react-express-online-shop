@@ -99,20 +99,20 @@ exports.subtractFromStock = (req, res) => {
   let query = {
     _id: req.product._id
   };
-  let options = {new: true};
-  let update = { qtyOnStock: qtyOnStock - req.qty}
+  let options = { new: true };
+  let update = { qtyOnStock: qtyOnStock - req.qty };
 
-  Product.updateProduct(query,update, options, (err, product) => {
-    if(err) {
+  Product.updateProduct(query, update, options, (err, product) => {
+    if (err) {
       throw err;
     }
     res.send(product);
-  })
+  });
 };
 
 exports.product_uploadImage = (req, res) => {
   if (req.files === null) {
-    return res.status(400).json({msg: 'No file uploaded'});
+    return res.status(400).json({ msg: 'No file uploaded' });
   }
 
   let image = req.files.image;
@@ -128,14 +128,12 @@ exports.product_uploadImage = (req, res) => {
 
     jimp.read(`${imageDir}${imageName}`, (err, image) => {
       if (err) throw err;
-      image
-        .resize(256, 256)
-        .write(`${imageDir}${req.params.slug}.png`);
+      image.resize(256, 256).write(`${imageDir}${req.params.slug}.png`);
     });
 
-    fs.exists(`${imageDir}${imageName}`, (exists) => {
+    fs.exists(`${imageDir}${imageName}`, exists => {
       if (exists) {
-        fs.unlink(`${imageDir}${imageName}`, (err) => {
+        fs.unlink(`${imageDir}${imageName}`, err => {
           if (err) {
             throw err;
           }
@@ -145,10 +143,9 @@ exports.product_uploadImage = (req, res) => {
       }
     });
 
-    res.json({fileName: image.name, filePath: `/resources/${image.name}`});
-  })
+    res.json({ fileName: image.name, filePath: `/resources/${image.name}` });
+  });
 };
-
 
 // fs.readFile(local, function(err, buffer) {
 //   if (err) {

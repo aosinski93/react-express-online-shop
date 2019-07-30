@@ -4,8 +4,14 @@ import {
   FETCH_DUMMY_DATA,
   FETCH_PRODUCTS,
   FETCH_MANUFACTURERS,
-  ADD_PRODUCT, ADD_MANUFACTURER, DELETE_PRODUCT, DELETE_MANUFACTURER, FETCH_HOT_DEALS
-} from "../actions/types";
+  ADD_PRODUCT,
+  ADD_MANUFACTURER,
+  DELETE_PRODUCT,
+  DELETE_MANUFACTURER,
+  FETCH_HOT_DEALS,
+  DEVICE_IS_BEING_ADDED,
+  DEVICE_HAS_BEEN_ADDED
+} from '../actions/types';
 
 const initialState = {
   manufacturers: [],
@@ -13,7 +19,8 @@ const initialState = {
   hotDeals: [],
   drawerIsVisible: false,
   dbError: '',
-  dummyData: {}
+  dummyData: {},
+  loading: false
 };
 
 export default (state = initialState, action) => {
@@ -24,11 +31,11 @@ export default (state = initialState, action) => {
         products: action.payload
       };
     case FETCH_HOT_DEALS: {
-      if(state.products.length >= 2) {
+      if (state.products.length >= 2) {
         return {
           ...state,
           hotDeals: [state.products[0], state.products[1]]
-        }
+        };
       }
       return state;
     }
@@ -84,7 +91,17 @@ export default (state = initialState, action) => {
       return {
         ...state,
         dummyData: action.payload
-      }
+      };
+    case DEVICE_IS_BEING_ADDED:
+      return {
+        ...state,
+        loading: true
+      };
+    case DEVICE_HAS_BEEN_ADDED:
+      return {
+        ...state,
+        loading: false
+      };
     default:
       return state;
   }

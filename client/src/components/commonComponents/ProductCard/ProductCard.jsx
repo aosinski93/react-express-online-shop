@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   Card,
   CardContent,
@@ -9,7 +9,7 @@ import {
   Container,
   Input,
   InputLabel,
-  CardActions
+  CardActions,
 } from '@material-ui/core';
 
 import SmartphoneIcon from "@material-ui/icons/Smartphone";
@@ -40,7 +40,8 @@ class ProductCard extends Component {
 
     this.state = {
       image: "",
-      imageName: ""
+      imageName: "",
+      qty: 1
     }
   }
 
@@ -63,8 +64,11 @@ class ProductCard extends Component {
     }
   }
 
+
+
   render() {
-    let {manufacturer, category, description, name, slug, cpu, ram, battery, resolution, operating_system, date_of_release, price, _id} = this.props.data;
+    let { manufacturer, category, description, name, slug, cpu, ram, battery, resolution, operating_system, date_of_release, price, _id } = this.props.data;
+    let quantityToCart = this.state.qty
     return (
       <Container>
         <Box mt={4}>
@@ -88,19 +92,20 @@ class ProductCard extends Component {
                     <CardActions>
                       <Grid container justify={"flex-end"} spacing={2}>
                         <Grid item>
-                          <SubmitButton type={'submit'} value={_id} title={`Add ${name} to cart`}
-                                        content={<AddShoppingCartIcon />} className={'addToCartButton'} />
+                          <SubmitButton type={'button'} value={_id} title={`Add ${name} to cart`}
+                            content={<AddShoppingCartIcon />} className={'addToCartButton'}
+                            onClick={(e) => this.props.addDeviceToCart(e, _id, quantityToCart)} />
                         </Grid>
                         <Grid item>
                           <SubmitButton type={'submit'} value={_id} title={`Add ${name}  to favourites`}
-                                        content={<FavoriteBorderIcon />} className={'addToFavouritesButton'} />
+                            content={<FavoriteBorderIcon />} className={'addToFavouritesButton'} />
                         </Grid>
                       </Grid>
                     </CardActions>
                   </Grid>
                 )}
               </Grid>
-              <Grid container alignItems='center'>
+              <Grid container alignItems='center' justify='center'>
                 <Grid item lg={6} md={6} sm={6} xs={12}>
                   {this.props.isInAdmin && (
                     <form onSubmit={this.onSubmit}>
@@ -111,13 +116,23 @@ class ProductCard extends Component {
                         type={'file'}
                         id={'product-image'}
                         onChange={this.onChange}
+                        className={'hiddenInput'}
                       />
-                      <SubmitButton content={"Add image"} type={'submit'} />
+
+                      <Grid container alignItems='center'>
+                        <SubmitButton
+                          type={'button'}
+                          content={'Choose image to add'}
+                          className={'customImgInput'}
+                          onClick={() => document.getElementById('product-image').click()}
+                        />
+                        <SubmitButton content={"Add image"} type={'submit'} />
+                      </Grid>
                     </form>
                   )}
-                    <img className={'img-responsive h-centered'}
-                         src={`/product_images/${slug}.png`}
-                         alt={name} />
+                  <img className={'img-responsive h-centered'}
+                    src={`/product_images/${slug}.png`}
+                    alt={name} />
                 </Grid>
                 <Grid item lg={4} md={4} sm={4} xs={12}>
                   <List>

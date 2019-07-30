@@ -6,7 +6,7 @@
   "scripts": {
     "start": "concurrently \"npm run front\"  \"npm run back\" ",
     "front": "npm start --prefix client",
-    "back": "npm start --prefix server",
+    "back": "npm run dev --prefix server",
     "install-back": "npm install --prefix server",
     "install-front": "npm install --prefix client",
     "install-main": "npm install",
