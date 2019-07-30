@@ -9,8 +9,6 @@ import {
   DELETE_PRODUCT,
   DELETE_MANUFACTURER,
   FETCH_HOT_DEALS,
-  DEVICE_IS_BEING_ADDED,
-  DEVICE_HAS_BEEN_ADDED
 } from '../actions/types';
 
 const initialState = {
@@ -20,7 +18,6 @@ const initialState = {
   drawerIsVisible: false,
   dbError: '',
   dummyData: {},
-  loading: false
 };
 
 export default (state = initialState, action) => {
@@ -50,7 +47,6 @@ export default (state = initialState, action) => {
         products: [...state.products, action.payload],
         addedSubcategory: {}
       };
-
     case ADD_MANUFACTURER:
       return {
         ...state,
@@ -91,16 +87,6 @@ export default (state = initialState, action) => {
       return {
         ...state,
         dummyData: action.payload
-      };
-    case DEVICE_IS_BEING_ADDED:
-      return {
-        ...state,
-        loading: true
-      };
-    case DEVICE_HAS_BEEN_ADDED:
-      return {
-        ...state,
-        loading: false
       };
     default:
       return state;

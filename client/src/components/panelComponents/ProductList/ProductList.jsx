@@ -1,9 +1,9 @@
 import React from "react";
 import Loader from "../../commonComponents/Loader/Loader";
 import PanelProductListItem from "../PanelProductListItem/PanelProductListItem";
-import { Container, Grid, List, Typography } from "@material-ui/core";
+import {Box, Container, Grid, List, Typography} from "@material-ui/core";
 
-const ProductList = props => {  
+const ProductList = props => {
   const buildList = () => {
     if (props.products.length !== 0) {
       return (
@@ -20,39 +20,41 @@ const ProductList = props => {
         </List>
       );
     } else {
-      return <p>No products in database</p>;
+      return (
+        <Box m={5}>
+          <Container>
+            <Typography align={"center"}>No products in database</Typography>
+          </Container>
+        </Box>
+      );
     }
   };
   return (
     <Container>
-      <Grid container>
-        <Grid item xs={10}>
-          <Grid container>
-            <Grid item xs={3}>
-              <Typography align="center">Image</Typography>
-            </Grid>
-            <Grid item xs={3}>
-              <Typography align="center">Name</Typography>
-            </Grid>
-            <Grid item xs={3}>
-              <Typography align="center">Manufacturer</Typography>
-            </Grid>
-            <Grid item xs={3}>
-              <Typography align="center">OS</Typography>
+      {props.products.length > 0 && (
+        <Grid container>
+          <Grid item xs={10}>
+            <Grid container>
+              <Grid item xs={3}>
+                <Typography align="center">Image</Typography>
+              </Grid>
+              <Grid item xs={3}>
+                <Typography align="center">Name</Typography>
+              </Grid>
+              <Grid item xs={3}>
+                <Typography align="center">Manufacturer</Typography>
+              </Grid>
+              <Grid item xs={3}>
+                <Typography align="center">OS</Typography>
+              </Grid>
             </Grid>
           </Grid>
+          <Grid item xs={2} />
         </Grid>
-        <Grid item xs={2} />
-      </Grid>
+      )}
       <Grid container>
         <Grid item xs={12}>
-          {props.loading ? (
-            <div>
-              <Loader />
-            </div>
-          ) : (
-            <>{buildList()}</>
-          )}
+          {buildList()}
         </Grid>
       </Grid>
     </Container>

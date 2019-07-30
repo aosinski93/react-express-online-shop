@@ -1,11 +1,12 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { addManufacturer } from "../../actions/panelActions";
+import React, {Component} from "react";
+import {connect} from "react-redux";
+import {addManufacturer} from "../../actions/panelActions";
 import {
   notifySuccess,
   notifyError
 } from "../../actions/notificationsActions";
 import ManufacturerInputForm from "../../components/panelComponents/ManufacturersInputForm/ManufacturerInputForm";
+import Loader from "../../components/commonComponents/Loader/Loader";
 
 class ManufacturerInputFormContainer extends Component {
   constructor() {
@@ -51,12 +52,22 @@ class ManufacturerInputFormContainer extends Component {
   };
 
   render() {
-    return <ManufacturerInputForm onSubmit={this.onSubmit} onChange={this.onChange} name={this.state.name} logoSrc={this.state.logoSrc} />
+    return this.props.manufacturerAdding
+      ? <Loader content={`Manufacturer is being added`} />
+      : <ManufacturerInputForm
+        onSubmit={this.onSubmit}
+        onChange={this.onChange}
+        name={this.state.name}
+        logoSrc={this.state.logoSrc}
+      />
   }
 }
 
+const mapStateToProps = state => ({
+  manufacturerAdding: state.loading.manufacturerAdding
+});
 
 export default connect(
-  null,
-  { addManufacturer, notifySuccess, notifyError }
+  mapStateToProps,
+  {addManufacturer, notifySuccess, notifyError}
 )(ManufacturerInputFormContainer);

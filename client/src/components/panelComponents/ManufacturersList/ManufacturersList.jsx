@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import DeleteButton from "../../commonComponents/DeleteButton/DeleteButton";
-import { List, ListItem, Grid, Typography, Container } from "@material-ui/core";
+import {List, ListItem, Grid, Typography, Container, Box} from "@material-ui/core";
 
 const ManufacturersList = props => {
-  if (props.manufacturers.length !== 0) {
+  if (props.manufacturers.length > 0) {
     return (
       <List>
         {props.manufacturers.map(item => {
@@ -47,9 +47,11 @@ const ManufacturersList = props => {
     );
   } else {
     return (
-      <div className="col-lg-6 col-md-6">
-        <p>No manufacturers</p>
-      </div>
+      <Box m={5}>
+        <Container>
+          <Typography align={"center"}>No manufacturers in database</Typography>
+        </Container>
+      </Box>
     );
   }
 };

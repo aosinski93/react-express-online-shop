@@ -8,9 +8,11 @@ class HomeContainer extends Component {
   render() {
     return (
       <>
-        {this.props.manufacturers.length > 0 ?
-          <Home hotDeals={this.props.hotDeals && this.props.hotDeals} match={this.props.match} manufacturers={this.props.manufacturers} /> :
-          <Loader />}
+        {this.props.manufacturersFetching
+          ? <Loader />
+          : <Home hotDeals={this.props.hotDeals && this.props.hotDeals} match={this.props.match}
+                  manufacturers={this.props.manufacturers} />
+        }
       </>
     );
   }
@@ -20,6 +22,7 @@ const mapStateToProps = state => ({
   hotDeals: state.global.hotDeals,
   manufacturers: state.global.manufacturers,
   dbError: state.global.dbError,
+  manufacturersFetching: state.loading.manufacturersFetching
 });
 
 export default connect(

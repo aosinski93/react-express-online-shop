@@ -16,18 +16,19 @@ class ManufacturersListContainer extends Component {
   };
 
   render() {
-    return this.props.manufacturers.length > 0
+    return this.props.manufacturersFetching
       ?
-      <ManufacturersList
+      <Loader content={'Listing manufacturers...'} />
+      : <ManufacturersList
         manufacturers={this.props.manufacturers}
         handleDelete={this.handleDelete}
       />
-      : <Loader content={'Listing manufacturers...'} />
   }
 }
 
 const mapStateToProps = state => ({
   manufacturers: state.global.manufacturers,
+  manufacturersFetching: state.global.manufacturersFetching
 });
 
 export default connect(

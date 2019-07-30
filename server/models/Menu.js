@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const Subcategory = require('./Subcategory');
 
 const menuSchema = Schema({
   name: String,

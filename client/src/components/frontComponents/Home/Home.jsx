@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
 
 
 const Home = props => {
-  const manufacturers = (props.manufacturers && props.manufacturers.length > 0) ? props.manufacturers : props.dummyData.manufacturers;
+  const { manufacturers } = props;
   const classes = useStyles();
   return (
     <Container>
@@ -39,38 +39,41 @@ const Home = props => {
         </Grid>
       </Grid>
 
-      <Box mt={4}>
-        <Grid container justify='center'>
-          <Typography variant='h4' align='center'>Our top manufacturers:</Typography>
-        </Grid>
-
-        <Box mt={3}>
-          <Grid container>
-            {manufacturers.slice(0, 3).map(manufacturer => {
-              return (
-                <Grid key={`manufacturer_${manufacturer.name}}`} item xs={12} sm={4} md={4} lg={4}>
-                  <Card raised={true} className={classes.manufacturerWrapper}>
-                    <CardContent>
-                      <Grid container alignItems='center'>
-                        <Grid item lg={4} md={4} sm={4} xs={12}>
-                          <img
-                            src={manufacturer.logoSrc}
-                            alt={manufacturer.name} className={`img-responsive ${classes.logoHeight}`} />
-                        </Grid>
-                        <Grid item lg={8} md={8} sm={8} xs={12}>
-                          <Typography variant={"h4"} align='center'>
-                            {manufacturer.name}
-                          </Typography>
-                        </Grid>
-                      </Grid>
-                    </CardContent>
-                  </Card>
-                </Grid>
-              )
-            })}
+      {manufacturers.length > 0 && (
+        <Box mt={4}>
+          <Grid container justify='center'>
+            <Typography variant='h4' align='center'>Our top manufacturers:</Typography>
           </Grid>
+
+          <Box mt={3}>
+            <Grid container>
+              {manufacturers.slice(0, 3).map(manufacturer => {
+                return (
+                  <Grid key={`manufacturer_${manufacturer.name}}`} item xs={12} sm={4} md={4} lg={4}>
+                    <Card raised={true} className={classes.manufacturerWrapper}>
+                      <CardContent>
+                        <Grid container alignItems='center'>
+                          <Grid item lg={4} md={4} sm={4} xs={12}>
+                            <img
+                              src={manufacturer.logoSrc}
+                              alt={manufacturer.name} className={`img-responsive ${classes.logoHeight}`} />
+                          </Grid>
+                          <Grid item lg={8} md={8} sm={8} xs={12}>
+                            <Typography variant={"h4"} align='center'>
+                              {manufacturer.name}
+                            </Typography>
+                          </Grid>
+                        </Grid>
+                      </CardContent>
+                    </Card>
+                  </Grid>
+                )
+              })}
+            </Grid>
+          </Box>
         </Box>
-      </Box>
+      )}
+
     </Container>
   );
 };

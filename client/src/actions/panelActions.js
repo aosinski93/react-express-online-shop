@@ -12,7 +12,7 @@ import {
   NOTIFY_ERROR,
   FETCH_USERS,
   DEVICE_IS_BEING_ADDED,
-  DEVICE_HAS_BEEN_ADDED
+  DEVICE_HAS_BEEN_ADDED, MANUFACTURER_IS_BEING_ADDED, MANUFACTURER_HASS_BEEN_ADDED
 } from './types';
 
 export const fetchPanelMenu = () => dispatch => {
@@ -103,6 +103,10 @@ export const uploadImage = (formData, slug) => dispatch => {
 };
 
 export const addManufacturer = manufacturer => dispatch => {
+  dispatch({
+    type: MANUFACTURER_IS_BEING_ADDED
+  });
+
   let url = '/manufacturer';
   fetch(url, {
     method: 'POST',
@@ -118,6 +122,11 @@ export const addManufacturer = manufacturer => dispatch => {
         type: ADD_MANUFACTURER,
         payload: manufacturer
       });
+    })
+    .then(() => {
+      dispatch({
+        type: MANUFACTURER_HASS_BEEN_ADDED
+      })
     })
     .then(() => {
       dispatch({

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { addProduct, uploadImage } from "../../actions/panelActions";
 import { notifyError, notifySuccess } from "../../actions/notificationsActions";
 import ProductInputForm from "../../components/panelComponents/ProductInputForm/ProductInputForm";
+import Loader from "../../components/commonComponents/Loader/Loader";
 
 class ProductInputFormContainer extends Component {
   constructor(props) {
@@ -93,28 +94,30 @@ class ProductInputFormContainer extends Component {
 
   render() {
     return (
-      <ProductInputForm
-        onChange={this.onChange}
-        onSubmit={this.onSubmit}
-        manufacturers={this.props.manufacturers}
-        categories={this.props.categories}
-        loading={this.props.loading}
-        name={this.state.name}
-        description={this.state.description}
-        manufacturer={this.state.manufacturer}
-        category={this.state.category || this.props.categories[0]}
-        size={this.state.size}
-        resolution={this.state.resolution}
-        battery={this.state.battery}
-        camera={this.state.camera}
-        sim_qty={this.state.sim_qty}
-        price={this.state.price}
-        date_of_release={this.state.date_of_release}
-        ram={this.state.ram}
-        cpu={this.state.cpu}
-        operating_system={this.state.operating_system}
-        qtyOnStock={this.state.qtyOnStock}
-      />
+      this.props.deviceAdding
+        ? <Loader content={'Product is being added'}/>
+        : <ProductInputForm
+          onChange={this.onChange}
+          onSubmit={this.onSubmit}
+          manufacturers={this.props.manufacturers}
+          categories={this.props.categories}
+          loading={this.props.loading}
+          name={this.state.name}
+          description={this.state.description}
+          manufacturer={this.state.manufacturer}
+          category={this.state.category || this.props.categories[0]}
+          size={this.state.size}
+          resolution={this.state.resolution}
+          battery={this.state.battery}
+          camera={this.state.camera}
+          sim_qty={this.state.sim_qty}
+          price={this.state.price}
+          date_of_release={this.state.date_of_release}
+          ram={this.state.ram}
+          cpu={this.state.cpu}
+          operating_system={this.state.operating_system}
+          qtyOnStock={this.state.qtyOnStock}
+        />
     );
   }
 }
@@ -122,7 +125,7 @@ class ProductInputFormContainer extends Component {
 const mapStateToProps = state => ({
   categories: state.panel.menu,
   manufacturers: state.global.manufacturers,
-  loading: state.global.loading
+  deviceAdding: state.loading.deviceAdding
 });
 
 export default connect(

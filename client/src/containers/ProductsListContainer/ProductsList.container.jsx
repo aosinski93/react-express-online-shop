@@ -6,20 +6,9 @@ import Loader from "../../components/commonComponents/Loader/Loader";
 import ErrorBoundary from "../../components/commonComponents/ErrorBoundary/ErrorBoundary";
 
 class ProductsListContainer extends Component {
-  constructor() {
-    super();
-    this.state = {
-      loading: true
-    };
+  constructor(props) {
+    super(props);
   }
-
-  componentWillReceiveProps = nextProps => {
-    if (nextProps.data !== []) {
-      this.setState({
-        loading: false
-      });
-    }
-  };
 
   onDelete = e => {
     e.preventDefault();
@@ -27,21 +16,22 @@ class ProductsListContainer extends Component {
   };
 
   render() {
-    return (this.props.products.length > 0 )
-      ? (
+    return this.props.productsFetching
+      ? <Loader content={'Building products list'} />
+      : (
         <ErrorBoundary>
           <ProductList
             products={this.props.products}
             onDelete={this.onDelete}
           />
         </ErrorBoundary>
-      )
-      : <Loader content={'Building products list'} />;
+      );
   }
 }
 
 const mapStateToProps = state => ({
   products: state.global.products,
+  productsFetching: state.loading.productsFetching
 });
 
 export default connect(

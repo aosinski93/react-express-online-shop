@@ -5,6 +5,7 @@ import notificationReducer from './notificationReducer';
 import globalReducer from './globalReducer';
 import cartReducer from './cartReducer';
 import favouritesReducer from './favouritesReducer.js';
+import loadingReducer from "./loadingReducer";
 
 export default combineReducers({
   user: userReducer,
@@ -12,5 +13,6 @@ export default combineReducers({
   notifications: notificationReducer,
   global: globalReducer,
   cart: cartReducer,
-  favourites: favouritesReducer
+  favourites: favouritesReducer,
+  loading: loadingReducer
 });

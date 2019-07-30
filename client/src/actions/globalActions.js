@@ -5,7 +5,7 @@ import {
   // FETCH_DUMMY_DATA,
   FETCH_PRODUCTS,
   FETCH_MANUFACTURERS,
-  NOTIFY_SUCCESS, FETCH_HOT_DEALS
+  NOTIFY_SUCCESS, FETCH_HOT_DEALS, FETCHING_PRODUCTS, PRODUCTS_FETCHED, FETCHING_MANUFACTURERS, MANUFACTURERS_FETCHED
 } from './types';
 import dummyData from '../dummyData';
 
@@ -46,6 +46,10 @@ export const checkConnection = () => dispatch => new Promise((resolve, reject) =
     });
 }) ;
 export const fetchProducts = () => dispatch => {
+  dispatch({
+    type: FETCHING_PRODUCTS
+  });
+
   let url = '/products';
   fetch(url, {
     method: 'GET'
@@ -59,6 +63,11 @@ export const fetchProducts = () => dispatch => {
     })
     .then(() => {
       dispatch({
+        type: PRODUCTS_FETCHED
+      })
+    })
+    .then(() => {
+      dispatch({
         type: FETCH_HOT_DEALS
       })
     })
@@ -68,6 +77,7 @@ export const fetchProducts = () => dispatch => {
         payload: 'Products fetched'
       })
     })
+
     .catch(err => {
       dispatch({
         type: NOTIFY_ERROR,
@@ -77,6 +87,10 @@ export const fetchProducts = () => dispatch => {
 };
 
 export const fetchManufacturers = () => dispatch => {
+  dispatch({
+    type: FETCHING_MANUFACTURERS
+  });
+
   let url = '/manufacturers';
   fetch(url, {
     method: 'GET'
@@ -87,6 +101,11 @@ export const fetchManufacturers = () => dispatch => {
         type: FETCH_MANUFACTURERS,
         payload: fetchedManufacturers
       });
+    })
+    .then(() => {
+      dispatch({
+        type: MANUFACTURERS_FETCHED
+      })
     })
     .then(() => {
       dispatch({
