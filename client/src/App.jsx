@@ -9,10 +9,10 @@ import LoginFormContainer from './containers/LoginFormContainer/LoginForm.contai
 import RegisterFormContainer from './containers/RegisterFormContainer/RegisterForm.container';
 import NotificationContainer from './containers/NotificationContainer/Notification.container';
 import HomeContainer from "./containers/HomeContainer/Home.container";
+import StoreContainer from './containers/StoreContainer/Store.container';
 import ProductCardContainer from './containers/ProductCardContainer/ProductCard.container';
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import ContactPage from './components/frontComponents/ContactPage/ContactPage.jsx';
-// import StoreContainer from "./containers/StoreContainer/Store.container";
 
 const useStyles = makeStyles(theme => ({
   appBackground: {
@@ -34,7 +34,7 @@ const App = () => {
             <Route path="/login" component={LoginFormContainer} />
             <Route path="/register" component={RegisterFormContainer} />
             <Route path="/admin" component={AdminPanelContainer} />
-            {/* <Route path="/store" component={StoreContainer} /> */}
+             <Route path="/store" component={StoreContainer} />
             <Route path='/product/:slug' component={ProductCardContainer} />
             <Route path='/contact' component={ContactPage} />
             <Route component={NotFound} />

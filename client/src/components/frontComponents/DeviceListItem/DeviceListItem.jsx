@@ -34,12 +34,12 @@ const DeviceListItem = (props) => {
 
     return (
         <Link to={`/product/${props.device.slug}`}>
-            <Card raised className={classes.listItem}>
+            <Card raised className={classes.listItem} >
                 <CardContent>
                     <Grid container>
                         <Grid item xs={4} align='center'>
                             <Box className={classes.listItemImageWrapper}>
-                                <img src={`/product_images/${props.device.slug}.png`} alt={props.device.name} className='img-responsive'/>
+                                <img src={`/product_images/${props.device.slug}.png`} alt={props.device.name} className='img-responsive' style={{ maxHeight: props.maxHeight}}/>
                             </Box>
                         </Grid>
                         <Grid item xs={8}>

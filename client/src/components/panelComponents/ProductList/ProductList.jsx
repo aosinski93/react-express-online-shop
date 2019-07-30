@@ -1,5 +1,4 @@
 import React from "react";
-import Loader from "../../commonComponents/Loader/Loader";
 import PanelProductListItem from "../PanelProductListItem/PanelProductListItem";
 import {Box, Container, Grid, List, Typography} from "@material-ui/core";
 

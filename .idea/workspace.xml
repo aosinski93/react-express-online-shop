@@ -2,23 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e60247ad-7175-4dc0-a1d7-eeaae5d6f302" name="Default Changelist" comment="add loadingReducer, moved loading related logic there, changed conditions when &lt;Loader /&gt; is rendered">
-      <change afterPath="$PROJECT_DIR$/client/src/reducers/loadingReducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/containers/StoreContainer/Store.container.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/actions/globalActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/actions/globalActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/actions/panelActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/actions/panelActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/actions/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/actions/types.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/frontComponents/DeviceListItem/DeviceListItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/frontComponents/DeviceListItem/DeviceListItem.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/frontComponents/Home/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/frontComponents/Home/Home.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/panelComponents/ManufacturersList/ManufacturersList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/panelComponents/ManufacturersList/ManufacturersList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/frontComponents/Store/Store.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/frontComponents/Store/Store.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/panelComponents/ProductList/ProductList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/panelComponents/ProductList/ProductList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/containers/App.container.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/App.container.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/containers/HomeContainer/Home.container.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/HomeContainer/Home.container.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/containers/ManufacturersInputFormContainer/ManufacturersInputForm.container.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/ManufacturersInputFormContainer/ManufacturersInputForm.container.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/containers/ManufacturersListContainer/ManufacturersList.container.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/ManufacturersListContainer/ManufacturersList.container.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/containers/ProductInputFormContainer/ProductInputForm.container.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/ProductInputFormContainer/ProductInputForm.container.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/containers/ProductsListContainer/ProductsList.container.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/ProductsListContainer/ProductsList.container.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/reducers/globalReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/reducers/globalReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/reducers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/Menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/Menu.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -35,32 +26,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/reducers/loadingReducer.js">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/src/components/frontComponents/Store/Store.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="50" column="14" lean-forward="true" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
+            <state relative-caret-position="546">
+              <caret line="26" column="21" lean-forward="true" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
               <folding>
-                <element signature="e#0#151#0" expanded="true" />
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/models/Subcategory.js">
+        <entry file="file://$PROJECT_DIR$/client/src/components/panelComponents/ProductList/ProductList.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="504">
+              <caret line="26" column="14" lean-forward="true" selection-start-line="22" selection-start-column="8" selection-end-line="26" selection-end-column="14" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/src/containers/App.container.jsx">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/components/frontComponents/DeviceListItem/DeviceListItem.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="24" column="8" lean-forward="true" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+            <state relative-caret-position="424">
+              <caret line="41" column="174" selection-start-line="41" selection-start-column="174" selection-end-line="41" selection-end-column="174" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/containers/StoreContainer/Store.container.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="20" column="18" lean-forward="true" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -74,6 +77,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="react" />
       </list>
     </option>
   </component>
@@ -98,9 +102,6 @@
         <option value="$PROJECT_DIR$/client/src/actions/globalActions.js" />
         <option value="$PROJECT_DIR$/client/src/reducers/index.js" />
         <option value="$PROJECT_DIR$/client/src/containers/HomeContainer/Home.container.jsx" />
-        <option value="$PROJECT_DIR$/client/src/components/frontComponents/Home/Home.jsx" />
-        <option value="$PROJECT_DIR$/client/src/containers/ProductsListContainer/ProductsList.container.jsx" />
-        <option value="$PROJECT_DIR$/client/src/components/panelComponents/ProductList/ProductList.jsx" />
         <option value="$PROJECT_DIR$/client/src/reducers/globalReducer.js" />
         <option value="$PROJECT_DIR$/client/src/containers/ProductInputFormContainer/ProductInputForm.container.jsx" />
         <option value="$PROJECT_DIR$/client/src/containers/ManufacturersListContainer/ManufacturersList.container.jsx" />
@@ -110,6 +111,14 @@
         <option value="$PROJECT_DIR$/client/src/actions/panelActions.js" />
         <option value="$PROJECT_DIR$/client/src/containers/ManufacturersInputFormContainer/ManufacturersInputForm.container.jsx" />
         <option value="$PROJECT_DIR$/server/models/Menu.js" />
+        <option value="$PROJECT_DIR$/client/src/components/frontComponents/Home/Home.jsx" />
+        <option value="$PROJECT_DIR$/client/src/containers/Store.container.jsx" />
+        <option value="$PROJECT_DIR$/client/src/App.jsx" />
+        <option value="$PROJECT_DIR$/client/src/containers/ProductsListContainer/ProductsList.container.jsx" />
+        <option value="$PROJECT_DIR$/client/src/components/panelComponents/ProductList/ProductList.jsx" />
+        <option value="$PROJECT_DIR$/client/src/components/frontComponents/DeviceListItem/DeviceListItem.jsx" />
+        <option value="$PROJECT_DIR$/client/src/containers/StoreContainer/Store.container.jsx" />
+        <option value="$PROJECT_DIR$/client/src/components/frontComponents/Store/Store.jsx" />
       </list>
     </option>
   </component>
@@ -149,7 +158,7 @@
               <item name="react-express-online-shop" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="actions" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="react-express-online-shop" type="b2602c69:ProjectViewProjectNode" />
@@ -157,6 +166,16 @@
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="frontComponents" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="react-express-online-shop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="react-express-online-shop" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="frontComponents" type="462c0819:PsiDirectoryNode" />
+              <item name="Home" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="react-express-online-shop" type="b2602c69:ProjectViewProjectNode" />
@@ -171,7 +190,9 @@
               <item name="react-express-online-shop" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="containers" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="panelComponents" type="462c0819:PsiDirectoryNode" />
+              <item name="ProductList" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="react-express-online-shop" type="b2602c69:ProjectViewProjectNode" />
@@ -179,15 +200,6 @@
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="containers" type="462c0819:PsiDirectoryNode" />
-              <item name="ManufacturersInputFormContainer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-express-online-shop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-express-online-shop" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="containers" type="462c0819:PsiDirectoryNode" />
-              <item name="ProductInputFormContainer" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="react-express-online-shop" type="b2602c69:ProjectViewProjectNode" />
@@ -196,30 +208,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="containers" type="462c0819:PsiDirectoryNode" />
               <item name="ProductsListContainer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-express-online-shop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-express-online-shop" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="reducers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-express-online-shop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-express-online-shop" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-express-online-shop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-express-online-shop" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-express-online-shop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-express-online-shop" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -230,6 +218,11 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/src/containers/StoreContainer" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -411,11 +404,18 @@
       <option name="project" value="LOCAL" />
       <updated>1562712441441</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="add loadingReducer, moved loading related logic there, changed conditions when &lt;Loader /&gt; is rendered">
+      <created>1564515989300</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1564515989300</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12862000" />
+    <option name="totallyTimeSpent" value="17908000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1922" height="1053" extended-state="6" />
@@ -511,16 +511,10 @@
     <MESSAGE value="add relevant actions to header when not logged in, some refactor in login/register forms" />
     <MESSAGE value="add local file uploading" />
     <MESSAGE value="add product images" />
-    <option name="LAST_COMMIT_MESSAGE" value="add product images" />
+    <MESSAGE value="add loadingReducer, moved loading related logic there, changed conditions when &lt;Loader /&gt; is rendered" />
+    <option name="LAST_COMMIT_MESSAGE" value="add loadingReducer, moved loading related logic there, changed conditions when &lt;Loader /&gt; is rendered" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/src/components/panelComponents/MenuItems/MenuItems.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="35" column="17" lean-forward="true" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/commonComponents/FormGroup/FormGroup.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
@@ -559,13 +553,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/frontComponents/ProductSpecDetail/ProductSpecDetail.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="48" lean-forward="true" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/commonComponents/Footer/Footer.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -584,13 +571,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="235">
           <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/frontComponents/DeviceListItem/DeviceListItem.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="32" column="32" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -666,26 +646,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/frontComponents/Store/Store.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/App.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="32" column="57" selection-start-line="32" selection-start-column="57" selection-end-line="32" selection-end-column="57" />
         </state>
       </provider>
     </entry>
@@ -699,13 +665,6 @@
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/frontComponents/Home/Home.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="67" column="27" lean-forward="true" selection-start-line="67" selection-start-column="27" selection-end-line="67" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -737,16 +696,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
           <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/panelComponents/ProductList/ProductList.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="27" column="14" lean-forward="true" selection-start-line="23" selection-start-column="7" selection-end-line="27" selection-end-column="14" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -800,13 +749,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/containers/ProductsListContainer/ProductsList.container.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="22" column="19" lean-forward="true" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/containers/ManufacturersInputFormContainer/ManufacturersInputForm.container.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="441">
@@ -821,16 +763,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="535">
           <caret line="101" column="50" lean-forward="true" selection-start-line="101" selection-start-column="50" selection-end-line="101" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/reducers/loadingReducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="50" column="14" lean-forward="true" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#151#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -853,13 +785,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/models/Subcategory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/models/Menu.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
@@ -873,6 +798,88 @@
           <caret line="24" column="8" lean-forward="true" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/models/Subcategory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/reducers/loadingReducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="829">
+          <caret line="50" column="14" lean-forward="true" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#151#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/frontComponents/ProductSpecDetail/ProductSpecDetail.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="12" column="48" lean-forward="true" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/containers/ProductsListContainer/ProductsList.container.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/App.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="73" selection-start-line="11" selection-start-column="73" selection-end-line="11" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/panelComponents/ProductList/ProductList.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="26" column="14" lean-forward="true" selection-start-line="22" selection-start-column="8" selection-end-line="26" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/containers/StoreContainer/Store.container.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="20" column="18" lean-forward="true" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/frontComponents/Home/Home.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="33" column="83" lean-forward="true" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/frontComponents/DeviceListItem/DeviceListItem.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="424">
+          <caret line="41" column="174" selection-start-line="41" selection-start-column="174" selection-end-line="41" selection-end-column="174" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/frontComponents/Store/Store.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="26" column="21" lean-forward="true" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>

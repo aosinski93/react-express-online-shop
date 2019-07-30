@@ -6,10 +6,6 @@ import Loader from "../../components/commonComponents/Loader/Loader";
 import ErrorBoundary from "../../components/commonComponents/ErrorBoundary/ErrorBoundary";
 
 class ProductsListContainer extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   onDelete = e => {
     e.preventDefault();
     this.props.deleteProduct(e.currentTarget.dataset.id);

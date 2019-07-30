@@ -49,7 +49,7 @@ const Home = props => {
             <Grid container>
               {manufacturers.slice(0, 3).map(manufacturer => {
                 return (
-                  <Grid key={`manufacturer_${manufacturer.name}}`} item xs={12} sm={4} md={4} lg={4}>
+                  <Grid key={`manufacturer_${manufacturer.name}}`} item xs>
                     <Card raised={true} className={classes.manufacturerWrapper}>
                       <CardContent>
                         <Grid container alignItems='center'>
