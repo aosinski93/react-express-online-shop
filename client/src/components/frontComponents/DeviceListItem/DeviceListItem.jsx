@@ -37,12 +37,12 @@ const DeviceListItem = (props) => {
             <Card raised className={classes.listItem} >
                 <CardContent>
                     <Grid container>
-                        <Grid item xs={4} align='center'>
+                        <Grid item xs={3} align='center'>
                             <Box className={classes.listItemImageWrapper}>
                                 <img src={`/product_images/${props.device.slug}.png`} alt={props.device.name} className='img-responsive' style={{ maxHeight: props.maxHeight}}/>
                             </Box>
                         </Grid>
-                        <Grid item xs={8}>
+                        <Grid item xs={9}>
                             <Grid container style={{'height':'100%'}}>
                                 <Grid item xs={12}>
                                     <Typography className={classes.listItemName}>
