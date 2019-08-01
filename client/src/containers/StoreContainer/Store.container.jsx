@@ -8,33 +8,53 @@ class StoreContainer extends Component {
     super(props);
 
     this.state = {
-      priceSorting: 'asc',
-      nameSorting: 'asc'
+      outputList: [],
+      price: 'asc',
+      name: 'asc'
+    }
+  }
+
+  componentWillReceiveProps(nextProps, nextContext) {
+    if (nextProps.products.length > 0) {
+      this.setState({
+        outputList: nextProps.products
+      })
     }
   }
 
 
-  sortDevices = (data) => {
-    data = data.sort(() => this.state.nameSorting === 'asc' ? -1 : 1);
-    data = data.sort(() => this.state.priceSorting === 'asc' ? -1 : 1);
-    return data;
+  compareBy = (key) => {
+
+    return function (a, b) {
+      if (a[key] < b[key]) return -1;
+      if (a[key] > b[key]) return 1;
+      return 0;
+    };
   };
 
-  changeSortDirection = (name) => {
-    let sort = `${name.toLowerCase()}Sorting`;
+  sortBy = (key) => {
+    key = key.toLocaleLowerCase();
+    let arrayCopy = [...this.state.outputList];
+    arrayCopy.sort(this.compareBy(key));
 
     this.setState({
-      [sort]: this.state[sort] === 'asc' ? 'desc' : 'asc'
+      outputList: this.state[key] === 'asc' ? arrayCopy : arrayCopy.reverse(),
+      [key]: this.state[key] === 'asc' ? 'desc' : 'asc'
     });
-
-    this.sortDevices([...this.props.products])
   };
 
+
   render() {
-    let outputList = this.sortDevices([...this.props.products]);
     return this.props.productsFetching
       ? <Loader content={'Listing devices...'} />
-      : <Store match={this.props.match} products={outputList} changeSortDirection={this.changeSortDirection} />
+      :
+      <Store
+        match={this.props.match}
+        products={this.state.outputList}
+        sortBy={this.sortBy}
+        price={this.state.price}
+        name={this.state.name}
+      />
 
   }
 }

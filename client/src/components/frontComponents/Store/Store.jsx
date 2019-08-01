@@ -4,7 +4,7 @@ import DeviceListItem from "../DeviceListItem/DeviceListItem";
 import SortOption from "../SortOption/SortOption";
 
 const Store = (props) => {
-  const {products, match, changeSortDirection} = props;
+  const {products, match, sortBy, price, name} = props;
   return props.products.length > 0
     ? <Box pt={5}>
       <Container>
@@ -23,10 +23,20 @@ const Store = (props) => {
                 <Grid item lg={8}>
                   <Grid container>
                     <Grid item lg={4}>
-                      <SortOption changeSortDirection={changeSortDirection} name={'Name'} />
+                      <SortOption
+                        sortBy={sortBy}
+                        fieldName={'Name'}
+                        price={price}
+                        name={name}
+                      />
                     </Grid>
                     <Grid item lg={4}>
-                      <SortOption changeSortDirection={changeSortDirection}  name={'Price'} />
+                      <SortOption
+                        sortBy={sortBy}
+                        fieldName={'Price'}
+                        price={price}
+                        name={name}
+                      />
                     </Grid>
                   </Grid>
                 </Grid>
