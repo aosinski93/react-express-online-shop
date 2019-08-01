@@ -14,6 +14,12 @@ class StoreContainer extends Component {
     }
   }
 
+  componentDidMount() {
+    this.setState({
+      outputList: this.props.products
+    })
+  }
+
   componentWillReceiveProps(nextProps, nextContext) {
     if (nextProps.products.length > 0) {
       this.setState({
