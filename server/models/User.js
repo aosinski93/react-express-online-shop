@@ -14,7 +14,7 @@ module.exports.addUser = (user, callback) => {
   User.create(user, callback);
 };
 module.exports.getUserById = (id, callback) => {
-  User.findOne({ _id: id }, callback);
+  User.findOne({ _id: id }, { password: 0 }, callback);
 };
 module.exports.getUsers = (callback, limit) => {
   User.find({}, callback).limit(limit);

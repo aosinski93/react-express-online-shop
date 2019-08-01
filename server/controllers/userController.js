@@ -1,9 +1,11 @@
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
+const config = require('../config');
+const jwt = require('jsonwebtoken');
 
 exports.user_getUsers = (req, res) => {
   User.getUsers((err, users) => {
-    if(err) {
+    if (err) {
       throw err;
     }
 
@@ -12,7 +14,7 @@ exports.user_getUsers = (req, res) => {
 };
 
 exports.user_addUser = (req, res) => {
-  let { username, email, password, isAdmin } = req.body;
+  let {username, email, password, isAdmin} = req.body;
 
   let hashedPassword = bcrypt.hashSync(password, 10);
 
@@ -32,40 +34,26 @@ exports.user_addUser = (req, res) => {
 };
 
 exports.user_userLogin = (req, res) => {
-  let { username, inputPassword } = req.body;
+  let {username, inputPassword} = req.body;
 
   User.getUserByUsername(username, (err, user) => {
-    if (err) {
-      throw err;
-    }
+    if (err) return res.status(500).send('Error on the server.');
+    if (!user) return res.status(404).send('No user found.');
 
-    if (!user) {
-      return res.json({ msg: `No such user, please check the username` });
-    }
+    const passwordIsValid = bcrypt.compareSync(inputPassword, user.password);
+    if (!passwordIsValid) return res.status(401).send({auth: false, token: null});
 
-    if (req.path.indexOf("admin") !== -1 && user.isAdmin !== true) {
-      res.json({ msg: `No Admin access granted` });
-    } else {
-      res.json(
-        validateUser(inputPassword, user)
-          ? { msg: `Hi ${user.username}`, user }
-          : `Wrong password`
-      );
-    }
+    const token = jwt.sign({id: user._id}, config.jwtSecret, {
+      expiresIn: 86400
+    });
+
+    res.status(200).send({user: user, auth: true, token: token});
   });
-};
-
-const validateUser = (inputPassword, user) => {
-  if (bcrypt.compareSync(inputPassword, user.password)) {
-    return true;
-  } else {
-    return false;
-  }
 };
 
 exports.toggleAdmin = (user) => {
   User.getUserById(user._id, (err, user) => {
-    if(err) {
+    if (err) {
       throw err;
     }
 
@@ -75,7 +63,7 @@ exports.toggleAdmin = (user) => {
     });
 
     User.updateUser(user._id, update, {}, (err, updatedUser) => {
-      if(err) {
+      if (err) {
         throw err;
       }
       res.send(updatedUser);
