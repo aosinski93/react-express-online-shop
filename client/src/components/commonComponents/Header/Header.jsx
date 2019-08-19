@@ -28,7 +28,8 @@ const useStyles = makeStyles(theme => ({
   link: {
     whiteSpace: 'nowrap',
     color: "white",
-    textDecoration: "none"
+    textDecoration: "none",
+    display: 'flex'
   },
   icon: {
     color: '#fff'
@@ -64,10 +65,12 @@ const Header = props => {
             <>
               <Grid item lg={2} md={2} sm={2} xs={2}>
                 <Toolbar>
-                  <Box mr={2}>
-                    <DevicesIcon />
-                  </Box>
-                  <Typography className={classes.logo}>DigiStore</Typography>
+                  <Link className={classes.link} to="/">
+                    <Box mr={2}>
+                      <DevicesIcon />
+                    </Box>
+                    <Typography className={classes.logo}>DigiStore</Typography>
+                  </Link>
                 </Toolbar>
               </Grid>
               <Hidden xsDown>
@@ -96,7 +99,7 @@ const Header = props => {
                         </Typography>
                       </Link>
 
-                      { props.user && props.user.isAdmin && (
+                      {props.user && props.user.isAdmin && (
                         <Link className={classes.link} to="/admin">
                           <Typography>
                             <Button className={classes.whiteText}>
@@ -136,7 +139,9 @@ const Header = props => {
               </Grid>
               <Grid item lg={4} md={4} sm={4} xs={4}>
                 <Button className={classes.link} title="Finalize your order">
-                  <ShoppingCartIcon />
+                  <Link className={classes.link} to="/cart">
+                    <ShoppingCartIcon />
+                  </Link>
                 </Button>
               </Grid>
 

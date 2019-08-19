@@ -14,14 +14,16 @@ const finishedAddingToCart = () => dispatch => {
 
 export const addDeviceToCart = (id, qty) => (dispatch, getState) => {
   dispatch(addingToCart());
-  let { name, price, slug } = getState().global.products.find(
+  let { name, price, slug, _id } = getState().global.products.find(
     item => item._id === id
   );
 
   let productToCart = {
+    _id,
     name,
     price,
     slug,
+    qty: 1,
     subtotal: price * qty
   };
 

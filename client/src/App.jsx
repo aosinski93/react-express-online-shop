@@ -13,6 +13,7 @@ import StoreContainer from './containers/StoreContainer/Store.container';
 import ProductCardContainer from './containers/ProductCardContainer/ProductCard.container';
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import ContactPage from './components/frontComponents/ContactPage/ContactPage.jsx';
+import CartContainer from "./containers/CartContainer/Cart.container";
 
 const useStyles = makeStyles(theme => ({
   appBackground: {
@@ -37,6 +38,7 @@ const App = () => {
              <Route path="/store" component={StoreContainer} />
             <Route path='/product/:slug' component={ProductCardContainer} />
             <Route path='/contact' component={ContactPage} />
+            <Route path='/cart' component={CartContainer}/>
             <Route component={NotFound} />
           </Switch>
           <NotificationContainer />

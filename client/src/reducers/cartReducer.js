@@ -23,10 +23,26 @@ export default (state = initialState, action) => {
         deviceIsBeingAdded: false
       };
     case ADD_TO_CART:
-      return {
-        ...state,
-        content: [...state.content, action.payload]
-      };
+      let isInCart = state.content.find(item => item._id === action.payload._id);
+
+      if (!isInCart) {
+        return {
+          ...state,
+          content: [...state.content, action.payload]
+        };
+      } else {
+        return {
+          ...state,
+          content: state.content.map(item => {
+            if (item._id === action.payload._id) {
+              item.qty++;
+              item.subtotal = item.qty * item.price;
+            }
+            return item;
+          })
+        };
+      }
+
     default:
       return state;
   }
