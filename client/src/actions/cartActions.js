@@ -1,7 +1,7 @@
 import {
   DEVICE_IS_BEING_ADDED,
   ADD_TO_CART,
-  DEVICE_HAS_BEEN_ADDED
+  DEVICE_HAS_BEEN_ADDED, UPDATE_CART_QUANTITY
 } from './types';
 
 const addingToCart = () => dispatch => {
@@ -17,20 +17,31 @@ export const addDeviceToCart = (id, qty) => (dispatch, getState) => {
   let { name, price, slug, _id } = getState().global.products.find(
     item => item._id === id
   );
+  let isInCart = getState().cart.content.find(item => item._id === _id);
 
-  let productToCart = {
-    _id,
-    name,
-    price,
-    slug,
-    qty: 1,
-    subtotal: price * qty
-  };
+  if(!isInCart) {
+    let productToCart = {
+      _id,
+      name,
+      price,
+      slug,
+      qty: 1,
+      subtotal: price * qty
+    };
 
-  dispatch({
-    type: ADD_TO_CART,
-    payload: productToCart
-  });
+    dispatch({
+      type: ADD_TO_CART,
+      payload: productToCart
+    });
+  } else {
+    dispatch({
+      type: UPDATE_CART_QUANTITY,
+      payload: _id
+    })
+  }
+
+
+
 
   dispatch(finishedAddingToCart());
 };

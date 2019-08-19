@@ -1,7 +1,7 @@
 import {
   ADD_TO_CART,
   DEVICE_IS_BEING_ADDED,
-  DEVICE_HAS_BEEN_ADDED
+  DEVICE_HAS_BEEN_ADDED, UPDATE_CART_QUANTITY
 } from '../actions/types';
 
 const initialState = {
@@ -23,26 +23,23 @@ export default (state = initialState, action) => {
         deviceIsBeingAdded: false
       };
     case ADD_TO_CART:
-      let isInCart = state.content.find(item => item._id === action.payload._id);
+      return {
+        ...state,
+        content: [...state.content, action.payload]
+      };
+    case UPDATE_CART_QUANTITY:
 
-      if (!isInCart) {
-        return {
-          ...state,
-          content: [...state.content, action.payload]
-        };
-      } else {
-        return {
-          ...state,
-          content: state.content.map(item => {
-            if (item._id === action.payload._id) {
-              item.qty++;
-              item.subtotal = item.qty * item.price;
-            }
-            return item;
-          })
-        };
-      }
-
+      console.log(action.payload);
+      return {
+        ...state,
+        content: state.content.map(item => {
+          if (item._id === action.payload) {
+            item.qty++;
+            item.subtotal = item.qty * item.price;
+          }
+          return item;
+        })
+      };
     default:
       return state;
   }
