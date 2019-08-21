@@ -9,7 +9,7 @@ import {
   Button,
   Grid,
   Hidden,
-  Box,
+  Box, Badge,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import PersonIcon from "@material-ui/icons/Person";
@@ -18,6 +18,9 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import DevicesIcon from "@material-ui/icons/Devices";
 
 const useStyles = makeStyles(theme => ({
+  margin: {
+    margin: theme.spacing(2)
+  },
   root: {
     flexGrow: 1
   },
@@ -63,7 +66,7 @@ const Header = props => {
           )
           : (
             <>
-              <Grid item lg={2} md={2} sm={2} xs={2}>
+              <Grid item lg={2} md={2} sm={3} xs={3}>
                 <Toolbar>
                   <Link className={classes.link} to="/">
                     <Box mr={2}>
@@ -116,7 +119,10 @@ const Header = props => {
               </Hidden>
             </>
           )}
-        <Grid item xs={6} sm={4} md={4} lg={2}>
+        <Hidden smUp>
+          <Grid item xs={3}></Grid>
+        </Hidden>
+        <Grid item xs={6} sm={3} md={4} lg={2}>
           <Toolbar>
 
             <Grid container justify={"flex-end"}>
@@ -140,7 +146,10 @@ const Header = props => {
               <Grid item lg={4} md={4} sm={4} xs={4}>
                 <Button className={classes.link} title="Finalize your order">
                   <Link className={classes.link} to="/cart">
-                    <ShoppingCartIcon />
+
+                        <Badge badgeContent={props.cartCount} color={"secondary"}>
+                          <ShoppingCartIcon />
+                        </Badge>
                   </Link>
                 </Button>
               </Grid>

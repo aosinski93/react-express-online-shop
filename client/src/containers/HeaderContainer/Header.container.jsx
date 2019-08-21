@@ -16,13 +16,15 @@ class HeaderContainer extends Component {
         }
         toggleDrawer={this.props.toggleDrawer}
         userLogout={this.props.userLogout}
+      cartCount={this.props.cartCount}
       />
     );
   }
 }
 
 const mapStateToProps = state => ({
-  loggedUser: state.user.loggedUser
+  loggedUser: state.user.loggedUser,
+  cartCount: state.cart.content.length
 });
 
 export default connect(
