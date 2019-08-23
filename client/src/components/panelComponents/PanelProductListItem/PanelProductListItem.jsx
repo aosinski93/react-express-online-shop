@@ -1,11 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import DeleteButton from "../../commonComponents/DeleteButton/DeleteButton";
-import { Box, Grid, Typography } from "@material-ui/core";
-import { makeStyles } from "@material-ui/styles";
+import {Box, Grid, Typography} from "@material-ui/core";
+import {makeStyles} from "@material-ui/styles";
 import SmartphoneIcon from "@material-ui/icons/Smartphone";
 import ComputerIcon from "@material-ui/icons/Computer";
 import DevicesIcon from "@material-ui/icons/Devices";
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(theme => ({
   image: {
@@ -70,6 +71,15 @@ const PanelProductListItem = props => {
       </Grid>
     </Box>
   );
+};
+
+PanelProductListItem.propTypes = {
+  item: PropTypes.object,
+  _id: PropTypes.string,
+  category: PropTypes.object,
+  manufacturer: PropTypes.object,
+  name: PropTypes.string,
+  onDelete: PropTypes.func
 };
 
 export default PanelProductListItem;

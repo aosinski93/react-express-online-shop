@@ -9,6 +9,7 @@ import DrawerContainer from '../../../containers/DrawerContainer/Drawer.containe
 import UsersListContainer from "../../../containers/UsersListContainer/UsersList.container";
 import AdminPanelIndexContainer from "../../../containers/AdminPanelIndexContainer/AdminPanelIndex.container";
 import ProductCardContainer from "../../../containers/ProductCardContainer/ProductCard.container";
+import PropTypes from 'prop-types';
 
 const AdminPanel = props => {
   return (
@@ -41,6 +42,10 @@ const AdminPanel = props => {
       </main>
     </Box>
   );
+};
+
+AdminPanel.propTypes = {
+  match: PropTypes.object
 };
 
 export default AdminPanel;

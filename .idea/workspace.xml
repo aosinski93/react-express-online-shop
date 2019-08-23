@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e60247ad-7175-4dc0-a1d7-eeaae5d6f302" name="Default Changelist" comment="build cart's first step">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="e60247ad-7175-4dc0-a1d7-eeaae5d6f302" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/commonComponents/DeleteButton/DeleteButton.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/commonComponents/DeleteButton/DeleteButton.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/commonComponents/FormGroup/FormGroup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/commonComponents/FormGroup/FormGroup.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/commonComponents/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/commonComponents/Header/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/commonComponents/Loader/Loader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/commonComponents/Loader/Loader.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/commonComponents/LoginForm/LoginForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/commonComponents/LoginForm/LoginForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/commonComponents/Notification/Notification.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/commonComponents/Notification/Notification.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/commonComponents/ProductCard/ProductCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/commonComponents/ProductCard/ProductCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/commonComponents/RegisterForm/RegisterForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/commonComponents/RegisterForm/RegisterForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/commonComponents/SubcategoryItem/SubcategoryItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/commonComponents/SubcategoryItem/SubcategoryItem.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/commonComponents/SubmitButton/SubmitButton.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/commonComponents/SubmitButton/SubmitButton.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/frontComponents/Cart/Cart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/frontComponents/Cart/Cart.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/frontComponents/CartItem/CartItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/frontComponents/CartItem/CartItem.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/panelComponents/AdminPanel/AdminPanel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/panelComponents/AdminPanel/AdminPanel.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/panelComponents/AdminPanelIndex/AdminPanelIndex.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/panelComponents/AdminPanelIndex/AdminPanelIndex.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/panelComponents/DrawerWrapper/DrawerWrapper.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/panelComponents/DrawerWrapper/DrawerWrapper.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/panelComponents/ManufacturersInputForm/ManufacturerInputForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/panelComponents/ManufacturersInputForm/ManufacturerInputForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/panelComponents/ManufacturersList/ManufacturersList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/panelComponents/ManufacturersList/ManufacturersList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/panelComponents/MenuItems/MenuItems.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/panelComponents/MenuItems/MenuItems.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/panelComponents/PanelProductListItem/PanelProductListItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/panelComponents/PanelProductListItem/PanelProductListItem.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/panelComponents/ProductInputForm/ProductInputForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/panelComponents/ProductInputForm/ProductInputForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/panelComponents/ProductList/ProductList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/panelComponents/ProductList/ProductList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/panelComponents/SubMenu/SubMenu.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/panelComponents/SubMenu/SubMenu.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/panelComponents/UserListItem/UserListItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/panelComponents/UserListItem/UserListItem.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/panelComponents/UsersList/UsersList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/panelComponents/UsersList/UsersList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/containers/AdminPanelIndexContainer/AdminPanelIndex.container.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/AdminPanelIndexContainer/AdminPanelIndex.container.jsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -33,37 +32,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/commonComponents/SubmitButton/SubmitButton.jsx">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/src/components/panelComponents/UsersList/UsersList.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="479">
-              <caret line="52" column="26" lean-forward="true" selection-start-line="52" selection-start-column="26" selection-end-line="52" selection-end-column="26" />
+            <state relative-caret-position="626">
+              <caret line="31" selection-start-line="31" selection-end-line="31" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/frontComponents/Cart/Cart.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
-              <caret line="29" selection-start-line="29" selection-end-line="31" selection-end-column="2" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/src/components/frontComponents/CartItem/CartItem.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -99,22 +74,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/src/reducers/loadingReducer.js" />
-        <option value="$PROJECT_DIR$/client/src/actions/panelActions.js" />
-        <option value="$PROJECT_DIR$/client/src/containers/ManufacturersInputFormContainer/ManufacturersInputForm.container.jsx" />
-        <option value="$PROJECT_DIR$/server/models/Menu.js" />
-        <option value="$PROJECT_DIR$/client/src/containers/Store.container.jsx" />
-        <option value="$PROJECT_DIR$/client/src/containers/ProductsListContainer/ProductsList.container.jsx" />
-        <option value="$PROJECT_DIR$/client/src/components/panelComponents/ProductList/ProductList.jsx" />
-        <option value="$PROJECT_DIR$/client/src/index.css" />
-        <option value="$PROJECT_DIR$/client/src/css_utilities/fonts.css" />
-        <option value="$PROJECT_DIR$/client/src/components/frontComponents/Store/Store.jsx" />
-        <option value="$PROJECT_DIR$/client/src/components/frontComponents/SortOption/SortOption.jsx" />
-        <option value="$PROJECT_DIR$/client/src/containers/StoreContainer/Store.container.jsx" />
-        <option value="$PROJECT_DIR$/server/models/User.js" />
-        <option value="$PROJECT_DIR$/server/controllers/authController.js" />
-        <option value="$PROJECT_DIR$/server/.env" />
-        <option value="$PROJECT_DIR$/server/config.js" />
         <option value="$PROJECT_DIR$/client/src/actions/userActions.js" />
         <option value="$PROJECT_DIR$/server/routes/index.js" />
         <option value="$PROJECT_DIR$/server/controllers/userController.js" />
@@ -124,20 +83,15 @@
         <option value="$PROJECT_DIR$/client/src/actions/favouritesActions.js" />
         <option value="$PROJECT_DIR$/client/src/actions/globalActions.js" />
         <option value="$PROJECT_DIR$/client/src/actions/cartActions.js" />
-        <option value="$PROJECT_DIR$/client/src/components/frontComponents/Home/Home.jsx" />
         <option value="$PROJECT_DIR$/client/src/store.js" />
         <option value="$PROJECT_DIR$/client/src/containers/HeaderContainer/Header.container.jsx" />
         <option value="$PROJECT_DIR$/client/public/index.html" />
-        <option value="$PROJECT_DIR$/client/src/components/frontComponents/ContactOption/ContactOption.jsx" />
         <option value="$PROJECT_DIR$/client/src/components/frontComponents/ContactPage/ContactPage.jsx" />
         <option value="$PROJECT_DIR$/client/src/components/commonComponents/Footer/Footer.jsx" />
-        <option value="$PROJECT_DIR$/client/src/components/frontComponents/HomeBanner/HomeBanner.jsx" />
-        <option value="$PROJECT_DIR$/client/src/components/frontComponents/DeviceListItem/DeviceListItem.jsx" />
         <option value="$PROJECT_DIR$/client/src/index.js" />
         <option value="$PROJECT_DIR$/client/src/containers/CartItemContainer/CartItem.container.jsx" />
         <option value="$PROJECT_DIR$/client/src/reducers/cartReducer.js" />
         <option value="$PROJECT_DIR$/client/src/containers/CartContainer/Cart.container.jsx" />
-        <option value="$PROJECT_DIR$/client/src/components/frontComponents/CartSummary/CartSummary.jsx" />
         <option value="$PROJECT_DIR$/client/src/components/commonComponents/DeleteButton/DeleteButton.jsx" />
         <option value="$PROJECT_DIR$/client/src/components/commonComponents/FormGroup/FormGroup.jsx" />
         <option value="$PROJECT_DIR$/client/src/components/commonComponents/Header/Header.jsx" />
@@ -150,6 +104,27 @@
         <option value="$PROJECT_DIR$/client/src/components/commonComponents/SubmitButton/SubmitButton.jsx" />
         <option value="$PROJECT_DIR$/client/src/components/frontComponents/Cart/Cart.jsx" />
         <option value="$PROJECT_DIR$/client/src/components/frontComponents/CartItem/CartItem.jsx" />
+        <option value="$PROJECT_DIR$/client/src/components/frontComponents/CartSummary/CartSummary.jsx" />
+        <option value="$PROJECT_DIR$/client/src/components/frontComponents/ContactOption/ContactOption.jsx" />
+        <option value="$PROJECT_DIR$/client/src/components/frontComponents/DeviceListItem/DeviceListItem.jsx" />
+        <option value="$PROJECT_DIR$/client/src/components/frontComponents/Home/Home.jsx" />
+        <option value="$PROJECT_DIR$/client/src/components/frontComponents/HomeBanner/HomeBanner.jsx" />
+        <option value="$PROJECT_DIR$/client/src/components/frontComponents/ProductSpecDetail/ProductSpecDetail.jsx" />
+        <option value="$PROJECT_DIR$/client/src/components/frontComponents/SortOption/SortOption.jsx" />
+        <option value="$PROJECT_DIR$/client/src/components/frontComponents/Store/Store.jsx" />
+        <option value="$PROJECT_DIR$/client/src/components/panelComponents/AdminPanel/AdminPanel.jsx" />
+        <option value="$PROJECT_DIR$/client/src/components/panelComponents/AdminPanelIndex/AdminPanelIndex.jsx" />
+        <option value="$PROJECT_DIR$/client/src/containers/AdminPanelIndexContainer/AdminPanelIndex.container.jsx" />
+        <option value="$PROJECT_DIR$/client/src/components/panelComponents/DrawerWrapper/DrawerWrapper.jsx" />
+        <option value="$PROJECT_DIR$/client/src/components/panelComponents/ManufacturersInputForm/ManufacturerInputForm.jsx" />
+        <option value="$PROJECT_DIR$/client/src/components/panelComponents/ManufacturersList/ManufacturersList.jsx" />
+        <option value="$PROJECT_DIR$/client/src/components/panelComponents/MenuItems/MenuItems.jsx" />
+        <option value="$PROJECT_DIR$/client/src/components/panelComponents/PanelProductListItem/PanelProductListItem.jsx" />
+        <option value="$PROJECT_DIR$/client/src/components/panelComponents/ProductInputForm/ProductInputForm.jsx" />
+        <option value="$PROJECT_DIR$/client/src/components/panelComponents/ProductList/ProductList.jsx" />
+        <option value="$PROJECT_DIR$/client/src/components/panelComponents/SubMenu/SubMenu.jsx" />
+        <option value="$PROJECT_DIR$/client/src/components/panelComponents/UserListItem/UserListItem.jsx" />
+        <option value="$PROJECT_DIR$/client/src/components/panelComponents/UsersList/UsersList.jsx" />
       </list>
     </option>
   </component>
@@ -205,7 +180,7 @@
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="commonComponents" type="462c0819:PsiDirectoryNode" />
+              <item name="panelComponents" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="react-express-online-shop" type="b2602c69:ProjectViewProjectNode" />
@@ -213,25 +188,23 @@
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="frontComponents" type="462c0819:PsiDirectoryNode" />
+              <item name="panelComponents" type="462c0819:PsiDirectoryNode" />
+              <item name="UsersList" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="react-express-online-shop" type="b2602c69:ProjectViewProjectNode" />
               <item name="react-express-online-shop" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="frontComponents" type="462c0819:PsiDirectoryNode" />
-              <item name="Cart" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="react-express-online-shop" type="b2602c69:ProjectViewProjectNode" />
               <item name="react-express-online-shop" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="frontComponents" type="462c0819:PsiDirectoryNode" />
-              <item name="CartItem" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+              <item name="ManufacturersListContainer" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -322,7 +295,7 @@
       <workItem from="1566243475414" duration="5374000" />
       <workItem from="1566332484987" duration="2344000" />
       <workItem from="1566419273752" duration="1870000" />
-      <workItem from="1566581964376" duration="12158000" />
+      <workItem from="1566581964376" duration="15758000" />
     </task>
     <task id="LOCAL-00001" summary="add frontReducer and first related actions">
       <created>1562011353225</created>
@@ -520,11 +493,25 @@
       <option name="project" value="LOCAL" />
       <updated>1566589671626</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="add PropTypes to common components">
+      <created>1566595775893</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1566595775893</updated>
+    </task>
+    <task id="LOCAL-00030" summary="add PropTypes to front components">
+      <created>1566597499769</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1566597499769</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57812000" />
+    <option name="totallyTimeSpent" value="61412000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1922" height="1053" extended-state="6" />
@@ -603,8 +590,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="building homepage" />
-    <MESSAGE value="update README.md" />
     <MESSAGE value="add logoSrc to Manufacturer model" />
     <MESSAGE value="conditionally changed app background, updated link to front (from panel)" />
     <MESSAGE value="moved manufacturers and products to global reducer for global use" />
@@ -628,134 +613,11 @@
     <MESSAGE value="add store persistor" />
     <MESSAGE value="change color pallete" />
     <MESSAGE value="build cart's first step" />
-    <option name="LAST_COMMIT_MESSAGE" value="build cart's first step" />
+    <MESSAGE value="add PropTypes to common components" />
+    <MESSAGE value="add PropTypes to front components" />
+    <option name="LAST_COMMIT_MESSAGE" value="add PropTypes to front components" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/server/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-105">
-          <caret line="16" column="66" lean-forward="true" selection-start-line="16" selection-start-column="66" selection-end-line="16" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/containers/LoginFormContainer/LoginForm.container.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-756">
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="31" lean-forward="true" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/controllers/userController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="35" column="40" lean-forward="true" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/actions/userActions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1113">
-          <caret line="53" column="17" lean-forward="true" selection-start-line="53" selection-start-column="17" selection-end-line="53" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#143#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/App.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="22" column="4" lean-forward="true" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/reducers/favouritesReducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#105#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/actions/favouritesActions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#96#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="23" lean-forward="true" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/actions/notificationsActions.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/containers/ProductCardContainer/ProductCard.container.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="33" column="5" lean-forward="true" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/actions/globalActions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="23" lean-forward="true" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/frontComponents/ProductSpecDetail/ProductSpecDetail.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/actions/types.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="554">
-          <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/frontComponents/Cart/CartComponent.jsx" />
-    <entry file="file://$PROJECT_DIR$/client/src/store.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#62#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="483">
@@ -766,72 +628,12 @@
     <entry file="file://$PROJECT_DIR$/client/public/manifest.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/frontComponents/ContactOption/ContactOption.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="23" column="6" lean-forward="true" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/frontComponents/ContactPage/ContactPage.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="12" column="4" lean-forward="true" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/frontComponents/HomeBanner/HomeBanner.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-109">
-          <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/frontComponents/Home/Home.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/frontComponents/DeviceListItem/DeviceListItem.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="13" column="163" selection-start-line="13" selection-start-column="163" selection-end-line="13" selection-end-column="163" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="18" column="25" lean-forward="true" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/panelComponents/ManufacturersList/ManufacturersList.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="36" column="24" lean-forward="true" selection-start-line="30" selection-start-column="22" selection-end-line="36" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/containers/ManufacturersListContainer/ManufacturersList.container.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -847,16 +649,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
           <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/frontComponents/CartSummary/CartSummary.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="44" lean-forward="true" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1055,6 +847,247 @@
           <caret line="5" selection-start-line="5" selection-end-line="5" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/frontComponents/CartSummary/CartSummary.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="31" column="18" lean-forward="true" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/frontComponents/ContactOption/ContactOption.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="542">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/frontComponents/ContactPage/ContactPage.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-193">
+          <caret line="12" column="4" lean-forward="true" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/frontComponents/DeviceListItem/DeviceListItem.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="542">
+          <caret line="76" column="25" selection-start-line="76" selection-start-column="25" selection-end-line="76" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/frontComponents/Home/Home.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="35" column="2" lean-forward="true" selection-start-line="35" selection-start-column="2" selection-end-line="35" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/frontComponents/HomeBanner/HomeBanner.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/frontComponents/ProductSpecDetail/ProductSpecDetail.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/frontComponents/SortOption/SortOption.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/frontComponents/Store/Store.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="59" column="26" lean-forward="true" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/panelComponents/AdminPanel/AdminPanel.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="46" column="24" lean-forward="true" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/containers/AdminPanelIndexContainer/AdminPanelIndex.container.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="521">
+          <caret line="33" column="38" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/panelComponents/AdminPanelIndex/AdminPanelIndex.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="106" column="12" lean-forward="true" selection-start-line="106" selection-start-column="12" selection-end-line="106" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/panelComponents/DrawerWrapper/DrawerWrapper.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="134" column="36" selection-start-line="134" selection-start-column="36" selection-end-line="134" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/panelComponents/Manufacturers/Manufacturers.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/panelComponents/ManufacturersInputForm/ManufacturerInputForm.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="41" column="24" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/containers/ManufacturersListContainer/ManufacturersList.container.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/panelComponents/ManufacturersList/ManufacturersList.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="63" column="33" lean-forward="true" selection-start-line="63" selection-start-column="33" selection-end-line="63" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/panelComponents/MenuItems/MenuItems.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="542">
+          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/panelComponents/PanelProducts/PanelProducts.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/panelComponents/PanelProductListItem/PanelProductListItem.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="584">
+          <caret line="81" column="26" selection-start-line="81" selection-start-column="26" selection-end-line="81" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/panelComponents/ProductInputForm/ProductInputForm.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="542">
+          <caret line="175" lean-forward="true" selection-start-line="175" selection-end-line="175" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/panelComponents/ProductList/ProductList.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="542">
+          <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/panelComponents/SubMenu/SubMenu.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/panelComponents/UserListItem/UserListItem.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="24" selection-start-column="24" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/panelComponents/UsersList/UsersList.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="626">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -1,8 +1,9 @@
-import React, { Fragment } from 'react';
-import { Grid, ListItem, Typography } from '@material-ui/core';
+import React, {Fragment } from 'react';
+import {Grid, ListItem, Typography} from '@material-ui/core';
 import Switch from '@material-ui/core/Switch'
 import Loader from '../../commonComponents/Loader/Loader';
 import PersonIcon from '@material-ui/icons/Person'
+import PropTypes from 'prop-types';
 
 const UserListItem = (props) => {
   return (
@@ -40,6 +41,15 @@ const UserListItem = (props) => {
       }
     </Fragment>
   )
+};
+
+UserListItem.propTypes = {
+  user: PropTypes.object,
+  email: PropTypes.string,
+  username: PropTypes.string,
+  isAdmin: PropTypes.bool,
+  _id: PropTypes.string,
+  toggleAdmin: PropTypes.func
 };
 
 export default UserListItem;

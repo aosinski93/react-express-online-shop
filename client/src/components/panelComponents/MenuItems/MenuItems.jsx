@@ -2,8 +2,9 @@ import React from "react";
 import FormGroup from "../../commonComponents/FormGroup/FormGroup";
 import SubmitButton from "../../commonComponents/SubmitButton/SubmitButton";
 import SubMenuContainer from "../../../containers/SubMenuContainer/SubMenu.container.jsx";
-import { Container, List, Grid } from "@material-ui/core";
-import { makeStyles } from "@material-ui/styles";
+import {Container, List, Grid} from "@material-ui/core";
+import {makeStyles} from "@material-ui/styles";
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(theme => ({
   menuItems: {}
@@ -38,12 +39,19 @@ const MenuItems = props => {
       </form>
       <List>
         {props.menu &&
-          props.menu.map(item => {
-            return <SubMenuContainer key={item._id} item={item} />;
-          })}
+        props.menu.map(item => {
+          return <SubMenuContainer key={item._id} item={item} />;
+        })}
       </List>
     </Container>
   );
+};
+
+MenuItems.propTypes = {
+  onSubmit: PropTypes.func,
+  onChange: PropTypes.func,
+  menuItemName: PropTypes.string,
+  menu: PropTypes.array
 };
 
 export default MenuItems;

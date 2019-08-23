@@ -1,6 +1,7 @@
 import React from "react";
 import PanelProductListItem from "../PanelProductListItem/PanelProductListItem";
 import {Box, Container, Grid, List, Typography} from "@material-ui/core";
+import PropTypes from 'prop-types';
 
 const ProductList = props => {
   const buildList = () => {
@@ -58,6 +59,10 @@ const ProductList = props => {
       </Grid>
     </Container>
   );
+};
+
+ProductList.propTypes = {
+  products: PropTypes.array
 };
 
 export default ProductList;

@@ -1,8 +1,9 @@
 import React from "react";
 import FormGroup from "../../commonComponents/FormGroup/FormGroup";
 import SubmitButton from "../../commonComponents/SubmitButton/SubmitButton";
-import { Box, Container, Typography } from "@material-ui/core";
+import {Box, Container, Typography} from "@material-ui/core";
 import Loader from "../../commonComponents/Loader/Loader";
+import PropTypes from 'prop-types';
 
 const ProductInputForm = props => {
   return (
@@ -152,6 +153,25 @@ const ProductInputForm = props => {
       </Box>
     </Container>
   );
+};
+
+ProductInputForm.propTypes = {
+  onSubmit: PropTypes.func,
+  onChange: PropTypes.func,
+  name: PropTypes.string,
+  description: PropTypes.string,
+  manufacturer: PropTypes.string,
+  category: PropTypes.object,
+  resolution: PropTypes.string,
+  battery: PropTypes.string,
+  camera: PropTypes.string,
+  date_of_release: PropTypes.string,
+  cpu: PropTypes.string,
+  ram: PropTypes.string,
+  sim_qty: PropTypes.string,
+  operating_system: PropTypes.string,
+  qtyOnStock: PropTypes.number,
+  loading: PropTypes.bool
 };
 
 export default ProductInputForm;
