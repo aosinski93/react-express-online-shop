@@ -4,9 +4,9 @@ import { Card, CardHeader, CardContent, Box, makeStyles, Typography } from '@mat
 const useStyles = makeStyles(theme => ({
     contactOption: {
         minHeight: '250px',
-        backgroundColor: 'lightgray'
+        backgroundColor: '#9f8560'
     }
-}))
+}));
 
 const ContactOption = (props) => {
     const classes = useStyles();

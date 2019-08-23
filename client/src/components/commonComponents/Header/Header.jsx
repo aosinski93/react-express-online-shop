@@ -25,8 +25,7 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1
   },
   header: {
-    minHeight: '5vh',
-    backgroundColor: "#333"
+    minHeight: '5vh'
   },
   link: {
     whiteSpace: 'nowrap',

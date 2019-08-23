@@ -4,7 +4,7 @@ import {makeStyles, Typography, Box} from "@material-ui/core";
 const useStyles = makeStyles(theme => ({
   footerBar: {
     height: 'calc(100vh - 90vh - 64px)',
-    backgroundColor: "#333",
+    backgroundColor: theme.palette.primary.main,
     color: '#fff',
   }
 }));

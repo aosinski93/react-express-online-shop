@@ -7,17 +7,15 @@ import Fab from "@material-ui/core/Fab/index";
 import {Link} from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
-    homeBanner: {
-        height: '55vh'
-    },
     fab: {
-        padding: '0 40px'
+        padding: '0 40px',
+        backgroundColor: '#9f8560'
     }
 }));
 const HomeBanner = (props) => {
     const classes = useStyles();
     return (
-        <Box p={10} className={classes.homeBanner}>
+        <Box p={6} className={classes.homeBanner}>
             <Grid container spacing={6}>
                 <Grid item lg={7} md={8} sm={8} xs={12}>
                     <Box pt={6}>
