@@ -2,9 +2,10 @@ import React from 'react';
 import {Box, Card, Container, Grid, Typography} from "@material-ui/core";
 import CartItemContainer from "../../../containers/CartItemContainer/CartItem.container";
 import CartSummary from "../CartSummary/CartSummary";
+import PropTypes from 'prop-types';
 
 const Cart = (props) => {
-  let {content,} = props.cart;
+  let {content} = props.cart;
   return (
     <Box mt={5}>
       <Container>
@@ -24,6 +25,10 @@ const Cart = (props) => {
       </Container>
     </Box>
   );
+};
+
+Cart.propTypes = {
+  cart: PropTypes.object
 };
 
 export default Cart;

@@ -1,5 +1,6 @@
 import React from 'react';
 import {Grid, InputLabel, ListItem, Typography} from "@material-ui/core";
+import PropTypes from 'prop-types';
 
 const ProdcutsSpecDetail = (props) => {
   return (
@@ -18,6 +19,14 @@ const ProdcutsSpecDetail = (props) => {
       </Grid>
     </ListItem>
   );
+};
+
+ProdcutsSpecDetail.propTypes = {
+  detailName: PropTypes.string,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ])
 };
 
 export default ProdcutsSpecDetail;

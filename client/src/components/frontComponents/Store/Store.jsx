@@ -2,6 +2,7 @@ import React from "react";
 import {Box, Container, Grid, Typography} from "@material-ui/core";
 import DeviceListItem from "../DeviceListItem/DeviceListItem";
 import SortOption from "../SortOption/SortOption";
+import PropTypes from 'prop-types';
 
 const Store = (props) => {
   const {products, match, sortBy, price, name} = props;
@@ -52,6 +53,14 @@ const Store = (props) => {
         <Typography align={"center"}>No products in database</Typography>
       </Container>
     </Box>
+};
+
+Store.propTypes = {
+  products: PropTypes.array,
+  match: PropTypes.object,
+  sortBy: PropTypes.func,
+  price: PropTypes.string,
+  name: PropTypes.string
 };
 
 export default Store;

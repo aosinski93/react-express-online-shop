@@ -2,6 +2,7 @@ import React from 'react';
 import {Card, CardContent, Grid, Typography} from "@material-ui/core";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import DeleteButton from "../../commonComponents/DeleteButton/DeleteButton";
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(theme => ({
   cartItemImage: {
@@ -53,6 +54,10 @@ const CartItem = (props) => {
       </CardContent>
     </Card>
   );
+};
+
+CartItem.propTypes = {
+  item: PropTypes.object
 };
 
 export default CartItem;

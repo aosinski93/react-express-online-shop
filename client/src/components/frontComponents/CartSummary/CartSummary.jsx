@@ -1,6 +1,7 @@
 import React from 'react';
 import {Box, CardActions, Grid, Typography} from "@material-ui/core";
 import Fab from "@material-ui/core/Fab";
+import PropTypes from 'prop-types';
 
 const CartSummary = (props) => {
   return (
@@ -30,6 +31,10 @@ const CartSummary = (props) => {
       </Grid>
     </CardActions>
   );
+};
+
+CartSummary.propTypes = {
+  cartTotal: PropTypes.number
 };
 
 export default CartSummary;

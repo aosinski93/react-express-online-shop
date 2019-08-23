@@ -2,6 +2,7 @@ import React from "react";
 import {Container, Grid, Box, Typography} from "@material-ui/core";
 import DeviceListItem from "../DeviceListItem/DeviceListItem";
 import HomeBanner from "../HomeBanner/HomeBanner";
+import PropTypes from 'prop-types';
 
 const Home = props => {
   return (
@@ -28,6 +29,10 @@ const Home = props => {
       </Grid>
     </Container>
   );
+};
+
+Home.propTypes = {
+  hotDeals: PropTypes.array
 };
 
 export default Home;

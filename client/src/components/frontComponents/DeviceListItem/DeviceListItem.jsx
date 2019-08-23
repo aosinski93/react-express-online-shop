@@ -4,9 +4,9 @@ import CardContent from "@material-ui/core/CardContent";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-// import image from '../../../../public/product_images/galaxy-s5.png';
 import Box from "@material-ui/core/Box";
 import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(theme => ({
   listItem: {
@@ -68,6 +68,13 @@ const DeviceListItem = (props) => {
       </Card>
     </Link>
   );
+};
+
+DeviceListItem.propTypes = {
+  device: PropTypes.object,
+  name: PropTypes.string,
+  description: PropTypes.string,
+  price: PropTypes.number
 };
 
 export default DeviceListItem;
