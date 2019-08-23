@@ -1,14 +1,14 @@
 import {
   ADD_TO_CART,
   DEVICE_IS_BEING_ADDED,
-  DEVICE_HAS_BEEN_ADDED, UPDATE_CART_QUANTITY
+  DEVICE_HAS_BEEN_ADDED, UPDATE_CART_QUANTITY, REMOVE_FROM_CART
 } from '../actions/types';
 
 const initialState = {
   content: [],
-  deviceIsBeingAdded: false,
-  totalValue: 0
+  deviceIsBeingAdded: false
 };
+
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -28,8 +28,6 @@ export default (state = initialState, action) => {
         content: [...state.content, action.payload]
       };
     case UPDATE_CART_QUANTITY:
-
-      console.log(action.payload);
       return {
         ...state,
         content: state.content.map(item => {
@@ -38,7 +36,12 @@ export default (state = initialState, action) => {
             item.subtotal = item.qty * item.price;
           }
           return item;
-        })
+        }),
+      };
+    case REMOVE_FROM_CART:
+      return {
+        ...state,
+        content: state.content.filter(item => item._id !== action.payload)
       };
     default:
       return state;

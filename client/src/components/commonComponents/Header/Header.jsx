@@ -77,43 +77,43 @@ const Header = props => {
               </Grid>
               <Hidden xsDown>
                 <Grid item lg={8} md={6} sm={6}>
-                  <Toolbar>
-                    <Fragment>
-                      <Link className={classes.link} to="/">
-                        <Typography>
-                          <Button className={classes.whiteText}>
-                            Home
-                          </Button>
-                        </Typography>
-                      </Link>
-                      <Link className={classes.link} to="/store">
-                        <Typography>
-                          <Button className={classes.whiteText}>
-                            Store
-                          </Button>
-                        </Typography>
-                      </Link>
-                      <Link className={`${classes.link}`} to="/contact">
-                        <Typography>
-                          <Button className={classes.whiteText}>
-                            Contact
-                          </Button>
-                        </Typography>
-                      </Link>
-
-                      {props.user && props.user.isAdmin && (
-                        <Link className={classes.link} to="/admin">
+                  {window.location.pathname.indexOf("admin") === -1 && (
+                    <Toolbar>
+                      <Fragment>
+                        <Link className={classes.link} to="/">
                           <Typography>
                             <Button className={classes.whiteText}>
-                              Admin Page
+                              Home
                             </Button>
                           </Typography>
                         </Link>
-                      )}
+                        <Link className={classes.link} to="/store">
+                          <Typography>
+                            <Button className={classes.whiteText}>
+                              Store
+                            </Button>
+                          </Typography>
+                        </Link>
+                        <Link className={`${classes.link}`} to="/contact">
+                          <Typography>
+                            <Button className={classes.whiteText}>
+                              Contact
+                            </Button>
+                          </Typography>
+                        </Link>
 
-                    </Fragment>
-
-                  </Toolbar>
+                        {props.user && props.user.isAdmin && (
+                          <Link className={classes.link} to="/admin">
+                            <Typography>
+                              <Button className={classes.whiteText}>
+                                Admin Page
+                              </Button>
+                            </Typography>
+                          </Link>
+                        )}
+                      </Fragment>
+                    </Toolbar>
+                  )}
                 </Grid>
               </Hidden>
             </>
@@ -123,35 +123,36 @@ const Header = props => {
         </Hidden>
         <Grid item xs={6} sm={3} md={4} lg={2}>
           <Toolbar>
-
             <Grid container justify={"flex-end"}>
-
-
-              <Grid item lg={4} md={4} sm={4} xs={4}>
-                {props.user ? (
-                    <Button className={classes.link} title={`${props.user.username}, check your profile`}>
-                      <PersonIcon />
-                    </Button>)
-                  : (
-                    <Button className={classes.whiteText}>
-                      <Link className={classes.link} to="/login">
-                        <Typography>
-                          Log in
-                        </Typography>
-                      </Link>
-                    </Button>
-                  )}
-              </Grid>
-              <Grid item lg={4} md={4} sm={4} xs={4}>
-                <Button className={classes.link} title="Finalize your order">
-                  <Link className={classes.link} to="/cart">
-
+              {window.location.pathname.indexOf("admin") === -1 && (
+                <>
+                  <Grid item lg={4} md={4} sm={4} xs={4}>
+                    {props.user ? (
+                        <Button className={classes.link} title={`${props.user.username}, check your profile`}>
+                          <PersonIcon />
+                        </Button>)
+                      : (
+                        <Button className={classes.whiteText}>
+                          <Link className={classes.link} to="/login">
+                            <Typography>
+                              Log in
+                            </Typography>
+                          </Link>
+                        </Button>
+                      )}
+                  </Grid>
+                  <Grid item lg={4} md={4} sm={4} xs={4}>
+                    <Button className={classes.link} title="Finalize your order">
+                      <Link className={classes.link} to="/cart">
                         <Badge badgeContent={props.cartCount} color={"secondary"}>
                           <ShoppingCartIcon />
                         </Badge>
-                  </Link>
-                </Button>
-              </Grid>
+                      </Link>
+                    </Button>
+                  </Grid>
+                </>
+              )}
+
 
               {props.user && (
                 <Grid item lg={4} md={4} sm={4} xs={4}>

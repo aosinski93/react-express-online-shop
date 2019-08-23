@@ -2,10 +2,13 @@ import {
   TOGGLE_DRAWER,
   NOTIFY_ERROR,
   DB_ERROR,
-  // FETCH_DUMMY_DATA,
   FETCH_PRODUCTS,
   FETCH_MANUFACTURERS,
-  NOTIFY_SUCCESS, FETCH_HOT_DEALS, FETCHING_PRODUCTS, PRODUCTS_FETCHED, FETCHING_MANUFACTURERS, MANUFACTURERS_FETCHED
+  FETCH_HOT_DEALS,
+  FETCHING_PRODUCTS,
+  PRODUCTS_FETCHED,
+  FETCHING_MANUFACTURERS,
+  MANUFACTURERS_FETCHED
 } from './types';
 import dummyData from '../dummyData';
 
@@ -44,7 +47,7 @@ export const checkConnection = () => dispatch => new Promise((resolve, reject) =
         payload: true
       });
     });
-}) ;
+});
 export const fetchProducts = () => dispatch => {
   dispatch({
     type: FETCHING_PRODUCTS
@@ -71,13 +74,6 @@ export const fetchProducts = () => dispatch => {
         type: FETCH_HOT_DEALS
       })
     })
-    .then(() => {
-      dispatch({
-        type: NOTIFY_SUCCESS,
-        payload: 'Products fetched'
-      })
-    })
-
     .catch(err => {
       dispatch({
         type: NOTIFY_ERROR,
@@ -107,12 +103,6 @@ export const fetchManufacturers = () => dispatch => {
         type: MANUFACTURERS_FETCHED
       })
     })
-    .then(() => {
-      dispatch({
-        type: NOTIFY_SUCCESS,
-        payload: 'Manufacturers fetched'
-      })
-    })
     .catch(err => {
       dispatch({
         type: NOTIFY_ERROR,
@@ -131,11 +121,11 @@ export const fetchDummyData = () => dispatch => {
       );
       reject(new Error('Products not fetched'))
     });
-      products.then(() => {
-        dispatch({
-          type: FETCH_HOT_DEALS
-        })
-      });
+    products.then(() => {
+      dispatch({
+        type: FETCH_HOT_DEALS
+      })
+    });
 
     dispatch({
       type: FETCH_MANUFACTURERS,

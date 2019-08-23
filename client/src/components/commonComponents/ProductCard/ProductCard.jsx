@@ -68,7 +68,7 @@ class ProductCard extends Component {
 
   render() {
     let { manufacturer, category, description, name, slug, cpu, ram, battery, resolution, operating_system, date_of_release, price, _id } = this.props.data;
-    let quantityToCart = this.state.qty
+    let quantityToCart = this.state.qty;
     return (
       <Container>
         <Box mt={4}>

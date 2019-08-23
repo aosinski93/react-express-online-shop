@@ -15,7 +15,8 @@ const {store, persistor} = storeFunc();
 const theme = createMuiTheme({
     palette: {
       primary: {
-        main: '#607a9f'
+        main: '#607a9f',
+        accent: '#92aec0'
       },
       secondary: {
         main: '#9f8560'

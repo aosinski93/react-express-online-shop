@@ -1,7 +1,7 @@
 import {
   DEVICE_IS_BEING_ADDED,
   ADD_TO_CART,
-  DEVICE_HAS_BEEN_ADDED, UPDATE_CART_QUANTITY
+  DEVICE_HAS_BEEN_ADDED, UPDATE_CART_QUANTITY, NOTIFY_SUCCESS, REMOVE_FROM_CART
 } from './types';
 
 const addingToCart = () => dispatch => {
@@ -33,15 +33,22 @@ export const addDeviceToCart = (id, qty) => (dispatch, getState) => {
       type: ADD_TO_CART,
       payload: productToCart
     });
+    dispatch({
+      type: NOTIFY_SUCCESS,
+      payload: `${name} added to cart!`
+    })
   } else {
     dispatch({
       type: UPDATE_CART_QUANTITY,
       payload: _id
     })
   }
-
-
-
-
   dispatch(finishedAddingToCart());
 };
+
+export const removeDeviceFromCart = (id) => dispatch => {
+  dispatch({
+    type: REMOVE_FROM_CART,
+    payload: id
+  })
+}
