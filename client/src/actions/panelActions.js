@@ -27,12 +27,6 @@ export const fetchPanelMenu = () => dispatch => {
         payload: fetchedMenu
       });
     })
-    .then(() => {
-      dispatch({
-        type: NOTIFY_SUCCESS,
-        payload: 'Menu fetched'
-      });
-    })
     .catch(err => {
       dispatch({
         type: NOTIFY_ERROR,

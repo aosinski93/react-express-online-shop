@@ -50,6 +50,7 @@ export const userLogin = (path, user) => dispatch => {
   })
     .then(res => res.json())
     .then(loggedUser => {
+      console.log(loggedUser);
       if (loggedUser.user) {
         dispatch(
           {
@@ -57,6 +58,10 @@ export const userLogin = (path, user) => dispatch => {
             payload: loggedUser.user
           },
         );
+        dispatch({
+          type: NOTIFY_SUCCESS,
+          payload: 'Successfull login'
+        })
       } else {
         dispatch({
           type: NOTIFY_ERROR,
@@ -64,13 +69,8 @@ export const userLogin = (path, user) => dispatch => {
         });
       }
     })
-    .then(() => {
-      dispatch({
-        type: NOTIFY_SUCCESS,
-        payload: 'Successfull login'
-      })
-    })
     .catch(err => {
+      console.log(err);
       dispatch({
         type: NOTIFY_ERROR,
         payload: err.msg

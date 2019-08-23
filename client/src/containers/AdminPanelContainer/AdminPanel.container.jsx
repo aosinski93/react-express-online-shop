@@ -21,8 +21,8 @@ class AdminPanelContainer extends Component {
   render() {
     return (
       <Fragment>
-        {true || (Object.entries(this.props.loggedUser).length !== 0 &&
-          this.props.loggedUser.isAdmin === true) ? (
+        {(Object.entries(this.props.user).length !== 0 &&
+          this.props.user.isAdmin === true) ? (
           <AdminPanel
             match={this.props.match}
             menu={this.props.menu}
@@ -37,7 +37,7 @@ class AdminPanelContainer extends Component {
 
 const mapStateToProps = state => ({
   menu: state.panel.menu,
-  loggedUser: state.user.loggedUser,
+  user: state.user.loggedUser,
   dbError: state.global.dbError,
 });
 

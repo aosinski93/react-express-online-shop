@@ -38,10 +38,10 @@ exports.user_userLogin = (req, res) => {
 
   User.getUserByUsername(username, (err, user) => {
     if (err) return res.status(500).send('Error on the server.');
-    if (!user) return res.status(404).send('No user found.');
+    if (!user) return res.status(404).json({msg: 'No such user found. Check username'});
 
     const passwordIsValid = bcrypt.compareSync(inputPassword, user.password);
-    if (!passwordIsValid) return res.status(401).send({auth: false, token: null});
+    if (!passwordIsValid) return res.status(401).json({msg: 'Wrong password', auth: false, token: null});
 
     const token = jwt.sign({id: user._id}, config.jwtSecret, {
       expiresIn: 86400
