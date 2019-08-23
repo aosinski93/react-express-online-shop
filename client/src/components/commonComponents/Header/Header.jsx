@@ -16,6 +16,7 @@ import PersonIcon from "@material-ui/icons/Person";
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import DevicesIcon from "@material-ui/icons/Devices";
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(theme => ({
   margin: {
@@ -167,6 +168,13 @@ const Header = props => {
       </Grid>
     </AppBar>
   );
+};
+
+Header.propTypes = {
+  user: PropTypes.object,
+  toggleDrawer: PropTypes.func.isRequired,
+  userLogout: PropTypes.func,
+  cartCount: PropTypes.number
 };
 
 export default Header;

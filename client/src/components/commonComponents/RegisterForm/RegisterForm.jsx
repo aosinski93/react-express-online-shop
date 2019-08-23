@@ -1,8 +1,9 @@
 import React from 'react';
 import FormGroup from '../FormGroup/FormGroup';
-import {Container, Box, Grid } from '@material-ui/core';
+import {Container, Box, Grid} from '@material-ui/core';
 import SubmitButton from '../SubmitButton/SubmitButton';
 import {Link} from "react-router-dom";
+import PropTypes from 'prop-types';
 
 const RegisterForm = (props) => {
 
@@ -66,5 +67,11 @@ const RegisterForm = (props) => {
   )
 };
 
+RegisterForm.propTypes = {
+  username: PropTypes.string,
+  password: PropTypes.string,
+  email: PropTypes.string,
+  onSubmit: PropTypes.func.isRequired
+};
 
 export default RegisterForm;

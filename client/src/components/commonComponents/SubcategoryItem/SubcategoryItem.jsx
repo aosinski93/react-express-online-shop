@@ -1,6 +1,7 @@
 import React from "react";
 import DeleteButton from "../DeleteButton/DeleteButton";
-import { ListItem, Typography, Grid } from "@material-ui/core";
+import {ListItem, Typography, Grid} from "@material-ui/core";
+import PropTypes from 'prop-types';
 
 const SubcategoryItem = props => {
   return (
@@ -21,6 +22,11 @@ const SubcategoryItem = props => {
       </Grid>
     </ListItem>
   );
+};
+
+SubcategoryItem.propTypes = {
+  subcategoryItem: PropTypes.object,
+  onDeleteSubcategory: PropTypes.func
 };
 
 export default SubcategoryItem;

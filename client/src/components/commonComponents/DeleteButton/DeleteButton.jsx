@@ -1,5 +1,6 @@
-import React, { Fragment } from "react";
-import { Button, makeStyles } from "@material-ui/core";
+import React, {Fragment} from "react";
+import {Button, makeStyles} from "@material-ui/core";
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(theme => ({
   deleteButton: {
@@ -32,6 +33,13 @@ const DeleteButton = props => {
       </Button>
     </Fragment>
   );
+};
+
+DeleteButton.propTypes = {
+  onClick: PropTypes.func,
+  dataId: PropTypes.string,
+  title: PropTypes.string,
+  dataParent: PropTypes.string
 };
 
 export default DeleteButton;

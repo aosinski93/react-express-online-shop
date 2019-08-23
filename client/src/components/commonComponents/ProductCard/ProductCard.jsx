@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
   Card,
   CardContent,
@@ -11,6 +11,8 @@ import {
   InputLabel,
   CardActions,
 } from '@material-ui/core';
+
+import PropTypes from 'prop-types';
 
 import SmartphoneIcon from "@material-ui/icons/Smartphone";
 import ComputerIcon from "@material-ui/icons/Computer";
@@ -65,9 +67,8 @@ class ProductCard extends Component {
   }
 
 
-
   render() {
-    let { manufacturer, category, description, name, slug, cpu, ram, battery, resolution, operating_system, date_of_release, price, _id } = this.props.data;
+    let {manufacturer, category, description, name, slug, cpu, ram, battery, resolution, operating_system, date_of_release, price, _id} = this.props.data;
     let quantityToCart = this.state.qty;
     return (
       <Container>
@@ -88,17 +89,17 @@ class ProductCard extends Component {
                   </Grid>
                 </Grid>
                 {!this.props.isInAdmin && (
-                  <Grid item xs={7} >
+                  <Grid item xs={7}>
                     <CardActions>
                       <Grid container justify={"flex-end"} spacing={2}>
                         <Grid item>
                           <SubmitButton type={'button'} value={_id} title={`Add ${name} to cart`}
-                            content={<AddShoppingCartIcon />} className={'addToCartButton'}
-                            onClick={(e) => this.props.addDeviceToCart(e, _id, quantityToCart)} />
+                                        content={<AddShoppingCartIcon />} className={'addToCartButton'}
+                                        onClick={(e) => this.props.addDeviceToCart(e, _id, quantityToCart)} />
                         </Grid>
                         <Grid item>
                           <SubmitButton type={'submit'} value={_id} title={`Add ${name}  to favourites`}
-                            content={<FavoriteBorderIcon />} className={'addToFavouritesButton'} />
+                                        content={<FavoriteBorderIcon />} className={'addToFavouritesButton'} />
                         </Grid>
                       </Grid>
                     </CardActions>
@@ -131,8 +132,8 @@ class ProductCard extends Component {
                     </form>
                   )}
                   <img className={'img-responsive h-centered'}
-                    src={`/product_images/${slug}.png`}
-                    alt={name} />
+                       src={`/product_images/${slug}.png`}
+                       alt={name} />
                 </Grid>
                 <Grid item lg={4} md={4} sm={4} xs={12}>
                   <List>
@@ -185,6 +186,25 @@ class ProductCard extends Component {
       </Container>
     );
   }
+};
+
+ProductCard.propTypes = {
+  manufacturer: PropTypes.object,
+  category: PropTypes.object,
+  description: PropTypes.string,
+  name: PropTypes.string,
+  slug: PropTypes.string,
+  cpu: PropTypes.number,
+  ram: PropTypes.number,
+  battery: PropTypes.number,
+  resolution: PropTypes.string,
+  operating_system: PropTypes.string,
+  date_of_release: PropTypes.instanceOf(Date),
+  price: PropTypes.number,
+  _id: PropTypes.string,
+  addDeviceToCart: PropTypes.func,
+  isInAdmin: PropTypes.bool,
+  uploadImage: PropTypes.func
 };
 
 export default ProductCard;

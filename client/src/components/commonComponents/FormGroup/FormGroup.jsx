@@ -9,7 +9,8 @@ import {
   MenuItem,
   OutlinedInput
 } from "@material-ui/core";
-import { makeStyles } from "@material-ui/styles";
+import {makeStyles} from "@material-ui/styles";
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(theme => ({
   textField: {
@@ -98,6 +99,18 @@ const FormGroup = props => {
         </FormControl>
       );
   }
+};
+
+FormGroup.propTypes = {
+  name: PropTypes.string,
+  type: PropTypes.string,
+  label: PropTypes.string,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+    PropTypes.number]),
+  onChange: PropTypes.func,
+  placeholder: PropTypes.string
 };
 
 export default FormGroup;

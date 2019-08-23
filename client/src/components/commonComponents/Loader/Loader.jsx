@@ -1,6 +1,7 @@
 import React from "react";
-import { Box, Grid, CircularProgress, Typography } from "@material-ui/core";
+import {Box, Grid, CircularProgress, Typography} from "@material-ui/core";
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(theme => ({
   loaderText: {
@@ -22,6 +23,14 @@ const Loader = (props) => {
       </Box>
     </Box>
   );
+};
+
+Loader.propTypes = {
+  content: PropTypes.string
+};
+
+Loader.defaultProps = {
+  content: 'Loading...'
 };
 
 export default Loader;
