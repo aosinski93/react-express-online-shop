@@ -56,7 +56,7 @@ router.delete(
 );
 //  admin
 
-router.get(['/admin'], menuController.menu_displayMenu);
+router.get('/admin/menu', menuController.menu_displayMenu);
 router.get('/users', userController.user_getUsers);
 
 module.exports = router;

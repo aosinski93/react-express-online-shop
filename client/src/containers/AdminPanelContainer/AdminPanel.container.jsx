@@ -1,17 +1,16 @@
 import React, {Component, Fragment} from "react";
 import {connect} from "react-redux";
-import {Redirect} from 'react-router-dom';
 import {fetchPanelMenu} from "../../actions/panelActions";
 import {toggleDrawer} from '../../actions/globalActions';
 import {userLogin} from "../../actions/userActions";
 import {notifyError} from '../../actions/notificationsActions';
 import AdminPanel from "../../components/panelComponents/AdminPanel/AdminPanel";
+import LoginFormContainer from "../LoginFormContainer/LoginForm.container";
 
 class AdminPanelContainer extends Component {
   componentDidMount = () => {
     if (this.props.dbError !== true) {
       this.props.fetchPanelMenu();
-      // this.props.fetchUsers();
     }
     setTimeout(() => {
       // this.props.toggleDrawer();
@@ -28,7 +27,7 @@ class AdminPanelContainer extends Component {
             menu={this.props.menu}
           />
         ) : (
-          <Redirect to={'/login'} />
+          <LoginFormContainer />
         )}
       </Fragment>
     );

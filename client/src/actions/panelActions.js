@@ -16,7 +16,7 @@ import {
 } from './types';
 
 export const fetchPanelMenu = () => dispatch => {
-  let url = '/admin';
+  let url = '/admin/menu';
   fetch(url, {
     method: 'GET'
   })

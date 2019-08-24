@@ -9,7 +9,7 @@ const Home = props => {
       <Grid container>
         <HomeBanner />
         <Grid item lg={12} md={12} sm={12} xs={12}>
-          <Box m={4}>
+          <Box m={3}>
             {props.hotDeals.length === 2 && (
               <Grid container>
                 <Grid item xs={12}>
