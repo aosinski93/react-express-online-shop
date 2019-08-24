@@ -1,11 +1,17 @@
 import React from 'react';
-import {Box, CardActions, Grid, Typography} from "@material-ui/core";
-import Fab from "@material-ui/core/Fab";
+import {Box, CardActions, Grid, StepButton, Typography} from "@material-ui/core";
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 const CartSummary = (props) => {
   return (
     <CardActions>
       <Grid container alignItems={"center"}>
+        <Grid item xs>
+          <Box textAlign={"center"}>
+            <StepButton icon={<ArrowBackIcon />} onClick={props.handlePrevStep} />
+          </Box>
+        </Grid>
         <Grid item xs>
           <Box textAlign={"center"}>
             <Typography>
@@ -22,9 +28,7 @@ const CartSummary = (props) => {
         </Grid>
         <Grid item xs>
           <Box textAlign={"center"}>
-            <Fab variant="extended" aria-label="next step">
-              Next step
-            </Fab>
+            <StepButton icon={<ArrowForwardIcon />} onClick={props.handleNextStep} />
           </Box>
         </Grid>
       </Grid>

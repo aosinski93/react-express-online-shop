@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card, CardContent, Grid, Typography} from "@material-ui/core";
+import {Card, CardContent, Grid, Typography, Button} from "@material-ui/core";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import DeleteButton from "../../commonComponents/DeleteButton/DeleteButton";
 
@@ -21,22 +21,43 @@ const CartItem = (props) => {
                  className={`img-responsive ${classes.cartItemImage}`} />
           </Grid>
           <Grid item xs>
-            <Typography>
+            <Typography align={"center"}>
               {item.name}
             </Typography>
           </Grid>
           <Grid item xs>
-            <Typography>
-              {item.qty}
-            </Typography>
+            <Grid container alignItems={"center"}>
+              <Grid item xs>
+                <Button
+                  onClick={props.decreaseQuantity}
+                  data-id={item._id}
+                >
+                  -
+                </Button>
+              </Grid>
+              <Grid item xs>
+                <Typography align={"center"}>
+                  {item.qty}
+                </Typography>
+              </Grid>
+              <Grid item xs>
+                <Button
+                  onClick={props.increaseQuantity}
+                  data-id={item._id}
+                >
+                  +
+                </Button>
+              </Grid>
+            </Grid>
+
           </Grid>
           <Grid item xs>
-            <Typography>
+            <Typography align={"center"}>
               ${item.price}
             </Typography>
           </Grid>
           <Grid item xs>
-            <Typography>
+            <Typography align={"center"}>
               ${item.subtotal}
             </Typography>
           </Grid>

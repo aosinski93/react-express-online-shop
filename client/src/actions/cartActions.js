@@ -1,25 +1,25 @@
 import {
   DEVICE_IS_BEING_ADDED,
   ADD_TO_CART,
-  DEVICE_HAS_BEEN_ADDED, UPDATE_CART_QUANTITY, NOTIFY_SUCCESS, REMOVE_FROM_CART
+  DEVICE_HAS_BEEN_ADDED, NOTIFY_SUCCESS, REMOVE_FROM_CART, INCREASE_CART_QUANTITY, DECREASE_CART_QUANTITY
 } from './types';
 
 const addingToCart = () => dispatch => {
-  dispatch({ type: DEVICE_IS_BEING_ADDED });
+  dispatch({type: DEVICE_IS_BEING_ADDED});
 };
 
 const finishedAddingToCart = () => dispatch => {
-  dispatch({ type: DEVICE_HAS_BEEN_ADDED });
+  dispatch({type: DEVICE_HAS_BEEN_ADDED});
 };
 
 export const addDeviceToCart = (id, qty) => (dispatch, getState) => {
   dispatch(addingToCart());
-  let { name, price, slug, _id } = getState().global.products.find(
+  let {name, price, slug, _id} = getState().global.products.find(
     item => item._id === id
   );
   let isInCart = getState().cart.content.find(item => item._id === _id);
 
-  if(!isInCart) {
+  if (!isInCart) {
     let productToCart = {
       _id,
       name,
@@ -39,7 +39,7 @@ export const addDeviceToCart = (id, qty) => (dispatch, getState) => {
     })
   } else {
     dispatch({
-      type: UPDATE_CART_QUANTITY,
+      type: INCREASE_CART_QUANTITY,
       payload: _id
     })
   }
@@ -51,4 +51,26 @@ export const removeDeviceFromCart = (id) => dispatch => {
     type: REMOVE_FROM_CART,
     payload: id
   })
-}
+};
+export const increaseCartQty = (id) => (dispatch, getState) => {
+
+  dispatch({
+    type: INCREASE_CART_QUANTITY,
+    payload: id
+  })
+};
+
+export const decreaseCartQty = (id) => (dispatch, getState) => {
+  let item = getState().cart.content.find(item => (item._id === id));
+  if (item.qty === 1) {
+    return dispatch({
+      type: REMOVE_FROM_CART,
+      payload: id
+    })
+  }
+
+  dispatch({
+    type: DECREASE_CART_QUANTITY,
+    payload: id
+  })
+};

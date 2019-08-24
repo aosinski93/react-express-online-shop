@@ -76,7 +76,7 @@ const Header = props => {
                 </Toolbar>
               </Grid>
               <Hidden xsDown>
-                <Grid item lg={8} md={6} sm={6}>
+                <Grid item lg={8} md={7} sm={6}>
                   {window.location.pathname.indexOf("admin") === -1 && (
                     <Toolbar>
                       <Fragment>
@@ -121,7 +121,7 @@ const Header = props => {
         <Hidden smUp>
           <Grid item xs={3}></Grid>
         </Hidden>
-        <Grid item xs={6} sm={3} md={4} lg={2}>
+        <Grid item xs={6} sm={3} md={3} lg={2}>
           <Toolbar>
             <Grid container justify={"flex-end"}>
               {window.location.pathname.indexOf("admin") === -1 && (

@@ -1,15 +1,18 @@
-import React, { Fragment } from "react";
-import { Button, makeStyles } from "@material-ui/core";
+import React, {Fragment} from "react";
+import {Button, makeStyles} from "@material-ui/core";
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const useStyles = makeStyles(theme => ({
   deleteButton: {
     margin: '0 5px',
     backgroundColor: '#fff',
     color: '#333',
-    border: '1px solid #333',
+    height: '50px',
+    width: '50px',
+    borderRadius: '50%',
     '&:hover': {
       backgroundColor: '#c92232',
-      color: '#fff'
+      color: '#fff',
     }
   }
 }));
@@ -20,7 +23,6 @@ const DeleteButton = props => {
     <Fragment>
       <Button
         size='small'
-        variant='contained'
         color="secondary"
         className={classes.deleteButton}
         onClick={props.onClick}
@@ -28,7 +30,7 @@ const DeleteButton = props => {
         title={props.title}
         data-parent={props.dataParent}
       >
-        &times;
+        <DeleteIcon />
       </Button>
     </Fragment>
   );
