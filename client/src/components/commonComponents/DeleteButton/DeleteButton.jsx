@@ -1,5 +1,5 @@
 import React, {Fragment} from "react";
-import {Button, makeStyles} from "@material-ui/core";
+import {Fab, makeStyles} from "@material-ui/core";
 import DeleteIcon from '@material-ui/icons/Delete';
 
 const useStyles = makeStyles(theme => ({
@@ -7,9 +7,6 @@ const useStyles = makeStyles(theme => ({
     margin: '0 5px',
     backgroundColor: '#fff',
     color: '#333',
-    height: '50px',
-    width: '50px',
-    borderRadius: '50%',
     '&:hover': {
       backgroundColor: '#c92232',
       color: '#fff',
@@ -21,7 +18,7 @@ const DeleteButton = props => {
   const classes = useStyles();
   return (
     <Fragment>
-      <Button
+      <Fab
         size='small'
         color="secondary"
         className={classes.deleteButton}
@@ -31,7 +28,7 @@ const DeleteButton = props => {
         data-parent={props.dataParent}
       >
         <DeleteIcon />
-      </Button>
+      </Fab>
     </Fragment>
   );
 };

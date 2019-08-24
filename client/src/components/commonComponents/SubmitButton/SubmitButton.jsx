@@ -1,12 +1,11 @@
 import React, { Fragment } from "react";
-import { Button, makeStyles } from "@material-ui/core";
+import { Fab, makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   submitButton: {
     margin: '0 5px',
-    backgroundColor: '#333',
     color: '#fff',
-    border: '1px solid #333',
+    backgroundColor: theme.palette.secondary.main,
     '&:hover': {
       backgroundColor: '#238837',
     }
@@ -34,9 +33,9 @@ const SubmitButton = props => {
   const classes = useStyles();
   return (
     <Fragment>
-      <Button
+      <Fab
         size="small"
-        variant="contained"
+        variant={props.variant}
         className={`${classes.submitButton} ${classes[props.className]}`}
         type={props.type}
         value={props.value}
@@ -44,7 +43,7 @@ const SubmitButton = props => {
         onClick={props.onClick}
       >
         {props.content}
-      </Button>
+      </Fab>
     </Fragment>
   );
 };

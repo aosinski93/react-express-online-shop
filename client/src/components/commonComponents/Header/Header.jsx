@@ -59,7 +59,7 @@ const Header = props => {
                   </IconButton>
                 </Toolbar>
               </Grid>
-              <Grid item lg={9} md={7} sm={7} xs={5}>
+              <Grid item lg={9} md={8} sm={7} xs={5}>
               </Grid>
             </>
           )
@@ -118,9 +118,9 @@ const Header = props => {
               </Hidden>
             </>
           )}
-        <Hidden smUp>
-          <Grid item xs={3}></Grid>
-        </Hidden>
+        {/*<Hidden smUp>*/}
+        {/*  <Grid item xs={3}></Grid>*/}
+        {/*</Hidden>*/}
         <Grid item xs={6} sm={3} md={3} lg={2}>
           <Toolbar>
             <Grid container justify={"flex-end"}>
@@ -128,27 +128,29 @@ const Header = props => {
                 <>
                   <Grid item lg={4} md={4} sm={4} xs={4}>
                     {props.user ? (
-                        <Button className={classes.link} title={`${props.user.username}, check your profile`}>
-                          <PersonIcon />
-                        </Button>)
+                        <Link to={'/account'}>
+                          <Button className={classes.link} title={`${props.user.username}, check your profile`}>
+                            <PersonIcon />
+                          </Button>
+                        </Link>)
                       : (
-                        <Button className={classes.whiteText}>
-                          <Link className={classes.link} to="/login">
+                        <Link className={classes.link} to="/login">
+                          <Button className={classes.whiteText}>
                             <Typography>
                               Log in
                             </Typography>
-                          </Link>
-                        </Button>
+                          </Button>
+                        </Link>
                       )}
                   </Grid>
                   <Grid item lg={4} md={4} sm={4} xs={4}>
-                    <Button className={classes.link} title="Finalize your order">
-                      <Link className={classes.link} to="/cart">
+                    <Link className={classes.link} to="/cart">
+                      <Button className={classes.link} title="Finalize your order">
                         <Badge badgeContent={props.cartCount} color={"secondary"}>
                           <ShoppingCartIcon />
                         </Badge>
-                      </Link>
-                    </Button>
+                      </Button>
+                    </Link>
                   </Grid>
                 </>
               )}

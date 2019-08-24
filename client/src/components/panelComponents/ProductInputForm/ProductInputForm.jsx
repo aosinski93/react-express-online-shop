@@ -141,6 +141,7 @@ const ProductInputForm = props => {
             : (
               <SubmitButton
                 type="submit"
+                variant={'extended'}
                 value="Confirm"
                 className="btn btn-success"
                 title="Submit form"

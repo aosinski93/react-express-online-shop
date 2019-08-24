@@ -24,6 +24,7 @@ const ManufacturerInputForm = (props) => {
         />
         <SubmitButton
           type="submit"
+          variant={'extended'}
           value="Confirm"
           className="form-control btn-success"
           title="Submit form"

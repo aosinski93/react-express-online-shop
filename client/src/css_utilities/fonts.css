@@ -1,1 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway");
+
+@font-face {
+    font-family: 'Ubuntu', sans-serif;
+    src: url("./fonts/Ubuntu/Ubuntu-Regular.ttf") format('truetype');
+}
+@font-face {
+    font-family: 'Bourton', sans-serif;
+    src: url("./fonts/Bourton/BourtonBase.ttf") format('truetype');
+}

@@ -1,7 +1,8 @@
 import React from 'react';
-import {Card, CardContent, Grid, Typography, Button} from "@material-ui/core";
+import {Card, CardContent, Grid, Typography, Button, Box} from "@material-ui/core";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import DeleteButton from "../../commonComponents/DeleteButton/DeleteButton";
+import {NavLink} from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   cartItemImage: {
@@ -17,13 +18,17 @@ const CartItem = (props) => {
       <CardContent>
         <Grid container alignItems={"center"}>
           <Grid item xs>
-            <img src={`/product_images/${item.slug}.png`} alt={item.name}
-                 className={`img-responsive ${classes.cartItemImage}`} />
+            <NavLink to={`/product/${item.slug}`}>
+              <img src={`/product_images/${item.slug}.png`} alt={item.name}
+                   className={`img-responsive ${classes.cartItemImage}`} />
+            </NavLink>
           </Grid>
           <Grid item xs>
-            <Typography align={"center"}>
-              {item.name}
-            </Typography>
+            <NavLink to={`/product/${item.slug}`}>
+              <Typography align={"center"}>
+                {item.name}
+              </Typography>
+            </NavLink>
           </Grid>
           <Grid item xs>
             <Grid container alignItems={"center"}>
@@ -62,13 +67,15 @@ const CartItem = (props) => {
             </Typography>
           </Grid>
           <Grid item xs>
-            <DeleteButton
-              type="submit"
-              className="btn btn-danger"
-              onClick={props.handleRemove}
-              dataId={item._id}
-              title={`Remove ${item.name} from cart`}
-            />
+            <Box textAlign={"right"}>
+              <DeleteButton
+                type="submit"
+                className="btn btn-danger"
+                onClick={props.handleRemove}
+                dataId={item._id}
+                title={`Remove ${item.name} from cart`}
+              />
+            </Box>
           </Grid>
         </Grid>
       </CardContent>

@@ -32,7 +32,7 @@ const SubMenu = props => {
                     type="submit"
                     value="+"
                     title="Add next subcategory"
-                    content={'submit'}
+                    content={'+'}
                   />
                 </Grid>
                 <Grid item>
