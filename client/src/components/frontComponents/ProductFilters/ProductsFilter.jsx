@@ -1,9 +1,25 @@
 import React from 'react';
 import {Box, Button, Typography, List, ListItem} from "@material-ui/core";
 import FormGroup from "../../commonComponents/FormGroup/FormGroup";
+import makeStyles from "@material-ui/core/styles/makeStyles";
 
+const useStyles = makeStyles(theme => ({
+  active: {
+    backgroundColor: theme.palette.primary.main,
+    color: '#fff'
+  }
+}));
+
+let activeFilters = [];
 
 const ProductFilters = (props) => {
+  const classes = useStyles();
+
+  props.filters.map(filter => {
+    activeFilters[filter.type] = filter.value;
+    return filter;
+  });
+
   return (
     <Box mt={5} p={2}>
       <FormGroup
@@ -33,7 +49,10 @@ const ProductFilters = (props) => {
         </ListItem>
         {props.manufacturers.map(item =>
           <ListItem key={item._id}>
-            <Button onClick={() => props.setFilter('manufacturer', item.name)}>{item.name}</Button>
+            <Button onClick={() => props.setFilter('manufacturer', item.name)}
+                    className={activeFilters['manufacturer'] === item.name ? classes.active : ''}>
+              {item.name}
+            </Button>
           </ListItem>
         )}
       </List>
