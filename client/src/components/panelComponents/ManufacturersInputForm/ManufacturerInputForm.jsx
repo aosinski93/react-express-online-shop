@@ -1,6 +1,7 @@
 import React from "react";
 import FormGroup from "../../commonComponents/FormGroup/FormGroup";
 import SubmitButton from "../../commonComponents/SubmitButton/SubmitButton";
+import PropTypes from 'prop-types';
 
 const ManufacturerInputForm = (props) => {
   return (
@@ -33,6 +34,13 @@ const ManufacturerInputForm = (props) => {
       </form>
     </div>
   );
+};
+
+ManufacturerInputForm.propTypes = {
+  onSubmit: PropTypes.func,
+  onChange: PropTypes.func,
+  logoSrc: PropTypes.string,
+  name: PropTypes.string
 };
 
 export default ManufacturerInputForm;

@@ -31,7 +31,7 @@ class AdminPanelIndexContainer extends Component {
   render() {
     return (
       <div>
-        <AdminPanelIndex pageVisits={this.state.pageVisits} />
+        <AdminPanelIndex pageVisits={+this.state.pageVisits} />
       </div>
     );
   }

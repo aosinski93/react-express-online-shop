@@ -1,6 +1,7 @@
 import React, {Fragment} from "react";
 import {Fab, makeStyles} from "@material-ui/core";
 import DeleteIcon from '@material-ui/icons/Delete';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(theme => ({
   deleteButton: {
@@ -31,6 +32,13 @@ const DeleteButton = props => {
       </Fab>
     </Fragment>
   );
+};
+
+DeleteButton.propTypes = {
+  onClick: PropTypes.func,
+  dataId: PropTypes.string,
+  title: PropTypes.string,
+  dataParent: PropTypes.string
 };
 
 export default DeleteButton;

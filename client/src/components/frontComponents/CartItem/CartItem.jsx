@@ -2,6 +2,7 @@ import React from 'react';
 import {Card, CardContent, Grid, Typography, Button, Box} from "@material-ui/core";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import DeleteButton from "../../commonComponents/DeleteButton/DeleteButton";
+import PropTypes from 'prop-types';
 import {NavLink} from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
@@ -81,6 +82,10 @@ const CartItem = (props) => {
       </CardContent>
     </Card>
   );
+};
+
+CartItem.propTypes = {
+  item: PropTypes.object
 };
 
 export default CartItem;

@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import DeleteButton from "../../commonComponents/DeleteButton/DeleteButton";
 import {List, ListItem, Grid, Typography, Container, Box} from "@material-ui/core";
+import PropTypes from 'prop-types';
 
 const ManufacturersList = props => {
   if (props.manufacturers.length > 0) {
@@ -55,4 +56,9 @@ const ManufacturersList = props => {
     );
   }
 };
+
+ManufacturersList.propTypes = {
+  manufacturers: PropTypes.array,
+};
+
 export default ManufacturersList;

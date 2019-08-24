@@ -16,6 +16,7 @@ import AccountBoxIcon from "@material-ui/icons/AccountBox";
 import GroupIcon from "@material-ui/icons/Group";
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import HomeIcon from '@material-ui/icons/Home';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(theme => ({
   hidden: {
@@ -126,6 +127,12 @@ const DrawerWrapper = props => {
       </List>
     </Drawer>
   );
+};
+
+DrawerWrapper.propTypes = {
+  toggleDrawer: PropTypes.func.isRequired,
+  isVisible: PropTypes.bool.isRequired,
+  match: PropTypes.object.isRequired
 };
 
 export default DrawerWrapper;

@@ -2,6 +2,7 @@ import React from 'react';
 import {Box, Card, Container, Grid, Typography} from "@material-ui/core";
 import CartItemContainer from "../../../containers/CartItemContainer/CartItem.container";
 import CartSummary from "../CartSummary/CartSummary";
+import PropTypes from 'prop-types';
 
 const renderCartStep = (content, step) => {
   switch (step) {
@@ -42,6 +43,10 @@ const Cart = (props) => {
       </Container>
     </Box>
   );
+};
+
+Cart.propTypes = {
+  cart: PropTypes.object
 };
 
 export default Cart;

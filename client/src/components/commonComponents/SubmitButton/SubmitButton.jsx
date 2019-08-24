@@ -1,5 +1,6 @@
-import React, { Fragment } from "react";
-import { Fab, makeStyles } from "@material-ui/core";
+import React, {Fragment} from "react";
+import {Fab, makeStyles} from "@material-ui/core";
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(theme => ({
   submitButton: {
@@ -46,6 +47,14 @@ const SubmitButton = props => {
       </Fab>
     </Fragment>
   );
+};
+
+SubmitButton.propTypes = {
+  className: PropTypes.string,
+  type: PropTypes.string,
+  value: PropTypes.string,
+  title: PropTypes.string,
+  onClick: PropTypes.func
 };
 
 export default SubmitButton;

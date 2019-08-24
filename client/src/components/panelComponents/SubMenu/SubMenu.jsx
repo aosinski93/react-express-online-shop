@@ -4,6 +4,7 @@ import DeleteButton from "../../commonComponents/DeleteButton/DeleteButton";
 import SubmitButton from "../../commonComponents/SubmitButton/SubmitButton";
 import SubcategoryItem from "../../commonComponents/SubcategoryItem/SubcategoryItem";
 import { ListItem, Typography, Grid, List } from "@material-ui/core";
+import PropTypes from 'prop-types';
 
 const SubMenu = props => {
   return (
@@ -67,6 +68,14 @@ const SubMenu = props => {
       </Grid>
     </ListItem>
   );
+};
+
+SubMenu.propTypes = {
+  onSubmit: PropTypes.func,
+  onChange: PropTypes.func,
+  onDeleteSubcategory: PropTypes.func,
+  item: PropTypes.object,
+  subcategories: PropTypes.array
 };
 
 export default SubMenu;

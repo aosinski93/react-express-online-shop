@@ -2,15 +2,19 @@ import React from "react";
 import {Box, Container, Grid, Typography} from "@material-ui/core";
 import DeviceListItem from "../DeviceListItem/DeviceListItem";
 import SortOption from "../SortOption/SortOption";
+import PropTypes from 'prop-types';
+import ProductFilters from "../ProductFilters/ProductsFilter";
 
 const Store = (props) => {
   const {products, match, sortBy, price, name} = props;
   return props.products.length > 0
     ? <Box pt={5}>
       <Container>
-        <Grid container>
+        <Grid container spacing={5}>
           <Grid item lg={3} md={3} sm={3}>
-            Filters here
+            <Box p={2}>
+              <ProductFilters manufacturers={props.manufacturers} setFilter={props.setFilter} filters={props.filters}/>
+            </Box>
           </Grid>
           <Grid item lg={9} md={9} sm={9}>
             <Box p={2}>
@@ -52,6 +56,14 @@ const Store = (props) => {
         <Typography align={"center"}>No products in database</Typography>
       </Container>
     </Box>
+};
+
+Store.propTypes = {
+  products: PropTypes.array,
+  match: PropTypes.object,
+  sortBy: PropTypes.func,
+  price: PropTypes.string,
+  name: PropTypes.string
 };
 
 export default Store;

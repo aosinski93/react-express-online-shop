@@ -3,6 +3,7 @@ import FormGroup from "../FormGroup/FormGroup";
 import SubmitButton from "../SubmitButton/SubmitButton";
 import {Link} from 'react-router-dom';
 import {Container, Grid, Box} from "@material-ui/core";
+import PropTypes from 'prop-types';
 
 const LoginForm = props => {
   return (
@@ -43,6 +44,7 @@ const LoginForm = props => {
 
               <SubmitButton
                 type="submit"
+                variant={'extended'}
                 value="Log in"
                 title="Submit form"
                 content={'Sign in'}
@@ -54,6 +56,13 @@ const LoginForm = props => {
       </Box>
     </Container>
   );
+};
+
+LoginForm.propTypes = {
+  username: PropTypes.string,
+  inputPassword: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired
 };
 
 export default LoginForm;

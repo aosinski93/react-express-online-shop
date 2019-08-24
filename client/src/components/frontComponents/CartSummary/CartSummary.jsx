@@ -3,6 +3,7 @@ import {Box, CardActions, Grid, StepButton, Typography} from "@material-ui/core"
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(theme => ({
   cartSummary: {
@@ -43,6 +44,10 @@ const CartSummary = (props) => {
       </Grid>
     </CardActions>
   );
+};
+
+CartSummary.propTypes = {
+  cartTotal: PropTypes.number
 };
 
 export default CartSummary;
