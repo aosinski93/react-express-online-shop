@@ -50,7 +50,6 @@ export const userLogin = (path, user) => dispatch => {
   })
     .then(res => res.json())
     .then(loggedUser => {
-      console.log(loggedUser);
       if (loggedUser.user) {
         dispatch(
           {

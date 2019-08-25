@@ -47,7 +47,7 @@ class LoginFormContainer extends Component {
     return (
       <>
         {!objIsEmpty(this.props.loggedUser)
-          ? <Redirect to={this.props.match.path === '/login' ? '/' : ''}></Redirect>
+          ? <Redirect to={ this.props.match.path === '/login' ? '/' : ''}></Redirect>
           : <LoginForm path={this.props.path} onChange={this.onChange} onSubmit={this.onSubmit} />}
       </>
     )

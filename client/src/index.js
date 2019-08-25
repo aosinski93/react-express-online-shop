@@ -9,6 +9,7 @@ import storeFunc from "./store";
 import AppContainer from "./containers/App.container";
 import Loader from "./components/commonComponents/Loader/Loader";
 import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
+import ErrorBoundary from "./components/commonComponents/ErrorBoundary/ErrorBoundary";
 
 const {store, persistor} = storeFunc();
 
@@ -33,12 +34,14 @@ const theme = createMuiTheme({
 
 ReactDOM.render(
   <Provider store={store}>
-    <PersistGate loading={<Loader />} persistor={persistor}>
-      <CssBaseline />
-      <MuiThemeProvider theme={theme}>
-        <AppContainer />
-      </MuiThemeProvider>
-    </PersistGate>
+    <ErrorBoundary>
+      <PersistGate loading={<Loader />} persistor={persistor}>
+        <CssBaseline />
+        <MuiThemeProvider theme={theme}>
+          <AppContainer />
+        </MuiThemeProvider>
+      </PersistGate>
+    </ErrorBoundary>
   </Provider>,
   document.getElementById("root")
 );

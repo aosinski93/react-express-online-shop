@@ -57,7 +57,9 @@ class StoreContainer extends Component {
     };
 
     let newFilters = [...this.state.filters];
-    if (newFilters.length === 0) {
+    if (filterType === 'all') {
+      newFilters = [];
+    } else if (newFilters.length === 0) {
       newFilters.push(newFilter);
     } else {
       newFilters.map(filter => {
@@ -69,41 +71,81 @@ class StoreContainer extends Component {
       });
     }
 
-
     this.setState({
         filters: newFilters
       },
-      this.applyFilter);
+      this.applyFilters);
   };
 
-  applyFilter = () => {
+  applyFilters = () => {
     let newOutputList = [...this.props.products];
+    if (this.state.filters.length === 0) {
+      return this.setState({
+        outputList: newOutputList
+      });
+    }
 
     newOutputList = this.state.filters.map(filter => {
       if (filter.value === '') {
         return newOutputList;
       }
-      return newOutputList.filter(listItem => listItem[filter.type].name === filter.value)
+      if (filter.type === 'manufacturer') {
+        newOutputList = newOutputList.filter(listItem => listItem[filter.type].name === filter.value)
+      } else {
+        newOutputList = newOutputList.filter(listItem => {
+          return listItem[filter.type] === filter.value
+        })
+      }
+      this.setState({
+        outputList: newOutputList
+      });
+
+      return newOutputList;
     });
 
-    this.setState({
-      outputList: newOutputList[0]
-    })
+
+  };
+
+
+  getFilters = () => {
+    let featureFilters = {
+      'manufacturer': [],
+      'ram': [],
+      'operating_system': []
+    };
+
+    this.props.products.map(product => {
+      Object.keys(featureFilters).forEach(key => {
+        if (key === 'manufacturer') {
+          if (featureFilters[key].indexOf(product[key].name) === -1) {
+            return featureFilters[key].push(product[key].name);
+          }
+        } else {
+          if (featureFilters[key].indexOf(product[key]) === -1) {
+            return featureFilters[key].push(product[key]);
+          }
+        }
+      });
+      return product;
+    });
+
+    return featureFilters;
   };
 
   render() {
+    this.getFilters();
     return this.props.productsFetching
       ? <Loader content={'Listing devices...'} />
       :
       <Store
         match={this.props.match}
         products={this.state.outputList}
-        manufacturers={this.props.manufacturers}
         sortBy={this.sortBy}
         price={this.state.price}
         name={this.state.name}
         setFilter={this.setFilter}
-        filters={this.state.filters}
+        filters={this.getFilters()}
+        activeFilters={this.state.filters}
       />
 
   }
@@ -111,7 +153,6 @@ class StoreContainer extends Component {
 
 const mapStateToProps = state => ({
   products: state.global.products,
-  manufacturers: state.global.manufacturers,
   productsFetching: state.loading.productsFetching
 });
 

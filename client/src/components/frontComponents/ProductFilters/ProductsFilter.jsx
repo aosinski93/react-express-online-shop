@@ -1,25 +1,24 @@
 import React from 'react';
-import {Box, Button, Typography, List, ListItem} from "@material-ui/core";
+import {Box, Button} from "@material-ui/core";
 import FormGroup from "../../commonComponents/FormGroup/FormGroup";
-import makeStyles from "@material-ui/core/styles/makeStyles";
-
-const useStyles = makeStyles(theme => ({
-  active: {
-    backgroundColor: theme.palette.primary.main,
-    color: '#fff'
-  }
-}));
-
-let activeFilters = [];
+import FilterGroup from "../FilterGroup/FilterGroup";
+import PropTypes from 'prop-types';
 
 const ProductFilters = (props) => {
-  const classes = useStyles();
 
-  props.filters.map(filter => {
-    activeFilters[filter.type] = filter.value;
-    return filter;
-  });
+  let activeFilters = [];
 
+  const getActiveFilters = () => {
+    if(props.activeFilters.length === 0) {
+      return activeFilters;
+    }
+    props.activeFilters.map(filter => {
+      activeFilters[filter.type] = filter.value;
+      return filter;
+    });
+  };
+
+  getActiveFilters();
   return (
     <Box mt={5} p={2}>
       <FormGroup
@@ -35,31 +34,37 @@ const ProductFilters = (props) => {
         name={'price_max'}
         type={'number'}
         labelText={'Maximum price'}
-        value={props.price_tmax}
+        value={props.price_max}
         onChange={props.onChange}
         placeholder={'$100'}
       />
 
-
-      <Typography>Filter by manufacturer: </Typography>
-
-      <List>
-        <ListItem>
-          <Button onClick={() => props.setFilter('manufacturer', '')}>all</Button>
-        </ListItem>
-        {props.manufacturers.map(item =>
-          <ListItem key={item._id}>
-            <Button onClick={() => props.setFilter('manufacturer', item.name)}
-                    className={activeFilters['manufacturer'] === item.name ? classes.active : ''}>
-              {item.name}
-            </Button>
-          </ListItem>
-        )}
-      </List>
-
+      <Button onClick={() => props.setFilter('all', '')}>Show all</Button>
+      {
+        Object.keys(props.filters).map(key => {
+          return (
+            <FilterGroup
+              key={key}
+              filterName={key}
+              filterValues={props.filters[key]}
+              activeFilters={activeFilters}
+              setFilter={props.setFilter}
+            />
+          )
+        })
+      }
 
     </Box>
   );
+};
+
+ProductFilters.propTypes = {
+  filters: PropTypes.object.isRequired,
+  price_min: PropTypes.number,
+  price_max: PropTypes.number,
+  onChange: PropTypes.func,
+  activeFilters: PropTypes.array,
+  setFilter: PropTypes.func
 };
 
 export default ProductFilters;
