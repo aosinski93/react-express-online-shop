@@ -6,22 +6,25 @@ import PropTypes from 'prop-types';
 import ProductFilters from "../ProductFilters/ProductsFilter";
 
 const Store = (props) => {
-  const {products, match, sortBy, price, name, filters, activeFilters, setFilter} = props;
+  const {products, match, sortBy, price, name, filters, activeFilters, setFilter, price_min, price_max, onChange} = props;
   return (
     <Box pt={5}>
       <Container>
         <Grid container spacing={5}>
-          <Grid item lg={3} md={3} sm={3}>
+          <Grid item lg={4} md={4} sm={4}>
             <Box p={2}>
               <ProductFilters
                 setFilter={setFilter}
                 products={products}
                 filters={filters}
                 activeFilters={activeFilters}
+                price_min={price_min}
+                price_max={price_max}
+                onChange={onChange}
               />
             </Box>
           </Grid>
-          <Grid item lg={9} md={9} sm={9}>
+          <Grid item lg={8} md={8} sm={8}>
             {products.length > 0
               ? <>
                 <Box p={2}>
@@ -59,7 +62,9 @@ const Store = (props) => {
               :
               <Box m={5}>
                 <Container>
-                  <Typography align={"center"}>No products in database</Typography>
+                  <Typography align={"center"}>
+                    There is no products matching current filters
+                  </Typography>
                 </Container>
               </Box>
             }

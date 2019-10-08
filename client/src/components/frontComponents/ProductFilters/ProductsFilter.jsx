@@ -1,15 +1,27 @@
 import React from 'react';
-import {Box, Button} from "@material-ui/core";
+import {Box, Button, Typography} from "@material-ui/core";
 import FormGroup from "../../commonComponents/FormGroup/FormGroup";
 import FilterGroup from "../FilterGroup/FilterGroup";
 import PropTypes from 'prop-types';
+import ClearIcon from "@material-ui/icons/Clear";
+import makeStyles from "@material-ui/core/styles/makeStyles";
+
+const useStyles = makeStyles(theme => ({
+  active: {
+    backgroundColor: theme.palette.primary.main,
+    color: '#fff'
+  },
+  filterGroup: {
+    borderBottom: `2px solid ${theme.palette.secondary.main}`
+  }
+}));
 
 const ProductFilters = (props) => {
-
+  const classes = useStyles();
   let activeFilters = [];
 
   const getActiveFilters = () => {
-    if(props.activeFilters.length === 0) {
+    if (props.activeFilters.length === 0) {
       return activeFilters;
     }
     props.activeFilters.map(filter => {
@@ -39,7 +51,6 @@ const ProductFilters = (props) => {
         placeholder={'$100'}
       />
 
-      <Button onClick={() => props.setFilter('all', '')}>Show all</Button>
       {
         Object.keys(props.filters).map(key => {
           return (
@@ -54,14 +65,26 @@ const ProductFilters = (props) => {
         })
       }
 
+      <Typography className={classes.filterGroup} />
+
+      <Box align={'right'}>
+        <Button onClick={() => props.setFilter('all', '')}>
+          <ClearIcon />
+          Clear filters
+        </Button>
+      </Box>
+
     </Box>
   );
 };
 
+ProductFilters.defaultProps = {
+  price_min: '100$',
+  price_max: '250$',
+};
+
 ProductFilters.propTypes = {
   filters: PropTypes.object.isRequired,
-  price_min: PropTypes.number,
-  price_max: PropTypes.number,
   onChange: PropTypes.func,
   activeFilters: PropTypes.array,
   setFilter: PropTypes.func

@@ -11,7 +11,10 @@ class StoreContainer extends Component {
       outputList: [],
       price: 'asc',
       name: 'asc',
-      filters: []
+      filters: [],
+      price_min: '',
+      price_max: '',
+      isBeingFiltered: false
     }
   }
 
@@ -51,6 +54,9 @@ class StoreContainer extends Component {
   };
 
   setFilter = (filterType, filterValue) => {
+    this.setState({
+      isBeingFiltered: true
+    });
     let newFilter = {
       type: filterType,
       value: filterValue
@@ -79,31 +85,44 @@ class StoreContainer extends Component {
 
   applyFilters = () => {
     let newOutputList = [...this.props.products];
+
+
+    if (this.state.price_max !== '' || this.state.price_min !== '') {
+      newOutputList = newOutputList.filter(listItem => {
+        if (this.state.price_max !== '' && this.state.price_min === '') {
+          return listItem.price <= this.state.price_max;
+        } else if (this.state.price_min !== '' && this.state.price_max === '') {
+          return listItem.price <= this.state.price_min;
+        } else {
+          return listItem.price <= this.state.price_min && listItem.price <= this.state.price_max;
+        }
+      });
+    }
     if (this.state.filters.length === 0) {
       return this.setState({
         outputList: newOutputList
       });
-    }
+    } else {
+      newOutputList = this.state.filters.map(filter => {
+        if (filter.value === '') {
+          return newOutputList;
+        }
+        if (filter.type === 'manufacturer') {
+          newOutputList = newOutputList.filter(listItem => listItem[filter.type].name === filter.value)
+        } else {
+          newOutputList = newOutputList.filter(listItem => {
+            return listItem[filter.type] === filter.value
+          })
+        }
 
-    newOutputList = this.state.filters.map(filter => {
-      if (filter.value === '') {
+        this.setState({
+          outputList: newOutputList,
+          isBeingFiltered: false
+        });
+
         return newOutputList;
-      }
-      if (filter.type === 'manufacturer') {
-        newOutputList = newOutputList.filter(listItem => listItem[filter.type].name === filter.value)
-      } else {
-        newOutputList = newOutputList.filter(listItem => {
-          return listItem[filter.type] === filter.value
-        })
-      }
-      this.setState({
-        outputList: newOutputList
       });
-
-      return newOutputList;
-    });
-
-
+    }
   };
 
 
@@ -132,6 +151,16 @@ class StoreContainer extends Component {
     return featureFilters;
   };
 
+  onChange = (e) => {
+    let value = e.target.value;
+    let name = e.target.name;
+
+    this.setState({
+        [name]: value
+      },
+      this.applyFilters);
+  };
+
   render() {
     this.getFilters();
     return this.props.productsFetching
@@ -146,6 +175,9 @@ class StoreContainer extends Component {
         setFilter={this.setFilter}
         filters={this.getFilters()}
         activeFilters={this.state.filters}
+        price_min={this.state.price_min}
+        price_max={this.state.price_max}
+        onChange={this.onChange}
       />
 
   }
