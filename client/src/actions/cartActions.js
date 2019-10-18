@@ -38,10 +38,7 @@ export const addDeviceToCart = (id, qty) => (dispatch, getState) => {
       payload: `${name} added to cart!`
     })
   } else {
-    dispatch({
-      type: INCREASE_CART_QUANTITY,
-      payload: _id
-    })
+    dispatch(increaseCartQty(id));
   }
   dispatch(finishedAddingToCart());
 };
@@ -53,10 +50,16 @@ export const removeDeviceFromCart = (id) => dispatch => {
   })
 };
 export const increaseCartQty = (id) => (dispatch, getState) => {
-
+  let {name} = getState().global.products.find(
+    item => item._id === id
+  );
   dispatch({
     type: INCREASE_CART_QUANTITY,
     payload: id
+  });
+  dispatch({
+    type: NOTIFY_SUCCESS,
+    payload: `${name} added to cart!`
   })
 };
 

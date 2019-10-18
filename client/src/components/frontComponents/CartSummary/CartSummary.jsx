@@ -25,7 +25,7 @@ const CartSummary = (props) => {
         <Grid item xs>
           <Box textAlign={"center"}>
             <Typography>
-              Delivery costs: $0
+              Delivery costs: ${props.deliveryCost}
             </Typography>
           </Box>
         </Grid>

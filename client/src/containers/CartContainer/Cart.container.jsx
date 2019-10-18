@@ -8,7 +8,17 @@ class CartContainer extends Component {
     super(props);
 
     this.state = {
-      step: 1
+      step: 1,
+      name: '',
+      lastName: '',
+      address: '',
+      city: '',
+      postalCode: '',
+      deliveryType: {
+        name: '',
+        cost: 0
+      },
+      message: ''
     }
   }
 
@@ -35,21 +45,53 @@ class CartContainer extends Component {
     }
   };
 
+  setDelivery = e => {
+    let newDelivery = {
+      name: e.target.name,
+      cost: e.target.value
+    };
+
+    this.setState({
+      deliveryType: newDelivery
+    });
+  };
+
+  onChange = e => {
+    let value = e.target.value;
+    let name = e.target.name;
+
+
+    this.setState({
+      [name]: value
+    });
+  };
+
   render() {
     return (
       <Cart
+        user={this.props.user}
         cart={this.props.cart}
         step={this.state.step}
         handleNextStep={this.handleNextStep}
         handlePrevStep={this.handlePrevStep}
         cartTotal={this.calculateCartTotal()}
+        deliveryType={this.state.deliveryType}
+        setDelivery={this.setDelivery}
+        onChange={this.onChange}
+        name={this.state.name}
+        lastName={this.state.lastName}
+        address={this.state.address}
+        city={this.state.city}
+        postalCode={this.state.postalCode}
+        message={this.state.message}
       />
     );
   }
 }
 
 const mapStateToProps = (state) => ({
-  cart: state.cart
+  cart: state.cart,
+  user: state.user.loggedUser
 });
 
 export default connect(
